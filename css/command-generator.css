@@ -1,0 +1,235 @@
+#input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#output {
+    border-top: 1px solid var(--sub-bg);
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#params {
+    margin: 0 1em;
+    display: flex;
+    width: 80vw;
+    max-width: 50vh;
+    flex-direction: column;
+}
+
+.param {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    align-items: center;
+    margin: 0.4em 0;
+}
+
+.param span {
+    font-size: 0.9em;
+}
+
+.param>div {
+    height: 2rem;
+    width: 70%;
+    display: flex;
+}
+
+.param .sub-param {
+    width: 30%;
+    font-size: 0.6em;
+    margin-left: 0.2rem;
+}
+
+.param input {
+    font-size: 0.8em;
+    width: 100%;
+}
+
+.param select {
+    width: 70%;
+    font-weight: 400;
+    padding-left: 0.6rem;
+}
+
+#output-area {
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#command-list {
+    overflow-y: auto;
+    align-self: flex-start;
+    background: var(--sub-bg);
+    margin: 0 1em;
+    display: flex;
+    flex-direction: column;
+    max-width: 80vh;
+    border-radius: 16px;
+    padding: 0.6em;
+    font-size: 0.9rem;
+}
+
+.required-param::after {
+    content: '*';
+    color: var(--hl-text);
+    font-weight: 1000;
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+
+#command-search {
+    padding: 10px;
+    padding-top: 0;
+}
+
+.command-head {
+    display: inline-block;
+    margin-right: 0.6rem;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: var(--sub-text);
+    background-color: var(--card-bg);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#output-span {
+    margin: 0 1rem 1rem;
+    background: var(--sub-bg);
+    color: var(--hl-text);
+    border: black 1px dashed;
+    border-radius: 0.3em;
+    display: inline-block;
+    width: 100%;
+    min-height: 1em;
+    padding: 0.4em 1em;
+    font-weight: 600;
+}
+
+.card {
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 10px 12px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.card:hover,
+.card:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+}
+
+.modal-select-input {
+    display: flex;
+    align-items: center;
+    overflow-y: clip;
+    font-size: 0.7em;
+    width: 100%;
+    background: var(--sub-bg);
+    border: 1px var(--sub-text) solid;
+    border-radius: 4px;
+}
+
+.modal-select-input .command-head {
+    margin: 0 0.6em;
+    font-size: 0.6em;
+}
+
+.modal-select-item {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-select-item:hover {
+    font-weight: 600;
+    color: var(--hl-text);
+}
+
+#modal-select {
+    width: 90%;
+    height: 95%;
+    position: fixed;
+    top: 5%;
+    display: none;
+    left: 5%;
+    background: var(--sub-bg);
+    opacity: 1.0;
+    overflow: hidden;
+    box-shadow: #333 5px 5px 5px;
+    /* box-shadow: 0 0 calc ((var(--elevation) * 0.225px) + 2px) rgba(0, 0, 0, calc(0.11 * (2 - var(--background-luminance, 1))), 0 calc(var(--elevation) * 0.4px) calc((var(--elevation) * 0.9px)) rgba(0, 0, 0, calc(0.13 * (2 - var(--background-luminance, 1)))); */
+    border: 5px solid var(--sub-bg);
+    border-radius: 12px;
+}
+
+#modal-select-data {
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#modal-select-data div {
+    padding: 0.6em;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin: 0.4em 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#modal-select-data p {
+    text-align: center;
+    font-weight: 600;
+}
+
+#modal-select-data div:hover {
+    background: hsla(0, 0%, 80%, .14);
+}
+
+#mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #333;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#message {
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    height: 30px;
+    top: -60px;
+    transition: top 500ms;
+    text-align: center;
+    background-color: var(--card-bg);
+    padding: 10px;
+    color: var(--sub-text);
+    font-weight: 600;
+}
+
+@media (max-width: 650px) {
+    #params {
+        font-size: 1.1em;
+    }
+
+    .param {
+        margin: 0.6em 0;
+    }
+}

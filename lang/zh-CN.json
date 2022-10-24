@@ -1,0 +1,12 @@
+{
+    "title": "xmmt.Genshin 指令生成器 (旧版)",
+
+    "command-list": "指令列表",
+    "command-search": "搜索指令",
+    "command-search-input": "🔎 关键词 / ID / 描述",
+    "choose-param": "选择参数",
+    "output-result": "生成结果",
+    "output-tips": "点击复制",
+
+    "loading": "正在加载..."
+}

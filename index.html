@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/main.css" rel="stylesheet" type="text/css" />
+    <link href="./css/command-generator.css" rel="stylesheet" type="text/css" />
+    <title bind="title">xmmt.Genshin 指令助手</title>
+    <script type="module" src="./js/init.js"></script>
+    <script type="module" src="./js/lang-loader.js"></script>
+    <script type="module" src="./js/ui.js"></script>
+</head>
+
+<body>
+    <div id="input">
+        <div id="list">
+            <h2 bind="command-list">指令列表</h2>
+            <div id="command-search">
+                <span bind="command-search">指令搜索: </span>
+                <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 指令搜索" id="search-input">
+            </div>
+            <div id="command-list"></div>
+        </div>
+        <div id="choose" style="display: none;">
+            <h2 bind="choose-param">选择参数</h2>
+            <div id="params"></div>
+        </div>
+    </div>
+    <div id="output" style="display: none;">
+        <h2 bind="output-result">
+            生成结果
+        </h2>
+        <div id="output-area">
+            <span id="output-span" bind="output-tips" bind-target="title" title="点击复制"></span>
+        </div>
+        <!-- 
+        远程执行📡
+        保存💾
+        -->
+    </div>
+    <div id="mask"></div>
+    <div id="modal-select">
+        <div style="height: 40px;  box-shadow: #999 5px 5px 10px;">
+            <input style="height: 100%;width: 100%;border: none" placeholder="搜索(id/名称/分组名)" id="modalSelectSearch">
+        </div>
+        <div id="modal-select-data"></div>
+    </div>
+
+    <script type="module" src="./js/command-loader.js"></script>
+    <script type="module" src="./js/command-builder.js"></script>
+
+    <!-- <script>
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("sw.js");
+            });
+        }
+
+    </script> -->
+</body>
+
+</html>
