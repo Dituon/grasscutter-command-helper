@@ -1,0 +1,589 @@
+[
+  {
+    "id": "getArtifact",
+    "head": "/give",
+    "label": "获取一个自定义词条的圣遗物",
+    "params": [
+      {
+        "type": "artifactList",
+        "name": "圣遗物",
+        "value": {
+          "value": "74514",
+          "label": "【杯】少女片刻的闲暇"
+        },
+        "required": true
+      },
+      {
+        "type": "mainPropList",
+        "name": "主属性",
+        "value": {
+          "value": "15002",
+          "label": "生命值百分比"
+        },
+        "required": true
+      },
+      {
+        "type": "appendPropList",
+        "name": "副属性1",
+        "required": false,
+        "subparam": {
+          "name": "数量",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "appendPropList",
+        "name": "副属性2",
+        "required": false,
+        "subparam": {
+          "name": "数量",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "appendPropList",
+        "name": "副属性3",
+        "required": false,
+        "subparam": {
+          "name": "数量",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "appendPropList",
+        "name": "副属性4",
+        "required": false,
+        "subparam": {
+          "name": "数量",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "number",
+        "name": "等级",
+        "max": 21,
+        "min": 1,
+        "value": 21,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "spawnEnitiy",
+    "head": "/spawn",
+    "label": "生成实体(怪物)",
+    "params": [
+      {
+        "type": "entityList",
+        "required": true,
+        "name": "实体ID",
+        "value": {
+          "value": "24010109",
+          "label": "遗迹守卫（血特别多）"
+        }
+      },
+      {
+        "type": "number",
+        "name": "数量",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "等级",
+        "value": 200,
+        "max": 200,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "giveItem",
+    "head": "/give",
+    "label": "获取物品",
+    "params": [
+      {
+        "type": "itemList",
+        "name": "物品ID",
+        "value": {
+          "value": "203",
+          "label": "创世结晶"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "物品数量",
+        "value": 1,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "物品等级",
+        "value": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "giveChar",
+    "head": "/give",
+    "label": "获取一个角色",
+    "params": [
+      {
+        "type": "avatarList",
+        "name": "角色",
+        "value": {
+          "value": "10000002",
+          "label": "神里绫华"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "等级",
+        "value": 90,
+        "max": 90,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "getWeapon",
+    "head": "/give",
+    "label": "获取一个武器",
+    "params": [
+      {
+        "type": "weaponList",
+        "name": "武器ID",
+        "value": {
+          "value": "11501",
+          "label": "风鹰剑"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "物品数量",
+        "value": 1,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "物品等级",
+        "value": 90,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "setTalent",
+    "head": "/talent",
+    "label": "修改天赋等级",
+    "params": [
+      {
+        "type": "avatarTalent",
+        "name": "角色",
+        "value": {
+          "value": "n",
+          "label": "普通攻击"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "等级",
+        "value": 10,
+        "max": 99999,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "head": "/give",
+    "id": "give",
+    "label": "获取命座",
+    "params": [
+      {
+        "type": "avatarConstellation",
+        "name": "角色命座",
+        "value": {
+          "value": "/give 1102 6",
+          "label": "神里绫华的命星"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "dropItem",
+    "head": "/drop",
+    "label": "在你附近掉落一个物品",
+    "params": [
+      {
+        "type": "itemList",
+        "name": "物品ID",
+        "value": {
+          "value": "203",
+          "label": "创世结晶"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "物品数量",
+        "value": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "getAll",
+    "head": "/give all",
+    "label": "获取所有物品",
+    "params": [
+      {
+        "type": "string",
+        "name": "用户ID(ID前面需要加@)",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "setFetter",
+    "head": "/setfetterlvl",
+    "label": "设置当前上场角色的好感级别",
+    "params": [
+      {
+        "type": "number",
+        "name": "好感级别",
+        "value": 10,
+        "max": 10,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "getPos",
+    "head": "/pos",
+    "label": "获取当前所在坐标及场景id",
+    "params": []
+  },
+  {
+    "id": "setWotldLevel",
+    "head": "/prop worldlevel",
+    "label": "设置世界等级",
+    "params": [
+      {
+        "type": "number",
+        "name": "世界等级",
+        "value": 7,
+        "max": 7,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "setStats",
+    "head": "/stats",
+    "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
+    "params": [
+      {
+        "type": "statList",
+        "name": "属性",
+        "value": {
+          "label": "攻击",
+          "value": "atk"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "数值",
+        "value": 10000,
+        "max": 99999999999999,
+        "min": 0,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "broadcast",
+    "head": "/broadcast",
+    "label": "向所有玩家发送一条消息",
+    "params": [
+      {
+        "type": "string",
+        "name": "消息内容",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "clear",
+    "head": "/clear",
+    "label": "删除所有未装备和未锁定的0级神器",
+    "params": [
+      {
+        "type": "select",
+        "name": "类型",
+        "data": {
+          "value": [
+            "all",
+            "wp",
+            "art",
+            "mat"
+          ],
+          "label": [
+            "全部",
+            "武器",
+            "圣遗物",
+            "材料"
+          ]
+        },
+        "value": "all",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "godmode",
+    "head": "/prop godmode",
+    "label": "不受伤害（无敌）",
+    "params": []
+  },
+  {
+    "id": "heal",
+    "head": "/heal",
+    "label": "治疗队伍中所有角色",
+    "params": []
+  },
+  {
+    "head": "/killall",
+    "label": "杀死当前世界或指定世界的所有生物",
+    "params": [
+      {
+        "type": "scenesList",
+        "name": "生物",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "list",
+    "head": "/list",
+    "label": "列出在线玩家",
+    "params": []
+  },
+  {
+    "id": "resetConst",
+    "head": "/resetconst",
+    "label": "重置当前角色的命座",
+    "params": []
+  },
+  {
+    "id": "teleport",
+    "head": "/teleport",
+    "label": "传送到指定地点",
+    "params": [
+      {
+        "type": "number",
+        "name": "X坐标",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 500,
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Y坐标",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 500,
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Z坐标",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 1,
+        "required": true
+      },
+      {
+        "type": "scenesList",
+        "name": "世界（场景）",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "killCharacter",
+    "head": "/killcharacter",
+    "label": "杀死当前角色",
+    "params": [
+      {
+        "type": "string",
+        "name": "用户ID(ID前面需要加@)",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "reload",
+    "head": "/reload",
+    "label": "重新加载服务器配置",
+    "params": []
+  },
+  {
+    "id": "teleportAll",
+    "head": "/tpall",
+    "label": "将当前世界所有玩家传送到你的位置",
+    "params": []
+  },
+  {
+    "id": "setWeather",
+    "head": "/weather",
+    "label": "设置气候和天气",
+    "params": [
+      {
+        "type": "weather",
+        "name": "气候",
+        "required": true,
+        "value": {
+          "value": 4,
+          "label": "Weather_Standard-CLIMATE_CLOUDY"
+        }
+      },
+      {
+        "type": "select",
+        "name": "天气",
+        "value": "1",
+        "required": false,
+        "data": {
+          "value": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "label": [
+            "无",
+            "晴天",
+            "多云",
+            "雨",
+            "雷雨",
+            "雪",
+            "雾"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "setStamina",
+    "head": "/prop nostamina",
+    "label": "无限体力",
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "setUnlimitEnergy",
+    "head": "/prop unlimitenergy",
+    "label": "无限能量",
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "unlockTower",
+    "head": "/prop unlocktower",
+    "label": "解锁深境回廊",
+    "params": []
+  },
+  {
+    "id": "quest",
+    "head": "/quest",
+    "label": "添加或完成任务",
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "add",
+        "required": true,
+        "data": {
+          "value": [
+            "add",
+            "finish"
+          ],
+          "label": [
+            "添加",
+            "完成"
+          ]
+        }
+      },
+      {
+        "type": "quests",
+        "name": "任务ID",
+        "required": true,
+        "value": {
+          "value": "1903005",
+          "label": "试胆大会 - 四处看看，寻找妖邪情报"
+        }
+      }
+    ]
+  }
+]

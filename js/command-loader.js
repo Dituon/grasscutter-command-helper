@@ -14,16 +14,29 @@ import { ModalSelect } from './modal-loader.js'
 /** @type { OutputCommandList } */
 let outputCommandList
 
-showMessage(langData.loading, 30000)
-cacheModel.getUrl(`./data/${config.lang}/oldCommandList.json`)//TODO 版本切换
+const selectCommandVer=document.getElementById('command-version-select')
+const load = () =>{
+    config.commandVer=selectCommandVer.value
+
+    cacheModel.getUrl(`./data/${config.lang}/CommandList-${config.commandVer}.json`)
     .then(data => {
         outputCommandList = new OutputCommandList(data)
         loadCommand(outputCommandList.list)
         showMessage(langData.loadSuccess)
     }).catch(showMessage(langData.loadFail, 10000))
+}
 
+showMessage(langData.loading, 30000)
+load()
 document.getElementById('search-input').addEventListener('change', e => {
     loadCommand(outputCommandList.filter(e.target.value))
+})
+
+/**
+ * 版本选择重新加载 
+ */
+selectCommandVer.addEventListener('change',e=>{
+    load()
 })
 
 /**

@@ -89,6 +89,11 @@
     padding-top: 0;
 }
 
+#command-version {
+    padding: 10px;
+    padding-top: 0;
+}
+
 .command-head {
     display: inline-block;
     margin-right: 0.6rem;
