@@ -98,10 +98,18 @@ HTMLElement.prototype.injectCommand = function (head, label) {
 }
 
 class Icon {
-    /** @param { string } id */
+    /** 
+     * @param { string } id 
+     * @param { {switchable: [true]} params }
+     */
     constructor(id, params = { switchable: true }) {
         this.element = document.getElementById(id)
         if (!this.element) throw new Error()
+        if (params?.switchable === false) {
+            this.clicked = true
+            return
+        }
+
         this.iconEmoji = this.element.innerHTML
         this.element.innerHTML = `
         <span class="front">${this.iconEmoji}</span>
