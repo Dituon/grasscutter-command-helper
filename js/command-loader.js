@@ -11,32 +11,44 @@ import { ModalSelect } from './modal-loader.js'
  * @typedef {import('./command-builder.js').OutputParam} OutputParam
  */
 
-/** @type { OutputCommandList } */
-let outputCommandList
+/** @type { HTMLInputElement } */
+const commandSearchInput = document.getElementById('search-input')
 
-const selectCommandVer=document.getElementById('command-version-select')
-const load = () =>{
-    config.commandVer=selectCommandVer.value
-
-    cacheModel.getUrl(`./data/${config.lang}/CommandList-${config.commandVer}.json`)
-    .then(data => {
-        outputCommandList = new OutputCommandList(data)
-        loadCommand(outputCommandList.list)
-        showMessage(langData.loadSuccess)
-    }).catch(showMessage(langData.loadFail, 10000))
+/** 
+ * @param { string } version 
+ * @return { Promise<OutputCommandList> }
+ */
+const initCommand = version => {
+    if (dataCache[version]) return new Promise((resolve, reject) => {
+        resolve(dataCache[version])
+    })
+    return cacheModel.getUrl(`./data/${config.lang}/CommandList-${version}.json`)
+        .then(data => {
+            const outputCommandList = new OutputCommandList(data)
+            loadCommand(outputCommandList.list)
+            showMessage(langData.loadSuccess)
+            dataCache[version] = outputCommandList
+            return outputCommandList
+        }).catch(showMessage(langData.loadFail, 10000))
 }
 
+/** @type { HTMLSelectElement } */
+const commandVersionSelectElement = document.getElementById('command-version-select')
+
 showMessage(langData.loading, 30000)
-load()
-document.getElementById('search-input').addEventListener('change', e => {
-    loadCommand(outputCommandList.filter(e.target.value))
-})
+initCommand(config.commandVersion ?? commandVersionSelectElement.value)
+    .then(commandList=>{
+        commandSearchInput.addEventListener('change', e => {
+            loadCommand(commandList.filter(e.target.value))
+        })
+    })
 
 /**
  * 版本选择重新加载 
  */
-selectCommandVer.addEventListener('change',e=>{
-    load()
+commandVersionSelectElement.addEventListener('change', e => {
+    config.commandVersion = e.target.value
+    initCommand(config.commandVersion)
 })
 
 /**
