@@ -96,3 +96,46 @@ HTMLElement.prototype.injectCommand = function (head, label) {
     this.innerHTML = ''
     this.appendCommand(head, label)
 }
+
+class Icon {
+    /** @param { string } id */
+    constructor(id) {
+        this.element = document.getElementById(id)
+        if (!this.element) throw new Error()
+        this.iconEmoji = this.element.innerHTML
+        console.log(this.element)
+        this.element.innerHTML = `
+        <span class="front">${this.iconEmoji}</span>
+        <span class="behind">❌</span>
+        `
+        this.clicked = false
+        this.element.addEventListener('click', e => {
+            this.element.style.transform = this.clicked ? '' : 'rotateY(180deg)'
+            this.clicked = !this.clicked
+        })
+    }
+
+    show() {
+        this.element.className = 'show'
+    }
+
+    hide() {
+        this.element.className = ''
+    }
+
+    /** @param { Function } callback */
+    onShow(callback) {
+        callback && this.element.addEventListener('click', e => {
+            this.clicked && callback(e)
+        })
+    }
+
+    /** @param { Function } callback */
+    onClose(callback) {
+        callback && this.element.addEventListener('click', e => {
+            !this.clicked && callback(e)
+        })
+    }
+}
+
+export { Icon }

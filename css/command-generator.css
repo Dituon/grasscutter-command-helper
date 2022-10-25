@@ -106,7 +106,6 @@
 }
 
 #output-span {
-    margin: 0 1rem 1rem;
     background: var(--sub-bg);
     color: var(--hl-text);
     border: black 1px dashed;
