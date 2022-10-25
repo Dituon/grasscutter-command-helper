@@ -99,11 +99,10 @@ HTMLElement.prototype.injectCommand = function (head, label) {
 
 class Icon {
     /** @param { string } id */
-    constructor(id) {
+    constructor(id, params = { switchable: true }) {
         this.element = document.getElementById(id)
         if (!this.element) throw new Error()
         this.iconEmoji = this.element.innerHTML
-        console.log(this.element)
         this.element.innerHTML = `
         <span class="front">${this.iconEmoji}</span>
         <span class="behind">❌</span>

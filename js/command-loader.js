@@ -39,7 +39,10 @@ showMessage(langData.loading, 30000)
 initCommand(config.commandVersion ?? commandVersionSelectElement.value)
     .then(commandList => {
         commandVersionSelectElement.addEventListener('change', e => {
-            initCommand(e.target.value)
+            initCommand(e.target.value).then(commandList => {
+                let keyword = commandSearchInput.value
+                loadCommand(keyword ? commandList.filter(keyword) : commandList.list)
+            })
         })
         commandSearchInput.addEventListener('change', e => {
             loadCommand(commandList.filter(e.target.value))
