@@ -1,0 +1,15 @@
+.side-bar {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: -20em;
+    width: 18em;
+    transition: right 500ms;
+    background: var(--sub-bg);
+    color: var(--text);
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

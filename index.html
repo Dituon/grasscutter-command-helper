@@ -3,9 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./css/main.css" rel="stylesheet" type="text/css" />
-    <link href="./css/command-generator.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="./css/nav-icon.css">
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/command-generator.css" />
+    <link rel="stylesheet" href="./css/nav-icon.css" />
+    <link rel="stylesheet" href="./css/side-bar.css" />
     <title bind="title">xmmt.Genshin 指令助手</title>
     <script type="module" src="./js/init.js"></script>
     <script type="module" src="./js/lang-loader.js"></script>
@@ -23,10 +24,6 @@
             </div>
             <div id="command-version">
                 <span bind="command-version">指令版本</span>
-                <select id="command-version-select">
-                    <option value="1.2.1">1.2.1</option>
-                    <option value="1.4.2">1.4.2</option>
-                </select>
             </div>
             <div id="command-list" class="scroll-bar"></div>
         </div>
@@ -59,6 +56,13 @@
         <div id="setting-icon">⚙</div>
         <div id="command-list-icon">📜</div>
         <div id="edit-icon" class="show">✒</div>
+    </div>
+
+    <div id="setting-bar" class="side-bar">
+        <select id="command-version-select">
+            <option value="1.2.1">1.2.1</option>
+            <option value="1.4.2">1.4.2</option>
+        </select>
     </div>
 
 

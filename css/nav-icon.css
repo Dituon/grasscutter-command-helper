@@ -7,7 +7,9 @@
     transition: flex-grow 1000ms linear;
     height: 100vh;
     justify-content: flex-start;
-    align-items: center
+    align-items: center;
+
+    z-index: 999;
 }
 
 #nav>div {

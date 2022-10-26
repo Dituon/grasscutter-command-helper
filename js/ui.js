@@ -146,3 +146,27 @@ class Icon {
 }
 
 export { Icon }
+
+class SideBar {
+    /** @param { string } id */
+    constructor(id) {
+        this.element = document.getElementById(id)
+        if (!this.element) throw new Error()
+    }
+
+    /** @param { Icon } icon */
+    bindIcon(icon) {
+        icon.onShow(() => this.show())
+        icon.onClose(() => this.hide())
+    }
+
+    show() {
+        this.element.style.right = '0'
+    }
+
+    hide() {
+        this.element.style.right = '-20em'
+    }
+}
+
+export { SideBar }
