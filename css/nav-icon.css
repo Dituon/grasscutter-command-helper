@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column-reverse;
     transition: flex-grow 1000ms linear;
-    height: 100vh;
+    height: 50vh;
     justify-content: flex-start;
     align-items: center;
 
@@ -41,11 +41,9 @@
 }
 
 #nav>div>.front {
-    display: inline;
     position: absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    text-align: center;
 }
 
 #nav>div>.behind {
@@ -53,5 +51,13 @@
     transform: rotateY(180deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* text-align: center; */
+}
+
+@media screen and (max-width: 650px) {
+    #nav {
+        top: 0.6em;
+        right: 0.8em;
+        flex-direction: column;
+        font-size: 1.1em;
+    }
 }

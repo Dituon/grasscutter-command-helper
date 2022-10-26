@@ -1,0 +1,22 @@
+#menu-list {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-y: auto;
+    align-self: flex-start;
+    background: var(--sub-bg);
+    display: flex;
+    flex-direction: column;
+    /* max-width: 80vh; */
+    /* padding: 1.2em; */
+    font-size: 0.9rem;
+
+    width: 300px;
+    transition: all 300ms
+}
+
+#app.hide #menu-list {
+    transform: translateX(-300px);
+}

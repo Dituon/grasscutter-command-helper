@@ -160,13 +160,9 @@ class SideBar {
         icon.onClose(() => this.hide())
     }
 
-    show() {
-        this.element.style.right = '0'
-    }
+    show() { this.element.style.right = '0' }
 
-    hide() {
-        this.element.style.right = '-20em'
-    }
+    hide() { this.element.style.right = '' }
 }
 
 export { SideBar }
