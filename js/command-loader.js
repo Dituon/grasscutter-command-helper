@@ -1,4 +1,4 @@
-import { showMessage, mask } from './ui.js'
+import { showMessage, mask, Icon } from './ui.js'
 import { DATA_VERSION, cacheModel, config, dataCache } from './init.js'
 import { langData } from './lang-loader.js'
 import { OutputCommandList, OutputCommand, OutputParam } from './command-builder.js'
@@ -220,3 +220,15 @@ const showModalSelect = (modalList, param) => {
             modalSelectDataElement.addEventListener('scroll', loadMore)
     }
 }
+
+const commandListElement = document.getElementById('list')
+const commandListIcon = new Icon('command-list-icon', { switchable: false })
+document.getElementById('list-hide').addEventListener('click', e => {
+    commandListElement.style.display = 'none'
+    commandListIcon.show()
+})
+
+commandListIcon.onShow(e => {
+    commandListElement.style.display = 'block'
+    commandListIcon.hide()
+})
