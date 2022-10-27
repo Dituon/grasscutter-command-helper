@@ -6,13 +6,17 @@
     align-items: stretch;
 
     left: 300px;
-    
+
     transition: all 300ms;
+    width: calc(90vw - 300px);
+
+    min-width: min(24em, 100%);
 }
 
 #app.hide #command-generator {
     left: 50%;
     transform: translate(-50%);
+    width: 90vw;
 }
 
 #input {
