@@ -1,0 +1,16 @@
+#worktop-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+#worktop-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#worktop-command-list {
+    margin-top: 0.8em;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+}

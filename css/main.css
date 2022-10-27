@@ -19,6 +19,7 @@ body {
     margin: 0;
     color: var(--text);
     background: var(--bg);
+    overflow-x: hidden;
 }
 
 #app {

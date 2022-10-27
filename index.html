@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/nav-icon.css" />
     <link rel="stylesheet" href="./css/side-bar.css" />
     <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/worktop.css" />
     <title bind="title">xmmt.Genshin 指令助手</title>
     <script type="module" src="./js/init.js"></script>
     <script type="module" src="./js/lang-loader.js"></script>
@@ -15,7 +16,7 @@
 </head>
 
 <body class="scroll-bar">
-    <div id="app">
+    <div id="app" class="hide">
         <div id="menu-list">
             test
         </div>
@@ -48,6 +49,7 @@
                 <div id="output-area">
                     <span id="output-span" bind="output-tips" bind-target="title" title="点击复制"></span>
                 </div>
+                <button id="command-push">push to worktop</button>
                 <!-- 
             远程执行📡
             保存💾
@@ -67,7 +69,7 @@
     <div id="nav">
         <div id="setting-icon">⚙</div>
         <div id="command-list-icon">📜</div>
-        <div id="edit-icon" class="show">✒</div>
+        <div id="worktop-icon">✒</div>
     </div>
 
     <div id="setting-bar" class="side-bar">
@@ -77,11 +79,25 @@
         </select>
     </div>
 
+    <div id="worktop-bar" class="side-bar">
+
+        <h3 bind="command-group">Command Group</h3>
+        <div id="worktop-info">
+            <div>
+                <span bind="command-group-title">Title: </span>
+                <input bind="command-group-title-input" bind-target="placeholder" type="text" />
+            </div>
+            <textarea bind="command-group-subtitle-input" bind-target="placeholder"></textarea>
+        </div>
+        <div id="worktop-command-list"></div>
+    </div>
+
 
     <script type="module" src="./js/command-loader.js"></script>
     <script type="module" src="./js/command-builder.js"></script>
 
     <script type="module" src="./js/setting.js"></script>
+    <script type="module" src="./js/worktop.js"></script>
     <script type="module" src="./js/menu.js"></script>
 
     <!-- <script>

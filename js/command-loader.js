@@ -5,8 +5,8 @@ import { OutputCommandList, OutputCommand, OutputParam } from './command-builder
 import { ModalSelect } from './modal-loader.js'
 
 /**
- * @typedef {import('./command-builder.js').CommandDTO} CommandDTO
- * @typedef {import('./command-builder.js').ParamDTO} ParamDTO
+ * @typedef {import('./command-builder.js').CommandVO} CommandVO
+ * @typedef {import('./command-builder.js').ParamVO} ParamVO
  * @typedef {import('./command-builder.js').OutputCommand} OutputCommand
  * @typedef {import('./command-builder.js').OutputParam} OutputParam
  */
@@ -19,6 +19,7 @@ const commandSearchInput = document.getElementById('search-input')
  * @return { Promise<OutputCommandList> }
  */
 const initCommand = version => {
+    config.commandVersion = version
     if (dataCache[version]) return new Promise((resolve, reject) => {
         resolve(dataCache[version])
     })
@@ -50,7 +51,7 @@ initCommand(config.commandVersion ?? commandVersionSelectElement.value)
     })
 
 /**
- * @param { CommandDTO[] } commandList
+ * @param { CommandVO[] } commandList
  */
 const loadCommand = commandList => {
     const commandListElement = document.getElementById('command-list')
@@ -145,7 +146,7 @@ const buildInputElement = param => {
 }
 
 /**
- * @param { ParamDTO } param
+ * @param { ParamVO } param
  */
 const buildParamElement = param => {
     const div = document.createElement('div')
@@ -170,7 +171,7 @@ const buildParamElement = param => {
 }
 
 /**
- * @param {ParamDTO} param
+ * @param {ParamVO} param
  */
 const showModalSelect = (modalList, param) => {
     const modalSelectElement = document.getElementById('modal-select')

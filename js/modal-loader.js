@@ -3,7 +3,7 @@ import { mask, showMessage } from "./ui.js";
 import { langData } from "./lang-loader.js";
 
 /** 
- * @typedef {import('./command-builder').ParamDTO} ParamDTO 
+ * @typedef {import('./command-builder').ParamVO} ParamVO 
  */
 
 /**
@@ -68,7 +68,7 @@ class ModalSelect {
         this.type = type
     }
 
-    /** @param { ParamDTO } bindParam */
+    /** @param { ParamVO } bindParam */
     show(bindParam) {
         getModalList(this.type).then(modalList => {
             modalSelectElement.style.display = 'block'

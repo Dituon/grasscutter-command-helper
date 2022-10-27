@@ -11,6 +11,10 @@
     width: calc(90vw - 300px);
 
     min-width: min(24em, 100%);
+
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #app.hide #command-generator {
