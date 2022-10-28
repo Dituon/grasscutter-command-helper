@@ -82,12 +82,17 @@
     <div id="worktop-bar" class="side-bar">
 
         <h3 bind="command-group">Command Group</h3>
-        <div id="worktop-info">
+        <div id="worktop-head">
             <div>
                 <span bind="command-group-title">Title: </span>
-                <input bind="command-group-title-input" bind-target="placeholder" type="text" />
+                <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
             </div>
-            <textarea bind="command-group-subtitle-input" bind-target="placeholder"></textarea>
+            <textarea id="worktop-description" bind="command-group-description-input" bind-target="placeholder"></textarea>
+            <div>
+                <button id="worktop-save">💾保存</button>
+                <button>📡执行</button>
+                <button>🔗分享</button>
+            </div>
         </div>
         <div id="worktop-command-list"></div>
     </div>
@@ -98,7 +103,6 @@
 
     <script type="module" src="./js/setting.js"></script>
     <script type="module" src="./js/worktop.js"></script>
-    <script type="module" src="./js/menu.js"></script>
 
     <!-- <script>
 

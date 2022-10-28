@@ -20,37 +20,47 @@
  */
 
 class SerialisedCommandCollection {
-    constructor() {
-        /** @const @private @type { Map<number, CommandVO> } */
-        this._map = new Map()
-        /** @type { number } */
-        this.index = 0
+    /** @param { CommandDTO[] } [commandDTOList] */
+    constructor(commandDTOList) {
+        /** @const @private @type { Set<CommandDTO> } */
+        this._set = new Set(commandDTOList)
     }
 
     /**
-     * @param { OutputCommand } outputCommand
-     * @return { number } index
+     * @param { CommandDTO } commandDTO
      */
-    push(outputCommand) {
-        this._map.set(this.index, outputCommand.getDTO())
-        return this.index++
+    push(commandDTO) {
+        this._set.add(commandDTO)
     }
 
     /**
-     * @param { number } index
+     * @param { CommandDTO } commandDTO
      */
-    delete(index) {
-        this._map.delete(index)
+    delete(commandDTO) {
+        this._set.delete(commandDTO)
     }
 
     /**
      * @return { CommandDTO[] }
      */
     getList() {
-        const list = []
-        this._map.forEach((index, command) => {
-            list.push(command)
-        })
-        return list
+        return Array.from(this._set)
+    }
+
+    /** 
+     * @return { string }
+     */
+    toBase64() {
+        return window.btoa(JSON.stringify(this.getList()))
+    }
+
+    /** 
+     * @param { string } base64
+     * @return { SerialisedCommandCollection }
+     */
+    static fromBase64(base64) {
+        return new SerialisedCommandCollection(JSON.parse(window.atob(base64)))
     }
 }
+
+export { SerialisedCommandCollection }

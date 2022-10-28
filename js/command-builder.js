@@ -1,6 +1,10 @@
 import { config } from "./init.js"
 
 /**
+* @typedef {import('./command-parser.js').CommandDTO} CommandDTO
+ */
+
+/**
  * @typedef { object } CommandVO
  * @property { '1.2.1' | '1.4.2' } version
  * @property { string } id
@@ -28,13 +32,14 @@ import { config } from "./init.js"
 class OutputCommandList {
     /** @param { CommandVO[] } commandList */
     constructor(commandList) {
+        /** @type { OutputCommand[] } */
         this.list = commandList.map(command => new OutputCommand(command))
     }
 
     /**
      * 通过 `head` 或 `label` 过滤 `command`, 返回新数组
      * @param { string } text 
-     * @returns { CommandVO[] }
+     * @returns { OutputCommand[] }
      */
     filter(text) {
         return this.list.filter(command => {
@@ -82,7 +87,7 @@ class OutputCommand {
  * @property { number } [min]
  * @property { number } [max]
  * @property { ParamValue } [_value]
- * @property { HTMLElement } inputElement
+ * @property { HTMLElement } inputDom
  */
 class OutputParam {
     /** 
@@ -108,10 +113,10 @@ class OutputParam {
             set(target) {
                 paramVO.value = target
                 buildCommand(that.parent)
-                if (!this.inputElement) return
-                that.isModalSelect ? this.inputElement.injectCommand(
+                if (!this.inputDom) return
+                that.isModalSelect ? this.inputDom.injectCommand(
                     target.value, target.label
-                ) : this.inputElement.value = target
+                ) : this.inputDom.value = target
             }
         })
     }

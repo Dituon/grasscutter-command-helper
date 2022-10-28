@@ -1,4 +1,4 @@
-import { config, cacheModel, dataCache, DATA_VERSION } from "./init.js";
+import { config, cacheModel, dataCache, DATA_VERSION, getUrlData } from "./init.js";
 import { mask, showMessage } from "./ui.js";
 import { langData } from "./lang-loader.js";
 
@@ -23,23 +23,11 @@ import { langData } from "./lang-loader.js";
  */
 
 /**
- * @param { string } type
+ * @param { string } id
  * @return { Promise<ModalList> }
  */
-const getModalList = type => {
-    if (dataCache[type]) return new Promise((resolve, reject) => {
-        resolve(dataCache[type])
-    })
-
-    showMessage(langData.loading, 30000)
-    return cacheModel.getUrl(`./data/${config.lang}/${DATA_VERSION}/${type}.json`)
-        .then(data => {
-            showMessage(langData.loadSuccess)
-            data = unzipModalData(data)
-            dataCache[type] = data
-            return data
-        }).catch(showMessage(langData.loadFail))
-}
+const getModalList = id =>
+    getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`, { unzip: true })
 
 /**
  * @param { ZippedModalList } zippedModalList 
@@ -58,6 +46,8 @@ const unzipModalData = zippedModalList => {
     })
     return modalList
 }
+
+export { unzipModalData }
 
 const modalSelectElement = document.getElementById('modal-select')
 const modalSelectDataElement = document.getElementById('modal-select-data')

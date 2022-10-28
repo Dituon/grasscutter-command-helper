@@ -24,32 +24,33 @@ let langData = {
     chooseCommandFirst: '请先选择指令'
 }
 
-if (!config.lang) {
-    const windowLang = navigator.language
-    for (const lang of supportedLang) {
-        if (windowLang === lang.id) {
-            config.lang = lang.id
-            break
+export { langData }
+
+window.addEventListener('load', e => {
+    if (!config.lang) {
+        const windowLang = navigator.language
+        for (const lang of supportedLang) {
+            if (windowLang === lang.id) {
+                config.lang = lang.id
+                break
+            }
+            lang.alias.forEach(alia => {
+                if (alia === windowLang) config.lang = lang.id
+            })
         }
-        lang.alias.forEach(alia => {
-            if (alia === windowLang) config.lang = lang.id
-        })
+        if (!config.lang) config.lang = 'en-US'
     }
-    if (!config.lang) config.lang = 'en-US'
-}
 
-
-cacheModel.getUrl(`./lang/${config.lang}.json`).then(lang => {
-    // langData = lang
-    document.querySelectorAll('[bind]').forEach(node => {
-        const target = node.getAttribute('bind-target')
-        const value = lang[node.getAttribute('bind')]
-        if (target) {
-            node.setAttribute(target, value)
-            return
-        }
-        node.innerHTML = value
+    cacheModel.getUrl(`./lang/${config.lang}.json`).then(lang => {
+        // langData = lang
+        document.querySelectorAll('[bind]').forEach(node => {
+            const target = node.getAttribute('bind-target')
+            const value = lang[node.getAttribute('bind')]
+            if (target) {
+                node.setAttribute(target, value)
+                return
+            }
+            node.innerHTML = value
+        })
     })
 })
-
-export { langData }

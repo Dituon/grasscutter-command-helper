@@ -1,5 +1,5 @@
 import { showMessage, mask, Icon } from './ui.js'
-import { DATA_VERSION, cacheModel, config, dataCache } from './init.js'
+import { DATA_VERSION, cacheModel, config, dataCache, getUrlData } from './init.js'
 import { langData } from './lang-loader.js'
 import { OutputCommandList, OutputCommand, OutputParam } from './command-builder.js'
 import { ModalSelect } from './modal-loader.js'
@@ -14,31 +14,43 @@ import { ModalSelect } from './modal-loader.js'
 /** @type { HTMLInputElement } */
 const commandSearchInput = document.getElementById('search-input')
 
+/** @return { Promise<CommandVO[]> } */
+const getCommandList = () =>
+    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion}.json`)
+
+/** @type { Map<string, CommandVO> } */
+const commandMap = new Map()
+
+/** @return { Promise<CommandVO> } */
+const getCommandById = async id => {
+    if (commandMap.has(id))
+        return new Promise((resolve, reject) => resolve(commandMap.get(id)))
+    return getCommandList().then(commandList => {
+        commandList.forEach(command => commandMap.set(command.id, command))
+        return commandMap.get(id)
+    })
+}
+
+export { getCommandList, getCommandById }
+
 /** 
  * @param { string } version 
  * @return { Promise<OutputCommandList> }
  */
 const initCommand = version => {
     config.commandVersion = version
-    if (dataCache[version]) return new Promise((resolve, reject) => {
-        resolve(dataCache[version])
+    getCommandList().then(data => {
+        const outputCommandList = new OutputCommandList(data)
+        loadCommand(outputCommandList.list)
+        return outputCommandList
     })
-    return cacheModel.getUrl(`./data/${config.lang}/CommandList-${version}.json`)
-        .then(data => {
-            const outputCommandList = new OutputCommandList(data)
-            loadCommand(outputCommandList.list)
-            showMessage(langData.loadSuccess)
-            dataCache[version] = outputCommandList
-            return outputCommandList
-        }).catch(showMessage(langData.loadFail, 10000))
 }
 
 /** @type { HTMLSelectElement } */
 const commandVersionSelectElement = document.getElementById('command-version-select')
 
-showMessage(langData.loading, 30000)
 initCommand(config.commandVersion ?? commandVersionSelectElement.value)
-    .then(commandList => {
+    getCommandList().then(commandList => {
         commandVersionSelectElement.addEventListener('change', e => {
             initCommand(e.target.value).then(commandList => {
                 let keyword = commandSearchInput.value
