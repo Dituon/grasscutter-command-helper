@@ -23,8 +23,7 @@ const commandMap = new Map()
 
 /** @return { Promise<CommandVO> } */
 const getCommandById = async id => {
-    if (commandMap.has(id))
-        return new Promise((resolve, reject) => resolve(commandMap.get(id)))
+    if (commandMap.has(id)) return commandMap.get(id)
     return getCommandList().then(commandList => {
         commandList.forEach(command => commandMap.set(command.id, command))
         return commandMap.get(id)
@@ -50,17 +49,17 @@ const initCommand = version => {
 const commandVersionSelectElement = document.getElementById('command-version-select')
 
 initCommand(config.commandVersion ?? commandVersionSelectElement.value)
-    getCommandList().then(commandList => {
-        commandVersionSelectElement.addEventListener('change', e => {
-            initCommand(e.target.value).then(commandList => {
-                let keyword = commandSearchInput.value
-                loadCommand(keyword ? commandList.filter(keyword) : commandList.list)
-            })
-        })
-        commandSearchInput.addEventListener('change', e => {
-            loadCommand(commandList.filter(e.target.value))
+getCommandList().then(commandList => {
+    commandVersionSelectElement.addEventListener('change', e => {
+        initCommand(e.target.value).then(commandList => {
+            let keyword = commandSearchInput.value
+            loadCommand(keyword ? commandList.filter(keyword) : commandList.list)
         })
     })
+    commandSearchInput.addEventListener('change', e => {
+        loadCommand(commandList.filter(e.target.value))
+    })
+})
 
 /**
  * @param { CommandVO[] } commandList

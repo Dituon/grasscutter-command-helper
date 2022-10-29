@@ -82,9 +82,7 @@ const dataCache = {}
  * @returns 
  */
 const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
-    if (dataCache[url]) return new Promise((resolve, reject) => {
-        resolve(dataCache[url])
-    })
+    if (dataCache[url]) return dataCache[url]
     param?.showMessage && showMessage(langData.loading, 10000)
     const promise = cacheModel.getUrl(url).then(data => {
         if (param?.unzip) data = unzipModalData(data)
@@ -93,7 +91,7 @@ const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
         return data
     })
 
-    param?.showMessage && promise.catch((e) => showMessage(langData.loadFail, 10000))
+    param?.showMessage && promise.catch(() => showMessage(langData.loadFail, 10000))
     return promise
 }
 

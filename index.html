@@ -19,6 +19,7 @@
     <div id="app" class="hide">
         <div id="menu-list">
             test
+            <div id="menu-hide">menu-show/close</div>
         </div>
 
         <div id="command-generator">
@@ -26,15 +27,14 @@
                 <div id="list">
                     <h2 bind="command-list">指令列表</h2>
                     <button id="list-hide">hide</button>
-                    <button id="menu-hide">menu-show/close</button>
                     <div id="command-search">
                         <span bind="command-search">指令搜索: </span>
                         <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 指令搜索"
                             id="search-input">
                     </div>
-                    <div id="command-version">
+                    <!-- <div id="command-version">
                         <span bind="command-version">指令版本</span>
-                    </div>
+                    </div> -->
                     <div id="command-list" class="scroll-bar"></div>
                 </div>
                 <div id="choose" style="display: none;">
@@ -77,6 +77,10 @@
             <option value="1.2.1">1.2.1</option>
             <option value="1.4.2">1.4.2</option>
         </select>
+
+        <div>
+            <input type="text" id="remote-host" />
+        </div>
     </div>
 
     <div id="worktop-bar" class="side-bar">
@@ -87,7 +91,8 @@
                 <span bind="command-group-title">Title: </span>
                 <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
             </div>
-            <textarea id="worktop-description" bind="command-group-description-input" bind-target="placeholder"></textarea>
+            <textarea id="worktop-description" bind="command-group-description-input"
+                bind-target="placeholder"></textarea>
             <div>
                 <button id="worktop-save">💾保存</button>
                 <button>📡执行</button>
@@ -103,6 +108,8 @@
 
     <script type="module" src="./js/setting.js"></script>
     <script type="module" src="./js/worktop.js"></script>
+
+    <script type="module" src="./js/remote-execute.js"></script>
 
     <!-- <script>
 

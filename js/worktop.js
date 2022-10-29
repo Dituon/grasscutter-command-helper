@@ -23,14 +23,14 @@ class Worktop {
 
         const div = document.createElement('div')
         div.className = 'card'
-        const deleteButtom = document.createElement('button')
-        deleteButtom.innerHTML = 'x'
-        deleteButtom.addEventListener('click', e => {
+        const deleteButton = document.createElement('button')
+        deleteButton.innerHTML = 'x'
+        deleteButton.addEventListener('click', e => {
             e.stopPropagation()
             this.collection.delete(commandDTO)
             div.remove()
         })
-        div.appendChild(deleteButtom)
+        div.appendChild(deleteButton)
         div.appendCommand(commandDTO.head, commandDTO.label)
         div.command = commandDTO
         commandList.appendChild(div)
@@ -59,7 +59,7 @@ pushButton.addEventListener('click', e => {
     worktop.pushCommand(commandDTO)
 })
 
-const saveButtom = document.getElementById('worktop-save')
-saveButtom.addEventListener('click', e => {
+const saveButton = document.getElementById('worktop-save')
+saveButton.addEventListener('click', e => {
     worktop.save()
 })
