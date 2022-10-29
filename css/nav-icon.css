@@ -29,6 +29,11 @@
     transform-style: preserve-3d;
 }
 
+#nav>div:hover{
+    color: var(--text-hover);
+    background: var(--hl-text-hover);
+}
+
 #nav>.show {
     height: 1.4em;
     width: 1.4em;

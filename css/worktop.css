@@ -36,34 +36,6 @@
     transition: all 0.2s ease-out;
 }
 
-#worktop-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#worktop-description:hover,#worktop-description:focus {
-    background: hsla(0, 0%, 80%, .14);
-}
-
-#worktop-save,#worktop-share,#worktop-execute{
-    height: 2em;
-    padding: 0 .5em;
-
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
-    line-height: 2em;
-    background-color: var(--hl-text);
-
-    transition: all .6s;
-}
-
-#worktop-save:hover,#worktop-share:hover,#worktop-execute:hover{
-    color: var(--text-hover);
-    background: var(--hl-text-hover);
-}
-
 @media screen and (max-width: 650px) {
     #worktop-description {
         max-width: 80vw;

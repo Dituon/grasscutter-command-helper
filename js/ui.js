@@ -143,6 +143,11 @@ class Icon {
             !this.clicked && callback(e)
         })
     }
+
+    /** @param { Function } callback */
+    onClick(callback) {
+        callback && this.element.addEventListener('click', e => callback(e))
+    }
 }
 
 export { Icon }

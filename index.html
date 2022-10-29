@@ -16,10 +16,13 @@
     <script type="module" src="/lib/dom-slider.js"></script>
 </head>
 
-<body class="scroll-bar">
+<body>
     <div id="app" class="hide">
         <div id="menu-list">
-            test
+            <div class="button-group">
+                <div id="menu-execute">📡执行</div>
+                <div id="menu-share">🔗分享</div>
+            </div>
             <div id="menu-hide" class="menu-icon-hide">🤏</div>
         </div>
 
@@ -38,7 +41,7 @@
                     <!-- <div id="command-version">
                         <span bind="command-version">指令版本</span>
                     </div> -->
-                    <div id="command-list" class="scroll-bar"></div>
+                    <div id="command-list"></div>
                 </div>
                 <div id="choose" style="display: none;">
                     <h2 bind="choose-param">选择参数</h2>
@@ -115,7 +118,7 @@
             </div>
             <textarea id="worktop-description" bind="command-group-description-input"
                 bind-target="placeholder"></textarea>
-            <div id="worktop-button">
+            <div class="button-group">
                 <div id="worktop-save">💾保存</div>
                 <div id="worktop-execute">📡执行</div>
                 <div id="worktop-share">🔗分享</div>

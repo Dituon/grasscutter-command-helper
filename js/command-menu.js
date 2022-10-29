@@ -96,21 +96,24 @@ class CommandMenu {
 const menu = new CommandMenu('menu-list')
 export { CommandMenu, menu }
 
+const appElement = document.getElementById('app')
+
 let hide = true
 const showMenuBtn = document.getElementById('menu-hide')
 showMenuBtn.addEventListener('click', e => {
     showMenuBtn.className = hide ? 'menu-icon-show' : 'menu-icon-hide'
     showMenuBtn.innerHTML = hide ? '👈':'🤏'
-    document.getElementById('app').className = hide ? '' : 'hide'
+    appElement.className = hide ? '' : 'hide'
     hide = !hide
 })
 
-const iconObj = new Icon('menu-icon')
+const menuIcon = new Icon('menu-icon')
 const bar = new SideBar('menu-list')
-bar.bindIcon(iconObj)
-iconObj.show()
+bar.bindIcon(menuIcon)
+menuIcon.show()
 
-document.getElementById('menu-icon').addEventListener('click', e => {
-    document.getElementById('app').className = hide ? '' : 'hide'
+menuIcon.onClick( e => {
+    appElement.className = hide ? '' : 'hide'
     hide = !hide
 })
+
