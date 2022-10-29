@@ -75,6 +75,21 @@ class OutputCommand {
         newObj.params = this.params.map(param => param.getDTO())
         return newObj
     }
+
+    /** 
+     * @param { CommandDTO } commandDTO
+     * @return { string }
+     */
+    static stringify(commandDTO) {
+        let outputString = commandDTO.head
+        commandDTO.params.forEach(param => {
+            if (!param.value) return
+            let mainValue = param.value?.value ?? param.value
+            let subValue = param?.subparam?.value
+            outputString += ` ${param.head ?? ''}${mainValue}${subValue ?? ''}`
+        })
+        return outputString
+    }
 }
 
 /**
@@ -114,6 +129,7 @@ class OutputParam {
                 paramVO.value = target
                 buildCommand(that.parent)
                 if (!this.inputDom) return
+                console.log(this.inputDom)
                 that.isModalSelect ? this.inputDom.injectCommand(
                     target.value, target.label
                 ) : this.inputDom.value = target
@@ -170,7 +186,7 @@ const buildCommand = (outputCommand, outputArea) => {
         const span = document.createElement('span')
         let mainValue = param.value?.value ?? param.value
         let subValue = param?.subparam?.value
-        span.innerHTML = ` ${param.head ?? ''}${mainValue}${subValue ?? ''}`
+        span.innerHTML = ` ${param.head ?? ''}${mainValue}${subValue ?? ''}`        
         span.title = param.name
         outputArea.appendChild(span)
     })

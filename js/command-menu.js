@@ -14,6 +14,9 @@
 
 import { getCommandById } from './command-loader.js'
 import { localCommandGroupList } from './init.js'
+import { Icon, SideBar } from "./ui.js"
+
+const chosenCommandGroupSet = new Set()
 
 class CommandMenu {
     /** @param { string } id */
@@ -48,7 +51,20 @@ class CommandMenu {
         const details = document.createElement('details')
         commandGroup.dom = details
         const summary = document.createElement('summary')
-        summary.innerText = commandGroup.title
+
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        summary.appendChild(checkbox)
+        checkbox.addEventListener('click', e => {
+            e.target.checked ?
+                chosenCommandGroupSet.add(commandGroup)
+                : chosenCommandGroupSet.delete(commandGroup)
+        })
+
+        const groupName = document.createElement('span')
+        groupName.innerText = commandGroup.title
+        summary.appendChild(groupName)
+
         details.appendChild(summary)
 
         if (commandGroup.description) {
@@ -80,8 +96,21 @@ class CommandMenu {
 const menu = new CommandMenu('menu-list')
 export { CommandMenu, menu }
 
-let hide = false
-document.getElementById('menu-hide').addEventListener('click', e => {
+let hide = true
+const showMenuBtn = document.getElementById('menu-hide')
+showMenuBtn.addEventListener('click', e => {
+    showMenuBtn.className = hide ? 'menu-icon-show' : 'menu-icon-hide'
+    showMenuBtn.innerHTML = hide ? '👈':'🤏'
+    document.getElementById('app').className = hide ? '' : 'hide'
+    hide = !hide
+})
+
+const iconObj = new Icon('menu-icon')
+const bar = new SideBar('menu-list')
+bar.bindIcon(iconObj)
+iconObj.show()
+
+document.getElementById('menu-icon').addEventListener('click', e => {
     document.getElementById('app').className = hide ? '' : 'hide'
     hide = !hide
 })

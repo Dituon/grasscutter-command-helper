@@ -9,11 +9,20 @@
     "output-result": "生成结果",
     "output-tips": "点击复制",
 
+    "command-version-select": "指令版本",
+
     "command-group": "指令组",
     "command-group-title": "标题",
     "command-group-title-input": "✨ 言简意赅 令人印象深刻",
     "command-group-description-input": "简介 简要描述",
 
-    "loading": "正在加载..."
-    
+    "loading": "正在加载...",
+
+    "remote-host": "服务器地址",
+    "remote-host-input": "🔗 https://",
+    "remote-execute": "远程执行",
+    "remote-player-count": "在线人数",
+    "remote-uid": "UID",
+    "remote-uid-input": "👋 通常为几位数字",
+    "remote-execute-status-default": "未指定服务器"
 }

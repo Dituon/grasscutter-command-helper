@@ -27,7 +27,17 @@ let langData = {
     getServerInfoSuccess: '获取成功',
     getServerInfoFail: '无法连接到远程服务器',
 
-    
+    serverNotSupport: '服务器不支持远程执行',
+    cannotConnectServer: '无法连接到服务器',
+    unboundPlayer: '未绑定玩家',
+    verifycodeSended: '验证码已发送',
+    verifycodeError: '验证码错误',
+    playerVerifySuccess: '账户验证成功',
+    playerVerifyFail: '账户验证失败',
+
+    commandEmpty: '指令不能为空',
+    commandExecuted: '指令已执行',
+    commandExecuteFail: '指令执行失败'
 }
 
 export { langData }

@@ -138,14 +138,13 @@ const buildInputElement = param => {
             inputElement = document.createElement('div')
             inputElement.className = 'modal-select-input'
             inputElement.placeholder = langData.placechooser + param.name
-            inputElement.setAttribute('readonly', 'readonly')
 
             inputElement.addEventListener('click', e => {
                 const modalSelect = new ModalSelect(param.type)
                 modalSelect.show(param)
             })
     }
-    param.inputElement = inputElement
+    param.inputDom = inputElement
 
     if (param.required && param.value) param.build()
 

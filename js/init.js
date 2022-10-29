@@ -26,8 +26,8 @@ class CacheModel {
     async getUrl(url) {
         let cachedData = localStorage.getItem(url)
         let cache = cachedData ? JSON.parse(cachedData) : {}
-        // if (cache && cache.version === DATA_VERSION)
-        //     return cache.value
+        if (cache && cache.version === DATA_VERSION)
+            return cache.value
         return fetch(url).then(p => p.json()).then(data => {
             this.save(url, {
                 version: DATA_VERSION,
@@ -95,4 +95,4 @@ const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
     return promise
 }
 
-export { dataCache, getUrlData }
+export { dataCache, getUrlData, ProxyItem }

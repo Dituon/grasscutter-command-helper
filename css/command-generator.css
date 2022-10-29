@@ -88,6 +88,25 @@
     align-items: center;
 }
 
+#command-list-title{
+    margin: 0 1em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#list-hide{
+    width: 2em;
+    height: 2em;
+
+    line-height: 2em;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--hl-text);
+}
+
 #command-list {
     overflow-y: auto;
     align-self: flex-start;
@@ -110,6 +129,7 @@
 }
 
 #command-search {
+    margin: 0 1em;
     padding: 10px;
     padding-top: 0;
 }

@@ -52,18 +52,18 @@ select {
     font-weight: bold
 }
 
-.scroll-bar::-webkit-scrollbar-track {
+:root *::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     background-color: var(--bg);
 }
 
-.scroll-bar::-webkit-scrollbar {
+:root *::-webkit-scrollbar {
     width: 12px;
     background-color: var(--bg);
 }
 
-.scroll-bar::-webkit-scrollbar-thumb {
+:root *::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: var(--hl-text);
@@ -80,9 +80,12 @@ select {
     :root {
         --bg: #242629;
         --text: #fffffe;
+        --text-hover: #fffffed2;
         --sub-bg: #16161a;
         --sub-text: #fffffe;
         --card-bg: #7f5af0;
         --hl-text: #2cb67d;
+        --hl-text-hover: #2cb67dd2;
+        --focus:#3d4046;
     }
 }

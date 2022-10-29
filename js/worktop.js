@@ -1,6 +1,7 @@
 import { menu } from "./command-menu.js"
 import { SerialisedCommandCollection } from "./command-parser.js"
 import { Icon, SideBar } from "./ui.js"
+import { server } from "./remote-execute.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -43,6 +44,10 @@ class Worktop {
             commandList: this.collection.getList()
         })
     }
+
+    execute() {
+        server.execCommand(this.collection.getList())
+    }
 }
 
 const iconObj = new Icon('worktop-icon')
@@ -60,6 +65,7 @@ pushButton.addEventListener('click', e => {
 })
 
 const saveButton = document.getElementById('worktop-save')
-saveButton.addEventListener('click', e => {
-    worktop.save()
-})
+saveButton.addEventListener('click', e => worktop.save())
+
+const executeButton = document.getElementById('worktop-execute')
+executeButton.addEventListener('click', e => worktop.execute())
