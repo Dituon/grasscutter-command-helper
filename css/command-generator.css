@@ -273,6 +273,21 @@
     font-weight: 600;
 }
 
+#modal-search-bar {
+    display: flex;
+    align-items: baseline;
+    height: 2em;  
+    box-shadow: #999 5px 5px 10px;
+}
+
+#modal-search-bar>input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 0 0.4em;
+}
+
 @media (max-width: 650px) {
     #params {
         font-size: 1.1em;

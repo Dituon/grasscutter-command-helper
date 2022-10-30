@@ -140,8 +140,8 @@ const buildInputElement = param => {
             inputElement.placeholder = langData.placechooser + param.name
 
             inputElement.addEventListener('click', e => {
-                const modalSelect = new ModalSelect(param.type)
-                modalSelect.show(param)
+                const modalSelect = new ModalSelect(param)
+                modalSelect.show()
             })
     }
     param.inputDom = inputElement

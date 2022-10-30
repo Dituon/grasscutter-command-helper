@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/side-bar.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="stylesheet" href="/css/worktop.css" />
-    <title bind="title">xmmt.Genshin 指令助手</title>
+    <title bind="title">Xmmt.Genshin 指令助手</title>
     <script type="module" src="/js/init.js"></script>
     <script type="module" src="/js/lang-loader.js"></script>
     <script type="module" src="/js/ui.js"></script>
@@ -62,8 +62,9 @@
 
     <div id="mask"></div>
     <div id="modal-select">
-        <div style="height: 40px;  box-shadow: #999 5px 5px 10px;">
-            <input style="height: 100%;width: 100%;border: none" placeholder="搜索(id/名称/分组名)" id="modalSelectSearch">
+        <div id="modal-search-bar">
+            <input placeholder="搜索(id/名称/分组名)" id="modal-search">
+            <span id="modal-search-clear">🗑</span>
         </div>
         <div id="modal-select-data"></div>
     </div>
