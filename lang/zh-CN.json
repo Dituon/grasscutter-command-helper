@@ -21,8 +21,11 @@
     "remote-host": "服务器地址",
     "remote-host-input": "🔗 https://",
     "remote-execute": "远程执行",
-    "remote-player-count": "在线人数",
+    "remote-server-version": "游戏版本：",
+    "remote-player-count": "在线人数：",
     "remote-uid": "UID",
     "remote-uid-input": "👋 通常为几位数字",
-    "remote-execute-status-default": "未指定服务器"
+    "remote-execute-status-default": "未指定服务器",
+    "remote-verifycode": "验证码",
+    "remote-verifycode-input": "📟聊天框返回四位数字"
 }

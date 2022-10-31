@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/side-bar.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="stylesheet" href="/css/worktop.css" />
+    <link rel="stylesheet" href="/css/setting.css" />
     <title bind="title">Xmmt.Genshin 指令助手</title>
     <script type="module" src="/js/init.js"></script>
     <script type="module" src="/js/lang-loader.js"></script>
@@ -38,9 +39,6 @@
                         <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 指令搜索"
                             id="search-input">
                     </div>
-                    <!-- <div id="command-version">
-                        <span bind="command-version">指令版本</span>
-                    </div> -->
                     <div id="command-list"></div>
                 </div>
                 <div id="choose" style="display: none;">
@@ -77,7 +75,7 @@
     </div>
 
     <div id="setting-bar" class="side-bar">
-        <div>
+        <div id="command-version">
             <span bind="command-version-select">指令版本</span>
             <select id="command-version-select">
                 <option value="1.2.1">1.2.1</option>
@@ -85,23 +83,27 @@
             </select>
         </div>
 
-        <div>
+        <div id="remote-execute">
             <h3 bind="remote-execute">远程执行</h3>
             <div>
                 <span bind="remote-host">服务器地址</span>
-                <input type="text" id="remote-host" bind="remote-host-input" bind-target="placeholder" />
+                <span id="remote-host" bind="remote-host-input" bind-target="placeholder" contenteditable="true"></span>
             </div>
             <div class="hide">
-                <span id="remote-server-version"></span>
-                <span bind="remote-player-count">在线人数</span>
+                <span bind="remote-server-version">游戏版本：</span>
+                <span id="remote-server-version"></span><br>
+                <span bind="remote-player-count">在线人数：</span>
                 <span id="remote-player-count"></span>
             </div>
             <div id="server-verify" class="hide">
                 <span bind="remote-uid">UID</span>
-                <input id="remote-uid" bind="remote-uid-input" bind-target="placeholder" type="text" />
-                <button id="send-verifycode">发送验证码</button>
-                <span>验证码</span>
-                <input type="text" />
+                <span id="remote-uid" bind="remote-uid-input" bind-target="placeholder" contenteditable="true"></span>
+                <div class="button-group">
+                    <div id="send-verifycode">发送验证码</div>
+                </div>
+                <br>
+                <span bind="remote-verifycode">验证码</span>
+                <span id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder" contenteditable="true"></span>
             </div>
             <div id="remote-execute-status" bind="remote-execute-status-default">
                 未指定服务器

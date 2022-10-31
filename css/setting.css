@@ -1,0 +1,36 @@
+#remote-execute{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1em;
+}
+
+#remote-execute>h3{
+    text-align: center;
+}
+
+#remote-execute>div{
+    margin: .5em 0;
+}
+
+#remote-execute>#server-verify>.button-group{
+    display: inline-block;
+    margin: .5em 0;
+}
+
+#remote-execute span[contenteditable]{
+    padding: .2em;
+
+    line-height: 2em;
+    color: var(--hl-text);
+    border: 1px solid var(--text);
+    border-radius: 4px;
+}
+
+#remote-execute span[contenteditable]:empty:before{
+    content: attr(placeholder);
+    color: var(--placeholder);
+}
+
+#remote-execute span[contenteditable]:focus {
+    content: none;
+}
