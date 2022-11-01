@@ -1,0 +1,16 @@
+{
+  "name": "builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spider.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dituon",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.2.10"
+  }
+}
