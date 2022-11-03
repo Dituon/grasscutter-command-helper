@@ -170,8 +170,8 @@ function spider(langObj) {
                 filters: [],
                 menu_id: `${id}`,
                 page_num: 1,
-                // page_size: 10000,
-                page_size: 100,
+                page_size: 10000,
+                // page_size: 100,
                 use_es: true
             })
         ).then(p => p.json()).then(itemList => {
@@ -180,7 +180,6 @@ function spider(langObj) {
             itemList.data.list.forEach(item => {
 
                 const itemObj = {
-                    // rawId: item.entry_page_id,
                     name: item.name,
                     icon: item.icon_url,
                     filter: []
@@ -189,8 +188,6 @@ function spider(langObj) {
                 Object.values(item.filter_values).forEach(filterElement => {
                     itemObj.filter.push(...filterElement.values)
                 })
-
-                // if (id != 5) injectId(itemObj)
 
                 requestList.push(id == 5 ?
                     getArtifactChindren(item.entry_page_id, itemObj)
@@ -218,36 +215,12 @@ function spider(langObj) {
                     icon: item.icon_url
                 }
 
-                // injectId(itemObj)
-
                 children.push(itemObj)
             })
 
             target.children = children
             return target
         })
-    }
-
-    function injectId(obj) {
-        if (!langObj.primary) {
-            obj.id = idMap.get(obj.rawId)
-            obj.rawId = undefined
-            return
-        }
-
-        handbook.some(handbookItem => {
-            if (handbookItem.name.includes(obj.name)) {
-                ungroupedHandbookSet.delete(handbookItem)
-                obj.id = handbookItem.id
-                idMap.set(obj.rawId, obj.id)
-                obj.rawId = undefined
-                return true
-            }
-            obj.rawId = undefined
-            return false
-        })
-
-        if (!obj.id) console.warn(`WARNING: CANNOT FIND ${obj.name} ID`)
     }
 }
 
