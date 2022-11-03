@@ -1,30 +1,25 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
+import { langList } from './config.js'
+import { parseHandbook } from './handbook-parser.js'
 
-// [
-//     "ja-jp",
-//     "en-us",
-//     "id-id",
-//     "ko-kr",
-//     "zh-tw",
-//     "vi-vn",
-//     "es-es",
-//     "de-de",
-//     "fr-fr",
-//     "pt-pt",
-//     "th-th",
-//     "zh-cn",
-//     "ru-ru"
-// ].forEach(lang => {
-//     spider(lang)
+// langList.forEach(lang => {
+//     spider(lang.hoyolab)
 // })
 
-spider('zh-cn')
+spider(
+    { hoyolab: 'zh-cn', handbook: 'CHS', navigator: 'zh-CN' }
+)
 
-function spider(lang) {
+const idMap = new Map()
+
+function spider(langObj) {
+    const lang = langObj.hoyolab
     const dir = `./data/${lang}`
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+
+    const handbook = parseHandbook(langObj.handbook)
 
     const fetchParam = body => {
         const bodyStr = JSON.stringify(body)
@@ -44,7 +39,8 @@ function spider(lang) {
         fetchParam()
     ).then(p => p.json()).then(menu => {
         const menuList = []
-        const promiseList = []
+        const menuPromiseList = []
+        const itemsPromiseList = []
 
         menu.data.menus.forEach(category => {
             category.sub_menus.forEach(sub => {
@@ -54,40 +50,96 @@ function spider(lang) {
                 }
 
                 menuList.push(menu)
-                promiseList.push(
+                menuPromiseList.push(
                     getMenuFilter(sub.id).then(filterList => {
                         menu.filterGroups = filterList
                     }),
                     getItems(sub.id).then(itemList => {
-                        if (sub.id == 5) {
-                            Promise.all(itemList).then(dataList => {
-                                fs.writeFile(
-                                    `./data/${lang}/${sub.name}.json`,
-                                    JSON.stringify(dataList),
-                                    err
-                                )
-                            })
-                        } else {
-                            fs.writeFile(
-                                `./data/${lang}/${sub.name}.json`,
-                                JSON.stringify(itemList),
-                                err
-                            )
-                        }
+                        itemsPromiseList.push(itemList)
                     })
                 )
             })
         })
 
-        Promise.all(promiseList).then(() => {
+        Promise.all(menuPromiseList).then(() => {
             fs.writeFile(
                 `./data/${lang}/menu.json`,
                 JSON.stringify(menuList),
                 err
             )
+        }).then(() => {
+            Promise.all(itemsPromiseList).then(dataLists => {
+                const itemList = []
+                console.log(dataLists)
+                dataLists.forEach(list => {
+                    itemList.push(...list)
+                })
+                console.log(itemList)
+
+                const op = {
+                    avatar: { name: 'avatarList' },
+                    stellaFortuna: { name: 'avatarStellaFortunaList' },
+                    weapon: { name: 'weaponList' },
+                    artifact: { name: 'artifactList' },
+                    sereniteaPot: { name: 'itemSereniteaPotList' },
+                    item: { name: 'itemList' },
+                }
+
+                Object.values(op).forEach(obj => {
+                    obj.list = []
+                })
+
+                handbook.forEach(item => {
+                    let id = item.id
+                    if (id >= 10000000 && id < 11000000) { //Avatar 角色
+                        injectInfo(item)
+                        op.avatar.list.push(item)
+                    } else if (id >= 11000000 && id < 12000000) { //Test Avatar 测试角色
+                        item.filter.push('Invalid')
+                        op.avatar.list.push(item)
+                    } else if (id >= 1100 && id < 1200) { //Stella Fortuna 命星
+                        injectInfo(item)
+                        op.stellaFortuna.list.push(item)
+                    } else if (id >= 10002 && id <= 20001) { //Weapon 武器
+                        injectInfo(item)
+                        op.weapon.list.push(item)
+                    } else if (id >= 20002 && id < 100000) { //Artifact 圣遗物
+                        op.artifact.list.push(item)
+                    } else if (id >= 340000 && id < 350000) { //Skin 皮肤
+                        item.filter.push('Skin')
+                        op.item.list.push(item)
+                    } else if ( // Serenitea Pot 尘歌壶
+                        (id >= 350000 && id < 400000)
+                        || (id >= 141000 && id < 142000)
+                        || id == 3750102
+                    ) {
+                        op.sereniteaPot.list.push(item)
+                    }
+                })
+
+                function injectInfo(obj) {
+                    // console.log('inject ', obj)
+                    itemList.some(item => {
+                        if (!item?.name) return false
+                        if (item.name.includes(obj.name)) {
+                            obj.name = item.name
+                            obj.icon = item.icon
+                            obj.filter = item.filter
+                            return true
+                        }
+                        return false
+                    })
+                }
+
+                Object.values(op).forEach(obj => {
+                    fs.writeFile(
+                        `./data/${lang}/${obj.name}.json`,
+                        JSON.stringify(obj),
+                        err
+                    )
+                })
+            })
         })
-
-
     })
 
     /** @return { Promise<{ name: string, filters: string[] }[]> } */
@@ -118,20 +170,27 @@ function spider(lang) {
                 filters: [],
                 menu_id: `${id}`,
                 page_num: 1,
-                page_size: 10000,
+                // page_size: 10000,
+                page_size: 100,
                 use_es: true
             })
         ).then(p => p.json()).then(itemList => {
             const requestList = []
 
             itemList.data.list.forEach(item => {
-                const filterValues = Object.values(item.filter_values)
 
                 const itemObj = {
+                    // rawId: item.entry_page_id,
                     name: item.name,
                     icon: item.icon_url,
-                    filter: filterValues?.length ? filterValues[0].values : []
+                    filter: []
                 }
+
+                Object.values(item.filter_values).forEach(filterElement => {
+                    itemObj.filter.push(...filterElement.values)
+                })
+
+                // if (id != 5) injectId(itemObj)
 
                 requestList.push(id == 5 ?
                     getArtifactChindren(item.entry_page_id, itemObj)
@@ -152,20 +211,47 @@ function spider(lang) {
             const children = []
 
             Object.values(JSON.parse(dataRaw)).forEach(item => {
-                children.push({
+
+                const itemObj = {
                     type: item.posName,
                     name: item.title,
                     icon: item.icon_url
-                })
+                }
+
+                // injectId(itemObj)
+
+                children.push(itemObj)
             })
 
             target.children = children
             return target
         })
     }
+
+    function injectId(obj) {
+        if (!langObj.primary) {
+            obj.id = idMap.get(obj.rawId)
+            obj.rawId = undefined
+            return
+        }
+
+        handbook.some(handbookItem => {
+            if (handbookItem.name.includes(obj.name)) {
+                ungroupedHandbookSet.delete(handbookItem)
+                obj.id = handbookItem.id
+                idMap.set(obj.rawId, obj.id)
+                obj.rawId = undefined
+                return true
+            }
+            obj.rawId = undefined
+            return false
+        })
+
+        if (!obj.id) console.warn(`WARNING: CANNOT FIND ${obj.name} ID`)
+    }
 }
 
 function err(err) {
-    if (err) return console.log(err + 'Write Fail')
+    if (err) return console.log(err + ' Write Fail')
     console.log('Write Success')
 }
