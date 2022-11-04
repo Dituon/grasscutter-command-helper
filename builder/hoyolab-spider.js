@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import fs from 'fs'
+import fs, { utimes } from 'fs'
 import { langList } from './config.js'
 import { parseHandbook } from './handbook-parser.js'
 
@@ -10,8 +10,6 @@ import { parseHandbook } from './handbook-parser.js'
 spider(
     { hoyolab: 'zh-cn', handbook: 'CHS', navigator: 'zh-CN' }
 )
-
-const idMap = new Map()
 
 function spider(langObj) {
     const lang = langObj.hoyolab
@@ -55,7 +53,7 @@ function spider(langObj) {
                         menu.filterGroups = filterList
                     }),
                     getItems(sub.id).then(itemList => {
-                        itemsPromiseList.push(itemList)
+                        itemsPromiseList.push(...itemList)
                     })
                 )
             })
@@ -68,13 +66,12 @@ function spider(langObj) {
                 err
             )
         }).then(() => {
-            Promise.all(itemsPromiseList).then(dataLists => {
-                const itemList = []
-                console.log(dataLists)
-                dataLists.forEach(list => {
-                    itemList.push(...list)
+            Promise.all(itemsPromiseList).then(itemList => {
+
+                const artifactList = []
+                itemList.forEach(item => {
+                    if (item.children) artifactList.push(item)
                 })
-                console.log(itemList)
 
                 const op = {
                     avatar: { name: 'avatarList' },
@@ -83,18 +80,26 @@ function spider(langObj) {
                     artifact: { name: 'artifactList' },
                     sereniteaPot: { name: 'itemSereniteaPotList' },
                     item: { name: 'itemList' },
+                    monster: { name: 'monsterList' },
+                    entity: { name: 'entityList' },
+                    quest: { name: 'questList' },
+                    scene: { name: 'sceneList' }
                 }
 
                 Object.values(op).forEach(obj => {
                     obj.list = []
                 })
 
-                handbook.forEach(item => {
+                /** @type { Map<string, number> } */
+                const artifactIdMap = new Map()
+
+                handbook.items.forEach(item => {
                     let id = item.id
                     if (id >= 10000000 && id < 11000000) { //Avatar 角色
                         injectInfo(item)
                         op.avatar.list.push(item)
                     } else if (id >= 11000000 && id < 12000000) { //Test Avatar 测试角色
+                        if (!item.filter) item.filter = []
                         item.filter.push('Invalid')
                         op.avatar.list.push(item)
                     } else if (id >= 1100 && id < 1200) { //Stella Fortuna 命星
@@ -104,8 +109,22 @@ function spider(langObj) {
                         injectInfo(item)
                         op.weapon.list.push(item)
                     } else if (id >= 20002 && id < 100000) { //Artifact 圣遗物
-                        op.artifact.list.push(item)
+                        for (const artifactGroup of artifactList) {
+                            for (const artifactItem of artifactGroup.children) {
+                                if (artifactItem.name == item.name) {
+                                    if (!artifactItem.id || item.id > artifactItem.id) {
+                                        artifactItem.id = item.id
+                                    }
+                                    return
+                                }
+                            }
+                        }
+                        if (
+                            !artifactIdMap.has(item.name)
+                            || item.id > artifactIdMap.get(item.name)
+                        ) artifactIdMap.set(item.name, item.id)
                     } else if (id >= 340000 && id < 350000) { //Skin 皮肤
+                        if (!item.filter) item.filter = []
                         item.filter.push('Skin')
                         op.item.list.push(item)
                     } else if ( // Serenitea Pot 尘歌壶
@@ -114,11 +133,55 @@ function spider(langObj) {
                         || id == 3750102
                     ) {
                         op.sereniteaPot.list.push(item)
+                    } else if (id >= 20010100 && id < 35320000) { // Entity&Monster 实体 怪物
+                        if (item.name.includes('[N/A]')) return
+                        if (item.name.toLowerCase().includes('test')) {
+                            if (!item.filter) item.filter = []
+                            item.filter.push('Test')
+                        }
+                        item.name = item.name.split(' - ').at(-1).trim()
+                        injectInfo(item)
+
+                        id >= 28010100 && id <= 28240902 ?
+                            op.entity.list.push(item) : op.monster.list.push(item)
+                    } else {
+                        injectInfo(item)
+                        op.item.list.push(item)
                     }
                 })
 
+                artifactList.forEach(artifact => {
+                    op.artifact.list.push(artifact)
+                })
+                artifactIdMap.forEach((name, id) => {
+                    op.artifact.list.push({ id: id, name: name })
+                })
+
+                handbook.quests.forEach(quest => {
+                    if (quest.name.includes('[N/A]')) return
+                    quest.filter = []
+                    if (quest.name.includes('$HIDDEN')) {
+                        quest.name = quest.name.replace('$HIDDEN')
+                        quest.filter.push('Hidden')
+                    }
+                    if (quest.name.includes('$UNRELEASED')) {
+                        quest.name = quest.name.replace('$UNRELEASED')
+                        quest.filter.push('Unreleased')
+                    }
+                    if (quest.name.toLocaleLowerCase().includes('test')) {
+                        quest.name = quest.name.replace('（', '(').replace('）', ')')
+                            .replace('(test)', '').replace('(TEST)', '').replace('(Test)', '')
+                        quest.filter.push('Test')
+                    }
+                    if (!quest.filter) quest.filter = undefined
+                    op.quest.list.push(quest)
+                })
+
+                handbook.scenes.forEach(scene => {
+                    op.scene.list.push(scene)
+                })
+
                 function injectInfo(obj) {
-                    // console.log('inject ', obj)
                     itemList.some(item => {
                         if (!item?.name) return false
                         if (item.name.includes(obj.name)) {
@@ -134,7 +197,7 @@ function spider(langObj) {
                 Object.values(op).forEach(obj => {
                     fs.writeFile(
                         `./data/${lang}/${obj.name}.json`,
-                        JSON.stringify(obj),
+                        JSON.stringify(obj.list),
                         err
                     )
                 })
@@ -208,14 +271,13 @@ function spider(langObj) {
             const children = []
 
             Object.values(JSON.parse(dataRaw)).forEach(item => {
+                if (!item.title) return
 
-                const itemObj = {
-                    type: item.posName,
+                children.push({
+                    type: item.position,
                     name: item.title,
                     icon: item.icon_url
-                }
-
-                children.push(itemObj)
+                })
             })
 
             target.children = children
