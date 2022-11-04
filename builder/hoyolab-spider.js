@@ -90,8 +90,8 @@ function spider(langObj) {
                     obj.list = []
                 })
 
-                /** @type { Map<string, number> } */
-                const artifactIdMap = new Map()
+                /** @type { Map<string, number[]> } */
+                const artifactIdsMap = new Map()
 
                 handbook.items.forEach(item => {
                     let id = item.id
@@ -112,17 +112,14 @@ function spider(langObj) {
                         for (const artifactGroup of artifactList) {
                             for (const artifactItem of artifactGroup.children) {
                                 if (artifactItem.name == item.name) {
-                                    if (!artifactItem.id || item.id > artifactItem.id) {
-                                        artifactItem.id = item.id
-                                    }
+                                    if (!artifactItem.ids) artifactItem.ids = []
+                                    artifactItem.ids.push(item.id)
                                     return
                                 }
                             }
                         }
-                        if (
-                            !artifactIdMap.has(item.name)
-                            || item.id > artifactIdMap.get(item.name)
-                        ) artifactIdMap.set(item.name, item.id)
+                        if (!artifactIdsMap.has(item.name)) artifactIdsMap.set(item.name, [])
+                        artifactIdsMap.get(item.name).push(item.id)
                     } else if (id >= 340000 && id < 350000) { //Skin 皮肤
                         if (!item.filter) item.filter = []
                         item.filter.push('Skin')
@@ -153,8 +150,8 @@ function spider(langObj) {
                 artifactList.forEach(artifact => {
                     op.artifact.list.push(artifact)
                 })
-                artifactIdMap.forEach((name, id) => {
-                    op.artifact.list.push({ id: id, name: name })
+                artifactIdsMap.forEach((name, ids) => {
+                    op.artifact.list.push({ ids: ids, name: name })
                 })
 
                 handbook.quests.forEach(quest => {
