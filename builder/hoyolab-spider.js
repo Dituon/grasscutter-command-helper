@@ -1,6 +1,12 @@
+/**
+ * this script need
+ * `./handbooks/GM Handbook - ${lang}.txt`
+ * in build dir
+ */
+
 import fetch from 'node-fetch'
-import fs, { utimes } from 'fs'
-import { langList } from './config.js'
+import fs from 'fs'
+import { langList, writeLog } from './config.js'
 import { parseHandbook } from './handbook-parser.js'
 
 // langList.forEach(lang => {
@@ -63,7 +69,7 @@ function spider(langObj) {
             fs.writeFile(
                 `./data/${lang}/menu.json`,
                 JSON.stringify(menuList),
-                err
+                writeLog
             )
         }).then(() => {
             Promise.all(itemsPromiseList).then(itemList => {
@@ -195,7 +201,7 @@ function spider(langObj) {
                     fs.writeFile(
                         `./data/${lang}/${obj.name}.json`,
                         JSON.stringify(obj.list),
-                        err
+                        writeLog
                     )
                 })
             })
@@ -281,9 +287,4 @@ function spider(langObj) {
             return target
         })
     }
-}
-
-function err(err) {
-    if (err) return console.log(err + ' Write Fail')
-    console.log('Write Success')
 }

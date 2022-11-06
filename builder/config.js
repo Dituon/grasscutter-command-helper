@@ -15,3 +15,11 @@ const langList = [
 ]
 
 export { langList }
+
+
+function writeLog(err) {
+    if (err) return console.log(err + ' Write Fail')
+    console.log('Write Success')
+}
+
+export { writeLog }
