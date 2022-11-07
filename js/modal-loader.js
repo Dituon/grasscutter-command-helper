@@ -7,7 +7,7 @@ import { langData } from "./lang-loader.js";
  */
 
 /**
- * @typedef { {name: string, modals: ModalDTO[]}[] } ModalList
+ * @typedef { {name: string, children: ModalDTO[]}[] } ModalList
  */
 
 /**
@@ -27,7 +27,9 @@ import { langData } from "./lang-loader.js";
  * @return { Promise<ModalList> }
  */
 const getModalList = id =>
-    getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`, { unzip: true })
+    getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`
+        // , { unzip: true }
+    )
 
 /**
  * @param { ZippedModalList } zippedModalList 
@@ -36,15 +38,16 @@ const getModalList = id =>
 const unzipModalData = zippedModalList => {
     const modalList = []
     zippedModalList.forEach(modalGroup => {
-        const classify = { name: modalGroup.name, modals: [] }
+        const classify = { name: modalGroup.name, children: [] }
         for (let index = 0; index < modalGroup.data[0].length; index++) {
-            classify.modals.push({
+            classify.children.push({
                 id: modalGroup.data[0][index],
                 name: modalGroup.data[1][index]
             })
         }
         modalList.push(classify)
     })
+    console.log(modalList)
     return modalList
 }
 
@@ -75,24 +78,31 @@ class ModalSelect {
             modalSelectElement.style.display = 'block'
             mask.onclick(e => this.hide()).show()
 
-            let filteredModalGroupList
-            if (keyword) filteredModalGroupList = modalList.filter(group => group.name.includes(keyword))
-            if (filteredModalGroupList?.length) keyword = undefined
-            else filteredModalGroupList = modalList
+            // let filteredModalGroupList
+            // if (keyword) filteredModalGroupList = modalList.filter(group => group.name.includes(keyword))
+            // // if (filteredModalGroupList?.length) keyword = undefined
+            // else filteredModalGroupList = modalList
+
+            const filteredModalGroupList = keyword ?
+                modalList.filter(group =>
+                    group.name.includes(keyword)
+                ) : modalList
 
             /** @type { [string | ModalDTO] } */
-            this.displayList = []
-            filteredModalGroupList.forEach(group => {
-                if (!keyword) {
-                    this.displayList.push(group.name)
-                    this.displayList.push(...group.modals)
-                    return
-                }
-                group.modals.forEach(modal => {
-                    if (modal.name.includes(keyword) || modal.id.includes(keyword))
-                    this.displayList.push(modal)
-                })
-            })
+            this.displayList = filteredModalGroupList
+            // filteredModalGroupList.forEach(group => {
+            //     // if (!keyword) {
+            //         console.log(group)
+            //         this.displayList.push(group)
+            //         // this.displayList.push(group.name)
+            //         // this.displayList.push(...group.children)
+            //         return
+            //     // }
+            //     // group.children.forEach(modal => {
+            //     //     if (modal.name.includes(keyword) || modal.id.includes(keyword))
+            //     //         this.displayList.push(modal)
+            //     // })
+            // })
 
             this.#loadModalSelectData(this.displayList.slice(0, 99))
             modalSelectDataElement.addEventListener('scroll', this.#loadMore)
@@ -107,14 +117,20 @@ class ModalSelect {
         this.#loadModalSelectData(this.displayList.slice(i, i + 99))
     }
 
-    /** @param { ModalList } modals */
-    #loadModalSelectData(modals) {
-        modals.forEach(modal => {
-            if (typeof modal === 'string') {
-                const groupNameElement = document.createElement('p')
-                groupNameElement.innerHTML = modal
-                modalSelectDataElement.appendChild(groupNameElement)
-                return
+    /** @param { ModalList } children */
+    #loadModalSelectData(children) {
+        children.forEach(modal => {
+            // if (typeof modal === 'string') {
+            //     const groupNameElement = document.createElement('p')
+            //     groupNameElement.innerHTML = modal
+            //     modalSelectDataElement.appendChild(groupNameElement)
+            //     return
+            // }
+
+            if (modal.children?.length) {
+                const details = document.createElement('details')
+                const summary = document.createElement('summary')
+                
             }
 
             const div = document.createElement('div')
@@ -127,7 +143,7 @@ class ModalSelect {
             })
         })
 
-        if (modals.length == 99)
+        if (children.length == 99)
             modalSelectDataElement.addEventListener('scroll', this.#loadMore)
     }
 

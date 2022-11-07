@@ -57,7 +57,10 @@ getCommandList().then(commandList => {
         })
     })
     commandSearchInput.addEventListener('change', e => {
-        loadCommand(commandList.filter(e.target.value))
+        loadCommand(commandList.filter(command =>
+            command.head.includes(e.target.value)
+            || command.label.includes(e.target.value)
+        ))
     })
 })
 
@@ -82,6 +85,7 @@ const loadCommand = commandList => {
 
         commandElement.addEventListener('click', e => {
             radio.checked = true
+            // console.log(command)
             loadParam(command)
         })
     })

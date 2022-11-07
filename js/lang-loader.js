@@ -1,6 +1,6 @@
 import { cacheModel, config } from './init.js'
 
-const supportedLang = [
+export const supportedLang = [
     { id: 'zh-CN', text: '简体中文', alias: ['zh'] },
     { id: 'zh-TW', text: '繁體中文', alias: ['zh-HK', 'zh-SG'] },
     {
@@ -12,7 +12,7 @@ const supportedLang = [
     }
 ]
 
-let langData = {
+export let langData = {
     loading: '加载中...',
     loadSuccess: '加载成功',
     loadFail: '加载失败',
@@ -40,9 +40,7 @@ let langData = {
     commandExecuteFail: '指令执行失败'
 }
 
-export { langData }
-
-window.addEventListener('load', e => {
+export const initLang = () => {
     if (!config.lang) {
         const windowLang = navigator.language
         for (const lang of supportedLang) {
@@ -69,4 +67,4 @@ window.addEventListener('load', e => {
             node.innerHTML = value
         })
     })
-})
+}

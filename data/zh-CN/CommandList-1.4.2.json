@@ -23,7 +23,7 @@
         "required": true
       },
       {
-        "type": "appendPropList",
+        "type": "propDataList",
         "name": "副属性1",
         "required": false,
         "subparam": {
@@ -34,7 +34,7 @@
         }
       },
       {
-        "type": "appendPropList",
+        "type": "propDataList",
         "name": "副属性2",
         "required": false,
         "subparam": {
@@ -45,7 +45,7 @@
         }
       },
       {
-        "type": "appendPropList",
+        "type": "propDataList",
         "name": "副属性3",
         "required": false,
         "subparam": {
@@ -56,7 +56,7 @@
         }
       },
       {
-        "type": "appendPropList",
+        "type": "propDataList",
         "name": "副属性4",
         "required": false,
         "subparam": {
@@ -378,7 +378,7 @@
     "label": "杀死当前世界或指定世界的所有生物",
     "params": [
       {
-        "type": "scenesList",
+        "type": "sceneList",
         "name": "生物",
         "required": false
       }
@@ -426,7 +426,7 @@
         "required": true
       },
       {
-        "type": "scenesList",
+        "type": "sceneList",
         "name": "世界（场景）",
         "required": false
       }
@@ -576,7 +576,7 @@
         }
       },
       {
-        "type": "quests",
+        "type": "questList",
         "name": "任务ID",
         "required": true,
         "value": {

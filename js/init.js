@@ -1,4 +1,4 @@
-import { langData } from "./lang-loader.js"
+import { langData, initLang } from "./lang-loader.js"
 import { unzipModalData } from "./modal-loader.js"
 import { showMessage } from "./ui.js"
 
@@ -68,11 +68,9 @@ class ProxyItem {
     }
 }
 
-const config = new ProxyItem('config')
+export const config = new ProxyItem('config')
 /** @type { CommandVO[] } */
-const localCommandGroupList = new ProxyItem('commandGroupList', [])
-
-export { config, localCommandGroupList }
+export const localCommandGroupList = new ProxyItem('commandGroupList', [])
 
 const dataCache = {}
 /**
@@ -96,3 +94,5 @@ const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
 }
 
 export { dataCache, getUrlData, ProxyItem }
+
+initLang()

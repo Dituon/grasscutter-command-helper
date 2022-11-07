@@ -156,7 +156,7 @@ function spider(langObj) {
                 artifactList.forEach(artifact => {
                     op.artifact.list.push(artifact)
                 })
-                artifactIdsMap.forEach((name, ids) => {
+                artifactIdsMap.forEach((ids, name) => {
                     op.artifact.list.push({ ids: ids, name: name })
                 })
 
@@ -164,11 +164,11 @@ function spider(langObj) {
                     if (quest.name.includes('[N/A]')) return
                     quest.filter = []
                     if (quest.name.includes('$HIDDEN')) {
-                        quest.name = quest.name.replace('$HIDDEN')
+                        quest.name = quest.name.replace('$HIDDEN', '')
                         quest.filter.push('Hidden')
                     }
                     if (quest.name.includes('$UNRELEASED')) {
-                        quest.name = quest.name.replace('$UNRELEASED')
+                        quest.name = quest.name.replace('$UNRELEASED', '')
                         quest.filter.push('Unreleased')
                     }
                     if (quest.name.toLocaleLowerCase().includes('test')) {
