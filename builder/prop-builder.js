@@ -23,8 +23,8 @@ const textMapIndex = JSON.parse(
 
 mainPropList.forEach(prop => {
     textMapIndex.some(indexObj => {
-        if (indexObj.TextMapId === prop.textID) {
-            prop.textHash = indexObj.TextMapContentTextMapHash
+        if (indexObj.textMapId === prop.textID) {
+            prop.textHash = indexObj.textMapContentTextMapHash
             return true
         }
         return false
