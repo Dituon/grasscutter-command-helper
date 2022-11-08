@@ -49,7 +49,16 @@ select {
     border: 1px var(--sub-text) solid;
     border-radius: 4px;
     color: var(--text);
-    font-weight: bold
+    font-weight: bold;
+}
+
+summary {
+    font-size: larger;
+    font-weight: bold;
+}
+
+details[open] summary {
+    margin-bottom: 0.6em;
 }
 
 .button-group {

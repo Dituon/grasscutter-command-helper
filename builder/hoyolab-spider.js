@@ -6,7 +6,7 @@
 
 import fetch from 'node-fetch'
 import fs from 'fs'
-import { langList, writeLog } from './config.js'
+import { langList, menuIndex, writeLog } from './config.js'
 import { parseHandbook } from './handbook-parser.js'
 
 // langList.forEach(lang => {
@@ -49,7 +49,7 @@ function spider(langObj) {
         menu.data.menus.forEach(category => {
             category.sub_menus.forEach(sub => {
                 const menu = {
-                    id: sub.id,
+                    type: menuIndex[`${sub.id}`] ?? sub.id,
                     name: sub.name
                 }
 
@@ -129,7 +129,8 @@ function spider(langObj) {
                         }
                         if (!artifactIdsMap.has(item.name)) artifactIdsMap.set(item.name, [])
                         const ids = artifactIdsMap.get(item.name)
-                        if (!ids.includes(outputId)) ids.push(outputId)
+                        // if (!ids.includes(outputId)) 
+                        ids.push(item.id)
                     } else if (id >= 340000 && id < 350000) { //Skin 皮肤
                         if (!item.filter) item.filter = []
                         item.filter.push('Skin')
@@ -164,7 +165,14 @@ function spider(langObj) {
                     op.artifact.list.push(
                         ids.length === 1 ?
                             { id: ids[0], name: name }
-                            : { ids: ids, name: name }
+                            : {
+                                ids: [
+                                    ...new Set(ids.map(id => {
+                                        let idStr = id.toString()
+                                        return parseInt(idStr.substring(0, idStr.length - 1) + '0')
+                                    }))
+                                ], name: name
+                            }
                     )
                 })
 

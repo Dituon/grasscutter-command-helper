@@ -1,4 +1,4 @@
-const langList = [
+export const langList = [
     { hoyolab: 'en-us', handbook: 'EN', navigator: 'en-US', primary: true },
     { hoyolab: 'ja-jp', handbook: 'JP', navigator: 'ja' },
     { hoyolab: 'id-id', handbook: 'ID', navigator: 'id' },
@@ -14,12 +14,17 @@ const langList = [
     { hoyolab: 'ru-ru', handbook: 'RU', navigator: 'ru' },
 ]
 
-export { langList }
+export const menuIndex = {
+    '5': 'artifactList',
+    '2': 'avatarList',
+    '15': 'entityList',
+    '9': 'itemList',
+    '7': 'monsterList',
+    '4': 'weaponList'
+}
 
 
-function writeLog(err) {
+export function writeLog(err) {
     if (err) return console.log(err + ' Write Fail')
     console.log('Write Success')
 }
-
-export { writeLog }

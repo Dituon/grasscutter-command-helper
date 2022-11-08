@@ -79,10 +79,42 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成实体(怪物)",
+    "label": "生成动物",
     "params": [
       {
         "type": "entityList",
+        "required": true,
+        "name": "实体ID",
+        "value": {
+          "value": "24010109",
+          "label": "遗迹守卫（血特别多）"
+        }
+      },
+      {
+        "type": "number",
+        "name": "数量",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "等级",
+        "value": 200,
+        "max": 200,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "spawnMonster",
+    "head": "/spawn",
+    "label": "生成怪物",
+    "params": [
+      {
+        "type": "monsterList",
         "required": true,
         "name": "实体ID",
         "value": {

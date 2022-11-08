@@ -88,7 +88,7 @@
     align-items: center;
 }
 
-#command-list-title{
+#command-list-title {
     margin: 0 1em;
 
     display: flex;
@@ -96,7 +96,7 @@
     align-items: center;
 }
 
-#list-hide{
+#list-hide {
     width: 2em;
     height: 2em;
 
@@ -141,7 +141,8 @@
 
 .command-head {
     display: inline-block;
-    margin-right: 0.6rem;
+    margin-right: 0.6em;
+    margin-left: 0.1em;
     padding: 5px 10px;
     border-radius: 3px;
     color: var(--sub-text);
@@ -228,6 +229,7 @@
     overflow-x: hidden;
 }
 
+#modal-select-data>details,
 #modal-select-data div {
     padding: 0.6em;
     color: var(--text);
@@ -238,13 +240,26 @@
     transition: all 0.3s;
 }
 
+#modal-select-data>details:hover,
+#modal-select-data div:hover {
+    background: hsla(0, 0%, 80%, .14);
+}
+
+#modal-select-data div {
+    display: flex;
+    align-items: center;
+}
+
+#modal-select-data div>img {
+    width: 2.4em;
+    background: hsla(0, 0%, 80%, .14);
+    border-radius: 50%;
+    margin-right: 0.8em;
+}
+
 #modal-select-data p {
     text-align: center;
     font-weight: 600;
-}
-
-#modal-select-data div:hover {
-    background: hsla(0, 0%, 80%, .14);
 }
 
 #mask {
@@ -276,7 +291,7 @@
 #modal-search-bar {
     display: flex;
     align-items: baseline;
-    height: 2em;  
+    height: 2em;
     box-shadow: #999 5px 5px 10px;
 }
 
@@ -288,11 +303,11 @@
     margin: 0 0.4em;
 }
 
-#command-push{
+#command-push {
     margin: 0 10px;
 }
 
-#command-generator>#output>.button-group{
+#command-generator>#output>.button-group {
     align-items: center;
 }
 
@@ -303,5 +318,21 @@
 
     .param {
         margin: 0.6em 0;
+    }
+
+    #modal-select-data>details,
+    #modal-select-data div {
+        min-width: max-content;
+        padding: 0.8em 0.2em;
+        margin: 0.6em 0.2em;
+    }
+
+    .command-head {
+        font-size: 10px;
+    }
+
+    .card {
+        margin: 0.2em 0;
+        padding: 1em 0.4em;
     }
 }

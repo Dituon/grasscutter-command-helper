@@ -170,6 +170,7 @@ class OutputParam {
  * @param { HTMLElement } outputArea
  */
 const buildCommand = (outputCommand, outputArea) => {
+    console.log(outputCommand)
     outputArea = outputArea ?? document.getElementById('output-span')
     outputArea.command = outputCommand
     outputArea.innerHTML = ''
