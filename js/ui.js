@@ -97,6 +97,16 @@ HTMLElement.prototype.injectCommand = function (head, label) {
     this.appendCommand(head, label)
 }
 
+HTMLElement.prototype.appendTag = function (...tags) {
+    const that = this
+    tags.forEach(tag => {
+        const headElement = document.createElement('span')
+        headElement.className = 'command-head'
+        headElement.innerHTML = tag
+        that.appendChild(headElement)
+    })
+}
+
 class Icon {
     /** 
      * @param { string } id 

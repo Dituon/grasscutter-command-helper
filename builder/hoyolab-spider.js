@@ -115,17 +115,21 @@ function spider(langObj) {
                         injectInfo(item)
                         op.weapon.list.push(item)
                     } else if (id >= 20002 && id < 100000) { //Artifact 圣遗物
+                        let idStr = item.id.toString()
+                        let outputId = parseInt(idStr.substring(0, idStr.length - 1) + '0')
+
                         for (const artifactGroup of artifactList) {
                             for (const artifactItem of artifactGroup.children) {
                                 if (artifactItem.name == item.name) {
                                     if (!artifactItem.ids) artifactItem.ids = []
-                                    artifactItem.ids.push(item.id)
+                                    if (!artifactItem.ids.includes(outputId)) artifactItem.ids.push(outputId)
                                     return
                                 }
                             }
                         }
                         if (!artifactIdsMap.has(item.name)) artifactIdsMap.set(item.name, [])
-                        artifactIdsMap.get(item.name).push(item.id)
+                        const ids = artifactIdsMap.get(item.name)
+                        if (!ids.includes(outputId)) ids.push(outputId)
                     } else if (id >= 340000 && id < 350000) { //Skin 皮肤
                         if (!item.filter) item.filter = []
                         item.filter.push('Skin')
@@ -157,7 +161,11 @@ function spider(langObj) {
                     op.artifact.list.push(artifact)
                 })
                 artifactIdsMap.forEach((ids, name) => {
-                    op.artifact.list.push({ ids: ids, name: name })
+                    op.artifact.list.push(
+                        ids.length === 1 ?
+                            { id: ids[0], name: name }
+                            : { ids: ids, name: name }
+                    )
                 })
 
                 handbook.quests.forEach(quest => {

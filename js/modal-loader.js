@@ -12,8 +12,12 @@ import { langData } from "./lang-loader.js";
 
 /**
  * @typedef { object } ModalDTO
- * @property { string } id
+ * @property { string | number } [id]
+ * @property { string[] | number[] } [ids]
  * @property { string } name
+ * @property { string } [icon]
+ * @property { string[] } [filter]
+ * @property { ModalDTO[] } [children]
  */
 
 /**
@@ -24,7 +28,7 @@ import { langData } from "./lang-loader.js";
 
 /**
  * @param { string } id
- * @return { Promise<ModalList> }
+ * @return { Promise<ModalDTO[]> }
  */
 const getModalList = id =>
     getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`
@@ -33,7 +37,7 @@ const getModalList = id =>
 
 /**
  * @param { ZippedModalList } zippedModalList 
- * @return { ModalList }
+ * @return { ModalDTO[] }
  */
 const unzipModalData = zippedModalList => {
     const modalList = []
@@ -47,7 +51,7 @@ const unzipModalData = zippedModalList => {
         }
         modalList.push(classify)
     })
-    console.log(modalList)
+    // console.log(modalList)
     return modalList
 }
 
@@ -70,7 +74,6 @@ class ModalSelect {
 
     /** @param {string} [keyword] */
     show(keyword) {
-        console.log(keyword)
         modalSelectDataElement.innerHTML = ''
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
 
@@ -105,7 +108,7 @@ class ModalSelect {
             // })
 
             this.#loadModalSelectData(this.displayList.slice(0, 99))
-            modalSelectDataElement.addEventListener('scroll', this.#loadMore)
+            if (this.displayList.length > 100) modalSelectDataElement.addEventListener('scroll', this.#loadMore)
         })
     }
 
@@ -117,9 +120,9 @@ class ModalSelect {
         this.#loadModalSelectData(this.displayList.slice(i, i + 99))
     }
 
-    /** @param { ModalList } children */
-    #loadModalSelectData(children) {
-        children.forEach(modal => {
+    /** @param { ModalDTO[] } modals */
+    #loadModalSelectData(modals) {
+        modals.forEach(modal => {
             // if (typeof modal === 'string') {
             //     const groupNameElement = document.createElement('p')
             //     groupNameElement.innerHTML = modal
@@ -130,7 +133,25 @@ class ModalSelect {
             if (modal.children?.length) {
                 const details = document.createElement('details')
                 const summary = document.createElement('summary')
-                
+
+                summary.innerHTML = modal.name
+                if (modal.filter) summary.appendTag(...modal.filter)
+                details.appendChild(summary)
+
+                modal.children.forEach(child => {
+                    const div = document.createElement('div')
+                    if (child.icon) {
+                        const icon = document.createElement('img')
+                        icon.src = child.icon
+                        div.appendChild(icon)
+                    }
+                    div.appendCommand(child.id, child.name)
+                    details.appendChild(div)
+                })
+
+                modalSelectDataElement.appendChild(details)
+
+                return
             }
 
             const div = document.createElement('div')
@@ -143,7 +164,7 @@ class ModalSelect {
             })
         })
 
-        if (children.length == 99)
+        if (modals.length == 99)
             modalSelectDataElement.addEventListener('scroll', this.#loadMore)
     }
 

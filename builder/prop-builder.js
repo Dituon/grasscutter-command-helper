@@ -14,7 +14,13 @@ const propRaw = fs.readFileSync('./handbooks/GM Handbook Global Prop.txt').toStr
 const mainPropList = getRawGroup('MainProp').split('\n')
     .filter(line => !!line).map(propLine => {
         const prop = propLine.split(' : ')
-        return { rawID: prop[0], textID: prop[1] }
+        return {
+            rawID: prop[0],
+            textID: prop[1],
+            textHash: undefined,
+            name: undefined,
+            extiaText: ''
+        }
     })
 
 const textMapIndex = JSON.parse(
@@ -25,6 +31,7 @@ mainPropList.forEach(prop => {
     textMapIndex.some(indexObj => {
         if (indexObj.textMapId === prop.textID) {
             prop.textHash = indexObj.textMapContentTextMapHash
+            if (indexObj.textMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
             return true
         }
         return false
@@ -46,7 +53,7 @@ langList.forEach(lang => {
         const mapObj = JSON.parse(raw.toString())
         const propMap = new Map()
         mainPropList.forEach(prop => {
-            const name = mapObj[prop.textHash + '']
+            const name = mapObj[`${prop.textHash}`] + prop.extiaText
             prop.name = name
 
             if (!propMap.has(name)) {
@@ -57,7 +64,7 @@ langList.forEach(lang => {
         })
 
         fs.writeFile(
-            `./data/${lang.hoyolab}/MainProp.json`,
+            `./data/${lang.hoyolab}/mainPropList.json`,
             JSON.stringify([...propMap.values()]),
             writeLog
         )
@@ -83,7 +90,7 @@ langList.forEach(lang => {
         })
 
         fs.writeFile(
-            `./data/${lang.hoyolab}/PropData.json`,
+            `./data/${lang.hoyolab}/propDataList.json`,
             JSON.stringify([...propMap.values()]),
             writeLog
         )
