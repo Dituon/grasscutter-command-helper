@@ -288,6 +288,14 @@
     margin: 0 0.4em;
 }
 
+#command-push{
+    margin: 0 10px;
+}
+
+#command-generator>#output>.button-group{
+    align-items: center;
+}
+
 @media (max-width: 650px) {
     #params {
         font-size: 1.1em;

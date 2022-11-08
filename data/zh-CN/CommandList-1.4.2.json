@@ -319,6 +319,24 @@
         "max": 99999999999999,
         "min": 0,
         "required": true
+      },
+      {
+        "type": "select",
+        "name": "数值锁定",
+        "value": "",
+        "required": false,
+        "data": {
+          "value": [
+            "",
+            "lock",
+            "unlock"
+          ],
+          "label": [
+            "空",
+            "锁定",
+            "解锁"
+          ]
+        }
       }
     ]
   },
@@ -365,7 +383,26 @@
     "id": "godmode",
     "head": "/prop godmode",
     "label": "不受伤害（无敌）",
-    "params": []
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "heal",
@@ -392,9 +429,40 @@
   },
   {
     "id": "resetConst",
-    "head": "/resetconst",
+    "head": "/resetConst",
     "label": "重置当前角色的命座",
     "params": []
+  },
+  {
+    "id": "setConst",
+    "head": "/setConst",
+    "label": "设定当前角色命座",
+    "params": [
+      {
+        "type": "number",
+        "name": "命座数量",
+        "value": 1,
+        "max": 6,
+        "min": 1,
+        "required": true
+      },
+      {
+        "type": "select",
+        "name": "全部角色",
+        "value": "",
+        "required": false,
+        "data": {
+          "value": [
+            "",
+            "all"
+          ],
+          "label": [
+            "空",
+            "全部角色"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "teleport",
@@ -443,12 +511,6 @@
         "required": false
       }
     ]
-  },
-  {
-    "id": "reload",
-    "head": "/reload",
-    "label": "重新加载服务器配置",
-    "params": []
   },
   {
     "id": "teleportAll",
@@ -552,7 +614,16 @@
     "id": "unlockTower",
     "head": "/prop unlocktower",
     "label": "解锁深境回廊",
-    "params": []
+    "params": [
+      {
+        "type": "number",
+        "name": "深渊层数",
+        "value": 12,
+        "max": 12,
+        "min": 1,
+        "required": true
+      }
+    ]
   },
   {
     "id": "quest",

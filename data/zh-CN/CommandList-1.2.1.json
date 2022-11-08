@@ -445,12 +445,6 @@
     ]
   },
   {
-    "id": "reload",
-    "head": "/reload",
-    "label": "重新加载服务器配置",
-    "params": []
-  },
-  {
     "id": "teleportAll",
     "head": "/tpall",
     "label": "将当前世界所有玩家传送到你的位置",
