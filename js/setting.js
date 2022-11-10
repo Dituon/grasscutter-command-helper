@@ -1,9 +1,11 @@
 import { Icon, SideBar } from "./ui.js"
 
-const iconObj = new Icon('setting-icon')
-const bar = new SideBar('setting-bar')
-bar.bindIcon(iconObj)
-iconObj.show()
+const settingIcon = new Icon('setting-icon')
+const settingBar = new SideBar('setting-bar')
+settingBar.bindIcon(settingIcon)
+settingIcon.show()
+
+export { settingBar }
 
 // iconObj.onShow(()=>{console.log('show')})
 // iconObj.onClose(()=>{console.log('close')})

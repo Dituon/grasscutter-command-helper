@@ -96,3 +96,27 @@ const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
 export { dataCache, getUrlData, ProxyItem }
 
 initLang()
+
+/** @param { string } strs */
+String.prototype.includesMultiple = function (...strs) {
+    let flag = true
+    for (const str of strs) {
+        if (!this.includes(str)) {
+            flag = false
+            break
+        }
+    }
+    return flag
+}
+
+/** @param { T } objs */
+Array.prototype.includesMultiple = function (...objs) {
+    let flag = true
+    for (const obj of objs) {
+        if (!this.includes(obj)) {
+            flag = false
+            break
+        }
+    }
+    return flag
+}

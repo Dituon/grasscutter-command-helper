@@ -1,7 +1,7 @@
 import { menu } from "./command-menu.js"
 import { SerialisedCommandCollection } from "./command-parser.js"
 import { Icon, SideBar } from "./ui.js"
-import { server } from "./remote-execute.js"
+import { server, execCommand } from "./remote-execute.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -46,7 +46,7 @@ class Worktop {
     }
 
     execute() {
-        server.execCommand(this.collection.getList())
+        execCommand(this.collection.getList())
     }
 }
 

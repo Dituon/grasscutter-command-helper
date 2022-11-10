@@ -23,6 +23,7 @@ export let langData = {
     copyFail: '复制失败, 请重试',
     chooseCommandFirst: '请先选择指令',
 
+    serverNotDefined: '未指定服务器',
     gettingServerInfo: '正在获取服务器信息...',
     getServerInfoSuccess: '获取成功',
     getServerInfoFail: '无法连接到远程服务器',

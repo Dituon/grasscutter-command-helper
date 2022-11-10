@@ -90,12 +90,6 @@ class ModalSelect {
         modalSearchInput.addEventListener('change', this.#onFiltrate)
         modalSelectCloseElement.addEventListener('click', this.clear)
 
-
-    }
-
-    /** @param {string} [keyword] */
-    show(keyword) {
-
         getFilterGroupList(this.type).then(filterGroupList => {
             this.filterDiv = document.createElement('div')
 
@@ -107,18 +101,10 @@ class ModalSelect {
                 groupDiv.appendChild(title)
 
                 filterGroup.filters.forEach(filter => {
-                    const div = document.createElement('div')
-
-                    const input = document.createElement('input')
-                    input.setAttribute('type', 'radio')
-                    input.setAttribute('name', filterGroup.name)
-                    div.appendChild(input)
-
-                    const span = document.createElement('span')
-                    span.innerHTML = filter
-                    div.appendChild(span)
-
-                    groupDiv.appendChild(div)
+                    groupDiv.appendPreTag(filter, () => {
+                        modalSearchInput.value += ` ${filter} `
+                        this.show(modalSearchInput.value)
+                    })
                 })
 
                 this.filterDiv.appendChild(groupDiv)
@@ -127,19 +113,41 @@ class ModalSelect {
             modalSearchSettingElement.innerHTML = ''
             modalSearchSettingElement.appendChild(this.filterDiv)
         })
+    }
 
+    /** @param {string} [keyword] */
+    show(keyword) {
+        console.log(keyword)
         modalSelectDataElement.innerHTML = ''
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
-
 
         getModalList(this.type).then(modalList => {
             modalSelectElement.style.display = 'block'
             mask.onclick(e => this.hide()).show()
 
-            const filteredModalGroupList = keyword ?
-                modalList.filter(group =>
-                    group.name.includes(keyword)
-                ) : modalList
+            let filteredModalGroupList = modalList
+
+            if (keyword) {
+                const keywordList = keyword.trim().split(/\s+/)
+
+                filteredModalGroupList = modalList.reduce((filteredArr, modal) => {
+                    let flag = modal.name.includesMultiple(...keywordList)
+
+                    if (!flag && modal.filter) if (modal.filter.includesMultiple(...keywordList)) {
+                        flag = true
+                    }
+                    if (!flag && modal.children) for (const children of modal.children) {
+                        if (children.name.includesMultiple(...keywordList)) {
+                            flag = true
+                            break
+                        }
+                    }
+
+                    if (flag) filteredArr.push(modal)
+                    return filteredArr
+                }, [])
+            }
+
 
             /** @type { [string | ModalDTO] } */
             this.displayList = filteredModalGroupList
@@ -159,6 +167,8 @@ class ModalSelect {
 
     /** @param { ModalDTO[] } modals */
     #loadModalSelectData(modals) {
+        console.log(modals)
+
         modals.forEach(modal => {
             if (!modal.children?.length) {
                 let id = modal.id ?? modal.ids[0]

@@ -100,11 +100,20 @@ HTMLElement.prototype.injectCommand = function (head, label) {
 HTMLElement.prototype.appendTag = function (...tags) {
     const that = this
     tags.forEach(tag => {
-        const headElement = document.createElement('span')
-        headElement.className = 'command-head'
-        headElement.innerHTML = tag
-        that.appendChild(headElement)
+        that.appendPreTag(tag)
     })
+}
+
+/** 
+ * @param {string} tag 
+ * @param {Function} [lintener]
+ */
+HTMLElement.prototype.appendPreTag = function (tag, lintener) {
+    const headElement = document.createElement('span')
+    headElement.className = 'command-head'
+    headElement.innerHTML = tag
+    this.appendChild(headElement)
+    if (lintener) headElement.addEventListener('click', lintener)
 }
 
 class Icon {
@@ -140,6 +149,16 @@ class Icon {
         this.element.className = ''
     }
 
+    front() {
+        this.element.style.transform = ''
+        this.clicked = false
+    }
+
+    behind() {
+        this.element.style.transform = 'rotateY(180deg)'
+        this.clicked = true
+    }
+
     /** @param { Function } callback */
     onShow(callback) {
         callback && this.element.addEventListener('click', e => {
@@ -171,13 +190,20 @@ class SideBar {
 
     /** @param { Icon } icon */
     bindIcon(icon) {
+        this.icon = icon
         icon.onShow(() => this.show())
         icon.onClose(() => this.hide())
     }
 
-    show() { this.element.style.right = '0' }
+    show() {
+        this.element.style.right = '0'
+        if (this.icon) this.icon.behind()
+    }
 
-    hide() { this.element.style.right = '' }
+    hide() {
+        this.element.style.right = ''
+        if (this.icon) this.icon.front()
+    }
 }
 
 export { SideBar }

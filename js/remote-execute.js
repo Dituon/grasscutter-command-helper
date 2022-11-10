@@ -1,6 +1,7 @@
 import { langData } from "./lang-loader.js"
 import { config, ProxyItem } from "./init.js"
 import { showMessage } from "./ui.js"
+import { settingBar } from "./setting.js"
 const { slideDown } = window.domSlider
 
 /**
@@ -123,7 +124,17 @@ class TargetServer {
 
 let server = config.server ? new TargetServer(config.server) : undefined
 
-export { server }
+/** @param { CommandDTO[] } commandList */
+const execCommand = commandList => {
+    if (!server) {
+        showMessage(langData.serverNotDefined, 3000)
+        settingBar.show()
+        return
+    }
+    server.execCommand(commandList)
+}
+
+export { server, execCommand }
 
 const playerCountElement = document.getElementById('remote-player-count')
 const serverVersionElement = document.getElementById('remote-server-version')
@@ -134,6 +145,7 @@ const serverHostInput = document.getElementById('remote-host')
 serverHostInput.addEventListener('change', e => {
     if (!e.target.value.startsWith('https://')) e.target.value = 'https://' + e.target.value
     server = new TargetServer(e.target.value)
+    window.server = server
 
     server.getInfo().then(data => {
         if (!data) throw new Error()

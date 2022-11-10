@@ -77,6 +77,25 @@
         <div id="worktop-icon">✒</div>
     </div>
 
+    <div id="worktop-bar" class="side-bar">
+
+        <h3 bind="command-group">Command Group</h3>
+        <div id="worktop-head">
+            <div>
+                <span bind="command-group-title">Title: </span>
+                <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
+            </div>
+            <textarea id="worktop-description" bind="command-group-description-input"
+                bind-target="placeholder"></textarea>
+            <div class="button-group">
+                <div id="worktop-save">💾保存</div>
+                <div id="worktop-execute">📡执行</div>
+                <div id="worktop-share">🔗分享</div>
+            </div>
+        </div>
+        <div id="worktop-command-list"></div>
+    </div>
+
     <div id="setting-bar" class="side-bar">
         <div id="command-version">
             <span bind="command-version-select">指令版本</span>
@@ -112,25 +131,6 @@
                 未指定服务器
             </div>
         </div>
-    </div>
-
-    <div id="worktop-bar" class="side-bar">
-
-        <h3 bind="command-group">Command Group</h3>
-        <div id="worktop-head">
-            <div>
-                <span bind="command-group-title">Title: </span>
-                <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
-            </div>
-            <textarea id="worktop-description" bind="command-group-description-input"
-                bind-target="placeholder"></textarea>
-            <div class="button-group">
-                <div id="worktop-save">💾保存</div>
-                <div id="worktop-execute">📡执行</div>
-                <div id="worktop-share">🔗分享</div>
-            </div>
-        </div>
-        <div id="worktop-command-list"></div>
     </div>
 
 
