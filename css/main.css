@@ -67,7 +67,7 @@ details[open] summary {
     justify-content: space-between;
 }
 
-.button-group > div {
+.button-group > div ,.button-group-item{
     height: 2em;
     padding: 0 .5em;
 
