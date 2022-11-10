@@ -22,6 +22,7 @@ export let langData = {
     copySuccess: '复制成功',
     copyFail: '复制失败, 请重试',
     chooseCommandFirst: '请先选择指令',
+    showFilter: '展开 / 收起  过滤器',
 
     serverNotDefined: '未指定服务器',
     gettingServerInfo: '正在获取服务器信息...',

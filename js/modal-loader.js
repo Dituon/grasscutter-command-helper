@@ -91,7 +91,10 @@ class ModalSelect {
         modalSelectCloseElement.addEventListener('click', this.clear)
 
         getFilterGroupList(this.type).then(filterGroupList => {
-            this.filterDiv = document.createElement('div')
+            this.filterDetails = document.createElement('details')
+            const summary = document.createElement('summary')
+            summary.innerHTML = langData.showFilter
+            this.filterDetails.appendChild(summary)
 
             filterGroupList.forEach(filterGroup => {
                 const groupDiv = document.createElement('div')
@@ -107,11 +110,11 @@ class ModalSelect {
                     })
                 })
 
-                this.filterDiv.appendChild(groupDiv)
+                this.filterDetails.appendChild(groupDiv)
             })
 
             modalSearchSettingElement.innerHTML = ''
-            modalSearchSettingElement.appendChild(this.filterDiv)
+            modalSearchSettingElement.appendChild(this.filterDetails)
         })
     }
 
@@ -174,6 +177,12 @@ class ModalSelect {
                 let id = modal.id ?? modal.ids[0]
 
                 const div = document.createElement('div')
+
+                if (modal.icon) {
+                    const icon = document.createElement('img')
+                    icon.src = modal.icon
+                    div.appendChild(icon)
+                }
                 div.appendCommand(id, modal.name)
                 if (modal.filter) div.appendTag(...modal.filter)
                 modalSelectDataElement.appendChild(div)
