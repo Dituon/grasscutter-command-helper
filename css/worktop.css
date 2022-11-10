@@ -19,6 +19,10 @@
     flex-direction: column;
 }
 
+#worktop-command-list>.card>div{
+    margin: 0 .5em;
+}
+
 #worktop-description {
     width: 18em;
     min-height: 2em;

@@ -82,14 +82,15 @@ class CommandMenu {
             details.appendChild(commandElement)
         })
 
-        const deleteButton = document.createElement('button')
-        deleteButton.innerHTML = 'x'
+        const deleteButton = document.createElement('div')
+        deleteButton.classList.add("button-group-item")
+        deleteButton.innerHTML = '🚮'
         deleteButton.addEventListener('click', e => {
             this.delete(commandGroup)
         })
         summary.appendChild(deleteButton)
-
-        this.element.appendChild(details)
+        const savedGroup = document.getElementById('saved-command-group')
+        savedGroup.appendChild(details)
     }
 }
 

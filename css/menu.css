@@ -18,6 +18,37 @@
     transition: all 300ms
 }
 
+#menu-list summary{
+    height: 2em;
+    margin: .5em;
+    line-height: 2em;
+    position: relative;
+}
+
+#menu-list summary>span,#menu-list .command-group-description{
+    color: var(--hl-text);
+}
+
+#menu-list .button-group-item{
+    width: 2em;
+    padding: 0;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#menu-list details{
+    margin: .5em .5em;
+
+    border-radius: 4px;
+    background-color: var(--bg-focus);
+}
+
+#menu-list details>div{
+    padding: .5em .5em;
+}
+
 #app.hide #menu-list {
     transform: translateX(-300px);
 }
@@ -34,7 +65,7 @@
     line-height: 2.4em;
     border-radius: 50%;
     cursor: pointer;
-    background: var(--hl-text);
+    background: #20855b;
 }
 
 .menu-icon-show {
@@ -45,6 +76,11 @@
 .menu-icon-hide {
     text-align: right;
     clip: rect(0 2.4em 2.4em 1.2em);
+}
+
+#saved-command-group{
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .none {

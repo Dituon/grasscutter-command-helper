@@ -24,8 +24,9 @@ class Worktop {
 
         const div = document.createElement('div')
         div.className = 'card'
-        const deleteButton = document.createElement('button')
-        deleteButton.innerHTML = 'x'
+        const deleteButton = document.createElement('div')
+        deleteButton.classList.add("button-group-item")
+        deleteButton.innerHTML = '🚮'
         deleteButton.addEventListener('click', e => {
             e.stopPropagation()
             this.collection.delete(commandDTO)
