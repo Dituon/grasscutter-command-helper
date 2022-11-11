@@ -1,5 +1,5 @@
-import { showMessage, mask, Icon } from './ui.js'
-import { DATA_VERSION, cacheModel, config, dataCache, getUrlData } from './init.js'
+import { mask, Icon } from './ui.js'
+import { config, getUrlData } from './init.js'
 import { langData } from './lang-loader.js'
 import { OutputCommandList, OutputCommand, OutputParam } from './command-builder.js'
 import { ModalSelect } from './modal-loader.js'
@@ -19,15 +19,15 @@ const getCommandList = () =>
     getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion}.json`)
 
 /** @type { Map<string, CommandVO> } */
-const commandMap = new Map()
+export const commandMap = new Map()
 
-/** @return { Promise<CommandVO> } */
-const getCommandById = async id => {
-    if (commandMap.has(id)) return commandMap.get(id)
-    return getCommandList().then(commandList => {
-        commandList.forEach(command => commandMap.set(command.id, command))
-        return commandMap.get(id)
-    })
+getCommandList().then(commandList => {
+    commandList.forEach(command => commandMap.set(command.id, command))
+})
+
+/** @return { CommandVO } */
+const getCommandById = id => {
+    return commandMap.get(id)
 }
 
 export { getCommandList, getCommandById }
@@ -174,7 +174,7 @@ const buildParamElement = param => {
     inputDiv.appendChild(buildInputElement(param))
 
     if (param.subparam) {
-        const subParamElement = buildInputElement(param.subparam, false)
+        const subParamElement = buildInputElement(param.subparam)
         subParamElement.className = 'sub-param'
         subParamElement.placeholder = param.subparam.name
         inputDiv.appendChild(subParamElement)

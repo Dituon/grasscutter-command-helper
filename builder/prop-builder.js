@@ -71,7 +71,7 @@ langList.forEach(lang => {
 
         propMap.forEach(prop => {
             prop.ids = undefined
-            prop.chindren = []
+            prop.children = []
         })
 
         propDataList.forEach(propData => {
@@ -79,7 +79,7 @@ langList.forEach(lang => {
             mainPropList.some(mainProp => {
                 if (mainProp.textID === propData.type) {
                     propData.name = propData.name.replace(propData.type, mainProp.name)
-                    propMap.get(mainProp.name).chindren.push({
+                    propMap.get(mainProp.name).children.push({
                         id: propData.id, name: propData.name
                     })
                     return true

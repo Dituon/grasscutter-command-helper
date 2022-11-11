@@ -22,6 +22,8 @@
         <div id="menu-list">
             <div class="button-group">
                 <div id="menu-execute">📡执行</div>
+                <div id="menu-copy">📋复制</div>
+                <div id="menu-import">📚导入</div>
                 <div id="menu-share">🔗分享</div>
             </div>
             <div id="menu-hide" class="menu-icon-hide">🤏</div>
@@ -90,6 +92,7 @@
                 bind-target="placeholder"></textarea>
             <div class="button-group">
                 <div id="worktop-save">💾保存</div>
+                <div id="worktop-copy">📋复制</div>
                 <div id="worktop-execute">📡执行</div>
                 <div id="worktop-share">🔗分享</div>
             </div>
@@ -110,7 +113,7 @@
             <h3 bind="remote-execute">远程执行</h3>
             <div>
                 <span bind="remote-host">服务器地址</span>
-                <span id="remote-host" bind="remote-host-input" bind-target="placeholder" contenteditable="true"></span>
+                <input id="remote-host" bind="remote-host-input" bind-target="placeholder" contenteditable="true"></input>
             </div>
             <div class="hide">
                 <span bind="remote-server-version">游戏版本：</span>
@@ -126,11 +129,17 @@
                 </div>
                 <br>
                 <span bind="remote-verifycode">验证码</span>
-                <span id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder" contenteditable="true"></span>
+                <input id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder" contenteditable="true"></input>
             </div>
             <div id="remote-execute-status" bind="remote-execute-status-default">
                 未指定服务器
             </div>
+        </div>
+
+        <div>
+            <h3 bind="export-setting">导出设置</h3>
+            <span bind="export-author">作者</span>
+            <input id="export-author" bind="export-author-input" bind-target="placeholder">
         </div>
     </div>
 

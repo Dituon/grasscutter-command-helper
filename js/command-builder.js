@@ -1,12 +1,13 @@
+import { getCommandById } from "./command-loader.js"
 import { config } from "./init.js"
 
 /**
-* @typedef {import('./command-parser.js').CommandDTO} CommandDTO
+ * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
+ * @typedef {import('./command-parser.js').ParamDTO} ParamDTO
  */
 
 /**
  * @typedef { object } CommandVO
- * @property { '1.2.1' | '1.4.2' } version
  * @property { string } id
  * @property { string } head
  * @property { string } label
@@ -70,10 +71,10 @@ class OutputCommand {
      */
     getDTO() {
         /** @type { CommandDTO } */
-        let newObj = {}
-        Object.assign(newObj, this)
-        newObj.params = this.params.map(param => param.getDTO())
-        return newObj
+        return {
+            id: this.id,
+            params: this.params.map(param => param.getDTO())
+        }
     }
 
     /** 
@@ -81,14 +82,10 @@ class OutputCommand {
      * @return { string }
      */
     static stringify(commandDTO) {
-        let outputString = commandDTO.head
-        commandDTO.params.forEach(param => {
-            if (!param.value) return
-            let mainValue = param.value?.value ?? param.value
-            let subValue = param?.subparam?.value
-            outputString += ` ${param.head ?? ''}${mainValue}${subValue ?? ''}`
-        })
-        return outputString
+        return commandDTO.params.reduce((str, param) => {
+            if (!param) return str
+            return str += ' ' + param
+        }, getCommandById(commandDTO.id).head)
     }
 }
 
@@ -115,7 +112,7 @@ class OutputParam {
         this.isModalSelect = !['number', 'text', 'select'].includes(this.type)
         if (this.subparam) {
             this.subparam.isSub = true
-            this.subparam = new OutputParam(this.subparam)
+            this.subparam = new OutputParam(this.subparam, parentCommand)
         }
 
         const that = this
@@ -129,7 +126,6 @@ class OutputParam {
                 paramVO.value = target
                 buildCommand(that.parent)
                 if (!this.inputDom) return
-                console.log(this.inputDom)
                 that.isModalSelect ? this.inputDom.injectCommand(
                     target.value, target.label
                 ) : this.inputDom.value = target
@@ -141,37 +137,27 @@ class OutputParam {
 
     /** 
      * 导出原始数据, 返回新对象
-     * 
      * @return { ParamDTO } 
      */
     getDTO() {
-        const newObj = {
-            type: this.type,
-            name: this.name,
-            head: this.head,
-            required: this.required,
-            value: this.value
-        }
-
-        let sub = this?.subparam
-        if (sub) newObj.subparam = {
-            type: sub?.type,
-            name: sub?.name,
-            required: sub?.required,
-            value: sub?.value
-        }
-
-        return newObj
+        if (!this.value) return null
+        let value = this.value?.value ?? this.value
+        if (this.subparam) value + ',' + this.subparam.value
+        return value
     }
 }
+
+const defaultOutputArea = document.getElementById('output-span')
+defaultOutputArea.addEventListener('click', e => {
+    defaultOutputArea.innerText.copy()
+})
 
 /**
  * @param { OutputCommand } outputCommand 
  * @param { HTMLElement } outputArea
  */
 const buildCommand = (outputCommand, outputArea) => {
-    console.log(outputCommand)
-    outputArea = outputArea ?? document.getElementById('output-span')
+    outputArea = outputArea ?? defaultOutputArea
     outputArea.command = outputCommand
     outputArea.innerHTML = ''
 
@@ -187,7 +173,7 @@ const buildCommand = (outputCommand, outputArea) => {
         const span = document.createElement('span')
         let mainValue = param.value?.value ?? param.value
         let subValue = param?.subparam?.value
-        span.innerHTML = ` ${param.head ?? ''}${mainValue}${subValue ?? ''}`        
+        span.innerHTML = ` ${param.head ?? ''}${mainValue}${subValue ? `,${subValue}` : ''}`
         span.title = param.name
         outputArea.appendChild(span)
     })

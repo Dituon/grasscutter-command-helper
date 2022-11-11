@@ -5,10 +5,10 @@
     flex-direction: column;
     align-items: stretch;
 
-    left: 300px;
+    left: 320px;
 
     transition: all 300ms;
-    width: calc(90vw - 300px);
+    width: calc(90vw - 320px);
 
     min-width: min(24em, 100%);
 

@@ -27,5 +27,9 @@
     "remote-uid-input": "👋 通常为几位数字",
     "remote-execute-status-default": "未指定服务器",
     "remote-verifycode": "验证码",
-    "remote-verifycode-input": "📟聊天框返回四位数字"
+    "remote-verifycode-input": "📟聊天框返回四位数字",
+
+    "export-setting": "导出设置",
+    "export-author": "🤴作者",
+    "export-author-input": "可空"
 }

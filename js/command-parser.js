@@ -1,3 +1,9 @@
+import { toBase64, fromBase64 } from '../lib/base64.js'
+import { OutputCommand } from './command-builder.js'
+import { config } from './init.js'
+import { langData } from './lang-loader.js'
+import { showMessage } from './ui.js'
+
 /**
  * @typedef {import('./command-builder.js').CommandVO} CommandVO
  * @typedef {import('./command-builder.js').ParamVO} ParamVO
@@ -7,60 +13,91 @@
 
 /**
  * @typedef { object } CommandDTO
- * @property { '1.2.1' | '1.4.2' } version
  * @property { string } id
  * @property { ParamDTO[] } [params]
  */
 
 /**
- * @typedef { object } ParamDTO
- * @property { number } index
- * @property { ParamValue | string | number } [value]
- * @property { ParamDTO } [subparam]
+ * @typedef { number | string | null } ParamDTO
  */
 
-class SerialisedCommandCollection {
-    /** @param { CommandDTO[] } [commandDTOList] */
-    constructor(commandDTOList) {
-        /** @const @private @type { Set<CommandDTO> } */
-        this._set = new Set(commandDTOList)
+/**
+ * @typedef { object } CommandGroupDTO
+ * @property { string? } title
+ * @property { string? } description
+ * @property { string? } author
+ * @property { CommandDTO[] } list
+ */
+
+export class CommandGroup {
+    /**
+     * @param { CommandDTO[] } [commandDTOList=[]]
+     * @param { {title?: string, description?: string, author?: string} } [head]
+     */
+    constructor(commandDTOList = [], head = {}) {
+        this.set = new Set(commandDTOList)
+        this.head = head
+        head.author = head?.author ?? config.author
     }
 
-    /**
-     * @param { CommandDTO } commandDTO
-     */
+    /** @param {CommandDTO} commandDTO */
     push(commandDTO) {
-        this._set.add(commandDTO)
+        this.set.add(commandDTO)
     }
 
-    /**
-     * @param { CommandDTO } commandDTO
-     */
+    /** @param {CommandDTO} commandDTO */
     delete(commandDTO) {
-        this._set.delete(commandDTO)
+        this.set.delete(commandDTO)
     }
 
-    /**
-     * @return { CommandDTO[] }
-     */
+    /** @return { CommandDTO[] } */
     getList() {
-        return Array.from(this._set)
+        return [...this.set]
     }
 
-    /** 
-     * @return { string }
-     */
+    /** @return { string } */
+    buildCommand() {
+        return this.getList().reduce((str, commandDTO) => {
+            return str += OutputCommand.stringify(commandDTO) + '\n'
+        }, '')
+    }
+
+    copyCommand() {
+        this.buildCommand().copy()
+    }
+
+    /** @return { string } */
     toBase64() {
-        return window.btoa(JSON.stringify(this.getList()))
+        return toBase64(JSON.stringify(this.getDTO()))
     }
 
-    /** 
-     * @param { string } base64
-     * @return { SerialisedCommandCollection }
-     */
+    /** @return { CommandGroupDTO } */
+    getDTO() {
+        return {
+            head: this.head,
+            list: this.getList()
+        }
+    }
+
+    /** @param { string } base64 */
     static fromBase64(base64) {
-        return new SerialisedCommandCollection(JSON.parse(window.atob(base64)))
+        try {
+            const obj = JSON.parse(fromBase64(base64))
+            if (!obj?.list?.length) throw new Error()
+            return new CommandGroup(obj.list, obj.head)
+        } catch (e) {
+            showMessage(langData.commandImportFail)
+            console.error(e)
+            console.warn({
+                raw: base64,
+                fromBase64: fromBase64(base64)
+            })
+            return null
+        }
+    }
+
+    /** @param { CommandGroupDTO } commandGroupDTO */
+    static formDTO(commandGroupDTO) {
+        return new CommandGroup(commandGroupDTO.list, commandGroupDTO.head)
     }
 }
-
-export { SerialisedCommandCollection }

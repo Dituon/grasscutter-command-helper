@@ -68,7 +68,6 @@ const unzipModalData = zippedModalList => {
         }
         modalList.push(classify)
     })
-    // console.log(modalList)
     return modalList
 }
 
@@ -120,7 +119,6 @@ class ModalSelect {
 
     /** @param {string} [keyword] */
     show(keyword) {
-        console.log(keyword)
         modalSelectDataElement.innerHTML = ''
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
 
@@ -164,14 +162,11 @@ class ModalSelect {
         if (e.target.scrollHeight - (e.target.clientHeight + e.target.scrollTop) > 260) return
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
         let i = modalSelectDataElement.childElementCount
-        console.log(this.displayList)
         this.#loadModalSelectData(this.displayList.slice(i, i + 99))
     }
 
     /** @param { ModalDTO[] } modals */
     #loadModalSelectData(modals) {
-        console.log(modals)
-
         modals.forEach(modal => {
             if (!modal.children?.length) {
                 let id = modal.id ?? modal.ids[0]

@@ -2,7 +2,7 @@ import { langData, initLang } from "./lang-loader.js"
 import { unzipModalData } from "./modal-loader.js"
 import { showMessage } from "./ui.js"
 
-/** @typedef { import("./command-builder.js").CommandVO } CommandVO */
+/** @typedef { import("./command-parser").CommandGroupDTO } CommandGroupDTO */
 
 /** @const @public */
 const DATA_VERSION = '3.2'
@@ -27,7 +27,7 @@ class CacheModel {
         let cachedData = localStorage.getItem(url)
         let cache = cachedData ? JSON.parse(cachedData) : {}
         // if (cache && cache.version === DATA_VERSION)
-            // return cache.value
+        // return cache.value
         return fetch(url).then(p => p.json()).then(data => {
             this.save(url, {
                 version: DATA_VERSION,
@@ -69,7 +69,7 @@ class ProxyItem {
 }
 
 export const config = new ProxyItem('config')
-/** @type { CommandVO[] } */
+/** @type { CommandGroupDTO[] } */
 export const localCommandGroupList = new ProxyItem('commandGroupList', [])
 
 const dataCache = {}
@@ -119,4 +119,11 @@ Array.prototype.includesMultiple = function (...objs) {
         }
     }
     return flag
+}
+
+String.prototype.copy = function () {
+    navigator.clipboard.writeText(this).then(
+        () => showMessage(langData.copySuccess),
+        () => showMessage(langData.copyFail)
+    )
 }

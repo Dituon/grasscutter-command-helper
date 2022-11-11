@@ -1,7 +1,8 @@
 import { menu } from "./command-menu.js"
-import { SerialisedCommandCollection } from "./command-parser.js"
+import { CommandGroup } from "./command-parser.js"
 import { Icon, SideBar } from "./ui.js"
 import { server, execCommand } from "./remote-execute.js"
+import { getCommandById } from "./command-loader.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -15,12 +16,12 @@ class Worktop {
     constructor(id) {
         this.element = document.getElementById(id)
         if (!this.element) throw new Error()
-        this.collection = new SerialisedCommandCollection()
+        this.list = new CommandGroup()
     }
 
     /** @param { CommandDTO } commandDTO */
     pushCommand(commandDTO) {
-        this.collection.push(commandDTO)
+        this.list.push(commandDTO)
 
         const div = document.createElement('div')
         div.className = 'card'
@@ -29,25 +30,35 @@ class Worktop {
         deleteButton.innerHTML = '🚮'
         deleteButton.addEventListener('click', e => {
             e.stopPropagation()
-            this.collection.delete(commandDTO)
+            this.list.delete(commandDTO)
             div.remove()
         })
         div.appendChild(deleteButton)
-        div.appendCommand(commandDTO.head, commandDTO.label)
+        const commandVO = getCommandById(commandDTO.id)
+        div.appendCommand(commandVO.head, commandVO.label)
         div.command = commandDTO
         commandList.appendChild(div)
     }
 
     save() {
         menu.push({
-            title: document.getElementById('worktop-title').value || 'unname',
+            title: document.getElementById('worktop-title').value,
             description: document.getElementById('worktop-description').value,
-            commandList: this.collection.getList()
+            list: this.list.getList()
         })
     }
 
     execute() {
-        execCommand(this.collection.getList())
+        execCommand(this.list.getList())
+    }
+
+    /** @return { string } */
+    export() {
+        if (!this.list.set.size) {
+            showMessage(langData.commandNotChoose, 3000)
+            return
+        }
+        return `gmh://${this.list.toBase64()}!`
     }
 }
 
@@ -70,3 +81,13 @@ saveButton.addEventListener('click', e => worktop.save())
 
 const executeButton = document.getElementById('worktop-execute')
 executeButton.addEventListener('click', e => worktop.execute())
+
+const worktopCopyBtn = document.getElementById('worktop-copy')
+worktopCopyBtn.addEventListener('click', e => {
+    worktop.list.copyCommand()
+})
+
+const worktopShareBtn = document.getElementById('worktop-share')
+worktopShareBtn.addEventListener('click', e => {
+    console.log(worktop.export())
+})

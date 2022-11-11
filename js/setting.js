@@ -1,4 +1,5 @@
 import { Icon, SideBar } from "./ui.js"
+import { config } from "./init.js"
 
 const settingIcon = new Icon('setting-icon')
 const settingBar = new SideBar('setting-bar')
@@ -7,5 +8,7 @@ settingIcon.show()
 
 export { settingBar }
 
-// iconObj.onShow(()=>{console.log('show')})
-// iconObj.onClose(()=>{console.log('close')})
+export const authorInputElement = document.getElementById('export-author')
+authorInputElement.addEventListener('change', e => {
+    config.author = e.target.value
+})

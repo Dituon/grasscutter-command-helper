@@ -39,7 +39,14 @@ export let langData = {
 
     commandEmpty: '指令不能为空',
     commandExecuted: '指令已执行',
-    commandExecuteFail: '指令执行失败'
+    commandExecuteFail: '指令执行失败',
+
+    commandImportSuccess: '指令导入成功',
+    commandImportFail: '指令导入失败',
+    commandExportSuccess: '指令导出成功, 已输出至剪切板',
+
+    commandNotChoose: '未选择任何指令',
+    commandUnmaned: '未命名'
 }
 
 export const initLang = () => {
