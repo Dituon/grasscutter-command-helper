@@ -272,7 +272,7 @@ function spider(langObj) {
                 })
 
                 requestList.push(id == 5 ?
-                    getArtifactChindren(item.entry_page_id, itemObj)
+                    getArtifactChildren(item.entry_page_id, itemObj)
                     : itemObj
                 )
             })
@@ -281,7 +281,7 @@ function spider(langObj) {
         })
     }
 
-    async function getArtifactChindren(id, target) {
+    async function getArtifactChildren(id, target) {
         return fetch(
             `https://sg-wiki-api-static.hoyolab.com/hoyowiki/wapi/entry_page?entry_page_id=${id}`,
             fetchParam()
