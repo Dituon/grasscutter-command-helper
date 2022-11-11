@@ -6,7 +6,7 @@
  * @typedef {import('./command-parser.js').CommandGroupDTO} CommandGroupDTO
  */
 
-import { getCommandById } from './command-loader.js'
+import { getCommandByIdAsync } from './command-loader.js'
 import { CommandGroup } from './command-parser.js'
 import { localCommandGroupList } from './init.js'
 import { langData } from './lang-loader.js'
@@ -74,9 +74,10 @@ class CommandMenu {
 
         commandGroup.list.forEach(commandDTO => {
             const commandElement = document.createElement('div')
-            const commandVO = getCommandById(commandDTO.id)
-            commandElement.appendCommand(commandVO.head, commandVO.label)
-            details.appendChild(commandElement)
+            getCommandByIdAsync(commandDTO.id).then(commandVO => {
+                commandElement.appendCommand(commandVO.head, commandVO.label)
+                details.appendChild(commandElement)
+            })
         })
 
         const deleteButton = document.createElement('div')

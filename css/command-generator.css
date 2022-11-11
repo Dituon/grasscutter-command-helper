@@ -262,6 +262,24 @@
     font-weight: 600;
 }
 
+#modal-srarch-setting {
+    padding: 0.4em;
+    border-bottom: 2px solid var(--bg);
+}
+
+#modal-srarch-setting details>div {
+    padding-bottom: 0.2em;
+    border-bottom: 2px dashed var(--bg);
+}
+
+#modal-srarch-setting p {
+    margin: 0 0.4em 0.6em
+}
+
+#modal-srarch-setting .command-head {
+    margin: 4px 8px;
+}
+
 #mask {
     width: 100vw;
     height: 100vh;
@@ -336,7 +354,7 @@
         padding: 1em 0.4em;
     }
 
-    #output{
+    #output {
         padding: 0 0 4em 0;
     }
 }

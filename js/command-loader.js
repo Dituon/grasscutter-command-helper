@@ -21,16 +21,22 @@ const getCommandList = () =>
 /** @type { Map<string, CommandVO> } */
 export const commandMap = new Map()
 
-getCommandList().then(commandList => {
-    commandList.forEach(command => commandMap.set(command.id, command))
-})
+/** @return { Promise<CommandVO> } */
+const getCommandByIdAsync = async id => {
+    return getCommandList().then(commandList => {
+        commandList.forEach(command => commandMap.set(command.id, command))
+        return commandMap.get(id)
+    })
+}
+
+getCommandByIdAsync()
 
 /** @return { CommandVO } */
 const getCommandById = id => {
     return commandMap.get(id)
 }
 
-export { getCommandList, getCommandById }
+export { getCommandList, getCommandById, getCommandByIdAsync }
 
 /** 
  * @param { string } version 
@@ -85,7 +91,6 @@ const loadCommand = commandList => {
 
         commandElement.addEventListener('click', e => {
             radio.checked = true
-            // console.log(command)
             loadParam(command)
         })
     })

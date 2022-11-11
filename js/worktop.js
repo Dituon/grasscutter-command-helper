@@ -2,7 +2,7 @@ import { menu } from "./command-menu.js"
 import { CommandGroup } from "./command-parser.js"
 import { Icon, SideBar } from "./ui.js"
 import { server, execCommand } from "./remote-execute.js"
-import { getCommandById } from "./command-loader.js"
+import { getCommandByIdAsync } from "./command-loader.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -34,8 +34,9 @@ class Worktop {
             div.remove()
         })
         div.appendChild(deleteButton)
-        const commandVO = getCommandById(commandDTO.id)
-        div.appendCommand(commandVO.head, commandVO.label)
+        getCommandByIdAsync(commandDTO.id).then(commandVO => {
+            div.appendCommand(commandVO.head, commandVO.label)
+        })
         div.command = commandDTO
         commandList.appendChild(div)
     }

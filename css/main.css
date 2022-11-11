@@ -52,7 +52,7 @@ select {
     font-weight: bold;
 }
 
-summary {
+details summary {
     font-size: larger;
     font-weight: bold;
 }
@@ -61,13 +61,30 @@ details[open] summary {
     margin-bottom: 0.6em;
 }
 
+details[open] summary~* {
+    animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .button-group {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.button-group > div ,.button-group-item{
+.button-group>div,
+.button-group-item {
     height: 2em;
     padding: 0 .5em;
 
@@ -80,11 +97,11 @@ details[open] summary {
     transition: all .6s;
 }
 
-.button-group > div:focus {
+.button-group>div:focus {
     background: hsla(0, 0%, 80%, .14);
 }
 
-.button-group > div:hover{
+.button-group>div:hover {
     color: var(--text-hover);
     background: var(--hl-text-hover);
 }
@@ -113,7 +130,7 @@ details[open] summary {
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #242629;
-        --bg-focus:#3d4046;
+        --bg-focus: #3d4046;
         --text: #fffffe;
         --text-hover: #fffffed2;
         --sub-bg: #16161a;
@@ -121,6 +138,12 @@ details[open] summary {
         --card-bg: #7f5af0;
         --hl-text: #2cb67d;
         --hl-text-hover: #2cb67dd2;
-        --placeholder:#696f7a;
+        --placeholder: #696f7a;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    summary {
+        padding-left: 0.2em;
     }
 }
