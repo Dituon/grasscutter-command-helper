@@ -47,6 +47,7 @@
 }
 
 .param {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     white-space: nowrap;
@@ -55,6 +56,7 @@
 }
 
 .param span {
+    margin-right: 0.4em;
     font-size: 0.9em;
 }
 
@@ -76,7 +78,7 @@
 }
 
 .param select {
-    width: 70%;
+    width: 100%;
     font-weight: 400;
     padding-left: 0.6rem;
 }
@@ -130,11 +132,6 @@
 
 #command-search {
     margin: 0 1em;
-    padding: 10px;
-    padding-top: 0;
-}
-
-#command-version {
     padding: 10px;
     padding-top: 0;
 }
@@ -216,7 +213,6 @@
     opacity: 1.0;
     overflow: hidden;
     box-shadow: #333 5px 5px 5px;
-    /* box-shadow: 0 0 calc ((var(--elevation) * 0.225px) + 2px) rgba(0, 0, 0, calc(0.11 * (2 - var(--background-luminance, 1))), 0 calc(var(--elevation) * 0.4px) calc((var(--elevation) * 0.9px)) rgba(0, 0, 0, calc(0.13 * (2 - var(--background-luminance, 1)))); */
     border: 5px solid var(--sub-bg);
     border-radius: 12px;
 }

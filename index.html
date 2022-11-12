@@ -35,7 +35,7 @@
                 <div id="list">
                     <div id="command-list-title">
                         <h2 bind="command-list">指令列表</h2>
-                        <div id="list-hide">🙈</div>
+                        <div id="list-hide">📌</div>
                     </div>
                     <div id="command-search">
                         <span bind="command-search">指令搜索: </span>
@@ -101,19 +101,34 @@
     </div>
 
     <div id="setting-bar" class="side-bar">
-        <div id="command-version">
-            <span bind="command-version-select">指令版本</span>
-            <select id="command-version-select">
-                <option value="1.2.1">1.2.1</option>
-                <option value="1.4.2">1.4.2</option>
-            </select>
+        <div id="global-setting">
+            <div class="param">
+                <span bind="command-version-select">指令版本</span>
+                <div>
+                    <select id="command-version-select">
+                        <option value="1.2.1">1.2.1</option>
+                        <option value="1.4.2">1.4.2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="param">
+                <span bind="lang-select">语言设置</span>
+                <div>
+                    <select id="lang-select">
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div id="remote-execute">
             <h3 bind="remote-execute">远程执行</h3>
-            <div>
+            <div class="param">
                 <span bind="remote-host">服务器地址</span>
-                <input id="remote-host" bind="remote-host-input" bind-target="placeholder" contenteditable="true"></input>
+                <div>
+                    <input id="remote-host" bind="remote-host-input" bind-target="placeholder"
+                        contenteditable="true"></input>
+                </div>
+
             </div>
             <div class="hide">
                 <span bind="remote-server-version">游戏版本：</span>
@@ -122,14 +137,25 @@
                 <span id="remote-player-count"></span>
             </div>
             <div id="server-verify" class="hide">
-                <span bind="remote-uid">UID</span>
-                <span id="remote-uid" bind="remote-uid-input" bind-target="placeholder" contenteditable="true"></span>
+                <div class="param">
+                    <span bind="remote-uid">UID</span>
+                    <div>
+                        <input id="remote-uid" bind="remote-uid-input" bind-target="placeholder"
+                            contenteditable="true"></input>
+                    </div>
+                </div>
                 <div class="button-group">
                     <div id="send-verifycode">发送验证码</div>
+                    <div id="import-token">导入token</div>
                 </div>
-                <br>
-                <span bind="remote-verifycode">验证码</span>
-                <input id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder" contenteditable="true"></input>
+                <div class="param">
+                    <span bind="remote-verifycode">验证码</span>
+                    <div>
+                        <input id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder"
+                            contenteditable="true"></input>
+                    </div>
+                </div>
+
             </div>
             <div id="remote-execute-status" bind="remote-execute-status-default">
                 未指定服务器
@@ -138,8 +164,12 @@
 
         <div>
             <h3 bind="export-setting">导出设置</h3>
-            <span bind="export-author">作者</span>
-            <input id="export-author" bind="export-author-input" bind-target="placeholder">
+            <div class="param">
+                <span bind="export-author">作者</span>
+                <div>
+                    <input id="export-author" bind="export-author-input" bind-target="placeholder">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -161,6 +191,10 @@
         }
 
     </script> -->
+
+    <!-- <span style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        Xmmt 指令助手 测试版 不代表最终质量
+    </span> -->
 </body>
 
 </html>

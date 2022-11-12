@@ -62,7 +62,7 @@
     line-height: 2.4em;
     border-radius: 50%;
     cursor: pointer;
-    background: #20855b;
+    background: var(--hl-text);
 }
 
 .menu-icon-show {

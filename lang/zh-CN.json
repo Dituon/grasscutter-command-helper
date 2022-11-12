@@ -1,5 +1,5 @@
 {
-    "title": "xmmt.Genshin 指令生成器 (旧版)",
+    "title": "Xmmt.Genshin 指令助手",
 
     "command-list": "指令列表",
     "command-search": "搜索指令",
@@ -9,7 +9,7 @@
     "output-result": "生成结果",
     "output-tips": "点击复制",
 
-    "command-version-select": "指令版本",
+    "command-version-select": "🗃指令版本",
 
     "command-group": "指令组",
     "command-group-title": "标题",
@@ -18,9 +18,9 @@
 
     "loading": "正在加载...",
 
-    "remote-host": "服务器地址",
+    "remote-host": "🎮地址",
     "remote-host-input": "🔗 https://",
-    "remote-execute": "远程执行",
+    "remote-execute": "📡远程执行",
     "remote-server-version": "游戏版本：",
     "remote-player-count": "在线人数：",
     "remote-uid": "UID",
@@ -29,7 +29,9 @@
     "remote-verifycode": "验证码",
     "remote-verifycode-input": "📟聊天框返回四位数字",
 
-    "export-setting": "导出设置",
-    "export-author": "🤴作者",
-    "export-author-input": "可空"
+    "export-setting": "💡导出设置",
+    "export-author": "💌作者",
+    "export-author-input": "可空",
+
+    "lang-select": "🌐语言设置"
 }

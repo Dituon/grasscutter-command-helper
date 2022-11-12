@@ -16,6 +16,25 @@
     overflow-y: auto;
 }
 
+.side-bar > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0.8em;
+    width: 90%;
+    border-bottom: 2px dashed var(--bg);
+}
+
+.side-bar > div > div {
+    margin-bottom: 0.4em;
+    width: 100%;
+}
+
+.side-bar h3 {
+    margin: 0 0 1em;
+    text-align: center;
+}
+
 @media screen and (max-width: 650px) {
     .side-bar {
         padding: 0;

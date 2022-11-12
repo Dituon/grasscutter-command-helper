@@ -98,9 +98,10 @@ HTMLElement.prototype.injectCommand = function (head, label) {
 }
 
 HTMLElement.prototype.appendTag = function (...tags) {
+    if (!tags?.length) return
     const that = this
     tags.forEach(tag => {
-        that.appendPreTag(tag)
+        tag && that.appendPreTag(tag)
     })
 }
 
