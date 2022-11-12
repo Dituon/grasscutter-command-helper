@@ -46,7 +46,7 @@ const propDataList = getRawGroup('PropData').split('\n')
     })
 
 langList.forEach(lang => {
-    const dir = `./data/${lang.hoyolab}`
+    const dir = `./data/${lang.navigator}`
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
 
     fs.readFile(`./Resources/TextMap/TextMap${lang.handbook}.json`, 'utf-8', (err, raw) => {
@@ -64,7 +64,7 @@ langList.forEach(lang => {
         })
 
         fs.writeFile(
-            `./data/${lang.hoyolab}/mainPropList.json`,
+            `./data/${lang.navigator}/mainPropList.json`,
             JSON.stringify([...propMap.values()]),
             writeLog
         )
@@ -90,7 +90,7 @@ langList.forEach(lang => {
         })
 
         fs.writeFile(
-            `./data/${lang.hoyolab}/propDataList.json`,
+            `./data/${lang.navigator}/propDataList.json`,
             JSON.stringify([...propMap.values()]),
             writeLog
         )

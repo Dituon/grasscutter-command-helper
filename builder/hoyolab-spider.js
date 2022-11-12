@@ -9,16 +9,17 @@ import fs from 'fs'
 import { langList, menuIndex, writeLog } from './config.js'
 import { parseHandbook } from './handbook-parser.js'
 
-// langList.forEach(lang => {
-//     spider(lang.hoyolab)
-// })
+langList.forEach(lang => {
+    spider(lang)
+})
 
-spider(
-    { hoyolab: 'zh-cn', handbook: 'CHS', navigator: 'zh-CN' }
-)
+// spider(
+//     { hoyolab: 'zh-cn', handbook: 'CHS', navigator: 'zh-CN' }
+// )
 
 function spider(langObj) {
     const lang = langObj.hoyolab
+    const outputLang = langObj.navigator
     const dir = `./data/${lang}`
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
@@ -67,7 +68,7 @@ function spider(langObj) {
 
         Promise.all(menuPromiseList).then(() => {
             fs.writeFile(
-                `./data/${lang}/menu.json`,
+                `./data/${outputLang}/menu.json`,
                 JSON.stringify(menuList),
                 writeLog
             )
@@ -215,7 +216,7 @@ function spider(langObj) {
 
                 Object.values(op).forEach(obj => {
                     fs.writeFile(
-                        `./data/${lang}/${obj.name}.json`,
+                        `./data/${outputLang}/${obj.name}.json`,
                         JSON.stringify(obj.list),
                         writeLog
                     )
