@@ -1,5 +1,6 @@
 import { getCommandById } from "./command-loader.js"
 import { config } from "./init.js"
+import { execCommand } from "./remote-execute.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -181,3 +182,8 @@ const buildCommand = (outputCommand, outputArea) => {
 }
 
 export { OutputCommandList, OutputCommand, OutputParam, buildCommand }
+
+const commandExecBtn = document.getElementById('command-exec')
+commandExecBtn.addEventListener('click', e => {
+    execCommand([defaultOutputArea.command.getDTO()])
+})

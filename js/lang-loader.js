@@ -24,6 +24,7 @@ export let langData = {
     chooseCommandFirst: '请先选择指令',
     showFilter: '展开 / 收起  过滤器',
 
+    commandPushed: '已添加至指令组',
     serverNotDefined: '未指定服务器',
     gettingServerInfo: '正在获取服务器信息...',
     getServerInfoSuccess: '获取成功',
@@ -32,10 +33,13 @@ export let langData = {
     serverNotSupport: '服务器不支持远程执行',
     cannotConnectServer: '无法连接到服务器',
     unboundPlayer: '未绑定玩家',
+    playerNotFound: '未找到玩家',
+    requestsTooFrequent: '请求过于频繁',
     verifycodeSended: '验证码已发送',
     verifycodeError: '验证码错误',
-    playerVerifySuccess: '账户验证成功',
-    playerVerifyFail: '账户验证失败',
+    verifySuccess: '账户验证成功',
+    verifyFail: '账户验证失败',
+    playerBound: '已绑定UID: $UID', 
 
     commandEmpty: '指令不能为空',
     commandExecuted: '指令已执行',
@@ -46,7 +50,9 @@ export let langData = {
     commandExportSuccess: '指令导出成功, 已输出至剪切板',
 
     commandNotChoose: '未选择任何指令',
-    commandUnmaned: '未命名'
+    commandUnmaned: '未命名',
+
+    unknowError: '未知错误, 请提交issue反馈'
 }
 
 export const initLang = () => {

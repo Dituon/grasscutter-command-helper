@@ -100,6 +100,7 @@ function spider(langObj) {
                 const artifactIdsMap = new Map()
 
                 handbook.items.forEach(item => {
+                    if (item.name.includes('[N/A]')) return
                     let id = item.id
                     if (id >= 10000000 && id < 11000000) { //Avatar 角色
                         injectInfo(item)
@@ -142,7 +143,6 @@ function spider(langObj) {
                     ) {
                         op.sereniteaPot.list.push(item)
                     } else if (id >= 20010100 && id < 35320000) { // Entity&Monster 实体 怪物
-                        if (item.name.includes('[N/A]')) return
                         if (item.name.toLowerCase().includes('test')) {
                             if (!item.filter) item.filter = []
                             item.filter.push('Test')

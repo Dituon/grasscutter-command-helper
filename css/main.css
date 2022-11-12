@@ -87,7 +87,9 @@ details[open] summary~* {
 .button-group>div,
 .button-group-item {
     height: 2em;
-    padding: 0 .5em;
+    padding: 0 0.5em;
+    font-size: 0.9em;
+    font-weight: bold;
 
     text-align: center;
     border-radius: 4px;
@@ -95,7 +97,7 @@ details[open] summary~* {
     line-height: 2em;
     background-color: var(--hl-text);
 
-    transition: all .6s;
+    transition: all 0.6s;
 }
 
 .button-group>div:focus {
@@ -104,7 +106,7 @@ details[open] summary~* {
 
 .button-group>div:hover {
     color: var(--text-hover);
-    background: var(--hl-text-hover);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .hide {

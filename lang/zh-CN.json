@@ -11,6 +11,8 @@
 
     "command-version-select": "🗃指令版本",
 
+    "command-execute": "📡远程执行",
+    "command-push": "📦添加指令组",
     "command-group": "指令组",
     "command-group-title": "标题",
     "command-group-title-input": "✨ 言简意赅 令人印象深刻",
@@ -26,8 +28,9 @@
     "remote-uid": "UID",
     "remote-uid-input": "👋 通常为几位数字",
     "remote-execute-status-default": "未指定服务器",
-    "remote-verifycode": "验证码",
-    "remote-verifycode-input": "📟聊天框返回四位数字",
+    "remote-verifycode": "📟 验证码",
+    "check-verifycode": "验证",
+    "remote-verifycode-input": "聊天框返回四位数字",
 
     "export-setting": "💡导出设置",
     "export-author": "💌作者",

@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-#worktop-title{
+#worktop-title {
     width: 15em;
 }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
 }
 
-#worktop-command-list>.card>div{
+#worktop-command-list>.card>div {
     margin: 0 .5em;
 }
 
@@ -34,9 +34,9 @@
     background: transparent;
     outline: none;
     color: var(--text);
-    border-radius: 4px;    
+    border-radius: 4px;
     border: solid 1px;
-    
+
     transition: all 0.2s ease-out;
 }
 

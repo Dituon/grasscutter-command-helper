@@ -1,8 +1,9 @@
 import { menu } from "./command-menu.js"
 import { CommandGroup } from "./command-parser.js"
-import { Icon, SideBar } from "./ui.js"
+import { Icon, showMessage, SideBar } from "./ui.js"
 import { server, execCommand } from "./remote-execute.js"
 import { getCommandByIdAsync } from "./command-loader.js"
+import { langData } from "./lang-loader.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
@@ -50,6 +51,7 @@ class Worktop {
     }
 
     execute() {
+        console.log(this.list.getList())
         execCommand(this.list.getList())
     }
 
@@ -75,6 +77,7 @@ pushButton.addEventListener('click', e => {
     /** @type { CommandDTO } */
     const commandDTO = outputArea.command.getDTO()
     worktop.pushCommand(commandDTO)
+    showMessage(langData.commandPushed)
 })
 
 const saveButton = document.getElementById('worktop-save')

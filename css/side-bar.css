@@ -14,6 +14,7 @@
     align-items: center;
 
     overflow-y: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .side-bar > div {

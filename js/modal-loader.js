@@ -207,7 +207,7 @@ class ModalSelect {
 
                 let id = child.id ?? child.ids[0]
 
-                div.appendTag(child?.type)
+                div.appendTag(child.type)
                 div.appendCommand(id, child.name)
                 details.appendChild(div)
 

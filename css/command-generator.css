@@ -194,7 +194,8 @@
 
 .modal-select-item {
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.4s;
+    color: var(--text);
 }
 
 .modal-select-item:hover {

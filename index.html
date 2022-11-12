@@ -57,7 +57,8 @@
                     <span id="output-span" bind="output-tips" bind-target="title" title="点击复制"></span>
                 </div>
                 <div class="button-group">
-                    <div id="command-push">push to worktop</div>
+                    <div id="command-exec" bind="command-execute">远程执行</div>
+                    <div id="command-push" bind="command-push">push to worktop</div>
                 </div>
             </div>
         </div>
@@ -84,9 +85,11 @@
 
         <h3 bind="command-group">Command Group</h3>
         <div id="worktop-head">
-            <div>
+            <div class="param">
                 <span bind="command-group-title">Title: </span>
-                <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
+                <div>
+                    <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
+                </div>
             </div>
             <textarea id="worktop-description" bind="command-group-description-input"
                 bind-target="placeholder"></textarea>
@@ -130,7 +133,7 @@
                 </div>
 
             </div>
-            <div class="hide">
+            <div id="server-info" class="hide">
                 <span bind="remote-server-version">游戏版本：</span>
                 <span id="remote-server-version"></span><br>
                 <span bind="remote-player-count">在线人数：</span>
@@ -140,7 +143,7 @@
                 <div class="param">
                     <span bind="remote-uid">UID</span>
                     <div>
-                        <input id="remote-uid" bind="remote-uid-input" bind-target="placeholder"
+                        <input type="number" id="remote-uid" bind="remote-uid-input" bind-target="placeholder"
                             contenteditable="true"></input>
                     </div>
                 </div>
@@ -151,8 +154,11 @@
                 <div class="param">
                     <span bind="remote-verifycode">验证码</span>
                     <div>
-                        <input id="remote-verifycode" bind="remote-verifycode-input" bind-target="placeholder"
-                            contenteditable="true"></input>
+                        <input type="number" id="remote-verifycode" bind="remote-verifycode-input"
+                            bind-target="placeholder" contenteditable="true" min="1000" max="9999"></input>
+                        <div class="button-group">
+                            <div bind="check-verifycode" id="check-verifycode">验证</div>
+                        </div>
                     </div>
                 </div>
 
