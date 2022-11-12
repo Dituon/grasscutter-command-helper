@@ -1,7 +1,48 @@
 [
   {
+    "id": "getAll",
+    "head": "/give all",
+    "label": "获取所有物品",
+    "params": [
+      {
+        "head": "lv",
+        "type": "number",
+        "name": "等级",
+        "value": 90,
+        "max": "200",
+        "min": "1",
+        "required": false
+      },
+      {
+        "head": "r",
+        "type": "number",
+        "name": "精炼等阶",
+        "value": 5,
+        "max": "5",
+        "min": "1",
+        "required": false
+      },
+      {
+        "head": "c",
+        "type": "number",
+        "name": "命座",
+        "value": 6,
+        "max": "6",
+        "min": "1",
+        "required": false
+      },
+      {
+        "head": "x",
+        "type": "number",
+        "name": "物品数量",
+        "value": 9999,
+        "required": false
+      }
+    ]
+  },
+  {
     "id": "getArtifact",
-    "head": "/gart",
+    "head": "/give",
     "label": "获取一个自定义词条的圣遗物",
     "params": [
       {
@@ -67,76 +108,13 @@
         }
       },
       {
+        "head": "lv",
         "type": "number",
         "name": "等级",
         "max": 21,
         "min": 1,
         "value": 21,
         "required": true
-      }
-    ]
-  },
-  {
-    "id": "spawnEnitiy",
-    "head": "/spawn",
-    "label": "生成动物",
-    "params": [
-      {
-        "type": "entityList",
-        "required": true,
-        "name": "实体ID",
-        "value": {
-          "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
-        }
-      },
-      {
-        "type": "number",
-        "name": "数量",
-        "value": 1,
-        "min": 1,
-        "max": 99999999,
-        "required": false
-      },
-      {
-        "type": "number",
-        "name": "等级",
-        "value": 200,
-        "max": 200,
-        "min": 1,
-        "required": false
-      }
-    ]
-  },
-  {
-    "id": "spawnMonster",
-    "head": "/spawn",
-    "label": "生成怪物",
-    "params": [
-      {
-        "type": "monsterList",
-        "required": true,
-        "name": "实体ID",
-        "value": {
-          "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
-        }
-      },
-      {
-        "type": "number",
-        "name": "数量",
-        "value": 1,
-        "min": 1,
-        "max": 99999999,
-        "required": false
-      },
-      {
-        "type": "number",
-        "name": "等级",
-        "value": 200,
-        "max": 200,
-        "min": 1,
-        "required": false
       }
     ]
   },
@@ -155,12 +133,14 @@
         "required": true
       },
       {
+        "head": "x",
         "type": "number",
         "name": "物品数量",
         "value": 1,
         "required": false
       },
       {
+        "head": "lv",
         "type": "number",
         "name": "物品等级",
         "value": 1,
@@ -170,7 +150,7 @@
   },
   {
     "id": "giveChar",
-    "head": "/givechar",
+    "head": "/give",
     "label": "获取一个角色",
     "params": [
       {
@@ -183,10 +163,20 @@
         "required": true
       },
       {
+        "head": "lv",
         "type": "number",
         "name": "等级",
         "value": 90,
         "max": 90,
+        "min": 1,
+        "required": false
+      },
+      {
+        "head": "x",
+        "type": "number",
+        "name": "命座",
+        "value": 6,
+        "max": 6,
         "min": 1,
         "required": false
       }
@@ -207,15 +197,51 @@
         "required": true
       },
       {
+        "head": "x",
         "type": "number",
         "name": "物品数量",
         "value": 1,
         "required": false
       },
       {
+        "head": "lv",
         "type": "number",
         "name": "物品等级",
         "value": 90,
+        "required": false
+      },
+      {
+        "head": "r",
+        "type": "number",
+        "name": "精炼等阶",
+        "value": 5,
+        "max": 5,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "head": "/give",
+    "id": "give",
+    "label": "获取命座",
+    "params": [
+      {
+        "type": "avatarConstellation",
+        "name": "角色命座",
+        "value": {
+          "value": "1102",
+          "label": "神里绫华的命星"
+        },
+        "required": true
+      },
+      {
+        "head": "x",
+        "type": "number",
+        "name": "数量",
+        "value": 6,
+        "max": 6,
+        "min": 1,
         "required": false
       }
     ]
@@ -238,25 +264,76 @@
         "type": "number",
         "name": "等级",
         "value": 10,
-        "max": 99999,
+        "max": 13,
         "min": 1,
         "required": true
       }
     ]
   },
   {
-    "head": "/give",
-    "id": "give",
-    "label": "获取命座",
+    "id": "spawnEnitiy",
+    "head": "/spawn",
+    "label": "生成动物",
     "params": [
       {
-        "type": "avatarConstellation",
-        "name": "角色命座",
+        "type": "entityList",
+        "required": true,
+        "name": "实体ID",
         "value": {
-          "value": "/give 1102 6",
-          "label": "神里绫华的命星"
-        },
-        "required": true
+          "value": "28010101",
+          "label": "黄金蟹"
+        }
+      },
+      {
+        "head": "x",
+        "type": "number",
+        "name": "数量",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "head": "lv",
+        "type": "number",
+        "name": "等级",
+        "max": 200,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "spawnMonster",
+    "head": "/spawn",
+    "label": "生成怪物",
+    "params": [
+      {
+        "type": "monsterList",
+        "required": true,
+        "name": "实体ID",
+        "value": {
+          "value": "24010109",
+          "label": "遗迹守卫（血特别多）"
+        }
+      },
+      {
+        "head": "x",
+        "type": "number",
+        "name": "数量",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "head": "lv",
+        "type": "number",
+        "name": "等级",
+        "value": 200,
+        "max": 200,
+        "min": 1,
+        "required": false
       }
     ]
   },
@@ -275,6 +352,7 @@
         "required": true
       },
       {
+        "head": "x",
         "type": "number",
         "name": "物品数量",
         "value": 1,
@@ -283,41 +361,98 @@
     ]
   },
   {
-    "id": "getAll",
-    "head": "/giveall",
-    "label": "获取所有物品",
+    "id": "setStamina",
+    "head": "/prop nostamina",
+    "label": "无限体力",
     "params": [
       {
-        "type": "string",
-        "name": "用户ID(ID前面需要加@)",
-        "required": false
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
       }
     ]
   },
   {
-    "id": "setFetter",
-    "head": "/setfetterlevel",
-    "label": "设置当前上场角色的好感级别",
+    "id": "setUnlimitEnergy",
+    "head": "/prop unlimitenergy",
+    "label": "无限能量",
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "unlockTower",
+    "head": "/prop unlocktower",
+    "label": "解锁深境回廊",
     "params": [
       {
         "type": "number",
-        "name": "好感级别",
-        "value": 10,
-        "max": 10,
+        "name": "深渊层数",
+        "value": 12,
+        "max": 12,
         "min": 1,
         "required": true
       }
     ]
   },
   {
-    "id": "getPos",
-    "head": "/pos",
-    "label": "获取当前所在坐标及场景id",
-    "params": []
+    "id": "godmode",
+    "head": "/prop godmode",
+    "label": "不受伤害（无敌）",
+    "params": [
+      {
+        "type": "select",
+        "name": "状态",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "开启",
+            "关闭",
+            "切换"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "setWotldLevel",
-    "head": "/setworldlevel",
+    "head": "/prop worldlevel",
     "label": "设置世界等级",
     "params": [
       {
@@ -331,8 +466,23 @@
     ]
   },
   {
+    "id": "setFetter",
+    "head": "/setfetterlvl",
+    "label": "设置当前上场角色的好感级别",
+    "params": [
+      {
+        "type": "number",
+        "name": "好感级别",
+        "value": 10,
+        "max": 10,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "setStats",
-    "head": "/setstats",
+    "head": "/stats",
     "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
     "params": [
       {
@@ -351,6 +501,24 @@
         "max": 99999999999999,
         "min": 0,
         "required": true
+      },
+      {
+        "type": "select",
+        "name": "数值锁定",
+        "value": "",
+        "required": false,
+        "data": {
+          "value": [
+            "",
+            "lock",
+            "unlock"
+          ],
+          "label": [
+            "空",
+            "锁定",
+            "解锁"
+          ]
+        }
       }
     ]
   },
@@ -394,12 +562,6 @@
     ]
   },
   {
-    "id": "godmode",
-    "head": "/godmode",
-    "label": "不受伤害（无敌）",
-    "params": []
-  },
-  {
     "id": "heal",
     "head": "/heal",
     "label": "治疗队伍中所有角色",
@@ -411,10 +573,16 @@
     "params": [
       {
         "type": "sceneList",
-        "name": "世界",
+        "name": "生物",
         "required": false
       }
     ]
+  },
+  {
+    "id": "killCharacter",
+    "head": "/killcharacter",
+    "label": "杀死当前角色",
+    "params": []
   },
   {
     "id": "list",
@@ -424,8 +592,45 @@
   },
   {
     "id": "resetConst",
-    "head": "/resetconst",
+    "head": "/resetConst",
     "label": "重置当前角色的命座",
+    "params": []
+  },
+  {
+    "id": "setConst",
+    "head": "/setConst",
+    "label": "设定当前角色命座",
+    "params": [
+      {
+        "type": "number",
+        "name": "命座数量",
+        "value": 1,
+        "max": 6,
+        "min": 1,
+        "required": true
+      },
+      {
+        "type": "select",
+        "name": "全部角色",
+        "value": "",
+        "required": false,
+        "data": {
+          "value": [
+            "",
+            "all"
+          ],
+          "label": [
+            "空",
+            "全部角色"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "getPos",
+    "head": "/pos",
+    "label": "获取当前所在坐标及场景id",
     "params": []
   },
   {
@@ -460,18 +665,6 @@
       {
         "type": "sceneList",
         "name": "世界（场景）",
-        "required": false
-      }
-    ]
-  },
-  {
-    "id": "killCharacter",
-    "head": "/killcharacter",
-    "label": "杀死当前角色",
-    "params": [
-      {
-        "type": "string",
-        "name": "用户ID(ID前面需要加@)",
         "required": false
       }
     ]
@@ -523,62 +716,6 @@
         }
       }
     ]
-  },
-  {
-    "id": "setStamina",
-    "head": "/nostamina",
-    "label": "无限体力",
-    "params": [
-      {
-        "type": "select",
-        "name": "状态",
-        "value": "on",
-        "required": true,
-        "data": {
-          "value": [
-            "on",
-            "off",
-            "toggle"
-          ],
-          "label": [
-            "开启",
-            "关闭",
-            "切换"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id": "setUnlimitEnergy",
-    "head": "/unlimitenergy",
-    "label": "无限能量",
-    "params": [
-      {
-        "type": "select",
-        "name": "状态",
-        "value": "on",
-        "required": true,
-        "data": {
-          "value": [
-            "on",
-            "off",
-            "toggle"
-          ],
-          "label": [
-            "开启",
-            "关闭",
-            "切换"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id": "unlockTower",
-    "head": "/unlocktower",
-    "label": "解锁深境回廊",
-    "params": []
   },
   {
     "id": "quest",

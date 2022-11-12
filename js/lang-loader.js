@@ -13,49 +13,53 @@ export const supportedLang = [
 ]
 
 export let langData = {
-    loading: '加载中...',
-    loadSuccess: '加载成功',
-    loadFail: '加载失败',
-    placeholder: '请输入 ',
-    placechooser: '请选择 ',
-    noParam: '此命令无参数',
-    copySuccess: '复制成功',
-    copyFail: '复制失败, 请重试',
-    chooseCommandFirst: '请先选择指令',
-    showFilter: '展开 / 收起  过滤器',
+    loading: 'Loading...',
+    loadSuccess: 'Load Successfully',
+    loadFail: 'Load Failure',
 
-    commandPushed: '已添加至指令组',
-    serverNotDefined: '未指定服务器',
-    gettingServerInfo: '正在获取服务器信息...',
-    getServerInfoSuccess: '获取成功',
-    getServerInfoFail: '无法连接到远程服务器',
+    placeholder: 'place hold ',
+    placechooser: 'place choose ',
+    noParam: 'This command has no parameters',
 
-    serverNotSupport: '服务器不支持远程执行',
-    cannotConnectServer: '无法连接到服务器',
-    unboundPlayer: '未绑定玩家',
-    playerNotFound: '未找到玩家',
-    requestsTooFrequent: '请求过于频繁',
-    verifycodeSended: '验证码已发送',
-    verifycodeError: '验证码错误',
-    verifySuccess: '账户验证成功',
-    verifyFail: '账户验证失败',
-    playerBound: '已绑定UID: $UID', 
+    copySuccess: 'Copy Success',
+    copyFail: 'Copy Failure, Please try again',
+    chooseCommandFirst: 'Select the Command first',
+    showFilter: 'Filters',
+    commandPushed: 'Pushed to Worktop',
 
-    commandEmpty: '指令不能为空',
-    commandExecuted: '指令已执行',
-    commandExecuteFail: '指令执行失败',
+    serverNotDefined: 'Server not specified',
+    gettingServerInfo: 'Acquiring server information...',
+    getServerInfoSuccess: 'Server information acquire successfully',
+    getServerInfoFail: 'Cannot connect to server',
+    serverNotSupport: 'Server does not support Remote Execute',
+    cannotConnectServer: 'Cannot connect to server',
 
-    commandImportSuccess: '指令导入成功',
-    commandImportFail: '指令导入失败',
-    commandExportSuccess: '指令导出成功, 已输出至剪切板',
+    unboundPlayer: 'Player has not been bound',
+    playerNotFound: 'Player not found',
+    requestsTooFrequent: 'Requests too frequent',
 
-    commandNotChoose: '未选择任何指令',
-    commandUnmaned: '未命名',
+    verifycodeSended: 'Verifycode has been sent',
+    verifycodeError: 'Verifycode Error',
+    verifySuccess: 'Verification success',
+    verifyFail: 'Verification failure',
+    playerBound: 'Binded UID: $UID',
 
-    unknowError: '未知错误, 请提交issue反馈'
+    commandEmpty: 'Command cannot be Empty',
+    commandExecuted: 'Command has been executed',
+    commandExecuteFail: 'Command execution failed',
+
+    commandImportSuccess: 'Command import successful',
+    commandImportFail: 'Command import failure',
+    commandExportSuccess: 'Command exported successfully, check your clipboard',
+
+    commandNotChoose: 'No command selected',
+    commandUnmaned: 'Command Unnamed',
+
+    unknowError: 'No known errors, please submit issue'
 }
 
 export const initLang = () => {
+    console.log(config.lang)
     if (!config.lang) {
         const windowLang = navigator.language
         for (const lang of supportedLang) {
@@ -71,7 +75,7 @@ export const initLang = () => {
     }
 
     cacheModel.getUrl(`./lang/${config.lang}.json`).then(lang => {
-        // langData = lang
+        langData = lang
         document.querySelectorAll('[bind]').forEach(node => {
             const target = node.getAttribute('bind-target')
             const value = lang[node.getAttribute('bind')]
@@ -82,4 +86,17 @@ export const initLang = () => {
             node.innerHTML = value
         })
     })
+
+    const langSelectElement = document.getElementById('lang-select')
+    supportedLang.forEach(lang => {
+        const option = document.createElement('option')
+        option.innerHTML = lang.text
+        option.value = lang.id
+        langSelectElement.appendChild(option)
+    })
+    langSelectElement.value = config.lang
+    langSelectElement.onchange = e => {
+        config.lang = langSelectElement.value
+        setTimeout(()=>location.reload(), 1000)
+    }
 }

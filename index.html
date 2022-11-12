@@ -21,10 +21,10 @@
     <div id="app" class="hide">
         <div id="menu-list">
             <div class="button-group">
-                <div id="menu-execute">📡执行</div>
-                <div id="menu-copy">📋复制</div>
-                <div id="menu-import">📚导入</div>
-                <div id="menu-share">🔗分享</div>
+                <div id="menu-execute">📡Exec</div>
+                <div id="menu-copy">📋Copy</div>
+                <div id="menu-import">📚Import</div>
+                <div id="menu-share">🔗Share</div>
             </div>
             <div id="menu-hide" class="menu-icon-hide">🤏</div>
             <div id="saved-command-group"></div>
@@ -67,7 +67,7 @@
     <div id="mask"></div>
     <div id="modal-select">
         <div id="modal-search-bar">
-            <input placeholder="搜索(id/名称/分组名)" id="modal-search">
+            <input bind="modal-search-input" target="placeholder" placeholder="搜索(id/名称/分组名)" id="modal-search">
             <span id="modal-search-clear">🗑</span>
         </div>
         <div id="modal-srarch-setting"></div>
@@ -94,10 +94,10 @@
             <textarea id="worktop-description" bind="command-group-description-input"
                 bind-target="placeholder"></textarea>
             <div class="button-group">
-                <div id="worktop-save">💾保存</div>
-                <div id="worktop-copy">📋复制</div>
-                <div id="worktop-execute">📡执行</div>
-                <div id="worktop-share">🔗分享</div>
+                <div bind="save-btn" id="worktop-save">💾Save</div>
+                <div bind="copy-btn" id="worktop-copy">📋Copy</div>
+                <div bind="exec-btn" id="worktop-execute">📡Exec</div>
+                <div bind="share-btn" id="worktop-share">🔗Share</div>
             </div>
         </div>
         <div id="worktop-command-list"></div>
@@ -197,10 +197,6 @@
         }
 
     </script> -->
-
-    <!-- <span style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        Xmmt 指令助手 测试版 不代表最终质量
-    </span> -->
 </body>
 
 </html>
