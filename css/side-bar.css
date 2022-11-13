@@ -17,7 +17,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.side-bar > div {
+.side-bar>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,7 @@
     border-bottom: 2px dashed var(--bg);
 }
 
-.side-bar > div > div {
+.side-bar>div>div {
     margin-bottom: 0.4em;
     width: 100%;
 }

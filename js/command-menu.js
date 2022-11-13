@@ -74,10 +74,8 @@ class CommandMenu {
 
         commandGroup.list.forEach(commandDTO => {
             const commandElement = document.createElement('div')
-            getCommandByIdAsync(commandDTO.id).then(commandVO => {
-                commandElement.appendCommand(commandVO.head, commandVO.label)
-                details.appendChild(commandElement)
-            })
+            commandElement.renderCommandDTO(commandDTO)
+            details.appendChild(commandElement)
         })
 
         const deleteButton = document.createElement('div')

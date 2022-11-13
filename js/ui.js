@@ -107,14 +107,14 @@ HTMLElement.prototype.appendTag = function (...tags) {
 
 /** 
  * @param {string} tag 
- * @param {Function} [lintener]
+ * @param {Function} [listener]
  */
-HTMLElement.prototype.appendPreTag = function (tag, lintener) {
+HTMLElement.prototype.appendPreTag = function (tag, listener) {
     const headElement = document.createElement('span')
     headElement.className = 'command-head'
     headElement.innerHTML = tag
     this.appendChild(headElement)
-    if (lintener) headElement.addEventListener('click', lintener)
+    if (listener) headElement.addEventListener('click', listener)
 }
 
 class Icon {

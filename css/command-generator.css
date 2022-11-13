@@ -247,13 +247,6 @@
     align-items: center;
 }
 
-#modal-select-data div>img {
-    width: 2.4em;
-    background: hsla(0, 0%, 80%, .14);
-    border-radius: 50%;
-    margin-right: 0.8em;
-}
-
 #modal-select-data p {
     text-align: center;
     font-weight: 600;

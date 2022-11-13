@@ -5,6 +5,7 @@
     "label": "获取所有物品",
     "params": [
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -14,6 +15,7 @@
         "required": false
       },
       {
+        "symbol": "精炼等阶 ",
         "head": "r",
         "type": "number",
         "name": "精炼等阶",

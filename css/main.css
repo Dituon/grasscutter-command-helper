@@ -78,6 +78,14 @@ details[open] summary~* {
     }
 }
 
+
+.icon {
+    width: 2.4em;
+    background: hsla(0, 0%, 80%, .14);
+    border-radius: 50%;
+    margin-right: 0.8em;
+}
+
 .button-group {
     display: flex;
     flex-direction: row;

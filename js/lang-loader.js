@@ -79,6 +79,7 @@ export const initLang = () => {
         document.querySelectorAll('[bind]').forEach(node => {
             const target = node.getAttribute('bind-target')
             const value = lang[node.getAttribute('bind')]
+            if (!value) return
             if (target) {
                 node.setAttribute(target, value)
                 return

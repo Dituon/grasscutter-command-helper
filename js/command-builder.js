@@ -12,6 +12,7 @@ import { execCommand } from "./remote-execute.js"
  * @property { string } id
  * @property { string } head
  * @property { string } label
+ * @property { string } [name]
  * @property { ParamVO[] } [params]
  */
 
@@ -19,6 +20,7 @@ import { execCommand } from "./remote-execute.js"
  * @typedef { object } ParamVO
  * @property { string } type
  * @property { string } name
+ * @property { string } [symbol]
  * @property { string } [head]
  * @property { boolean } required
  * @property { ParamValue | string | number } [value]

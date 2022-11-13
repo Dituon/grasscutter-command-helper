@@ -34,10 +34,32 @@ import { langData } from "./lang-loader.js";
  * @param { string } id
  * @return { Promise<ModalDTO[]> }
  */
-const getModalList = id =>
+export const getModalList = id =>
     getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`
         // , { unzip: true }
     )
+
+/**
+ * @return { Promise<ModalDTO> }
+ */
+export const getModalById = async (modalId, modalListId) => {
+    const modalList = await getModalList(modalListId);
+    for (const modal of modalList) {
+
+        if (
+            (modal.id && modal.id == modalId)
+            || (modal.ids && modal.ids.includes(modalId))
+        ) {
+            return modal
+        } else if (modal.children) {
+            for (const child of modal.children) {
+                if (child.id == modalId) return modal
+                if (child.ids && child.ids.includes(modalId)) return modal
+            }
+        }
+    }
+    throw new Error(`ModalId ${modalId} in ${modalListId} notfound`)
+}
 
 /**
  * @return { Promise<FilterGroup[]> }
@@ -52,6 +74,7 @@ const getFilterGroupList = id => getUrlData(`./data/${config.lang}/${DATA_VERSIO
         })
         return filterGroupList
     })
+
 /**
  * @param { ZippedModalList } zippedModalList 
  * @return { ModalDTO[] }
@@ -175,6 +198,7 @@ class ModalSelect {
 
                 if (modal.icon) {
                     const icon = document.createElement('img')
+                    icon.className = 'icon'
                     icon.src = modal.icon
                     div.appendChild(icon)
                 }
@@ -201,6 +225,7 @@ class ModalSelect {
                 const div = document.createElement('div')
                 if (child.icon) {
                     const icon = document.createElement('img')
+                    icon.className = 'icon'
                     icon.src = child.icon
                     div.appendChild(icon)
                 }
