@@ -143,7 +143,8 @@
         "head": "lv",
         "type": "number",
         "name": "物品等级",
-        "value": 1,
+        "max": "90",
+        "min": "1",
         "required": false
       }
     ]
@@ -172,7 +173,7 @@
         "required": false
       },
       {
-        "head": "x",
+        "head": "c",
         "type": "number",
         "name": "命座",
         "value": 6,
@@ -361,50 +362,43 @@
     ]
   },
   {
-    "id": "setStamina",
-    "head": "/prop nostamina",
-    "label": "无限体力",
+    "id": "setProp",
+    "head": "/prop",
+    "label": "无限能量、体力、充能、无敌开关，解锁地图",
     "params": [
       {
         "type": "select",
-        "name": "状态",
-        "value": "on",
+        "name": "支持",
+        "value": "unlimitenergy",
         "required": true,
         "data": {
           "value": [
-            "on",
-            "off",
-            "toggle"
+            "unlimitenergy",
+            "nostamina",
+            "godmode",
+            "unlockmap"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "无限能量",
+            "无限体力",
+            "无敌",
+            "解锁地图（只支持on）"
           ]
         }
-      }
-    ]
-  },
-  {
-    "id": "setUnlimitEnergy",
-    "head": "/prop unlimitenergy",
-    "label": "无限能量",
-    "params": [
+      },
       {
         "type": "select",
-        "name": "状态",
+        "name": "开关",
         "value": "on",
         "required": true,
         "data": {
           "value": [
             "on",
-            "off",
-            "toggle"
+            "off"
           ],
           "label": [
             "开启",
-            "关闭",
-            "切换"
+            "关闭"
           ]
         }
       }
@@ -412,58 +406,42 @@
   },
   {
     "id": "unlockTower",
-    "head": "/prop unlocktower",
-    "label": "解锁深境回廊",
-    "params": [
-      {
-        "type": "number",
-        "name": "深渊层数",
-        "value": 12,
-        "max": 12,
-        "min": 1,
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "godmode",
-    "head": "/prop godmode",
-    "label": "不受伤害（无敌）",
+    "head": "/prop",
+    "label": "解锁深渊层数，设置世界等级、纪行等级",
     "params": [
       {
         "type": "select",
-        "name": "状态",
-        "value": "on",
+        "name": "支持",
+        "value": "unlocktower",
         "required": true,
         "data": {
           "value": [
-            "on",
-            "off",
-            "toggle"
+            "unlocktower",
+            "worldlevel",
+            "bplevel"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "深渊层数(1~12)",
+            "世界等级(1~8)",
+            "纪行等级(1~50)"
           ]
         }
-      }
-    ]
-  },
-  {
-    "id": "setWotldLevel",
-    "head": "/prop worldlevel",
-    "label": "设置世界等级",
-    "params": [
+      },
       {
         "type": "number",
-        "name": "世界等级",
-        "value": 7,
-        "max": 7,
+        "name": "参数",
+        "value": 1,
+        "max": 50,
         "min": 1,
         "required": true
       }
     ]
+  },
+  {
+    "id": "unlockAll",
+    "head": "/unlockall",
+    "label": "解锁全部",
+    "params": []
   },
   {
     "id": "setFetter",
@@ -537,7 +515,7 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "删除所有未装备和未锁定的0级神器",
+    "label": "删除未装备和未锁定的物品",
     "params": [
       {
         "type": "select",
@@ -558,6 +536,34 @@
         },
         "value": "all",
         "required": true
+      },
+      {
+        "head": "lv",
+        "type": "number",
+        "name": "最大等级",
+        "required": false
+      },
+      {
+        "head": "r",
+        "type": "number",
+        "name": "最大精炼等阶",
+        "required": false
+      },
+      {
+        "type": "select",
+        "name": "最高稀有度",
+        "data": {
+          "value": [
+            "",
+            "*"
+          ],
+          "label": [
+            "空",
+            "所有"
+          ]
+        },
+        "value": "",
+        "required": false
       }
     ]
   },
@@ -566,6 +572,35 @@
     "head": "/heal",
     "label": "治疗队伍中所有角色",
     "params": []
+  },
+  {
+    "id": "teamAdd",
+    "head": "/team add",
+    "label": "往小队中添加角色",
+    "params": [
+      {
+        "type": "avatarList",
+        "name": "角色",
+        "value": {
+          "value": "10000002",
+          "label": "神里绫华"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "teamRemove",
+    "head": "/team remove",
+    "label": "从小队中移除角色",
+    "params": [
+      {
+        "type": "number",
+        "name": "角色处于小队中的位置",
+        "value": 1,
+        "required": true
+      }
+    ]
   },
   {
     "head": "/killall",
