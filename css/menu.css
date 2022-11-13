@@ -82,6 +82,10 @@
     overflow-y: scroll;
 }
 
+#saved-command-group>details>div>*{
+    margin: .2em .5em;
+}
+
 .none {
     display: none;
 }

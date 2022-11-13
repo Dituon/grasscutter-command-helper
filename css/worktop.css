@@ -40,6 +40,21 @@
     transition: all 0.2s ease-out;
 }
 
+#worktop-bar .command-head,#worktop-bar .modal-select-item{
+    white-space: nowrap
+}
+
+#worktop-bar .card{
+    display: block;
+    align-self: start;
+    flex-direction: column;
+}
+
+#worktop-bar .card>*{
+    display: inline-block;
+    margin: .3em .5em;
+}
+
 @media screen and (max-width: 650px) {
     #worktop-description {
         max-width: 80vw;

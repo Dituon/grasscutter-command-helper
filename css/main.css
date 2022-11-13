@@ -83,10 +83,11 @@ details[open] summary~* {
     width: 2.4em;
     background: hsla(0, 0%, 80%, .14);
     border-radius: 50%;
-    margin-right: 0.8em;
+    vertical-align:middle;
 }
 
 .button-group {
+    padding: 0 .5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
