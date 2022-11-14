@@ -1,5 +1,5 @@
-import { config, cacheModel, dataCache, DATA_VERSION, getUrlData } from "./init.js";
-import { mask, showMessage } from "./ui.js";
+import { config, DATA_VERSION, getUrlData } from "./init.js";
+import { mask } from "./ui.js";
 import { langData } from "./lang-loader.js";
 
 /** 
@@ -111,6 +111,7 @@ class ModalSelect {
         modalSearchInput.select = this
         modalSearchInput.addEventListener('change', this.#onFiltrate)
         modalSelectCloseElement.addEventListener('click', this.clear)
+        modalSearchSettingElement.innerHTML = ''
 
         getFilterGroupList(this.type).then(filterGroupList => {
             this.filterDetails = document.createElement('details')
@@ -126,6 +127,7 @@ class ModalSelect {
                 groupDiv.appendChild(title)
 
                 filterGroup.filters.forEach(filter => {
+                    filter = filter.replace(' ', '-')
                     groupDiv.appendPreTag(filter, () => {
                         modalSearchInput.value += ` ${filter} `
                         this.show(modalSearchInput.value)
@@ -134,8 +136,6 @@ class ModalSelect {
 
                 this.filterDetails.appendChild(groupDiv)
             })
-
-            modalSearchSettingElement.innerHTML = ''
             modalSearchSettingElement.appendChild(this.filterDetails)
         })
     }
@@ -157,11 +157,17 @@ class ModalSelect {
                 filteredModalGroupList = modalList.reduce((filteredArr, modal) => {
                     let flag = modal.name.includesMultiple(...keywordList)
 
-                    if (!flag && modal.filter) if (modal.filter.includesMultiple(...keywordList)) {
+                    if (!flag && modal.filter
+                        && modal.filter.map(tag => tag.replace(' ', '-')).includesMultiple(...keywordList)
+                    ) {
                         flag = true
                     }
                     if (!flag && modal.children) for (const children of modal.children) {
-                        if (children.name.includesMultiple(...keywordList)) {
+                        if (
+                            children.name.includesMultiple(...keywordList)
+                            || (children.id && keywordList.includes(children.id))
+                            || (children.ids && children.ids.find(id => keywordList.includes(String(id))))
+                        ) {
                             flag = true
                             break
                         }
@@ -218,7 +224,9 @@ class ModalSelect {
             const summary = document.createElement('summary')
 
             summary.innerHTML = modal.name
-            if (modal.filter) summary.appendTag(...modal.filter)
+            if (modal.filter) summary.appendTag(
+                ...modal.filter.map(tag => tag.replace(' ', '-'))
+            )
             details.appendChild(summary)
 
             modal.children.forEach(child => {

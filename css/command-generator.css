@@ -343,7 +343,7 @@
         padding: 1em 0.4em;
     }
 
-    #output {
-        padding: 0 0 4em 0;
+    .links {
+        padding: 0 0 4em;
     }
 }

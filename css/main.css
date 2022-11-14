@@ -97,7 +97,7 @@ details[open] summary~* {
 .button-group-item {
     height: 2em;
     padding: 0 0.5em;
-    font-size: 0.9em;
+    font-size: 80%;
     font-weight: bold;
 
     text-align: center;
@@ -120,6 +120,26 @@ details[open] summary~* {
 
 .hide {
     display: none;
+}
+
+
+.links {
+    padding-bottom: 1em;
+    margin: 2em 0;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.links>a {
+    color: var(--hl-text);
+    transition: all 0.6s;
+    letter-spacing: 0.06ch;
+}
+
+.links>a:hover {
+    font-size: large;
+    letter-spacing: 0.2ch;
 }
 
 :root *::-webkit-scrollbar-track {
@@ -157,5 +177,9 @@ details[open] summary~* {
 @media screen and (max-width: 650px) {
     summary {
         padding-left: 0.2em;
+    }
+    
+    .links {
+        padding-bottom: 4em;
     }
 }

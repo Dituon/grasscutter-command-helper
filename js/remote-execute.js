@@ -165,14 +165,12 @@ class TargetServer {
             return
         }
         const that = this
-        let commandListString = ''
-        commandList.forEach(command => {
-            commandListString += OutputCommand.stringify(command) + '\n'
-        })
         return fetch(`/opencommand/api`, this.buildPostParam({
             action: 'command',
             token: that.token,
-            data: commandListString
+            data: commandList.reduce((str, command) =>
+                str += OutputCommand.stringify(command).replace('/', '') + '\n'
+                , '')
         })).then(p => p.json()).then(data => {
             showMessage(langData.commandExecuted)
             return data

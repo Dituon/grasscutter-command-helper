@@ -16,18 +16,20 @@
     box-shadow: rgb(0 0 0 / 35%) -36px 0 36px -28px inset;
 }
 
-#menu-list summary{
+#menu-list summary {
     padding: 0.4em;
     padding-left: 0.6em;
     line-height: 2em;
     position: relative;
 }
 
-#menu-list summary>span,#menu-list .command-group-description{
+#menu-list summary>span,
+#menu-list .command-group-description {
     color: var(--hl-text);
+    word-break: break-all;
 }
 
-#menu-list .button-group-item{
+#menu-list .button-group-item {
     font-size: 0.9em;
     width: 2em;
     padding: 0;
@@ -37,15 +39,16 @@
     right: 0.4em;
 }
 
-#menu-list details{
+#menu-list details {
     margin: .5em .5em;
 
     border-radius: 4px;
     background-color: var(--bg-focus);
 }
 
-#menu-list details>div{
+#menu-list details>div {
     padding: .5em 1em;
+    border-top: 2px dotted var(--bg);
 }
 
 #app.hide #menu-list {
@@ -77,12 +80,12 @@
     clip: rect(0 2.4em 2.4em 1.2em);
 }
 
-#saved-command-group{
+#saved-command-group {
     height: 100%;
     overflow-y: scroll;
 }
 
-#saved-command-group>details>div>*{
+#saved-command-group>details>div>* {
     margin: .2em .5em;
 }
 

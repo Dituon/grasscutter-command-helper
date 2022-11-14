@@ -6,7 +6,6 @@
  * @typedef {import('./command-parser.js').CommandGroupDTO} CommandGroupDTO
  */
 
-import { getCommandByIdAsync } from './command-loader.js'
 import { CommandGroup } from './command-parser.js'
 import { localCommandGroupList } from './init.js'
 import { langData } from './lang-loader.js'
