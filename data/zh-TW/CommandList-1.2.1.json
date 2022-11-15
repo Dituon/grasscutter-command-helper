@@ -2,20 +2,21 @@
   {
     "id": "getArtifact",
     "head": "/gart",
-    "label": "获取一个自定义词条的圣遗物",
+    "label": "获取自定义词条的圣遗物",
+    "name": "圣遗物",
     "params": [
       {
         "type": "artifactList",
         "name": "圣遗物",
         "value": {
-          "value": "74514",
-          "label": "【杯】少女片刻的闲暇"
+          "value": "74510",
+          "label": "少女片刻的闲暇"
         },
         "required": true
       },
       {
         "type": "mainPropList",
-        "name": "主属性",
+        "name": "属性",
         "value": {
           "value": "15002",
           "label": "生命值百分比"
@@ -24,9 +25,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性1",
+        "name": "词条①",
         "required": false,
         "subparam": {
+          "symbol": "*",
           "name": "数量",
           "type": "number",
           "max": 99,
@@ -35,9 +37,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性2",
+        "name": "词条②",
         "required": false,
         "subparam": {
+          "symbol": "*",
           "name": "数量",
           "type": "number",
           "max": 99,
@@ -46,9 +49,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性3",
+        "name": "词条③",
         "required": false,
         "subparam": {
+          "symbol": "*",
           "name": "数量",
           "type": "number",
           "max": 99,
@@ -57,9 +61,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性4",
+        "name": "词条④",
         "required": false,
         "subparam": {
+          "symbol": "*",
           "name": "数量",
           "type": "number",
           "max": 99,
@@ -67,6 +72,7 @@
         }
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "等级",
         "max": 21,
@@ -79,18 +85,20 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成动物",
+    "label": "生成动物 / 实体",
+    "name": "实体",
     "params": [
       {
         "type": "entityList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "遗迹守卫"
         }
       },
       {
+        "symbol": "*",
         "type": "number",
         "name": "数量",
         "value": 1,
@@ -99,6 +107,7 @@
         "required": false
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "等级",
         "value": 200,
@@ -112,17 +121,19 @@
     "id": "spawnMonster",
     "head": "/spawn",
     "label": "生成怪物",
+    "name": "怪物",
     "params": [
       {
         "type": "monsterList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "遗迹守卫"
         }
       },
       {
+        "symbol": "*",
         "type": "number",
         "name": "数量",
         "value": 1,
@@ -131,6 +142,7 @@
         "required": false
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "等级",
         "value": 200,
@@ -144,10 +156,11 @@
     "id": "giveItem",
     "head": "/give",
     "label": "获取物品",
+    "name": "物品",
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -155,12 +168,14 @@
         "required": true
       },
       {
+        "symbol": "*",
         "type": "number",
         "name": "物品数量",
         "value": 1,
         "required": false
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "物品等级",
         "value": 1,
@@ -172,6 +187,7 @@
     "id": "giveChar",
     "head": "/givechar",
     "label": "获取一个角色",
+    "name": "角色",
     "params": [
       {
         "type": "avatarList",
@@ -196,10 +212,11 @@
     "id": "getWeapon",
     "head": "/give",
     "label": "获取一个武器",
+    "name": "武器",
     "params": [
       {
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "武器",
         "value": {
           "value": "11501",
           "label": "风鹰剑"
@@ -207,12 +224,14 @@
         "required": true
       },
       {
+        "symbol": "*",
         "type": "number",
         "name": "物品数量",
         "value": 1,
         "required": false
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "物品等级",
         "value": 90,
@@ -224,10 +243,11 @@
     "id": "setTalent",
     "head": "/talent",
     "label": "修改天赋等级",
+    "name": "天赋",
     "params": [
       {
         "type": "avatarTalent",
-        "name": "角色",
+        "name": "天赋",
         "value": {
           "value": "n",
           "label": "普通攻击"
@@ -245,29 +265,14 @@
     ]
   },
   {
-    "head": "/give",
-    "id": "give",
-    "label": "获取命座",
-    "params": [
-      {
-        "type": "avatarConstellation",
-        "name": "角色命座",
-        "value": {
-          "value": "/give 1102 6",
-          "label": "神里绫华的命星"
-        },
-        "required": true
-      }
-    ]
-  },
-  {
     "id": "dropItem",
     "head": "/drop",
     "label": "在你附近掉落一个物品",
+    "name": "掉落",
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -275,6 +280,7 @@
         "required": true
       },
       {
+        "symbol": "*",
         "type": "number",
         "name": "物品数量",
         "value": 1,
@@ -289,7 +295,7 @@
     "params": [
       {
         "type": "string",
-        "name": "用户ID(ID前面需要加@)",
+        "name": "UID",
         "required": false
       }
     ]
@@ -298,8 +304,10 @@
     "id": "setFetter",
     "head": "/setfetterlevel",
     "label": "设置当前上场角色的好感级别",
+    "name": "好感级别",
     "params": [
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "好感级别",
         "value": 10,
@@ -319,6 +327,7 @@
     "id": "setWotldLevel",
     "head": "/setworldlevel",
     "label": "设置世界等级",
+    "name": "世界等级",
     "params": [
       {
         "type": "number",
@@ -334,6 +343,7 @@
     "id": "setStats",
     "head": "/setstats",
     "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
+    "name": "战斗属性",
     "params": [
       {
         "type": "statList",
@@ -345,6 +355,7 @@
         "required": true
       },
       {
+        "symbol": "%",
         "type": "number",
         "name": "数值",
         "value": 10000,
@@ -369,7 +380,8 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "删除所有未装备和未锁定的0级神器",
+    "label": "删除所有未装备和未锁定的0级装备",
+    "name": "删除",
     "params": [
       {
         "type": "select",
@@ -407,9 +419,11 @@
   },
   {
     "head": "/killall",
-    "label": "杀死当前世界或指定世界的所有生物",
+    "label": "清除所有生物",
+    "name": "清除",
     "params": [
       {
+        "symbol": "世界 ",
         "type": "sceneList",
         "name": "世界",
         "required": false
@@ -432,8 +446,10 @@
     "id": "teleport",
     "head": "/teleport",
     "label": "传送到指定地点",
+    "name": "传送",
     "params": [
       {
+        "symbol": "x ",
         "type": "number",
         "name": "X坐标",
         "max": 999999999999,
@@ -442,6 +458,7 @@
         "required": true
       },
       {
+        "symbol": "y ",
         "type": "number",
         "name": "Y坐标",
         "max": 999999999999,
@@ -450,6 +467,7 @@
         "required": true
       },
       {
+        "symbol": "z ",
         "type": "number",
         "name": "Z坐标",
         "max": 999999999999,
@@ -468,10 +486,12 @@
     "id": "killCharacter",
     "head": "/killcharacter",
     "label": "杀死当前角色",
+    "name": "清除",
     "params": [
       {
+        "symbol": "UID ",
         "type": "string",
-        "name": "用户ID(ID前面需要加@)",
+        "name": "UID",
         "required": false
       }
     ]
@@ -480,12 +500,14 @@
     "id": "teleportAll",
     "head": "/tpall",
     "label": "将当前世界所有玩家传送到你的位置",
+    "name": "传送",
     "params": []
   },
   {
     "id": "setWeather",
     "head": "/weather",
     "label": "设置气候和天气",
+    "name": "天气",
     "params": [
       {
         "type": "weather",
@@ -584,6 +606,7 @@
     "id": "quest",
     "head": "/quest",
     "label": "添加或完成任务",
+    "name": "任务",
     "params": [
       {
         "type": "select",
@@ -603,7 +626,7 @@
       },
       {
         "type": "questList",
-        "name": "任务ID",
+        "name": "任务",
         "required": true,
         "value": {
           "value": "1903005",

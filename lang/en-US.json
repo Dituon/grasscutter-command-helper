@@ -1,10 +1,9 @@
 {
-    "title": "Genshin Command Helper.3",
+    "title": "Grasscutter Command Helper",
 
     "command-list": "Command List",
     "command-search": "Search",
     "command-search-input": "🔎 Keyword / ID / Description",
-    "command-version": "Command Version",
     "choose-param": "Set Parameters",
     "output-result": "Results",
     "output-tips": "click to copy",
@@ -13,7 +12,7 @@
 
     "command-version-select": "🗃 Command Version",
 
-    "command-execute": "📡 Remote Execute",
+    "command-execute": "📡 Remote Command",
     "command-push": "📦 Push To Worktop",
     "command-group": "🍳 Command Group Worktop",
     "command-group-title": "Title",
@@ -22,13 +21,14 @@
 
     "remote-host": "🎮Host",
     "remote-host-input": "🔗 https://",
-    "remote-execute": "📡 Remote Execute",
+    "remote-execute": "📡 Remote Command",
     "remote-server-version": "Version: ",
     "remote-player-count": "Player Count: ",
     "remote-uid": "UID",
     "remote-uid-input": "👋 afew numbers",
     "remote-execute-status-default": "Server not specified",
     "remote-verifycode": "📟 Verify Code",
+    "send-verifycode": "Send",
     "check-verifycode": "Check",
     "remote-verifycode-input": "four digits in console",
 
@@ -84,5 +84,7 @@
     "commandNotChoose": "No command selected",
     "commandUnmaned": "Command Unnamed",
 
-    "unknowError": "No known errors, please submit issue"
+    "unknowError": "No known errors, please submit issue",
+
+    "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/Dxw5BVTN\">✨Discord✨</a>"
 }

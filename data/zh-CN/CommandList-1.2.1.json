@@ -85,7 +85,7 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成实体 / 动物",
+    "label": "生成动物 / 实体",
     "name": "实体",
     "params": [
       {
@@ -94,7 +94,7 @@
         "name": "实体",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "遗迹守卫"
         }
       },
       {
@@ -129,7 +129,7 @@
         "name": "实体",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "遗迹守卫"
         }
       },
       {
@@ -216,7 +216,7 @@
     "params": [
       {
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "武器",
         "value": {
           "value": "11501",
           "label": "风鹰剑"
@@ -272,7 +272,7 @@
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -295,7 +295,7 @@
     "params": [
       {
         "type": "string",
-        "name": "用户ID(ID前需要加@)",
+        "name": "UID",
         "required": false
       }
     ]

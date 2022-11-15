@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/menu.css" />
     <link rel="stylesheet" href="/css/worktop.css" />
     <link rel="stylesheet" href="/css/setting.css" />
-    <title bind="title">Xmmt.Genshin 指令助手</title>
+    <title bind="title">Grasscutter Command Helper</title>
     <script type="module" src="/js/init.js"></script>
     <script type="module" src="/js/lang-loader.js"></script>
     <script type="module" src="/js/ui.js"></script>
@@ -30,37 +30,38 @@
         </div>
 
         <div id="command-generator">
+            <div class="links" bind="info"></div>
             <div id="input">
                 <div id="list">
                     <div id="command-list-title">
-                        <h2 bind="command-list">指令列表</h2>
+                        <h2 bind="command-list">Command List</h2>
                         <div id="list-hide">📌</div>
                     </div>
                     <div id="command-search">
-                        <span bind="command-search">指令搜索: </span>
-                        <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 指令搜索"
+                        <span bind="command-search">Search: </span>
+                        <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 Keyword / ID / Description"
                             id="search-input">
                     </div>
                     <div id="command-list"></div>
                 </div>
                 <div id="choose" style="display: none;">
-                    <h2 bind="choose-param">选择参数</h2>
+                    <h2 bind="choose-param">Set Parameters</h2>
                     <div id="params"></div>
                 </div>
             </div>
             <div id="output" style="display: none;">
                 <h2 bind="output-result">
-                    生成结果
+                    Results
                 </h2>
                 <div id="output-area">
                     <span id="output-span" bind="output-tips" bind-target="title" title="点击复制"></span>
                 </div>
                 <div class="button-group">
-                    <div id="command-exec" bind="command-execute">远程执行</div>
-                    <div id="command-push" bind="command-push">push to worktop</div>
+                    <div id="command-exec" bind="command-execute">📡 Remote Command</div>
+                    <div id="command-push" bind="command-push">📦 Push To Worktop</div>
                 </div>
             </div>
-            <div class="links">
+            <div class="links" bind="links">
                 <a href="https://github.com/Dituon/grasscutter-command-helper">❤Github❤</a>
                 <a href="https://discord.gg/Dxw5BVTN">✨Discord✨</a>
             </div>
@@ -71,7 +72,7 @@
     <div id="mask"></div>
     <div id="modal-select">
         <div id="modal-search-bar">
-            <input bind="modal-search-input" target="placeholder" placeholder="搜索(id/名称/分组名)" id="modal-search">
+            <input bind="modal-search-input" target="placeholder" placeholder="🔎 Keyword / ID / Tag" id="modal-search">
             <span id="modal-search-clear">🗑</span>
         </div>
         <div id="modal-srarch-setting"></div>
@@ -86,7 +87,6 @@
     </div>
 
     <div id="worktop-bar" class="side-bar">
-
         <h3 bind="command-group">Command Group</h3>
         <div id="worktop-head">
             <div class="param">
@@ -110,7 +110,7 @@
     <div id="setting-bar" class="side-bar">
         <div id="global-setting">
             <div class="param">
-                <span bind="command-version-select">指令版本</span>
+                <span bind="command-version-select">🗃 Command Version</span>
                 <div>
                     <select id="command-version-select">
                         <option value="1.2.1">1.2.1</option>
@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="param">
-                <span bind="lang-select">语言设置</span>
+                <span bind="lang-select">🌐Language</span>
                 <div>
                     <select id="lang-select">
                     </select>
@@ -128,9 +128,9 @@
         </div>
 
         <div id="remote-execute">
-            <h3 bind="remote-execute">远程执行</h3>
+            <h3 bind="remote-execute">📡 Remote Command</h3>
             <div class="param">
-                <span bind="remote-host">服务器地址</span>
+                <span bind="remote-host">🎮Host</span>
                 <div>
                     <input id="remote-host" bind="remote-host-input" bind-target="placeholder"
                         contenteditable="true"></input>
@@ -138,9 +138,9 @@
 
             </div>
             <div id="server-info" class="hide">
-                <span bind="remote-server-version">游戏版本：</span>
+                <span bind="remote-server-version">Version: </span>
                 <span id="remote-server-version"></span><br>
-                <span bind="remote-player-count">在线人数：</span>
+                <span bind="remote-player-count">Player Count: </span>
                 <span id="remote-player-count"></span>
             </div>
             <div id="server-verify" class="hide">
@@ -152,30 +152,30 @@
                     </div>
                 </div>
                 <div class="button-group">
-                    <div id="send-verifycode">发送验证码</div>
-                    <div id="import-token">导入token</div>
+                    <div id="send-verifycode">Send</div>
+                    <!-- <div id="import-token">导入token</div> -->
                 </div>
                 <div class="param">
-                    <span bind="remote-verifycode">验证码</span>
+                    <span bind="remote-verifycode">📟 Verify Code</span>
                     <div>
                         <input type="number" id="remote-verifycode" bind="remote-verifycode-input"
                             bind-target="placeholder" contenteditable="true" min="1000" max="9999"></input>
                         <div class="button-group">
-                            <div bind="check-verifycode" id="check-verifycode">验证</div>
+                            <div bind="check-verifycode" id="check-verifycode">Check</div>
                         </div>
                     </div>
                 </div>
 
             </div>
             <div id="remote-execute-status" bind="remote-execute-status-default">
-                未指定服务器
+                Server not specified
             </div>
         </div>
 
         <div>
-            <h3 bind="export-setting">导出设置</h3>
+            <h3 bind="export-setting">💡 Export Setting</h3>
             <div class="param">
-                <span bind="export-author">作者</span>
+                <span bind="export-author">💌 Author</span>
                 <div>
                     <input id="export-author" bind="export-author-input" bind-target="placeholder">
                 </div>

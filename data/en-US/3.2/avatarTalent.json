@@ -1,0 +1,18 @@
+[
+    {
+        "id": "n",
+        "name": "Normal Attack"
+    },
+    {
+        "id": "e",
+        "name": "Elemental Combat Technique"
+    },
+    {
+        "id": "q",
+        "name": "Elemental Burst"
+    },
+    {
+        "id": "all",
+        "name": "All"
+    }
+]

@@ -4,7 +4,6 @@
     "command-list": "指令列表",
     "command-search": "搜索指令",
     "command-search-input": "🔎 关键词 / ID / 描述",
-    "command-version": "指令版本",
     "choose-param": "选择参数",
     "output-result": "生成结果",
     "output-tips": "点击复制",
@@ -29,6 +28,7 @@
     "remote-uid-input": "👋 通常为几位数字",
     "remote-execute-status-default": "未指定服务器",
     "remote-verifycode": "📟 验证码",
+    "send-verifycode": "发送",
     "check-verifycode": "验证",
     "remote-verifycode-input": "聊天框返回四位数字",
 
@@ -84,5 +84,7 @@
     "commandNotChoose": "未选择任何指令",
     "commandUnmaned": "未命名",
 
-    "unknowError": "未知错误, 请提交issue反馈"
+    "unknowError": "未知错误, 请提交issue反馈",
+
+    "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/Dxw5BVTN\">✨Discord✨</a><a href=\"https://jq.qq.com/?_wv=1027&k=wPwRuhuJ\">QQ群</a>"
 }

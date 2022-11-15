@@ -131,7 +131,7 @@
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -191,7 +191,7 @@
     "params": [
       {
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "武器",
         "value": {
           "value": "11501",
           "label": "风鹰剑"
@@ -281,12 +281,12 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成动物",
+    "label": "生成动物 / 实体",
     "params": [
       {
         "type": "entityList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "28010101",
           "label": "黄金蟹"
@@ -321,7 +321,7 @@
       {
         "type": "monsterList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "24010109",
           "label": "遗迹守卫（血特别多）"
@@ -356,7 +356,7 @@
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -364,7 +364,7 @@
         "required": true
       },
       {
-        "symbol": "数量 ",
+        "symbol": "*",
         "head": "x",
         "type": "number",
         "name": "物品数量",
@@ -376,11 +376,11 @@
   {
     "id": "setProp",
     "head": "/prop",
-    "label": "无限能量、体力、充能、无敌开关，解锁地图",
+    "label": "无限能量、体力、充能、无敌、解锁地图",
     "params": [
       {
         "type": "select",
-        "name": "支持",
+        "name": "设置",
         "value": "unlimitenergy",
         "required": true,
         "data": {
@@ -424,7 +424,7 @@
     "params": [
       {
         "type": "select",
-        "name": "支持",
+        "name": "设置",
         "value": "unlocktower",
         "required": true,
         "data": {
@@ -479,7 +479,6 @@
     "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
     "params": [
       {
-        "symbol": "属性 ",
         "type": "statList",
         "name": "属性",
         "value": {
@@ -489,7 +488,7 @@
         "required": true
       },
       {
-        "symbol": "数值 ",
+        "symbol": "+",
         "type": "number",
         "name": "数值",
         "value": 10000,
@@ -807,7 +806,7 @@
       },
       {
         "type": "questList",
-        "name": "任务ID",
+        "name": "任务",
         "required": true,
         "value": {
           "value": "1903005",

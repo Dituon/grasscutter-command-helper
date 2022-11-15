@@ -5,6 +5,7 @@
     "label": "获取所有物品",
     "params": [
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -14,6 +15,7 @@
         "required": false
       },
       {
+        "symbol": "精炼等阶 ",
         "head": "r",
         "type": "number",
         "name": "精炼等阶",
@@ -23,6 +25,7 @@
         "required": false
       },
       {
+        "symbol": "命座 ",
         "head": "c",
         "type": "number",
         "name": "命座",
@@ -32,6 +35,7 @@
         "required": false
       },
       {
+        "symbol": "物品数量 ",
         "head": "x",
         "type": "number",
         "name": "物品数量",
@@ -55,6 +59,7 @@
         "required": true
       },
       {
+        "symbol": "主属性 ",
         "type": "mainPropList",
         "name": "主属性",
         "value": {
@@ -108,6 +113,7 @@
         }
       },
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -125,7 +131,7 @@
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -133,16 +139,10 @@
         "required": true
       },
       {
+        "symbol": "物品数量 ",
         "head": "x",
         "type": "number",
         "name": "物品数量",
-        "value": 1,
-        "required": false
-      },
-      {
-        "head": "lv",
-        "type": "number",
-        "name": "物品等级",
         "value": 1,
         "required": false
       }
@@ -163,6 +163,7 @@
         "required": true
       },
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -172,7 +173,8 @@
         "required": false
       },
       {
-        "head": "x",
+        "symbol": "命座 ",
+        "head": "c",
         "type": "number",
         "name": "命座",
         "value": 6,
@@ -189,7 +191,7 @@
     "params": [
       {
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "武器",
         "value": {
           "value": "11501",
           "label": "风鹰剑"
@@ -197,6 +199,7 @@
         "required": true
       },
       {
+        "symbol": "物品数量 ",
         "head": "x",
         "type": "number",
         "name": "物品数量",
@@ -204,6 +207,7 @@
         "required": false
       },
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "物品等级",
@@ -211,6 +215,7 @@
         "required": false
       },
       {
+        "symbol": "精炼等阶 ",
         "head": "r",
         "type": "number",
         "name": "精炼等阶",
@@ -236,6 +241,7 @@
         "required": true
       },
       {
+        "symbol": "数量 ",
         "head": "x",
         "type": "number",
         "name": "数量",
@@ -252,8 +258,9 @@
     "label": "修改天赋等级",
     "params": [
       {
+        "symbol": "技能:",
         "type": "avatarTalent",
-        "name": "角色",
+        "name": "技能",
         "value": {
           "value": "n",
           "label": "普通攻击"
@@ -261,6 +268,7 @@
         "required": true
       },
       {
+        "symbol": "等级 ",
         "type": "number",
         "name": "等级",
         "value": 10,
@@ -273,18 +281,19 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成动物",
+    "label": "生成动物 / 实体",
     "params": [
       {
         "type": "entityList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "28010101",
           "label": "黄金蟹"
         }
       },
       {
+        "symbol": "数量 ",
         "head": "x",
         "type": "number",
         "name": "数量",
@@ -294,6 +303,7 @@
         "required": false
       },
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -311,13 +321,14 @@
       {
         "type": "monsterList",
         "required": true,
-        "name": "实体ID",
+        "name": "实体",
         "value": {
           "value": "24010109",
           "label": "遗迹守卫（血特别多）"
         }
       },
       {
+        "symbol": "数量 ",
         "head": "x",
         "type": "number",
         "name": "数量",
@@ -327,6 +338,7 @@
         "required": false
       },
       {
+        "symbol": "等级 ",
         "head": "lv",
         "type": "number",
         "name": "等级",
@@ -344,7 +356,7 @@
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "物品",
         "value": {
           "value": "203",
           "label": "创世结晶"
@@ -352,6 +364,7 @@
         "required": true
       },
       {
+        "symbol": "*",
         "head": "x",
         "type": "number",
         "name": "物品数量",
@@ -361,50 +374,44 @@
     ]
   },
   {
-    "id": "setStamina",
-    "head": "/prop nostamina",
-    "label": "无限体力",
+    "id": "setProp",
+    "head": "/prop",
+    "label": "无限能量、体力、充能、无敌、解锁地图",
     "params": [
       {
         "type": "select",
-        "name": "状态",
-        "value": "on",
+        "name": "设置",
+        "value": "unlimitenergy",
         "required": true,
         "data": {
           "value": [
-            "on",
-            "off",
-            "toggle"
+            "unlimitenergy",
+            "nostamina",
+            "godmode",
+            "unlockmap"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "无限能量",
+            "无限体力",
+            "无敌",
+            "解锁地图（只支持on）"
           ]
         }
-      }
-    ]
-  },
-  {
-    "id": "setUnlimitEnergy",
-    "head": "/prop unlimitenergy",
-    "label": "无限能量",
-    "params": [
+      },
       {
+        "symbol": "开关 ",
         "type": "select",
-        "name": "状态",
+        "name": "开关",
         "value": "on",
         "required": true,
         "data": {
           "value": [
             "on",
-            "off",
-            "toggle"
+            "off"
           ],
           "label": [
             "开启",
-            "关闭",
-            "切换"
+            "关闭"
           ]
         }
       }
@@ -412,58 +419,43 @@
   },
   {
     "id": "unlockTower",
-    "head": "/prop unlocktower",
-    "label": "解锁深境回廊",
-    "params": [
-      {
-        "type": "number",
-        "name": "深渊层数",
-        "value": 12,
-        "max": 12,
-        "min": 1,
-        "required": true
-      }
-    ]
-  },
-  {
-    "id": "godmode",
-    "head": "/prop godmode",
-    "label": "不受伤害（无敌）",
+    "head": "/prop",
+    "label": "解锁深渊层数，设置世界等级、纪行等级",
     "params": [
       {
         "type": "select",
-        "name": "状态",
-        "value": "on",
+        "name": "设置",
+        "value": "unlocktower",
         "required": true,
         "data": {
           "value": [
-            "on",
-            "off",
-            "toggle"
+            "unlocktower",
+            "worldlevel",
+            "bplevel"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "深渊层数(1~12)",
+            "世界等级(1~8)",
+            "纪行等级(1~50)"
           ]
         }
-      }
-    ]
-  },
-  {
-    "id": "setWotldLevel",
-    "head": "/prop worldlevel",
-    "label": "设置世界等级",
-    "params": [
+      },
       {
+        "symbol": "参数 ",
         "type": "number",
-        "name": "世界等级",
-        "value": 7,
-        "max": 7,
+        "name": "参数",
+        "value": 1,
+        "max": 50,
         "min": 1,
         "required": true
       }
     ]
+  },
+  {
+    "id": "unlockAll",
+    "head": "/unlockall",
+    "label": "解锁全部",
+    "params": []
   },
   {
     "id": "setFetter",
@@ -471,6 +463,7 @@
     "label": "设置当前上场角色的好感级别",
     "params": [
       {
+        "symbol": "好感级别 ",
         "type": "number",
         "name": "好感级别",
         "value": 10,
@@ -495,6 +488,7 @@
         "required": true
       },
       {
+        "symbol": "+",
         "type": "number",
         "name": "数值",
         "value": 10000,
@@ -503,6 +497,7 @@
         "required": true
       },
       {
+        "symbol": "锁定开关 ",
         "type": "select",
         "name": "数值锁定",
         "value": "",
@@ -528,6 +523,7 @@
     "label": "向所有玩家发送一条消息",
     "params": [
       {
+        "symbol": "内容:",
         "type": "string",
         "name": "消息内容",
         "required": true
@@ -537,9 +533,10 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "删除所有未装备和未锁定的0级神器",
+    "label": "删除未装备和未锁定的物品",
     "params": [
       {
+        "symbol": "类型 ",
         "type": "select",
         "name": "类型",
         "data": {
@@ -558,6 +555,37 @@
         },
         "value": "all",
         "required": true
+      },
+      {
+        "symbol": "最大等级 ",
+        "head": "lv",
+        "type": "number",
+        "name": "最大等级",
+        "required": false
+      },
+      {
+        "symbol": "最大精炼等阶 ",
+        "head": "r",
+        "type": "number",
+        "name": "最大精炼等阶",
+        "required": false
+      },
+      {
+        "symbol": "最高稀有度 ",
+        "type": "select",
+        "name": "最高稀有度",
+        "data": {
+          "value": [
+            "",
+            "*"
+          ],
+          "label": [
+            "空",
+            "所有"
+          ]
+        },
+        "value": "",
+        "required": false
       }
     ]
   },
@@ -566,6 +594,36 @@
     "head": "/heal",
     "label": "治疗队伍中所有角色",
     "params": []
+  },
+  {
+    "id": "teamAdd",
+    "head": "/team add",
+    "label": "往小队中添加角色",
+    "params": [
+      {
+        "type": "avatarList",
+        "name": "角色",
+        "value": {
+          "value": "10000002",
+          "label": "神里绫华"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "teamRemove",
+    "head": "/team remove",
+    "label": "从小队中移除角色",
+    "params": [
+      {
+        "symbol": "小队位置 ",
+        "type": "number",
+        "name": "角色处于小队中的位置",
+        "value": 1,
+        "required": true
+      }
+    ]
   },
   {
     "head": "/killall",
@@ -602,6 +660,7 @@
     "label": "设定当前角色命座",
     "params": [
       {
+        "symbol": "命座数量 ",
         "type": "number",
         "name": "命座数量",
         "value": 1,
@@ -639,6 +698,7 @@
     "label": "传送到指定地点",
     "params": [
       {
+        "symbol": "x坐标 ",
         "type": "number",
         "name": "X坐标",
         "max": 999999999999,
@@ -647,6 +707,7 @@
         "required": true
       },
       {
+        "symbol": "y坐标 ",
         "type": "number",
         "name": "Y坐标",
         "max": 999999999999,
@@ -655,6 +716,7 @@
         "required": true
       },
       {
+        "symbol": "z坐标 ",
         "type": "number",
         "name": "Z坐标",
         "max": 999999999999,
@@ -663,6 +725,7 @@
         "required": true
       },
       {
+        "symbol": "场景 ",
         "type": "sceneList",
         "name": "世界（场景）",
         "required": false
@@ -681,6 +744,7 @@
     "label": "设置气候和天气",
     "params": [
       {
+        "symbol": "气候 ",
         "type": "weather",
         "name": "气候",
         "required": true,
@@ -690,6 +754,7 @@
         }
       },
       {
+        "symbol": "天气 ",
         "type": "select",
         "name": "天气",
         "value": "1",
@@ -723,8 +788,9 @@
     "label": "添加或完成任务",
     "params": [
       {
+        "symbol": "操作 ",
         "type": "select",
-        "name": "状态",
+        "name": "操作",
         "value": "add",
         "required": true,
         "data": {
@@ -740,7 +806,7 @@
       },
       {
         "type": "questList",
-        "name": "任务ID",
+        "name": "任务",
         "required": true,
         "value": {
           "value": "1903005",
