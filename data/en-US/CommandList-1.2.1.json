@@ -2,32 +2,32 @@
   {
     "id": "getArtifact",
     "head": "/gart",
-    "label": "获取一个自定义词条的圣遗物",
+    "label": "Get artifacts for custom entries",
     "params": [
       {
         "type": "artifactList",
-        "name": "圣遗物",
+        "name": "Artifacts",
         "value": {
           "value": "74514",
-          "label": "【杯】少女片刻的闲暇"
+          "label": "【cup】Maiden's Fleeting Leisure"
         },
         "required": true
       },
       {
         "type": "mainPropList",
-        "name": "主属性",
+        "name": "main attributes",
         "value": {
           "value": "15002",
-          "label": "生命值百分比"
+          "label": "life value percentage"
         },
         "required": true
       },
       {
         "type": "propDataList",
-        "name": "副属性1",
+        "name": "subproperty 1",
         "required": false,
         "subparam": {
-          "name": "数量",
+          "name": "quantity",
           "type": "number",
           "max": 99,
           "min": 1
@@ -35,10 +35,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性2",
+        "name": "subproperty 2",
         "required": false,
         "subparam": {
-          "name": "数量",
+          "name": "quantity",
           "type": "number",
           "max": 99,
           "min": 1
@@ -46,10 +46,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性3",
+        "name": "subproperty 3",
         "required": false,
         "subparam": {
-          "name": "数量",
+          "name": "quantity",
           "type": "number",
           "max": 99,
           "min": 1
@@ -57,10 +57,10 @@
       },
       {
         "type": "propDataList",
-        "name": "副属性4",
+        "name": "subproperty 4",
         "required": false,
         "subparam": {
-          "name": "数量",
+          "name": "quantity",
           "type": "number",
           "max": 99,
           "min": 1
@@ -68,7 +68,7 @@
       },
       {
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "max": 21,
         "min": 1,
         "value": 21,
@@ -79,20 +79,20 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "生成动物",
+    "label": "generate animals",
     "params": [
       {
         "type": "entityList",
         "required": true,
-        "name": "实体ID",
+        "name": "Entity ID",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "Ruin Guard (more blood)"
         }
       },
       {
         "type": "number",
-        "name": "数量",
+        "name": "quantity",
         "value": 1,
         "min": 1,
         "max": 99999999,
@@ -100,7 +100,7 @@
       },
       {
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 200,
         "max": 200,
         "min": 1,
@@ -111,20 +111,20 @@
   {
     "id": "spawnMonster",
     "head": "/spawn",
-    "label": "生成怪物",
+    "label": "generate monsters",
     "params": [
       {
         "type": "monsterList",
         "required": true,
-        "name": "实体ID",
+        "name": "Entity ID",
         "value": {
           "value": "24010109",
-          "label": "遗迹守卫（血特别多）"
+          "label": "Ruins Guard (with a lot of blood)"
         }
       },
       {
         "type": "number",
-        "name": "数量",
+        "name": "quantity",
         "value": 1,
         "min": 1,
         "max": 99999999,
@@ -132,7 +132,7 @@
       },
       {
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 200,
         "max": 200,
         "min": 1,
@@ -143,26 +143,26 @@
   {
     "id": "giveItem",
     "head": "/give",
-    "label": "获取物品",
+    "label": "get items",
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "Item ID",
         "value": {
           "value": "203",
-          "label": "创世结晶"
+          "label": "Genesis Crystal"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "物品数量",
+        "name": "number of the stuffs",
         "value": 1,
         "required": false
       },
       {
         "type": "number",
-        "name": "物品等级",
+        "name": "item level",
         "value": 1,
         "required": false
       }
@@ -171,20 +171,20 @@
   {
     "id": "giveChar",
     "head": "/givechar",
-    "label": "获取一个角色",
+    "label": "get a role",
     "params": [
       {
         "type": "avatarList",
-        "name": "角色",
+        "name": "Role",
         "value": {
           "value": "10000002",
-          "label": "神里绫华"
+          "label": "Kamisato Ayaka"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 90,
         "max": 90,
         "min": 1,
@@ -195,26 +195,26 @@
   {
     "id": "getWeapon",
     "head": "/give",
-    "label": "获取一个武器",
+    "label": "get a weapon",
     "params": [
       {
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "Weapon ID",
         "value": {
           "value": "11501",
-          "label": "风鹰剑"
+          "label": "Aquila Favonia"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "物品数量",
+        "name": "number of things",
         "value": 1,
         "required": false
       },
       {
         "type": "number",
-        "name": "物品等级",
+        "name": "item level",
         "value": 90,
         "required": false
       }
@@ -223,20 +223,20 @@
   {
     "id": "setTalent",
     "head": "/talent",
-    "label": "修改天赋等级",
+    "label": "Modify talent level",
     "params": [
       {
         "type": "avatarTalent",
-        "name": "角色",
+        "name": "Role",
         "value": {
           "value": "n",
-          "label": "普通攻击"
+          "label": "Normal Attack"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 10,
         "max": 99999,
         "min": 1,
@@ -247,14 +247,14 @@
   {
     "head": "/give",
     "id": "give",
-    "label": "获取命座",
+    "label": "get Constellation",
     "params": [
       {
         "type": "avatarConstellation",
-        "name": "角色命座",
+        "name": "Role constellation",
         "value": {
           "value": "/give 1102 6",
-          "label": "神里绫华的命星"
+          "label": "Kamisato Ayaka's Constellation"
         },
         "required": true
       }
@@ -263,20 +263,20 @@
   {
     "id": "dropItem",
     "head": "/drop",
-    "label": "在你附近掉落一个物品",
+    "label": "drop an item near you",
     "params": [
       {
         "type": "itemList",
-        "name": "物品ID",
+        "name": "Item ID",
         "value": {
           "value": "203",
-          "label": "创世结晶"
+          "label": "Genesis Crystal"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "物品数量",
+        "name": "number of things",
         "value": 1,
         "required": false
       }
@@ -285,11 +285,11 @@
   {
     "id": "getAll",
     "head": "/giveall",
-    "label": "获取所有物品",
+    "label": "get all items",
     "params": [
       {
         "type": "string",
-        "name": "用户ID(ID前面需要加@)",
+        "name": "User ID(You need to add @ before the ID)",
         "required": false
       }
     ]
@@ -297,11 +297,11 @@
   {
     "id": "setFetter",
     "head": "/setfetterlevel",
-    "label": "设置当前上场角色的好感级别",
+    "label": "Set the favorability of the currently playing character",
     "params": [
       {
         "type": "number",
-        "name": "好感级别",
+        "name": "Favorability",
         "value": 10,
         "max": 10,
         "min": 1,
@@ -312,17 +312,17 @@
   {
     "id": "getPos",
     "head": "/pos",
-    "label": "获取当前所在坐标及场景id",
+    "label": "Get current coordinates and scene id",
     "params": []
   },
   {
     "id": "setWotldLevel",
     "head": "/setworldlevel",
-    "label": "设置世界等级",
+    "label": "set world level",
     "params": [
       {
         "type": "number",
-        "name": "世界等级",
+        "name": "world Level",
         "value": 7,
         "max": 7,
         "min": 1,
@@ -333,20 +333,20 @@
   {
     "id": "setStats",
     "head": "/setstats",
-    "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
+    "label": "Set the combat attributes of the current character(percentage attribute Value × 100 is the final percentage)",
     "params": [
       {
         "type": "statList",
-        "name": "属性",
+        "name": "Attributes",
         "value": {
-          "label": "攻击",
+          "label": "attack",
           "value": "atk"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "数值",
+        "name": "value",
         "value": 10000,
         "max": 99999999999999,
         "min": 0,
@@ -357,11 +357,11 @@
   {
     "id": "broadcast",
     "head": "/broadcast",
-    "label": "向所有玩家发送一条消息",
+    "label": "Send a message to all players",
     "params": [
       {
         "type": "string",
-        "name": "消息内容",
+        "name": "Message content",
         "required": true
       }
     ]
@@ -369,11 +369,11 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "删除所有未装备和未锁定的0级神器",
+    "label": "Removed all unequipped and unlocked level 0 artifacts",
     "params": [
       {
         "type": "select",
-        "name": "类型",
+        "name": "type",
         "data": {
           "value": [
             "all",
@@ -382,10 +382,10 @@
             "mat"
           ],
           "label": [
-            "全部",
-            "武器",
-            "圣遗物",
-            "材料"
+            "All",
+            "Aweapon",
+            "Artifact",
+            "Material"
           ]
         },
         "value": "all",
@@ -396,22 +396,22 @@
   {
     "id": "godmode",
     "head": "/godmode",
-    "label": "不受伤害（无敌）",
+    "label": "Take no damage (invincible)",
     "params": []
   },
   {
     "id": "heal",
     "head": "/heal",
-    "label": "治疗队伍中所有角色",
+    "label": "Heals all characters on the team",
     "params": []
   },
   {
     "head": "/killall",
-    "label": "杀死当前世界或指定世界的所有生物",
+    "label": "Kills all mobs in the current world or the specified world",
     "params": [
       {
         "type": "sceneList",
-        "name": "世界",
+        "name": "world",
         "required": false
       }
     ]
@@ -419,23 +419,23 @@
   {
     "id": "list",
     "head": "/list",
-    "label": "列出在线玩家",
+    "label": "list online players",
     "params": []
   },
   {
     "id": "resetConst",
     "head": "/resetconst",
-    "label": "重置当前角色的命座",
+    "label": "Reset the constellation of the current character",
     "params": []
   },
   {
     "id": "teleport",
     "head": "/teleport",
-    "label": "传送到指定地点",
+    "label": "send to designated place",
     "params": [
       {
         "type": "number",
-        "name": "X坐标",
+        "name": "X coordinate",
         "max": 999999999999,
         "min": -999999999999,
         "value": 500,
@@ -443,7 +443,7 @@
       },
       {
         "type": "number",
-        "name": "Y坐标",
+        "name": "Y coordinate",
         "max": 999999999999,
         "min": -999999999999,
         "value": 500,
@@ -451,7 +451,7 @@
       },
       {
         "type": "number",
-        "name": "Z坐标",
+        "name": "Z coordinate",
         "max": 999999999999,
         "min": -999999999999,
         "value": 1,
@@ -459,7 +459,7 @@
       },
       {
         "type": "sceneList",
-        "name": "世界（场景）",
+        "name": "world (scene)",
         "required": false
       }
     ]
@@ -467,11 +467,11 @@
   {
     "id": "killCharacter",
     "head": "/killcharacter",
-    "label": "杀死当前角色",
+    "label": "kill current character",
     "params": [
       {
         "type": "string",
-        "name": "用户ID(ID前面需要加@)",
+        "name": "User ID(You need to add @ in front of the ID)",
         "required": false
       }
     ]
@@ -479,17 +479,17 @@
   {
     "id": "teleportAll",
     "head": "/tpall",
-    "label": "将当前世界所有玩家传送到你的位置",
+    "label": "Teleports all players in the current world to your location",
     "params": []
   },
   {
     "id": "setWeather",
     "head": "/weather",
-    "label": "设置气候和天气",
+    "label": "Set climate and weather",
     "params": [
       {
         "type": "weather",
-        "name": "气候",
+        "name": "climate",
         "required": true,
         "value": {
           "value": 4,
@@ -498,7 +498,7 @@
       },
       {
         "type": "select",
-        "name": "天气",
+        "name": "weather",
         "value": "1",
         "required": false,
         "data": {
@@ -512,13 +512,13 @@
             "6"
           ],
           "label": [
-            "无",
-            "晴天",
-            "多云",
-            "雨",
-            "雷雨",
-            "雪",
-            "雾"
+            "none",
+            "sunny",
+            "partly cloudy",
+            "rain",
+            "thunderstorm",
+            "Snow",
+            "FOG"
           ]
         }
       }
@@ -527,11 +527,11 @@
   {
     "id": "setStamina",
     "head": "/nostamina",
-    "label": "无限体力",
+    "label": "Unlimited stamina",
     "params": [
       {
         "type": "select",
-        "name": "状态",
+        "name": "state",
         "value": "on",
         "required": true,
         "data": {
@@ -541,9 +541,9 @@
             "toggle"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "turn on",
+            "turn off",
+            "cutover"
           ]
         }
       }
@@ -552,11 +552,11 @@
   {
     "id": "setUnlimitEnergy",
     "head": "/unlimitenergy",
-    "label": "无限能量",
+    "label": "unlimited energy",
     "params": [
       {
         "type": "select",
-        "name": "状态",
+        "name": "state",
         "value": "on",
         "required": true,
         "data": {
@@ -566,9 +566,9 @@
             "toggle"
           ],
           "label": [
-            "开启",
-            "关闭",
-            "切换"
+            "turn on",
+            "turn off",
+            "cutover"
           ]
         }
       }
@@ -577,17 +577,17 @@
   {
     "id": "unlockTower",
     "head": "/unlocktower",
-    "label": "解锁深境回廊",
+    "label": "Unlock Deep Corridors",
     "params": []
   },
   {
     "id": "quest",
     "head": "/quest",
-    "label": "添加或完成任务",
+    "label": "Add or complete tasks",
     "params": [
       {
         "type": "select",
-        "name": "状态",
+        "name": "state",
         "value": "add",
         "required": true,
         "data": {
@@ -596,18 +596,18 @@
             "finish"
           ],
           "label": [
-            "添加",
-            "完成"
+            "Add to",
+            "complete"
           ]
         }
       },
       {
         "type": "questList",
-        "name": "任务ID",
+        "name": "task ID",
         "required": true,
         "value": {
           "value": "1903005",
-          "label": "试胆大会 - 四处看看，寻找妖邪情报"
+          "label": "test of courage - Look around for evil messages"
         }
       }
     ]
