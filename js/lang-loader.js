@@ -9,7 +9,17 @@ export const supportedLang = [
             'en-EG', 'en-AU', 'en-GB', 'en-CA', 'en-NZ',
             'en-IE', 'en-ZA', 'en-JM', 'en-BZ', 'en-TT'
         ]
-    }
+    },
+    { id: 'de', text: 'Deutsch', alias: ['de-CH', 'de-AT', 'de-LU', 'de-LI'] },
+    {
+        id: 'es', text: 'español', alias: [
+            'es-AR', 'es-GT', 'es-CR', 'es-PA', 'es-DO', 'es-MX', 'es-VE', 'es-CO', 'es-PE',
+            'es-EC', 'es-CL', 'es-UY', 'es-PY', 'es-BO', 'es-SV', 'es-HN', 'es-NI', 'es-PR'
+        ]
+    },
+    { id: 'fr', text: 'Français', alias: ["fr-BE", "fr-CA", "fr-CH", "fr-LU"] },
+    { id: 'id', text: 'bahasa Indonesia', alias: [] },
+    { id: 'ja', text: '日本語', alias: [] }
 ]
 
 export let langData = {
@@ -98,6 +108,6 @@ export const initLang = () => {
     langSelectElement.value = config.lang
     langSelectElement.onchange = e => {
         config.lang = langSelectElement.value
-        setTimeout(()=>location.reload(), 1000)
+        setTimeout(() => location.reload(), 1000)
     }
 }
