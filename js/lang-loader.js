@@ -10,6 +10,7 @@ export const supportedLang = [
             'en-IE', 'en-ZA', 'en-JM', 'en-BZ', 'en-TT'
         ]
     },
+    { id: 'ru', text: 'русский язык', alias: ['ru-RU'] },
     { id: 'de', text: 'Deutsch', alias: ['de-CH', 'de-AT', 'de-LU', 'de-LI'] },
     {
         id: 'es', text: 'español', alias: [
@@ -19,7 +20,11 @@ export const supportedLang = [
     },
     { id: 'fr', text: 'Français', alias: ["fr-BE", "fr-CA", "fr-CH", "fr-LU"] },
     { id: 'id', text: 'bahasa Indonesia', alias: [] },
-    { id: 'ja', text: '日本語', alias: [] }
+    { id: 'ja', text: '日本語', alias: ['ja-JP'] },
+    { id: 'ko', text: '한국어', alias: ['ko-KR'] },
+    { id: 'vi', text: 'Tiếng Việt', alias: [] },
+    { id: 'pt', text: 'Português', alias: [] },
+    { id: 'th', text: 'ภาษาไทย', alias: [] },
 ]
 
 export let langData = {
