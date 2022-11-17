@@ -122,10 +122,12 @@ details[open] summary~* {
     display: none;
 }
 
-
-.links {
+.bottom {
     padding-bottom: 1em;
     margin: 2em 0;
+}
+
+.links {
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -179,7 +181,7 @@ details[open] summary~* {
         padding-left: 0.2em;
     }
     
-    .links {
+    .bottom {
         padding-bottom: 4em;
     }
 }

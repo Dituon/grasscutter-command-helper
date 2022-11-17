@@ -3,27 +3,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/command-generator.css" />
-    <link rel="stylesheet" href="/css/nav-icon.css" />
-    <link rel="stylesheet" href="/css/side-bar.css" />
-    <link rel="stylesheet" href="/css/menu.css" />
-    <link rel="stylesheet" href="/css/worktop.css" />
-    <link rel="stylesheet" href="/css/setting.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/command-generator.css" />
+    <link rel="stylesheet" href="./css/nav-icon.css" />
+    <link rel="stylesheet" href="./css/side-bar.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/worktop.css" />
+    <link rel="stylesheet" href="./css/setting.css" />
     <title bind="title">Grasscutter Command Helper</title>
-    <script type="module" src="/js/init.js"></script>
-    <script type="module" src="/js/lang-loader.js"></script>
-    <script type="module" src="/js/ui.js"></script>
+    <script type="module" src="./js/init.js"></script>
+    <script type="module" src="./js/lang-loader.js"></script>
+    <script type="module" src="./js/ui.js"></script>
 </head>
 
 <body>
     <div id="app" class="hide">
         <div id="menu-list">
             <div class="button-group">
-                <div id="menu-execute">📡Exec</div>
-                <div id="menu-copy">📋Copy</div>
-                <div id="menu-import">📚Import</div>
-                <div id="menu-share">🔗Share</div>
+                <div bind="exec-btn" id="menu-execute">📡Exec</div>
+                <div bind="copy-btn" id="menu-copy">📋Copy</div>
+                <div bind="import-btn" id="menu-import">📚Import</div>
+                <div bind="share-btn" id="menu-share">🔗Share</div>
             </div>
             <div id="menu-hide" class="menu-icon-hide">🤏</div>
             <div id="saved-command-group"></div>
@@ -39,8 +39,8 @@
                     </div>
                     <div id="command-search">
                         <span bind="command-search">Search: </span>
-                        <input bind="command-search-input" bind-target="placeholder" placeholder="🔎 Keyword / ID / Description"
-                            id="search-input">
+                        <input bind="command-search-input" bind-target="placeholder"
+                            placeholder="🔎 Keyword / ID / Description" id="search-input">
                     </div>
                     <div id="command-list"></div>
                 </div>
@@ -61,11 +61,11 @@
                     <div id="command-push" bind="command-push">📦 Push To Worktop</div>
                 </div>
             </div>
-            <div class="links" bind="links">
+            <div class="bottom links" bind="links">
                 <a href="https://github.com/Dituon/grasscutter-command-helper">❤Github❤</a>
                 <a href="https://discord.gg/Dxw5BVTN">✨Discord✨</a>
             </div>
-            
+
         </div>
     </div>
 
@@ -184,13 +184,13 @@
     </div>
 
 
-    <script type="module" src="/js/command-loader.js"></script>
-    <script type="module" src="/js/command-builder.js"></script>
+    <script type="module" src="./js/command-loader.js"></script>
+    <script type="module" src="./js/command-builder.js"></script>
 
-    <script type="module" src="/js/setting.js"></script>
-    <script type="module" src="/js/worktop.js"></script>
+    <script type="module" src="./js/setting.js"></script>
+    <script type="module" src="./js/worktop.js"></script>
 
-    <script type="module" src="/js/remote-execute.js"></script>
+    <script type="module" src="./js/remote-execute.js"></script>
 
     <!-- <script>
 

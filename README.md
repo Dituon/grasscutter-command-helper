@@ -2,6 +2,8 @@
 
 English | [简体中文](https://github.com/Dituon/grasscutter-command-helper/blob/main/README-CHS.md)
 
+## [Demo](https://cmd.d2n.moe/new)
+
 ## Intro
 
 A command generator for Grasscutter with other awesome extras
