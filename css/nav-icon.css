@@ -9,8 +9,6 @@
     justify-content: flex-start;
     align-items: center;
     
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-
     z-index: 999;
 }
 
@@ -84,5 +82,11 @@
 @media screen and (max-width: 300px) {
     #nav>.show {
         margin: 0 .2em;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #nav{
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     }
 }
