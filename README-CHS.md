@@ -3,6 +3,7 @@
 [English](https://github.com/Dituon/grasscutter-command-helper/blob/main/README.md) | 简体中文
 
 > **Warning**
+>
 > 本项目采用 [`AGPL-3.0`协议](https://github.com/Dituon/grasscutter-command-helper/blob/main/LICENSE) 开源, 必须保留本项目版权信息, 禁止倒卖
 
 ## [Demo](https://cmd.d2n.moe/new)
@@ -37,7 +38,7 @@
 
 1. `git -clone`
 
-2. 配置 `Nginx`, 反向代理 `/opencommand``/status` , 通过 `Header/reqip` 指定目标转发服务器
+2. 配置 `Nginx`, 反向代理 `/opencommand` `/status` , 通过 `Header/reqip` 指定目标转发服务器
 
 ## 构建/更新 数据
 

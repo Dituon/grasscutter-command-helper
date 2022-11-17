@@ -26,7 +26,7 @@ Any requests are welcome
 
 1. `git -clone`
 
-2. Configure `Nginx`, reverse proxy `/opencommand``/status`, specify the target forwarding server through `Header/reqip`
+2. Configure `Nginx`, reverse proxy `/opencommand` `/status`, specify the target forwarding server through `Header/reqip`
 
 ## Build GM Data
 
