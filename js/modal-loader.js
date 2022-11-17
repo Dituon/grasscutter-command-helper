@@ -197,7 +197,8 @@ class ModalSelect {
     /** @param { ModalDTO[] } modals */
     #loadModalSelectData(modals) {
         modals.forEach(modal => {
-            if (!modal.children?.length) {
+            if (!modal.children?.length && (modal.id || modal.ids?.length)) {
+                
                 let id = modal.id ?? modal.ids[0]
 
                 const div = document.createElement('div')
