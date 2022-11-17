@@ -29,9 +29,9 @@ const textMapIndex = JSON.parse(
 
 mainPropList.forEach(prop => {
     textMapIndex.some(indexObj => {
-        if (indexObj.textMapId === prop.textID) {
-            prop.textHash = indexObj.textMapContentTextMapHash
-            if (indexObj.textMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
+        if (indexObj.TextMapId === prop.textID) {
+            prop.textHash = indexObj.TextMapContentTextMapHash
+            if (indexObj.TextMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
             return true
         }
         return false
@@ -48,13 +48,16 @@ const propDataList = getRawGroup('PropData').split('\n')
 langList.forEach(lang => {
     const dir = `./data/${lang.navigator}`
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+    const langMainPropList = JSON.parse(JSON.stringify(mainPropList))
+    const langPropDataList = JSON.parse(JSON.stringify(propDataList))
 
     fs.readFile(`./Resources/TextMap/TextMap${lang.handbook}.json`, 'utf-8', (err, raw) => {
         const mapObj = JSON.parse(raw.toString())
         const propMap = new Map()
-        mainPropList.forEach(prop => {
+        langMainPropList.forEach(prop => {
             const name = mapObj[`${prop.textHash}`] + prop.extiaText
             prop.name = name
+            console.log(name)
 
             if (!propMap.has(name)) {
                 propMap.set(name, { name: name, ids: [] })
@@ -74,9 +77,9 @@ langList.forEach(lang => {
             prop.children = []
         })
 
-        propDataList.forEach(propData => {
+        langPropDataList.forEach(propData => {
 
-            mainPropList.some(mainProp => {
+            langMainPropList.some(mainProp => {
                 if (mainProp.textID === propData.type) {
                     propData.name = propData.name.replace(propData.type, mainProp.name)
                     propMap.get(mainProp.name).children.push({
