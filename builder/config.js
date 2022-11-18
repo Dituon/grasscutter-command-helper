@@ -1,3 +1,5 @@
+export const DATA_VERSION = '3.2'
+
 export const langList = [
     { hoyolab: 'en-us', handbook: 'EN', navigator: 'en-US', primary: true },
     { hoyolab: 'ja-jp', handbook: 'JP', navigator: 'ja' },
