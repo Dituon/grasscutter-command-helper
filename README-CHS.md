@@ -34,6 +34,27 @@
 
 - 多语言支持
 
+## GET参数
+
+脚本会解析`URL`中的`GET`参数, 可以向用户提供一些默认值
+
+| 参数      | 值域                      | 说明       |
+| --------- | ------------------------- | ---------- |
+| `version` | `1.2.1` `1.4.2`           | 指令版本   |
+| `lang`    | `navigator.language`      | 语言       |
+| `server`  | `encodeURIComponent(URL)` | 远程服务器 |
+| `import`  | `encodeURIComponent(URL)` | 导入指令   |
+
+**示例**
+
+> `https://cmd.d2n.moe/new?version=1.4.2&server=https%3A%2F%2Fgenshinserver.xmmt.fun%3A25568`
+> 
+> 指令版本为`1.4.2`, 服务器地址为`https://genshinserver.xmmt.fun:25568`
+
+> `https://cmd.d2n.moe/new?lang=en-US&import=https%3A%2F%2Ffoo.com%2Fexport.txt`
+>
+> 语言为`英语`, 从`https://foo.com/export.txt`导入指令
+
 ## 部署
 
 1. `git -clone`
