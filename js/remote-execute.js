@@ -1,5 +1,5 @@
+import { config, servers } from "./init.js"
 import { langData } from "./lang-loader.js"
-import { config, ProxyItem } from "./init.js"
 import { showMessage } from "./ui.js"
 import { settingBar } from "./setting.js"
 import { OutputCommand } from "./command-builder.js"
@@ -7,8 +7,6 @@ import { OutputCommand } from "./command-builder.js"
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
  */
-
-const servers = new ProxyItem('servers', {})
 
 const serverHostInput = document.getElementById('remote-host')
 const playerCountElement = document.getElementById('remote-player-count')
@@ -187,14 +185,21 @@ class TargetServer {
     }
 }
 
-let server = config.server ? new TargetServer(config.server) : undefined
+export let server = config.server ? new TargetServer(config.server) : undefined
+/** @param { string } url */
+export const setServer = url => {
+    server = new TargetServer(url)
+    server.getInfo()
+    server.testCommandPlugin()
+}
+
 if (config.server) {
     server.getInfo()
     server.testCommandPlugin()
 }
 
 /** @param { CommandDTO[] } commandList */
-const execCommand = commandList => {
+export const execCommand = commandList => {
     if (!server) {
         showMessage(langData.serverNotDefined, 3000)
         settingBar.show()
@@ -202,8 +207,6 @@ const execCommand = commandList => {
     }
     server.execCommand(commandList)
 }
-
-export { server, execCommand }
 
 
 serverHostInput.addEventListener('change', e => {

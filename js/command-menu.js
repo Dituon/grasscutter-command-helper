@@ -123,12 +123,16 @@ class CommandMenu {
             .join('\n').copy()
     }
 
-    async importCommand() {
-        const text = await navigator.clipboard.readText()
+    async importCommandFromClipboard() {
+        this.importCommand(await navigator.clipboard.readText())
+    }
+
+    /** @param { string } raw base64 */
+    importCommand(raw) {
         const base64List = []
         const regex = /(?<=gmh:\/\/).*(?=!)/gm
         let m
-        while ((m = regex.exec(text)) !== null) {
+        while ((m = regex.exec(raw)) !== null) {
             if (m.index === regex.lastIndex) {
                 regex.lastIndex++
             }
@@ -136,10 +140,7 @@ class CommandMenu {
                 base64List.push(...match.split('&'))
             })
         }
-        if (!base64List.length) {
-            showMessage(langData.commandImportFail)
-            return
-        }
+        if (!base64List.length) throw new Error()
         const that = this
         base64List.forEach(base64 => {
             that.push(CommandGroup.fromBase64(base64).getDTO())
@@ -182,4 +183,6 @@ const menuCopyBtn = document.getElementById('menu-copy')
 menuCopyBtn.addEventListener('click', () => menu.copyChosenCommand())
 
 const menuImportBtn = document.getElementById('menu-import')
-menuImportBtn.addEventListener('click', () => menu.importCommand())
+menuImportBtn.addEventListener('click', () =>
+    menu.importCommandFromClipboard().catch(e => showMessage(langData.commandImportFail))
+)

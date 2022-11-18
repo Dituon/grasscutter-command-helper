@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/setting.css" />
     <title bind="title">Grasscutter Command Helper</title>
     <script type="module" src="./js/init.js"></script>
+    <script type="module" src="./js/url-param.js"></script>
     <script type="module" src="./js/lang-loader.js"></script>
     <script type="module" src="./js/ui.js"></script>
 </head>
@@ -113,8 +114,8 @@
                 <span bind="command-version-select">🗃 Command Version</span>
                 <div>
                     <select id="command-version-select">
-                        <option value="1.2.1">1.2.1</option>
                         <option value="1.4.2">1.4.2</option>
+                        <option value="1.2.1">1.2.1</option>
                     </select>
                 </div>
             </div>
@@ -180,6 +181,10 @@
                     <input id="export-author" bind="export-author-input" bind-target="placeholder">
                 </div>
             </div>
+        </div>
+
+        <div class="button-group">
+            <div bind="clear-cache" id="clear-cache">⚠ Clear Cache</div>
         </div>
     </div>
 

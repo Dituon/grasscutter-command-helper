@@ -16,7 +16,7 @@ const commandSearchInput = document.getElementById('search-input')
 
 /** @return { Promise<CommandVO[]> } */
 const getCommandList = () =>
-    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion ?? '1.4.2'}.json`)
+    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion}.json`)
 
 /** @type { Map<string, CommandVO> } */
 export const commandMap = new Map()
@@ -39,36 +39,34 @@ const getCommandById = id => {
 export { getCommandList, getCommandById, getCommandByIdAsync }
 
 /** 
- * @param { string } version 
+ * @param { string } [version = '1.4.2'] 
  * @return { Promise<OutputCommandList> }
  */
-const initCommand = version => {
-    config.commandVersion = version
-    getCommandList().then(data => {
-        const outputCommandList = new OutputCommandList(data)
-        loadCommand(outputCommandList.list)
-        return outputCommandList
-    })
-}
-
-/** @type { HTMLSelectElement } */
-const commandVersionSelectElement = document.getElementById('command-version-select')
-
-initCommand(config.commandVersion ?? commandVersionSelectElement.value)
-getCommandList().then(commandList => {
-    commandVersionSelectElement.addEventListener('change', e => {
-        initCommand(e.target.value).then(commandList => {
-            let keyword = commandSearchInput.value
-            loadCommand(keyword ? commandList.filter(keyword) : commandList.list)
-        })
-    })
-    commandSearchInput.addEventListener('change', e => {
+export const initCommand = async version => {
+    config.commandVersion = version ?? config.commandVersion ?? '1.4.2'
+    const data = await getCommandList()
+    const commandList = new OutputCommandList(data)
+    loadCommand(commandList.list)
+    commandSearchInput.onchange = e => {
         loadCommand(commandList.filter(command =>
             command.head.includes(e.target.value)
             || command.label.includes(e.target.value)
         ))
+    }
+    return commandList
+}
+
+/** @type { HTMLSelectElement } */
+export const commandVersionSelectElement = document.getElementById('command-version-select')
+if (config.commandVersion) commandVersionSelectElement.value = config.commandVersion
+commandVersionSelectElement.addEventListener('change', e => {
+    initCommand(e.target.value).then(commandList => {
+        let keyword = commandSearchInput.value
+        loadCommand(keyword ? commandList.filter(keyword) : commandList.list)
     })
 })
+
+initCommand(config.commandVersion ?? commandVersionSelectElement.value)
 
 /**
  * @param { CommandVO[] } commandList
@@ -187,58 +185,6 @@ const buildParamElement = param => {
 
     div.appendChild(inputDiv)
     return div
-}
-
-/**
- * @param {ParamVO} param
- */
-const showModalSelect = (modalList, param) => {
-    const modalSelectElement = document.getElementById('modal-select')
-    const modalSelectDataElement = document.getElementById('modal-select-data')
-
-    modalSelectElement.style.display = modalList ? 'block' : 'none'
-    if (!modalList) {
-        mask.hide()
-        return
-    }
-    mask.onclick(e => showModalSelect()).show()
-
-    modalSelectDataElement.innerHTML = ''
-
-    let i = 0
-    loadModalSelectData(modalList.slice(i, i + 99))
-
-    modalSelectDataElement.addEventListener('scroll', loadMore)
-
-    function loadMore(e) {
-        if (e.target.scrollHeight - (e.target.clientHeight + e.target.scrollTop) > 260) return
-        modalSelectDataElement.removeEventListener('scroll', loadMore)
-        i = i + 100
-        loadModalSelectData(modalList.slice(i, i + 99))
-    }
-
-    function loadModalSelectData(modalList) {
-        modalList.forEach(modal => {
-            if (typeof modal === 'string') {
-                const groupNameElement = document.createElement('p')
-                groupNameElement.innerHTML = modal
-                modalSelectDataElement.appendChild(groupNameElement)
-                return
-            }
-
-            const div = document.createElement('div')
-            div.appendCommand(modal.id, modal.name)
-            modalSelectDataElement.appendChild(div)
-
-            div.addEventListener('click', e => {
-                param.value = { label: modal.name, value: modal.id }
-                showModalSelect()
-            })
-        })
-
-        if (modalList.length == 99)
-            modalSelectDataElement.addEventListener('scroll', loadMore)
-    }
 }
 
 const commandListElement = document.getElementById('list')

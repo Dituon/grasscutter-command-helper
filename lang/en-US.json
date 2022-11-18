@@ -84,7 +84,7 @@
     "commandNotChoose": "No command selected",
     "commandUnmaned": "Command Unnamed",
 
-    "unknowError": "No known errors, please submit issue",
+    "unknowError": "Unknown error, please submit issue",
 
     "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/Dxw5BVTN\">✨Discord✨</a>"
 }

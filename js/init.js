@@ -5,7 +5,7 @@ import { showMessage } from "./ui.js"
 /** @typedef { import("./command-parser").CommandGroupDTO } CommandGroupDTO */
 
 /** @const @public */
-const DATA_VERSION = '3.2'
+export const DATA_VERSION = '3.2'
 
 class CacheModel {
     /**
@@ -44,11 +44,9 @@ class CacheModel {
     clear(key) { localStorage.setItem(key, '') }
 }
 
-const cacheModel = new CacheModel()
+export const cacheModel = new CacheModel()
 
-export { DATA_VERSION, cacheModel }
-
-class ProxyItem {
+export class ProxyItem {
     /** 
      * @param { string } name
      * @param { object } [defaultValue={}] 
@@ -58,9 +56,9 @@ class ProxyItem {
         let time
         const proxy = new Proxy(localItem, {
             set(target, key, value) {
+                target[key] = value
                 if (!time) clearTimeout(time)
                 time = setTimeout(() => cacheModel.save(name, localItem), 100)
-                target[key] = value
                 return true
             }
         })
@@ -71,15 +69,16 @@ class ProxyItem {
 export const config = new ProxyItem('config')
 /** @type { CommandGroupDTO[] } */
 export const localCommandGroupList = new ProxyItem('commandGroupList', [])
+export const servers = new ProxyItem('servers', {})
 
-const dataCache = {}
+export const dataCache = {}
 /**
  * 
  * @param { string } url 
  * @param { {showMessage: boolean=true, unzip: boolean=false} } [param] 
  * @returns 
  */
-const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
+export const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
     if (dataCache[url]) return dataCache[url]
     param?.showMessage && showMessage(langData.loading, 10000)
     const promise = cacheModel.getUrl(url).then(data => {
@@ -92,8 +91,6 @@ const getUrlData = async (url, param = { showMessage: true, unzip: false }) => {
     param?.showMessage && promise.catch(() => showMessage(langData.loadFail, 10000))
     return promise
 }
-
-export { dataCache, getUrlData, ProxyItem }
 
 initLang()
 

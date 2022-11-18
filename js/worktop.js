@@ -2,9 +2,7 @@ import { menu } from "./command-menu.js"
 import { CommandGroup } from "./command-parser.js"
 import { Icon, showMessage, SideBar } from "./ui.js"
 import { server, execCommand } from "./remote-execute.js"
-import { getCommandByIdAsync } from "./command-loader.js"
 import { langData } from "./lang-loader.js"
-import { getModalById } from "./modal-loader.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO

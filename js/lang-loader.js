@@ -70,13 +70,13 @@ export let langData = {
     commandNotChoose: 'No command selected',
     commandUnmaned: 'Command Unnamed',
 
-    unknowError: 'No known errors, please submit issue'
+    unknowError: 'Unknown error, please submit issue'
 }
 
-export const initLang = () => {
-    console.log(config.lang)
-    if (!config.lang) {
-        const windowLang = navigator.language
+/** @param { string } [lang] */
+export const initLang = lang => {
+    if (lang || !config.lang) {
+        const windowLang = lang || navigator.language
         for (const lang of supportedLang) {
             if (windowLang === lang.id) {
                 config.lang = lang.id
@@ -89,11 +89,11 @@ export const initLang = () => {
         if (!config.lang) config.lang = 'en-US'
     }
 
-    cacheModel.getUrl(`./lang/${config.lang}.json`).then(lang => {
-        langData = lang
+    cacheModel.getUrl(`./lang/${config.lang}.json`).then(l => {
+        langData = l
         document.querySelectorAll('[bind]').forEach(node => {
             const target = node.getAttribute('bind-target')
-            const value = lang[node.getAttribute('bind')]
+            const value = langData[node.getAttribute('bind')]
             if (!value) return
             if (target) {
                 node.setAttribute(target, value)
@@ -111,8 +111,9 @@ export const initLang = () => {
         langSelectElement.appendChild(option)
     })
     langSelectElement.value = config.lang
-    langSelectElement.onchange = e => {
-        config.lang = langSelectElement.value
-        setTimeout(() => location.reload(), 1000)
+    langSelectElement.onchange = async e => {
+        initLang(langSelectElement.value)
+        const modal = await import('./command-loader.js')
+        modal.initCommand()
     }
 }
