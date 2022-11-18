@@ -30,7 +30,7 @@
 
 - 指令分类, 保存, 分享, 导入
 
-- 远程执行, 账户绑定
+- 远程执行, 账户绑定 (需要 [OpenCommand 插件](https://github.com/jie65535/gc-opencommand-plugin))
 
 - 多语言支持
 

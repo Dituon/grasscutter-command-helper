@@ -18,7 +18,7 @@ Any requests are welcome
 
 - Save & Share & Import
 
-- Remote command
+- Remote command (Need [OpenCommand Plugin](https://github.com/jie65535/gc-opencommand-plugin))
 
 - Multilingual support
 
