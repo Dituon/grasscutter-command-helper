@@ -247,39 +247,56 @@ function spider(langObj) {
     }
 
     async function getItems(id) {
-        return fetch(
-            'https://sg-wiki-api.hoyolab.com/hoyowiki/wapi/get_entry_page_list',
-            fetchParam({
-                filters: [],
-                menu_id: `${id}`,
-                page_num: 1,
-                page_size: 10000,
-                // page_size: 100,
-                use_es: true
-            })
-        ).then(p => p.json()).then(itemList => {
-            const requestList = []
+        const url = 'https://sg-wiki-api.hoyolab.com/hoyowiki/wapi/get_entry_page_list'
+        const param = (size, page = 0) => fetchParam({
+            filters: [],
+            menu_id: `${id}`,
+            page_num: page,
+            page_size: size,
+            use_es: true
+        })
 
-            itemList.data.list.forEach(item => {
+        return fetch(url, param(0)).then(p => p.json())
+            .then(async dataIndexObj => {
+                console.log(dataIndexObj)
+                let page = Math.ceil(dataIndexObj.data.total / 50)
+                const fetchList = []
+                for (let index = 1; index <= page; index++) {
+                    fetchList.push(
+                        async function () {
+                            await timeout(500 * index)
+                            return fetch(
+                                url, param(50, index)
+                            ).then(p => p.json()).then(itemList => {
+                                const requestList = []
 
-                const itemObj = {
-                    name: item.name,
-                    icon: item.icon_url,
-                    filter: []
+                                itemList.data.list.forEach(item => {
+
+                                    const itemObj = {
+                                        name: item.name,
+                                        icon: item.icon_url,
+                                        filter: []
+                                    }
+
+                                    Object.values(item.filter_values).forEach(filterElement => {
+                                        itemObj.filter.push(...filterElement.values)
+                                    })
+
+                                    requestList.push(id == 5 ?
+                                        getArtifactChildren(item.entry_page_id, itemObj)
+                                        : itemObj
+                                    )
+                                })
+
+                                return requestList
+                            })
+                        }
+                    )
                 }
 
-                Object.values(item.filter_values).forEach(filterElement => {
-                    itemObj.filter.push(...filterElement.values)
-                })
-
-                requestList.push(id == 5 ?
-                    getArtifactChildren(item.entry_page_id, itemObj)
-                    : itemObj
-                )
+                const list = await Promise.all(fetchList)
+                return list.flat(1)
             })
-
-            return requestList
-        })
     }
 
     async function getArtifactChildren(id, target) {
@@ -304,4 +321,8 @@ function spider(langObj) {
             return target
         })
     }
+}
+
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
