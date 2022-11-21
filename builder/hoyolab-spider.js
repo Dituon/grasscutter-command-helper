@@ -17,7 +17,7 @@ langList.forEach(lang => {
 //     { hoyolab: 'zh-cn', handbook: 'CHS', navigator: 'zh-CN' }
 // )
 
-function spider(langObj) {
+async function spider(langObj) {
     const lang = langObj.hoyolab
     const outputLang = langObj.navigator
     const dir = `./data/${lang}`
@@ -117,21 +117,32 @@ function spider(langObj) {
                         injectInfo(item)
                         op.weapon.list.push(item)
                     } else if (id >= 20002 && id < 100000) { //Artifact 圣遗物
-                        let idStr = item.id.toString()
-                        let outputId = parseInt(idStr.substring(0, idStr.length - 1) + '0')
+                        // let idStr = item.id.toString()
+                        // let outputId = parseInt(idStr.substring(0, idStr.length - 1) + '4')
+                        let outputId = item.id
+                        let [name, rank] = item.name.split('-')
 
                         for (const artifactGroup of artifactList) {
                             for (const artifactItem of artifactGroup.children) {
-                                if (artifactItem.name == item.name) {
-                                    if (!artifactItem.ids) artifactItem.ids = []
-                                    if (!artifactItem.ids.includes(outputId)) artifactItem.ids.push(outputId)
+                                if (artifactItem.name == name) {
+                                    if (artifactItem.rank == rank) return
+                                    if (!artifactItem.rank) {
+                                        artifactItem.id = item.id
+                                        artifactItem.rank = parseInt(rank)
+                                        return
+                                    }
+                                    const obj = {}
+                                    Object.assign(obj, artifactItem)
+                                    artifactItem.id = item.id
+                                    artifactItem.rank = parseInt(rank)
+                                    artifactGroup.children.push(obj)
                                     return
                                 }
                             }
                         }
-                        if (!artifactIdsMap.has(item.name)) artifactIdsMap.set(item.name, [])
-                        const ids = artifactIdsMap.get(item.name)
-                        // if (!ids.includes(outputId)) 
+                        if (!artifactIdsMap.has(name)) artifactIdsMap.set(name, [])
+                        const ids = artifactIdsMap.get(name)
+                        // if (!ids.includes(outputId))
                         ids.push(item.id)
                     } else if (id >= 340000 && id < 350000) { //Skin 皮肤
                         if (!item.filter) item.filter = []
@@ -294,7 +305,7 @@ function spider(langObj) {
                     )
                 }
 
-                const list = await Promise.all(fetchList)
+                const list = await Promise.all(fetchList.map(f => f()))
                 return list.flat(1)
             })
     }
