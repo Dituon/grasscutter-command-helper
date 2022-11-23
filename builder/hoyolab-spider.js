@@ -121,21 +121,19 @@ async function spider(langObj) {
                         // let outputId = parseInt(idStr.substring(0, idStr.length - 1) + '4')
                         let outputId = item.id
                         let [name, rank] = item.name.split('-')
+                        rank = parseInt(rank)
 
                         for (const artifactGroup of artifactList) {
                             for (const artifactItem of artifactGroup.children) {
                                 if (artifactItem.name == name) {
-                                    if (artifactItem.rank == rank) return
                                     if (!artifactItem.rank) {
-                                        artifactItem.id = item.id
-                                        artifactItem.rank = parseInt(rank)
+                                        artifactItem.ids = [item.id]
+                                        artifactItem.rank = [rank]
                                         return
                                     }
-                                    const obj = {}
-                                    Object.assign(obj, artifactItem)
-                                    artifactItem.id = item.id
-                                    artifactItem.rank = parseInt(rank)
-                                    artifactGroup.children.push(obj)
+                                    if (artifactItem.rank.includes(rank)) return
+                                    artifactItem.ids.push(item.id)
+                                    artifactItem.rank.push(rank)
                                     return
                                 }
                             }
