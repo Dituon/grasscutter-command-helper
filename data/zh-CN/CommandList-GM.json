@@ -203,7 +203,7 @@
       },
       {
         "type": "select",
-        "name": "开",
+        "name": "开关",
         "value": "on",
         "data": {
           "value":[
