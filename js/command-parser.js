@@ -25,9 +25,7 @@ import { showMessage } from './ui.js'
 
 /**
  * @typedef { object } CommandGroupDTO
- * @property { string? } title
- * @property { string? } description
- * @property { string? } author
+ * @property { { title:string?, description:string?, author: string? } } head
  * @property { CommandDTO[] } list
  */
 
@@ -124,7 +122,20 @@ HTMLDivElement.prototype.renderCommandDTO = function (commandDTO) {
                 default:
                     const that = this
                     getModalById(paramDTO, paramVO.type).then(modalDTO => {
-                        if (modalDTO.icon) {
+                        if (modalDTO.children) {
+                            for (const item of modalDTO.children) {
+                                if (item.icon && (
+                                    item.id == paramDTO
+                                    || item.ids.some(id => id == paramDTO)
+                                )) {
+                                    const icon = document.createElement('img')
+                                    icon.className = 'icon'
+                                    icon.src = item.icon
+                                    that.appendChild(icon)
+                                    return
+                                }
+                            }
+                        } else if (modalDTO.icon) {
                             const icon = document.createElement('img')
                             icon.className = 'icon'
                             icon.src = modalDTO.icon

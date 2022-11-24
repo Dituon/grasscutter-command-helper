@@ -44,7 +44,6 @@ class CommandMenu {
      * @param { CommandGroupDTO } commandGroup
      */
     #appendCommandGroup(commandGroup) {
-        console.log(commandGroup)
         const details = document.createElement('details')
         commandGroup.dom = details
         const summary = document.createElement('summary')
@@ -59,15 +58,15 @@ class CommandMenu {
         })
 
         const groupName = document.createElement('span')
-        groupName.innerText = commandGroup.title || langData.commandUnmaned
+        groupName.innerText = commandGroup?.head?.title || langData.commandUnmaned
         summary.appendChild(groupName)
 
         details.appendChild(summary)
 
-        if (commandGroup.description) {
+        if (commandGroup?.head?.description) {
             const description = document.createElement('div')
             description.className = 'command-group-description'
-            description.innerText = commandGroup.description
+            description.innerText = commandGroup.head.description
             details.appendChild(description)
         }
 
@@ -107,6 +106,7 @@ class CommandMenu {
             showMessage(langData.commandNotChoose, 3000)
             return
         }
+        console.log(this.chosenCommandGroupSet)
         const list = [...this.chosenCommandGroupSet]
             .map(groupDTO => CommandGroup.formDTO(groupDTO).toBase64())
 

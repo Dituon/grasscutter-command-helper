@@ -41,8 +41,10 @@ class Worktop {
 
     save() {
         menu.push({
-            title: document.getElementById('worktop-title').value,
-            description: document.getElementById('worktop-description').value,
+            head: {
+                title: document.getElementById('worktop-title').value,
+                description: document.getElementById('worktop-description').value
+            },
             list: this.list.getList()
         })
     }
