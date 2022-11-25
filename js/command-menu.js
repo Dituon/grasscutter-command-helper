@@ -182,6 +182,9 @@ menuShareBtn.addEventListener('click', () => {
 const menuCopyBtn = document.getElementById('menu-copy')
 menuCopyBtn.addEventListener('click', () => menu.copyChosenCommand())
 
+const menuExecBtn = document.getElementById('menu-execute')
+menuExecBtn.addEventListener('click', () => menu.execChosenCommand())
+
 const menuImportBtn = document.getElementById('menu-import')
 menuImportBtn.addEventListener('click', () =>
     menu.importCommandFromClipboard().catch(e => showMessage(langData.commandImportFail))
