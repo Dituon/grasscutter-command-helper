@@ -12,3 +12,9 @@ export const authorInputElement = document.getElementById('export-author')
 authorInputElement.addEventListener('change', e => {
     config.author = e.target.value
 })
+
+const clearCacheBtn = document.getElementById('clear-cache')
+clearCacheBtn.addEventListener('click', e => {
+    localStorage.clear()
+    location.reload()
+})
