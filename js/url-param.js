@@ -1,6 +1,6 @@
 import { commandVersionSelectElement, initCommand } from "./command-loader.js"
 import { menu } from "./command-menu.js"
-import { config } from "./init.js"
+import { config, importedList } from "./init.js"
 import { initLang, langData } from "./lang-loader.js"
 import { server, setServer } from "./remote-execute.js"
 import { showMessage } from "./ui.js"
@@ -12,9 +12,12 @@ urlParams.forEach((value, key) => {
             setServer(decodeURIComponent(value))
             break
         case 'import':
-            fetch(decodeURIComponent(value))
+            console.log(value)
+            if (importedList.includes(value)) break
+            fetch(decodeURIComponent(value)).then(p => p.text())
                 .then(raw => menu.importCommand(raw))
                 .catch(e => showMessage(langData.commandImportFail, 3000))
+                .finally(() => importedList.push(value))
             break
         case 'lang':
             initLang(value)
@@ -24,5 +27,6 @@ urlParams.forEach((value, key) => {
             if (value !== '1.2.1' && value !== '1.4.2') break
             commandVersionSelectElement.value = value
             initCommand(value)
+            break
     }
 })

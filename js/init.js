@@ -51,14 +51,12 @@ export class ProxyItem {
      * @param { string } name
      * @param { object } [defaultValue={}] 
      */
-    constructor(name, defaultValue) {
+    constructor(name, defaultValue = {}) {
         const localItem = cacheModel.getItem(name, defaultValue)
-        let time
         const proxy = new Proxy(localItem, {
             set(target, key, value) {
                 target[key] = value
-                if (!time) clearTimeout(time)
-                time = setTimeout(() => cacheModel.save(name, localItem), 100)
+                cacheModel.save(name, localItem)
                 return true
             }
         })
@@ -69,7 +67,10 @@ export class ProxyItem {
 export const config = new ProxyItem('config')
 /** @type { CommandGroupDTO[] } */
 export const localCommandGroupList = new ProxyItem('commandGroupList', [])
+console.log(localCommandGroupList)
 export const servers = new ProxyItem('servers', {})
+/** @type {string[]} */
+export const importedList = new ProxyItem('imported', [])
 
 export const dataCache = {}
 /**
