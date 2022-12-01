@@ -51,15 +51,17 @@
 > 
 > 指令版本为`1.4.2`, 服务器地址为`https://genshinserver.xmmt.fun:25568`
 
-> `https://cmd.d2n.moe/new?lang=en-US&import=https%3A%2F%2Ffoo.com%2Fexport.txt`
+> `https://cmd.d2n.moe/new?lang=zh-CN&import=./share/artifact.gmh`
 >
-> 语言为`英语`, 从`https://foo.com/export.txt`导入指令
+> 语言为`中文`, 从`/share/artifact.gmh`导入指令
 
 ## 部署
 
 1. `git -clone`
 
-2. 配置 `Nginx`, 反向代理 `/opencommand` `/status` , 通过 `Header/reqip` 指定目标转发服务器
+2. `cd ./src`, `npm install`, `npm run build` (使用 [Vite](https://github.com/vitejs/vite))
+
+3. 配置 `Nginx`, 反向代理 `/opencommand` `/status` , 通过 `Header/reqip` 指定目标转发服务器
 
 ## 构建/更新 数据
 

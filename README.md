@@ -39,15 +39,17 @@ The script read the `GET` params in URL, you can provide some default param to t
 > 
 > command version is `1.4.2`, remote server is `https://genshinserver.xmmt.fun:25568`
 
-> `https://cmd.d2n.moe/new?lang=en-US&import=https%3A%2F%2Ffoo.com%2Fexport.txt`
+> `https://cmd.d2n.moe/new?lang=en-US&import=./share/artifact.gmh`
 >
-> Language is `English`, import command from `https://foo.com/export.txt`
+> Language is `English`, import command from `./share/artifact.gmh`
 
 ## Deploy
 
 1. `git -clone`
 
-2. Configure `Nginx`, reverse proxy `/opencommand` `/status`, specify the target forwarding server through `Header/reqip`
+2. `cd ./src`, `npm install`, `npm run build` (Use [Vite](https://github.com/vitejs/vite))
+
+3. Configure `Nginx`, reverse proxy `/opencommand` `/status`, specify the target forwarding server through `Header/reqip`
 
 ## Build GM Data
 
