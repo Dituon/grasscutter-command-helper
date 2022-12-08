@@ -5,7 +5,7 @@ import { showMessage } from "./ui.js"
 /** @typedef { import("./command-parser").CommandGroupDTO } CommandGroupDTO */
 
 /** @const @public */
-export const DATA_VERSION = '3.2'
+export const DATA_VERSION = '3.3'
 
 class CacheModel {
     /**
