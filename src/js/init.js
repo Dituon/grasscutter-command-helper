@@ -122,6 +122,16 @@ Array.prototype.includesMultiple = function (...objs) {
 String.prototype.copy = function () {
     navigator.clipboard.writeText(this).then(
         () => showMessage(langData.copySuccess),
-        () => showMessage(langData.copyFail)
+        e => {
+            console.warn(e)
+            if (!window.copyInputElement) window.copyInputElement = document.createElement('input')
+            const inputElement = window.copyInputElement
+            inputElement.value = this
+            inputElement.select()
+            showMessage(
+                document.execCommand("Copy", false) ?
+                    langData.copySuccess : langData.copyFail
+            )
+        }
     )
 }
