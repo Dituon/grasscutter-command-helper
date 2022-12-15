@@ -163,18 +163,25 @@ class TargetServer {
             return
         }
         const that = this
-        return fetch(`/opencommand/api`, this.buildPostParam({
+
+        const req = async preCommand => fetch(`/opencommand/api`, this.buildPostParam({
             action: 'command',
             token: that.token,
-            data: commandList.reduce((str, command) =>
-                str += OutputCommand.stringify(command).replace('/', '') + '\n'
-                , '')
+            data: preCommand
         })).then(p => p.json()).then(data => {
             showMessage(langData.commandExecuted)
             return data
         }).catch(e => {
             showMessage(langData.commandExecuteFail, 3000)
         })
+
+        return Promise.all(
+            commandList.reduce((promiseList, command) => {
+                let str = OutputCommand.stringify(command).replace('/', '')
+                promiseList.push(req(str))
+                return promiseList
+            }, [])
+        )
     }
 
     clearData() {

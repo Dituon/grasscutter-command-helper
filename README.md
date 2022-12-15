@@ -64,4 +64,4 @@ This framework supports multiple languages, Please help us to translate the page
 
 ## Links
 
-[Discord](https://discord.gg/Dxw5BVTN)
+[Discord](https://discord.gg/uDSQfQTrd8)

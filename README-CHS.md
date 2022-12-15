@@ -20,7 +20,7 @@
 
 ## 链接
 
-[Discord](https://discord.gg/Dxw5BVTN)
+[Discord](https://discord.gg/uDSQfQTrd8)
 
 [QQ群](https://jq.qq.com/?_wv=1027&k=wPwRuhuJ)
 
