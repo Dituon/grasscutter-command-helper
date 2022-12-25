@@ -5,6 +5,8 @@
 > **Warning**
 >
 > 本项目采用 [`AGPL-3.0`协议](https://github.com/Dituon/grasscutter-command-helper/blob/main/LICENSE) 开源, 必须保留本项目版权信息, 禁止倒卖
+>
+> (你可以随意更改任何内容, 但请一定保留本项目 `Github` 链接)
 
 ## [Demo](https://cmd.d2n.moe/new)
 
