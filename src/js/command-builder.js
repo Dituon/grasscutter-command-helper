@@ -146,7 +146,7 @@ class OutputParam {
         if (!this.value) return null
         let value = this.value?.value ?? this.value
         if (this.head) value = this.head + value
-        if (this.subparam) value + ',' + this.subparam.value
+        if (this.subparam) value = value + ',' + this.subparam.value
         return value
     }
 }

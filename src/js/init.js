@@ -67,7 +67,6 @@ export class ProxyItem {
 export const config = new ProxyItem('config')
 /** @type { CommandGroupDTO[] } */
 export const localCommandGroupList = new ProxyItem('commandGroupList', [])
-console.log(localCommandGroupList)
 export const servers = new ProxyItem('servers', {})
 /** @type {string[]} */
 export const importedList = new ProxyItem('imported', [])
