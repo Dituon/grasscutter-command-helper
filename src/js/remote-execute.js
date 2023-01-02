@@ -217,7 +217,7 @@ export const execCommand = commandList => {
 
 
 serverHostInput.addEventListener('change', e => {
-    if (!e.target.value.startsWith('https://') || !e.target.value.startsWith('http://')) e.target.value = 'https://' + e.target.value
+    if (!e.target.value.startsWith('https://') && !e.target.value.startsWith('http://')) e.target.value = 'https://' + e.target.value
     server = new TargetServer(e.target.value)
 
     server.getInfo()
