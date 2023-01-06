@@ -1,0 +1,9 @@
+{
+    "main": "api.js",
+    "type": "module",
+    "author": "Dituon",
+    "license": "AGPL-3.0",
+    "scripts": {
+        "start": "node api.js"
+    }
+}

@@ -5,7 +5,7 @@
  * @param {number} [time=1000]
  */
 const showMessage = (value, time = 1000) => {
-    const message = document.getElementById("message")
+    const message = document.getElementById('message')
     if (message) message.remove()
 
     var div = document.createElement('div')
@@ -33,7 +33,13 @@ commandListElement.addEventListener('click', e => {
     commandListElement.style.maxWidth = '50vh'
 }, { once: true })
 
-const mask = new class {
+export const mask = new class {
+    /** @type { HTMLElement } */
+    element
+    /** @type { boolean } */
+    showing
+    timer
+
     constructor() {
         this.element = document.getElementById('mask')
         this.showing = false
@@ -42,13 +48,10 @@ const mask = new class {
     /**
      * @param {Function} callback 
      */
-    onclick(callback) {
-        this.callback = callback
+    set onclick(callback){
         this.element.addEventListener('click', e => {
-            if (this.timer) return
             callback(e)
         })
-        return this
     }
 
     show() {
@@ -72,8 +75,6 @@ const mask = new class {
         this.showing ? this.hide() : this.show()
     }
 }
-
-export { mask }
 
 /**
  * @param {string} head 
@@ -131,10 +132,7 @@ class Icon {
         }
 
         this.iconEmoji = this.element.innerHTML
-        this.element.innerHTML = `
-        <span class="front">${this.iconEmoji}</span>
-        <span class="behind">❌</span>
-        `
+        this.element.innerHTML = `<span class="front">${this.iconEmoji}</span><span class="behind">❌</span>`
         this.clicked = false
         this.element.addEventListener('click', e => {
             this.element.style.transform = this.clicked ? '' : 'rotateY(180deg)'

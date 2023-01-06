@@ -91,20 +91,23 @@ details[open] summary~* {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* flex-wrap: wrap; */
 }
 
 .button-group>div,
 .button-group-item {
     height: 2em;
-    padding: 0 0.5em;
-    font-size: 80%;
+    padding: 0 1em;
     font-weight: bold;
 
     text-align: center;
     border-radius: 4px;
+    margin: 0.3em;
     cursor: pointer;
     line-height: 2em;
+    width: 100%;
     background-color: var(--hl-text);
+    white-space: nowrap;
 
     transition: all 0.6s;
 }
@@ -142,6 +145,19 @@ details[open] summary~* {
 .links>a:hover {
     font-size: large;
     letter-spacing: 0.2ch;
+}
+
+#mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #333;
+    display: none;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 50;
 }
 
 :root *::-webkit-scrollbar-track {

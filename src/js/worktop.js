@@ -27,7 +27,7 @@ class Worktop {
         div.className = 'card'
         const deleteButton = document.createElement('div')
         deleteButton.classList.add("button-group-item")
-        deleteButton.innerHTML = '🚮'
+        deleteButton.innerHTML = '❌'
         deleteButton.addEventListener('click', e => {
             e.stopPropagation()
             this.list.delete(commandDTO)
@@ -47,6 +47,7 @@ class Worktop {
             },
             list: this.list.getList()
         })
+        showMessage(langData.saveSuccess)
     }
 
     execute() {
@@ -88,9 +89,4 @@ executeButton.addEventListener('click', e => worktop.execute())
 const worktopCopyBtn = document.getElementById('worktop-copy')
 worktopCopyBtn.addEventListener('click', e => {
     worktop.list.copyCommand()
-})
-
-const worktopShareBtn = document.getElementById('worktop-share')
-worktopShareBtn.addEventListener('click', e => {
-    console.log(worktop.export())
 })

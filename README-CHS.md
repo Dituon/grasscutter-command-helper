@@ -64,6 +64,10 @@
 2. `cd ./src`, `npm install`, `npm run build` (使用 [Vite](https://github.com/vitejs/vite))
 
 3. 配置 `Nginx`, 反向代理 `/opencommand` `/status` , 通过 `Header/reqip` 指定目标转发服务器
+   
+4. `cd ./api` `npm start`
+
+5. 配置 `Nginx`, 代理 `/api` , 将请求转发至 `http://127.0.0.1:1919`
 
 ## 构建/更新 数据
 

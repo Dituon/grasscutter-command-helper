@@ -44,6 +44,14 @@
     "share-btn": "🔗分享",
     "import-btn": "📚導入",
 
+    "share-code": "分享碼",
+    "export-update": "📤生成",
+    "import-download": "📥導入",
+    "share-raw": "源數據",
+    "export-raw": "📋復製",
+    "import-raw": "💼讀取",
+
+    "clear-cache": "⚠ 清除緩存",
 
     "loading": "加載中...",
     "loadSuccess": "加載成功",
@@ -58,6 +66,7 @@
     "chooseCommandFirst": "請先選擇指令",
     "showFilter": "展開 / 收起  過濾器",
     "commandPushed": "已添加至指令組",
+    "saveSuccess": "保存成功",
 
     "serverNotDefined": "未指定伺服器",
     "gettingServerInfo": "正在獲取伺服器信息...",
@@ -83,6 +92,9 @@
     "commandExportSuccess": "指令導出成功, 已輸出至剪切板",
     "commandNotChoose": "未選擇任何指令",
     "commandUnmaned": "未命名",
+
+    "shareCodeEmpty": "分享碼不能為空",
+    "updateFail": "上傳失敗",
 
     "unknowError": "未知錯誤, 請提交issue反饋",
 

@@ -10,6 +10,7 @@ import { CommandGroup } from './command-parser.js'
 import { localCommandGroupList } from './init.js'
 import { langData } from './lang-loader.js'
 import { execCommand } from './remote-execute.js'
+import { ShareModal } from './share-modal.js'
 import { Icon, showMessage, SideBar } from "./ui.js"
 
 class CommandMenu {
@@ -78,7 +79,7 @@ class CommandMenu {
 
         const deleteButton = document.createElement('div')
         deleteButton.classList.add("button-group-item")
-        deleteButton.innerHTML = '🚮'
+        deleteButton.innerHTML = '❌'
         deleteButton.addEventListener('click', e => {
             this.delete(commandGroup)
         })
@@ -125,6 +126,7 @@ class CommandMenu {
 
     async importCommandFromClipboard() {
         this.importCommand(await navigator.clipboard.readText())
+            .catch(e => showMessage(langData.commandImportFail))
     }
 
     /** @param { string } raw base64 */
@@ -174,18 +176,11 @@ menuIcon.onClick(e => {
 })
 
 const menuShareBtn = document.getElementById('menu-share')
-menuShareBtn.addEventListener('click', () => {
-    let str = menu.exportChosenCommand()
-    if (str) str.copy()
-})
+const shareModal = new ShareModal(menu)
+menuShareBtn.addEventListener('click', () => shareModal.show())
 
 const menuCopyBtn = document.getElementById('menu-copy')
 menuCopyBtn.addEventListener('click', () => menu.copyChosenCommand())
 
 const menuExecBtn = document.getElementById('menu-execute')
 menuExecBtn.addEventListener('click', () => menu.execChosenCommand())
-
-const menuImportBtn = document.getElementById('menu-import')
-menuImportBtn.addEventListener('click', () =>
-    menu.importCommandFromClipboard().catch(e => showMessage(langData.commandImportFail))
-)

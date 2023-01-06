@@ -41,6 +41,7 @@ export let langData = {
     chooseCommandFirst: 'Select the Command first',
     showFilter: 'Filters',
     commandPushed: 'Pushed to Worktop',
+    saveSuccess: 'Save Success',
 
     serverNotDefined: 'Server not specified',
     gettingServerInfo: 'Acquiring server information...',
@@ -69,6 +70,9 @@ export let langData = {
 
     commandNotChoose: 'No command selected',
     commandUnmaned: 'Command Unnamed',
+
+    shareCodeEmpty: 'Share Code cannot be Empty',
+    updateFail: 'Update Failed',
 
     unknowError: 'Unknown error, please submit issue'
 }
@@ -117,3 +121,5 @@ export const initLang = lang => {
         modal.initCommand()
     }
 }
+
+initLang()

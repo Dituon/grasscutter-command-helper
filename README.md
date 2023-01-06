@@ -50,8 +50,12 @@ The script read the `GET` params in URL, you can provide some default param to t
 2. `cd ./src`, `npm install`, `npm run build` (Use [Vite](https://github.com/vitejs/vite))
 
 3. Configure `Nginx`, reverse proxy `/opencommand` `/status`, specify the target forwarding server through `Header/reqip`
+   
+4. `cd ./api` `npm start`
+   
+5. Configure `Nginx`, proxy `/api`, forward the requests to `http://127.0.0.1:1919`
 
-## Build GM Data
+## Build & Update Data
 
 See `/builder/`, need nodejs
 

@@ -41,9 +41,16 @@
     "save-btn": "💾Save",
     "copy-btn": "📋Copy",
     "exec-btn": "📡Exec",
-    "share-btn": "🔗Share",
-    "import-btn": "📚Import",
+    "share-btn": "📚 Share & Import",
 
+    "share-code": "Share Code",
+    "export-update": "📤Create",
+    "import-download": "📥Import",
+    "share-raw": "Raw Data",
+    "export-raw": "📋Copy",
+    "import-raw": "💼Read",
+
+    "clear-cache": "⚠ Clear Cache",
 
     "loading": "Loading...",
     "loadSuccess": "Load Successfully",
@@ -58,6 +65,7 @@
     "chooseCommandFirst": "Select the Command first",
     "showFilter": "Filters",
     "commandPushed": "Pushed to Worktop",
+    "saveSuccess": "Save Success",
 
     "serverNotDefined": "Server not specified",
     "gettingServerInfo": "Acquiring server information...",
@@ -83,6 +91,9 @@
     "commandExportSuccess": "Command exported successfully, check your clipboard",
     "commandNotChoose": "No command selected",
     "commandUnmaned": "Command Unnamed",
+
+    "shareCodeEmpty": "Share Code cannot be Empty",
+    "updateFail": "Update Failed",
 
     "unknowError": "Unknown error, please submit issue",
 

@@ -1,4 +1,5 @@
-import { config, DATA_VERSION, getUrlData } from "./init.js";
+import { config, DATA_VERSION } from "./init.js";
+import { getUrlData } from './core.js'
 import { mask } from "./ui.js";
 import { langData } from "./lang-loader.js";
 
@@ -104,6 +105,14 @@ const modalSearchSettingElement = document.getElementById('modal-srarch-setting'
 
 
 class ModalSelect {
+    type
+    /** @type { ParamVO } */
+    param
+    /** @type { HTMLDivElement } */
+    #filterDetails
+    /** @type { [string | ModalDTO] } */
+    displayList
+
     /** @param { ParamVO } param */
     constructor(param) {
         this.type = param.type
@@ -114,10 +123,10 @@ class ModalSelect {
         modalSearchSettingElement.innerHTML = ''
 
         getFilterGroupList(this.type).then(filterGroupList => {
-            this.filterDetails = document.createElement('details')
+            this.#filterDetails = document.createElement('details')
             const summary = document.createElement('summary')
             summary.innerHTML = langData.showFilter
-            this.filterDetails.appendChild(summary)
+            this.#filterDetails.appendChild(summary)
 
             filterGroupList.forEach(filterGroup => {
                 const groupDiv = document.createElement('div')
@@ -134,9 +143,9 @@ class ModalSelect {
                     })
                 })
 
-                this.filterDetails.appendChild(groupDiv)
+                this.#filterDetails.appendChild(groupDiv)
             })
-            modalSearchSettingElement.appendChild(this.filterDetails)
+            modalSearchSettingElement.appendChild(this.#filterDetails)
         })
     }
 
@@ -146,8 +155,9 @@ class ModalSelect {
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
 
         getModalList(this.type).then(modalList => {
-            modalSelectElement.style.display = 'block'
-            mask.onclick(e => this.hide()).show()
+            modalSelectElement.classList.remove('hide')
+            mask.onclick = e => this.hide()
+            mask.show()
 
             let filteredModalGroupList = modalList
 
@@ -178,8 +188,6 @@ class ModalSelect {
                 }, [])
             }
 
-
-            /** @type { [string | ModalDTO] } */
             this.displayList = filteredModalGroupList
 
             this.#loadModalSelectData(this.displayList.slice(0, 99))
@@ -187,7 +195,7 @@ class ModalSelect {
         })
     }
 
-    #loadMore = e => {
+    #loadMore(e){
         if (e.target.scrollHeight - (e.target.clientHeight + e.target.scrollTop) > 260) return
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
         let i = modalSelectDataElement.childElementCount
@@ -258,19 +266,19 @@ class ModalSelect {
             modalSelectDataElement.addEventListener('scroll', this.#loadMore)
     }
 
-    hide = () => {
+    hide() {
         modalSearchInput.select = null
         modalSearchInput.value = ''
         modalSelectDataElement.removeEventListener('scroll', this.#loadMore)
         modalSearchInput.removeEventListener('change', this.#onFiltrate)
         modalSelectCloseElement.removeEventListener('click', this.clear)
-        modalSelectElement.style.display = 'none'
+        modalSelectElement.classList.add('hide')
         mask.hide()
     }
 
     /** @param { Event } */
     #onFiltrate() {
-        this.select.show(modalSearchInput.value)
+        this.show(modalSearchInput.value)
     }
 
     clear = () => {

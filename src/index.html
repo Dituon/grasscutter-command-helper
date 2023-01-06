@@ -17,12 +17,13 @@
     <meta name="apple-mobile-web-app-title" content="Grasscutter Command Helper">
 
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/command-generator.css" />
+    <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/nav-icon.css" />
     <link rel="stylesheet" href="./css/side-bar.css" />
     <link rel="stylesheet" href="./css/menu.css" />
     <link rel="stylesheet" href="./css/worktop.css" />
     <link rel="stylesheet" href="./css/setting.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
     <title bind="title">Grasscutter Command Helper</title>
     <script type="module" src="./js/init.js"></script>
     <script type="module" src="./js/url-param.js"></script>
@@ -36,7 +37,8 @@
             <div class="button-group">
                 <div bind="exec-btn" id="menu-execute">📡Exec</div>
                 <div bind="copy-btn" id="menu-copy">📋Copy</div>
-                <div bind="import-btn" id="menu-import">📚Import</div>
+            </div>
+            <div class="button-group">
                 <div bind="share-btn" id="menu-share">🔗Share</div>
             </div>
             <div id="menu-hide" class="menu-icon-hide">🤏</div>
@@ -68,7 +70,7 @@
                     Results
                 </h2>
                 <div id="output-area">
-                    <span id="output-span" bind="output-tips" bind-target="title" title="点击复制"></span>
+                    <span id="output-span" bind="output-tips" bind-target="title" title="click to copy"></span>
                 </div>
                 <div class="button-group">
                     <div id="command-exec" bind="command-execute">📡 Remote Command</div>
@@ -84,7 +86,7 @@
     </div>
 
     <div id="mask"></div>
-    <div id="modal-select">
+    <div id="modal-select" class="hide">
         <div id="modal-search-bar">
             <input bind="modal-search-input" target="placeholder" placeholder="🔎 Keyword / ID / Tag" id="modal-search">
             <span id="modal-search-clear">🗑</span>
@@ -101,8 +103,8 @@
     </div>
 
     <div id="worktop-bar" class="side-bar">
-        <h3 bind="command-group">Command Group</h3>
         <div id="worktop-head">
+            <h3 bind="command-group">Command Group</h3>
             <div class="param">
                 <span bind="command-group-title">Title: </span>
                 <div>
@@ -115,7 +117,6 @@
                 <div bind="save-btn" id="worktop-save">💾Save</div>
                 <div bind="copy-btn" id="worktop-copy">📋Copy</div>
                 <div bind="exec-btn" id="worktop-execute">📡Exec</div>
-                <div bind="share-btn" id="worktop-share">🔗Share</div>
             </div>
         </div>
         <div id="worktop-command-list"></div>
@@ -166,18 +167,14 @@
                             contenteditable="true"></input>
                     </div>
                 </div>
-                <div class="button-group">
-                    <div id="send-verifycode">Send</div>
-                    <!-- <div id="import-token">导入token</div> -->
-                </div>
+                <div id="send-verifycode" class="button-group-item">Send</div>
+                <!-- <div id="import-token">导入token</div> -->
                 <div class="param">
                     <span bind="remote-verifycode">📟 Verify Code</span>
                     <div>
                         <input type="number" id="remote-verifycode" bind="remote-verifycode-input"
                             bind-target="placeholder" contenteditable="true" min="1000" max="9999"></input>
-                        <div class="button-group">
-                            <div bind="check-verifycode" id="check-verifycode">Check</div>
-                        </div>
+                        <div bind="check-verifycode" id="check-verifycode" class="button-group-item">Check</div>
                     </div>
                 </div>
 
@@ -202,11 +199,28 @@
         </div>
     </div>
 
+    <div class="modal hide" id="share-modal">
+        <div>
+            <h3 bind="share-code">Share Code</h3>
+            <div class="button-group">
+                <div id="export-update" bind="export-update">📤Create</div>
+                <div id="import-download" bind="import-download">📥Import</div>
+            </div>
+            <input id="share-code" type="number">
+        </div>
+
+        <div>
+            <h3 bind="share-raw">Raw Data</h3>
+            <div class="button-group">
+                <div id="export-raw" bind="export-raw">📋Copy</div>
+                <div id="import-raw" bind="import-raw">💼Read</div>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="./js/command-loader.js"></script>
     <script type="module" src="./js/command-builder.js"></script>
 
-    <script type="module" src="./js/setting.js"></script>
     <script type="module" src="./js/worktop.js"></script>
 
     <script type="module" src="./js/remote-execute.js"></script>

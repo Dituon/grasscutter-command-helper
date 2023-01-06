@@ -41,9 +41,16 @@
     "save-btn": "💾保存",
     "copy-btn": "📋复制",
     "exec-btn": "📡执行",
-    "share-btn": "🔗分享",
-    "import-btn": "📚导入",
+    "share-btn": "📚 分享 / 导入",
 
+    "share-code": "分享码",
+    "export-update": "📤生成",
+    "import-download": "📥导入",
+    "share-raw": "源数据",
+    "export-raw": "📋复制",
+    "import-raw": "💼读取",
+
+    "clear-cache": "⚠ 清除缓存",
 
     "loading": "加载中...",
     "loadSuccess": "加载成功",
@@ -58,6 +65,7 @@
     "chooseCommandFirst": "请先选择指令",
     "showFilter": "展开 / 收起  过滤器",
     "commandPushed": "已添加至指令组",
+    "saveSuccess": "保存成功",
 
     "serverNotDefined": "未指定服务器",
     "gettingServerInfo": "正在获取服务器信息...",
@@ -83,6 +91,9 @@
     "commandExportSuccess": "指令导出成功, 已输出至剪切板",
     "commandNotChoose": "未选择任何指令",
     "commandUnmaned": "未命名",
+
+    "shareCodeEmpty": "分享码不能为空",
+    "updateFail": "上传失败",
 
     "unknowError": "未知错误, 请提交issue反馈",
 

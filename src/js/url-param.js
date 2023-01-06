@@ -12,7 +12,8 @@ urlParams.forEach((value, key) => {
             setServer(decodeURIComponent(value))
             break
         case 'import':
-            console.log(value)
+            if (parseInt(value)) value = `${window.location.origin}/share/${value}.gmh`
+            console.debug(value)
             if (importedList.includes(value)) break
             fetch(decodeURIComponent(value)).then(p => p.text())
                 .then(raw => menu.importCommand(raw))

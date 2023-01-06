@@ -9,7 +9,7 @@
     justify-content: flex-start;
     align-items: center;
     
-    z-index: 999;
+    z-index: 30;
 }
 
 #nav>div {

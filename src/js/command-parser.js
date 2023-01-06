@@ -3,7 +3,7 @@ import { OutputCommand } from './command-builder.js'
 import { getCommandByIdAsync } from './command-loader.js'
 import { config } from './init.js'
 import { langData } from './lang-loader.js'
-import { getModalById } from './modal-loader.js'
+import { getModalById } from './modal-select-loader.js'
 import { showMessage } from './ui.js'
 
 /**

@@ -30,13 +30,12 @@
 }
 
 #menu-list .button-group-item {
-    font-size: 0.9em;
+    font-size: 0.8em;
     width: 2em;
     padding: 0;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0.4em;
+    display: inline-block;
+    right: 0.6em;
 }
 
 #menu-list details {
