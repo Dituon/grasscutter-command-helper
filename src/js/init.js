@@ -66,5 +66,7 @@ export const localCommandGroupList = new ProxyItem('commandGroupList', [])
 export const servers = new ProxyItem('servers', {})
 /** @type {string[]} */
 export const importedList = new ProxyItem('imported', [])
+/** @type {number[]} */
+export const updatedList = new ProxyItem('updated', [])
 
 export const dataCache = {}

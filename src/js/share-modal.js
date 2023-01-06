@@ -1,4 +1,5 @@
 import { CommandMenu } from "./command-menu.js"
+import { updatedList } from "./init.js"
 import { langData } from "./lang-loader.js"
 import { mask, showMessage } from "./ui.js"
 
@@ -45,7 +46,10 @@ export class ShareModal {
     }
 
     #update() {
-        fetch(window.location.origin + '/api', this.#buildPostParam())
+        const param = this.#buildPostParam()
+        if (updatedList.includes(this.#hash)) return
+
+        fetch(window.location.origin + '/api', param)
             .then(p => p.json())
             .then(res => {
                 if (res.retcode != 200){
@@ -53,6 +57,7 @@ export class ShareModal {
                     return
                 }
                 modalCodeImport.value = this.#hash;
+                updatedList.push(this.#hash)
 
                 `URL: ${window.location.origin + window.location.pathname}?import=${this.#hash}\n\nCode: ${this.#hash}`.copy()
             })
