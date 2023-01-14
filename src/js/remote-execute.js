@@ -237,3 +237,5 @@ serverHostInput.addEventListener('change', e => {
         server.checkVerifycode(parseInt(verifycodeInput.value))
     }
 })
+const event = new UIEvent('change');
+serverHostInput.dispatchEvent(event);
