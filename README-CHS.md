@@ -42,7 +42,7 @@
 
 | 参数      | 值域                      | 说明       |
 | --------- | ------------------------- | ---------- |
-| `version` | `1.2.1` `1.4.2`           | 指令版本   |
+| `version` | `1.2.1` `1.4.2` `GM`      | 指令版本   |
 | `lang`    | `navigator.language`      | 语言       |
 | `server`  | `encodeURIComponent(URL)` | 远程服务器 |
 | `import`  | `encodeURIComponent(URL)` | 导入指令   |

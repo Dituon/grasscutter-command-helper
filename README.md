@@ -28,7 +28,7 @@ The script read the `GET` params in URL, you can provide some default param to t
 
 | params    | value field               | description        |
 | --------- | ------------------------- | ------------------ |
-| `version` | `1.2.1` `1.4.2`           | command version    |
+| `version` | `1.2.1` `1.4.2` `GM`      | command version    |
 | `lang`    | `navigator.language`      | language           |
 | `server`  | `encodeURIComponent(URL)` | remote server host |
 | `import`  | `encodeURIComponent(URL)` | import command     |
