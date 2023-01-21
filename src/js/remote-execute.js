@@ -9,6 +9,7 @@ import { OutputCommand } from "./command-builder.js"
  */
 
 const serverHostInput = document.getElementById('remote-host')
+const playerUidInput = document.getElementById('remote-uid')
 const playerCountElement = document.getElementById('remote-player-count')
 const serverVersionElement = document.getElementById('remote-server-version')
 const serverVerifyElement = document.getElementById('server-verify')
@@ -34,6 +35,7 @@ class TargetServer {
 
         config.server = url
         serverHostInput.value = url
+        playerUidInput.value = this.uid
     }
 
     /** 
@@ -80,7 +82,7 @@ class TargetServer {
             action: 'ping'
         })).then(p => p.json()).then(data => {
             if (!data?.retcode) throw new Error()
-            if (servers[this.url]?.token) {
+            if (servers[this.url]?.verified) {
                 remoteExecuteStatusElement.innerHTML =
                     langData.playerBound.replace('$UID', this.uid)
                 return
@@ -235,3 +237,5 @@ serverHostInput.addEventListener('change', e => {
         server.checkVerifycode(parseInt(verifycodeInput.value))
     }
 })
+const event = new UIEvent('change');
+serverHostInput.dispatchEvent(event);
