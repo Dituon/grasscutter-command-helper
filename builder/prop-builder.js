@@ -1,6 +1,6 @@
 /**
  * this script need
- * `./handbooks/GM Handbook Global Prop.txt`, 
+ * `./handbooks/GM Handbook Global Prop.txt`, build by gc Tools.java
  * `./Resources/ExcelBinOutPut/ManualTextMapConfigData.json`,
  * `./Resources/TextMap/*`
  * in build dir
@@ -42,9 +42,9 @@ const propDataList = getRawGroup('PropData').split('\n')
 
 mainPropList.forEach(prop => {
     for (const indexObj of textMapIndex) {
-        if (indexObj.TextMapId !== prop.textID) continue
-        prop.textHash = indexObj.TextMapContentTextMapHash
-        if (indexObj.TextMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
+        if (indexObj.textMapId !== prop.textID) continue
+        prop.textHash = indexObj.textMapContentTextMapHash
+        if (indexObj.textMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
         return
     }
 })
@@ -71,7 +71,7 @@ langList.forEach(lang => {
             })
     
             fs.writeFile(
-                `./data/${lang.navigator}/mainPropList.json`,
+                `${dir}/mainPropList.json`,
                 JSON.stringify([...propMap.values()].filter(prop => prop.ids.length)),
                 writeLog
             )
@@ -101,7 +101,7 @@ langList.forEach(lang => {
             })
     
             fs.writeFile(
-                `./data/${lang.navigator}/propDataList.json`,
+                `${dir}/propDataList.json`,
                 JSON.stringify([...propMap.values()]),
                 writeLog
             )

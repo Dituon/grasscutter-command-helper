@@ -20,7 +20,7 @@ langList.forEach(lang => {
 async function spider(langObj) {
     const lang = langObj.hoyolab
     const outputLang = langObj.navigator
-    const dir = `./data/${lang}`
+    const dir = `./data/${outputLang}`
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
 
