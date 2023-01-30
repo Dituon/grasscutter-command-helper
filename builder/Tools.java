@@ -25,6 +25,7 @@ import emu.grasscutter.data.ResourceLoader;
 import emu.grasscutter.data.excels.AvatarData;
 import emu.grasscutter.data.excels.ItemData;
 import emu.grasscutter.game.inventory.ItemType;
+import emu.grasscutter.game.props.FightProperty;
 import emu.grasscutter.utils.Language;
 import emu.grasscutter.utils.Language.TextStrings;
 import it.unimi.dsi.fastutil.ints.Int2IntRBTreeMap;
@@ -35,7 +36,7 @@ import static emu.grasscutter.utils.FileUtils.getResourcePath;
 import static emu.grasscutter.utils.Language.getTextMapKey;
 
 public final class Tools {
-    public static void createGmHandbooks() throws Exception {
+    public static void createGmHandbooks(boolean message) throws Exception {
         val languages = Language.TextStrings.getLanguages();
 
         ResourceLoader.loadAll();
