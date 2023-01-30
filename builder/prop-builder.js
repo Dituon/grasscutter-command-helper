@@ -71,7 +71,7 @@ langList.forEach(lang => {
             })
     
             fs.writeFile(
-                `./data/${lang.navigator}/mainPropList.json`,
+                `${dir}/mainPropList.json`,
                 JSON.stringify([...propMap.values()].filter(prop => prop.ids.length)),
                 writeLog
             )
@@ -101,7 +101,7 @@ langList.forEach(lang => {
             })
     
             fs.writeFile(
-                `./data/${lang.navigator}/propDataList.json`,
+                `${dir}/propDataList.json`,
                 JSON.stringify([...propMap.values()]),
                 writeLog
             )
