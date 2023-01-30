@@ -42,9 +42,9 @@ const propDataList = getRawGroup('PropData').split('\n')
 
 mainPropList.forEach(prop => {
     for (const indexObj of textMapIndex) {
-        if (indexObj.TextMapId !== prop.textID) continue
-        prop.textHash = indexObj.TextMapContentTextMapHash
-        if (indexObj.TextMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
+        if (indexObj.textMapId !== prop.textID) continue
+        prop.textHash = indexObj.textMapContentTextMapHash
+        if (indexObj.textMapId.endsWith('PERCENT')) prop.extiaText = ' (%)'
         return
     }
 })
