@@ -1,6 +1,6 @@
 /**
  * this script need
- * `./handbooks/GM Handbook Global Prop.txt`, 
+ * `./handbooks/GM Handbook Global Prop.txt`, build by gc Tools.java
  * `./Resources/ExcelBinOutPut/ManualTextMapConfigData.json`,
  * `./Resources/TextMap/*`
  * in build dir
