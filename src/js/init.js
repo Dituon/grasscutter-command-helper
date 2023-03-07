@@ -1,7 +1,7 @@
 /** @typedef { import("./command-parser").CommandGroupDTO } CommandGroupDTO */
 
 /** @const @public */
-export const DATA_VERSION = '3.4'
+export const DATA_VERSION = '3.5'
 
 class CacheModel {
     /**
