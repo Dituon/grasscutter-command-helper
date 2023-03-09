@@ -1,0 +1,241 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <meta name="theme-color" content="#ff8ba7" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="mask-icon" href="./icon/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ff8ba7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffc6c7">
+    <meta name="apple-mobile-web-app-title" content="Grasscutter Command Helper">
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <title bind="title">Grasscutter Command Helper</title>
+    
+    
+    
+    
+  <script type="module" crossorigin src="./assets/index.80eb9ae5.js"></script>
+  <link rel="stylesheet" href="./assets/index.d1c9661f.css">
+</head>
+
+<body>
+    <div id="app" class="hide">
+        <div id="menu-list">
+            <div class="button-group">
+                <div bind="exec-btn" id="menu-execute">📡Exec</div>
+                <div bind="copy-btn" id="menu-copy">📋Copy</div>
+            </div>
+            <div class="button-group">
+                <div bind="share-btn" id="menu-share">🔗Share</div>
+            </div>
+            <div id="menu-hide" class="menu-icon-hide">🤏</div>
+            <div id="saved-command-group"></div>
+        </div>
+
+        <div id="command-generator">
+            <div class="links" bind="info"></div>
+            <div id="input">
+                <div id="list">
+                    <div id="command-list-title">
+                        <h2 bind="command-list">Command List</h2>
+                        <div id="list-hide">📌</div>
+                    </div>
+                    <div id="command-search">
+                        <span bind="command-search">Search: </span>
+                        <input bind="command-search-input" bind-target="placeholder"
+                            placeholder="🔎 Keyword / ID / Description" id="search-input">
+                    </div>
+                    <div id="command-list"></div>
+                </div>
+                <div id="choose" style="display: none;">
+                    <h2 bind="choose-param">Set Parameters</h2>
+                    <div id="params"></div>
+                </div>
+            </div>
+            <div id="output" style="display: none;">
+                <h2 bind="output-result">
+                    Results
+                </h2>
+                <div id="output-area">
+                    <span id="output-span" bind="output-tips" bind-target="title" title="click to copy"></span>
+                </div>
+                <div class="button-group">
+                    <div id="command-exec" bind="command-execute">📡 Remote Command</div>
+                    <div id="command-push" bind="command-push">📦 Push To Worktop</div>
+                </div>
+            </div>
+            <div class="bottom links" bind="links">
+                <a href="https://github.com/Dituon/grasscutter-command-helper">❤Github❤</a>
+                <a href="https://discord.gg/uDSQfQTrd8">✨Discord✨</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mask"></div>
+    <div id="modal-select" class="hide">
+        <div id="modal-search-bar">
+            <input bind="modal-search-input" target="placeholder" placeholder="🔎 Keyword / ID / Tag" id="modal-search">
+            <span id="modal-search-clear">🗑</span>
+        </div>
+        <div id="modal-srarch-setting"></div>
+        <div id="modal-select-data"></div>
+    </div>
+
+    <div id="nav">
+        <div id="menu-icon">📝</div>
+        <div id="setting-icon">⚙</div>
+        <div id="command-list-icon">📜</div>
+        <div id="worktop-icon">✒</div>
+    </div>
+
+    <div id="worktop-bar" class="side-bar">
+        <div id="worktop-head">
+            <h3 bind="command-group">Command Group</h3>
+            <div class="param">
+                <span bind="command-group-title">Title: </span>
+                <div>
+                    <input id="worktop-title" bind="command-group-title-input" bind-target="placeholder" type="text" />
+                </div>
+            </div>
+            <textarea id="worktop-description" bind="command-group-description-input"
+                bind-target="placeholder"></textarea>
+            <div class="button-group">
+                <div bind="save-btn" id="worktop-save">💾Save</div>
+                <div bind="copy-btn" id="worktop-copy">📋Copy</div>
+                <div bind="exec-btn" id="worktop-execute">📡Exec</div>
+            </div>
+        </div>
+        <div id="worktop-command-list"></div>
+    </div>
+
+    <div id="setting-bar" class="side-bar">
+        <div id="global-setting">
+            <div class="param">
+                <span bind="command-version-select">🗃 Command Version</span>
+                <div>
+                    <select id="command-version-select">
+                        <option value="1.4.2">1.4.2</option>
+                        <option value="1.2.1">1.2.1</option>
+                        <option value="GM">GM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="param">
+                <span bind="lang-select">🌐Language</span>
+                <div>
+                    <select id="lang-select">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="remote-execute">
+            <h3 bind="remote-execute">📡 Remote Command</h3>
+            <div class="param">
+                <span bind="remote-host">🎮Host</span>
+                <div>
+                    <input id="remote-host" bind="remote-host-input" bind-target="placeholder"
+                        contenteditable="true"></input>
+                </div>
+
+            </div>
+            <div id="server-info" class="hide">
+                <span bind="remote-server-version">Version: </span>
+                <span id="remote-server-version"></span><br>
+                <span bind="remote-player-count">Player Count: </span>
+                <span id="remote-player-count"></span>
+            </div>
+            <div id="server-verify" class="hide">
+                <div class="param">
+                    <span bind="remote-uid">UID</span>
+                    <div>
+                        <input type="number" id="remote-uid" bind="remote-uid-input" bind-target="placeholder"
+                            contenteditable="true"></input>
+                    </div>
+                </div>
+                <div id="send-verifycode" class="button-group-item">Send</div>
+                <!-- <div id="import-token">导入token</div> -->
+                <div class="param">
+                    <span bind="remote-verifycode">📟 Verify Code</span>
+                    <div>
+                        <input type="number" id="remote-verifycode" bind="remote-verifycode-input"
+                            bind-target="placeholder" contenteditable="true" min="1000" max="9999"></input>
+                        <div bind="check-verifycode" id="check-verifycode" class="button-group-item">Check</div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="remote-execute-status" bind="remote-execute-status-default">
+                Server not specified
+            </div>
+        </div>
+
+        <div>
+            <h3 bind="export-setting">💡 Export Setting</h3>
+            <div class="param">
+                <span bind="export-author">💌 Author</span>
+                <div>
+                    <input id="export-author" bind="export-author-input" bind-target="placeholder">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <div bind="clear-cache" id="clear-cache">⚠ Clear Cache</div>
+        </div>
+    </div>
+
+    <div class="modal hide" id="share-modal">
+        <div>
+            <h3 bind="share-code">Share Code</h3>
+            <div class="button-group">
+                <div id="export-update" bind="export-update">📤Create</div>
+                <div id="import-download" bind="import-download">📥Import</div>
+            </div>
+            <input id="share-code" type="number">
+        </div>
+
+        <div>
+            <h3 bind="share-raw">Raw Data</h3>
+            <div class="button-group">
+                <div id="export-raw" bind="export-raw">📋Copy</div>
+                <div id="import-raw" bind="import-raw">💼Read</div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+    
+
+    
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("./sw.js");
+            })
+        }
+
+    </script>
+</body>
+
+</html>
