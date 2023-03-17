@@ -205,61 +205,65 @@ class ModalSelect {
     /** @param { ModalDTO[] } modals */
     #loadModalSelectData(modals) {
         modals.forEach(modal => {
-            if (!modal.children?.length && (modal.id || modal.ids?.length)) {
+            try {
+                if (!modal.children?.length && (modal.id || modal.ids?.length)) {
                 
-                let id = modal.id ?? modal.ids[0]
-
-                const div = document.createElement('div')
-
-                if (modal.icon) {
-                    const icon = document.createElement('img')
-                    icon.className = 'icon'
-                    icon.src = modal.icon
-                    div.appendChild(icon)
+                    let id = modal.id ?? modal.ids[0]
+    
+                    const div = document.createElement('div')
+    
+                    if (modal.icon) {
+                        const icon = document.createElement('img')
+                        icon.className = 'icon'
+                        icon.src = modal.icon
+                        div.appendChild(icon)
+                    }
+                    div.appendCommand(id, modal.name)
+                    if (modal.filter) div.appendTag(...modal.filter)
+                    modalSelectDataElement.appendChild(div)
+    
+                    div.addEventListener('click', e => {
+                        this.param.value = { label: modal.name, value: id }
+                        this.hide()
+                    })
+    
+                    return
                 }
-                div.appendCommand(id, modal.name)
-                if (modal.filter) div.appendTag(...modal.filter)
-                modalSelectDataElement.appendChild(div)
-
-                div.addEventListener('click', e => {
-                    this.param.value = { label: modal.name, value: id }
-                    this.hide()
+    
+                const details = document.createElement('details')
+                const summary = document.createElement('summary')
+    
+                summary.innerHTML = modal.name
+                if (modal.filter) summary.appendTag(
+                    ...modal.filter.map(tag => tag.replace(' ', '-'))
+                )
+                details.appendChild(summary)
+    
+                modal.children.forEach(child => {
+                    const div = document.createElement('div')
+                    if (child.icon) {
+                        const icon = document.createElement('img')
+                        icon.className = 'icon'
+                        icon.src = child.icon
+                        div.appendChild(icon)
+                    }
+    
+                    let id = child.id ?? child.ids[0]
+    
+                    div.appendTag(child.type)
+                    div.appendCommand(id, child.name)
+                    details.appendChild(div)
+    
+                    div.addEventListener('click', e => {
+                        this.param.value = { label: child.name, value: id }
+                        this.hide()
+                    })
                 })
-
-                return
+    
+                modalSelectDataElement.appendChild(details)
+            } catch (e) {
+                console.error(e)
             }
-
-            const details = document.createElement('details')
-            const summary = document.createElement('summary')
-
-            summary.innerHTML = modal.name
-            if (modal.filter) summary.appendTag(
-                ...modal.filter.map(tag => tag.replace(' ', '-'))
-            )
-            details.appendChild(summary)
-
-            modal.children.forEach(child => {
-                const div = document.createElement('div')
-                if (child.icon) {
-                    const icon = document.createElement('img')
-                    icon.className = 'icon'
-                    icon.src = child.icon
-                    div.appendChild(icon)
-                }
-
-                let id = child.id ?? child.ids[0]
-
-                div.appendTag(child.type)
-                div.appendCommand(id, child.name)
-                details.appendChild(div)
-
-                div.addEventListener('click', e => {
-                    this.param.value = { label: child.name, value: id }
-                    this.hide()
-                })
-            })
-
-            modalSelectDataElement.appendChild(details)
         })
 
         if (modals.length == 99)
