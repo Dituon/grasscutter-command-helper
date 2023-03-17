@@ -43,7 +43,7 @@
   {
     "id": "getArtifact",
     "head": "/give",
-    "label": "Get artifact",
+    "label": "聖遺物",
     "params": [
       {
         "type": "artifactList",
@@ -121,7 +121,7 @@
   {
     "id": "giveItem",
     "head": "/give",
-    "label": "Get item",
+    "label": "アイテム",
     "params": [
       {
         "type": "itemList",
@@ -151,7 +151,7 @@
   {
     "id": "giveChar",
     "head": "/give",
-    "label": "Get character",
+    "label": "キャラクター",
     "params": [
       {
         "type": "avatarList",
@@ -185,7 +185,7 @@
   {
     "id": "getWeapon",
     "head": "/give",
-    "label": "Get weapon",
+    "label": "武器",
     "params": [
       {
         "type": "weaponList",
@@ -224,7 +224,7 @@
   {
     "id": "setTalent",
     "head": "/talent",
-    "label": "Set talent level",
+    "label": "天賦",
     "params": [
       {
         "type": "avatarTalent",
@@ -248,7 +248,7 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "Spawn Animal & Enitiy",
+    "label": "召喚",
     "params": [
       {
         "type": "entityList",
@@ -281,7 +281,7 @@
   {
     "id": "spawnMonster",
     "head": "/spawn",
-    "label": "Spawn Monster",
+    "label": "魔物",
     "params": [
       {
         "type": "monsterList",
@@ -315,7 +315,7 @@
   {
     "id": "dropItem",
     "head": "/drop",
-    "label": "Drop an item near you",
+    "label": "アイテムドロップ",
     "params": [
       {
         "type": "itemList",
@@ -338,7 +338,7 @@
   {
     "id": "setStamina",
     "head": "/prop nostamina",
-    "label": "Set unlimited stamina",
+    "label": "スタミナ無限",
     "params": [
       {
         "type": "select",
@@ -363,7 +363,7 @@
   {
     "id": "setUnlimitEnergy",
     "head": "/prop unlimitenergy",
-    "label": "Set unlimited energy",
+    "label": "元素爆発",
     "params": [
       {
         "type": "select",
@@ -388,7 +388,7 @@
   {
     "id": "unlockTower",
     "head": "/prop unlocktower",
-    "label": "Unlock the Deep Corridor",
+    "label": "螺旋開放",
     "params": [
       {
         "type": "number",
@@ -428,7 +428,7 @@
   {
     "id": "setWotldLevel",
     "head": "/prop worldlevel",
-    "label": "Set world level",
+    "label": "世界ランク",
     "params": [
       {
         "type": "number",
@@ -443,7 +443,7 @@
   {
     "id": "setFetter",
     "head": "/setfetterlvl",
-    "label": "Set the favorability of the currently playing character",
+    "label": "好感度",
     "params": [
       {
         "type": "number",
@@ -458,7 +458,7 @@
   {
     "id": "setStats",
     "head": "/stats",
-    "label": "Set the combat attributes of the current character",
+    "label": "攻撃",
     "params": [
       {
         "type": "statList",
@@ -512,7 +512,7 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "Removed all unequipped and unlocked level 0 artifacts",
+    "label": "雑魚遺物を消す",
     "params": [
       {
         "type": "select",
@@ -544,7 +544,7 @@
   },
   {
     "head": "/killall",
-    "label": "Kills all mobs in the current world or the specified world",
+    "label": "ミンナコロス",
     "params": [
       {
         "type": "sceneList",
@@ -556,25 +556,25 @@
   {
     "id": "killCharacter",
     "head": "/killcharacter",
-    "label": "kill current character",
+    "label": "自害",
     "params": []
   },
   {
     "id": "list",
     "head": "/list",
-    "label": "list online players",
+    "label": "オンラインリスト",
     "params": []
   },
   {
     "id": "resetConst",
     "head": "/resetConst",
-    "label": "Reset the constellation of the current character",
+    "label": "星座リセット",
     "params": []
   },
   {
     "id": "setConst",
     "head": "/setConst",
-    "label": "Set the current character constellation",
+    "label": "文字",
     "params": [
       {
         "type": "number",
@@ -605,13 +605,13 @@
   {
     "id": "getPos",
     "head": "/pos",
-    "label": "Get current coordinates and scene id",
+    "label": "座標シーン",
     "params": []
   },
   {
     "id": "teleport",
     "head": "/teleport",
-    "label": "Teleport to designated place",
+    "label": "ｔｐ",
     "params": [
       {
         "type": "number",
@@ -647,13 +647,13 @@
   {
     "id": "teleportAll",
     "head": "/tpall",
-    "label": "Teleports all players in the current world to your location",
+    "label": "自分にｔｐ",
     "params": []
   },
   {
     "id": "setWeather",
     "head": "/weather",
-    "label": "Set climate and weather",
+    "label": "気候と天気",
     "params": [
       {
         "type": "weather",
@@ -695,7 +695,7 @@
   {
     "id": "quest",
     "head": "/quest",
-    "label": "Add or Finish quest",
+    "label": "クエスト",
     "params": [
       {
         "type": "select",
