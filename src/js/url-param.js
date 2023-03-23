@@ -25,7 +25,7 @@ urlParams.forEach((value, key) => {
             initCommand(config.commandVersion)
             break
         case 'version':
-            if (value !== '1.2.1' && value !== '1.4.2' && value !== 'GM') break
+            if (!['1.2.1', '1.4.2', 'GM'].includes(value)) break
             commandVersionSelectElement.value = value
             initCommand(value)
             break
