@@ -1,13 +1,13 @@
 [
   {
-    "id": "getAll",
+    "id": "giveALL",
     "head": "/give all",
-    "label": "get all items",
+    "label": "Lấy tất cả vật phẩm",
     "params": [
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 90,
         "max": "200",
         "min": "1",
@@ -16,7 +16,7 @@
       {
         "head": "r",
         "type": "number",
-        "name": "Refined",
+        "name": "TInh luyện",
         "value": 5,
         "max": "5",
         "min": "1",
@@ -25,7 +25,7 @@
       {
         "head": "c",
         "type": "number",
-        "name": "Constellation",
+        "name": "Cung mệnh",
         "value": 6,
         "max": "6",
         "min": "1",
@@ -34,29 +34,29 @@
       {
         "head": "x",
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 9999,
         "required": false
       }
     ]
   },
   {
-    "id": "getArtifact",
+    "id": "giveArtifacts",
     "head": "/give",
-    "label": "Get artifact",
+    "label": "Lấy thánh dị vật",
     "params": [
       {
         "type": "artifactList",
-        "name": "Artifact",
+        "name": "Thánh dị vật",
         "value": {
           "value": "21440",
-          "label": "Dreaming Steelbloom"
+          "label": "Hoa thép trong mộng"
         },
         "required": true
       },
       {
         "type": "mainPropList",
-        "name": "Main Attribute",
+        "name": "Chỉ số chính",
         "value": {
           "value": "10001",
           "label": "HP"
@@ -65,10 +65,10 @@
       },
       {
         "type": "propDataList",
-        "name": "Attribute Ⅰ",
+        "name": "Chỉ số Ⅰ",
         "required": false,
         "subparam": {
-          "name": "Quantity",
+          "name": "Số lượng",
           "type": "number",
           "max": 99,
           "min": 1
@@ -76,10 +76,10 @@
       },
       {
         "type": "propDataList",
-        "name": "Attribute Ⅱ",
+        "name": "Chỉ số Ⅱ",
         "required": false,
         "subparam": {
-          "name": "Quantity",
+          "name": "Số lượng",
           "type": "number",
           "max": 99,
           "min": 1
@@ -87,10 +87,10 @@
       },
       {
         "type": "propDataList",
-        "name": "Attribute Ⅲ",
+        "name": "Chỉ số Ⅲ",
         "required": false,
         "subparam": {
-          "name": "Quantity",
+          "name": "Số lượng",
           "type": "number",
           "max": 99,
           "min": 1
@@ -98,10 +98,10 @@
       },
       {
         "type": "propDataList",
-        "name": "Attribute Ⅳ",
+        "name": "Chỉ số Ⅳ",
         "required": false,
         "subparam": {
-          "name": "Quantity",
+          "name": "Số lượng",
           "type": "number",
           "max": 99,
           "min": 1
@@ -110,7 +110,7 @@
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "max": 21,
         "min": 1,
         "value": 21,
@@ -121,28 +121,28 @@
   {
     "id": "giveItem",
     "head": "/give",
-    "label": "Get item",
+    "label": "Lấy vật phẩm",
     "params": [
       {
         "type": "itemList",
-        "name": "Item",
+        "name": "Vật phẩm",
         "value": {
           "value": "101",
-          "label": "Character EXP"
+          "label": "Kinh nghiệm nhân vật"
         },
         "required": true
       },
       {
         "head": "x",
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 1,
         "required": false
       },
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 1,
         "required": false
       }
@@ -151,11 +151,11 @@
   {
     "id": "giveChar",
     "head": "/give",
-    "label": "Get character",
+    "label": "Lấy nhân vật",
     "params": [
       {
         "type": "avatarList",
-        "name": "Character",
+        "name": "Nhân vật",
         "value": {
           "value": "10000002",
           "label": "Kamisato Ayaka"
@@ -165,7 +165,7 @@
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 90,
         "max": 90,
         "min": 1,
@@ -174,7 +174,7 @@
       {
         "head": "x",
         "type": "number",
-        "name": "Constellation",
+        "name": "Cung mệnh",
         "value": 6,
         "max": 6,
         "min": 1,
@@ -185,35 +185,35 @@
   {
     "id": "getWeapon",
     "head": "/give",
-    "label": "Get weapon",
+    "label": "Lấy vũ khí",
     "params": [
       {
         "type": "weaponList",
-        "name": "Weapon ID",
+        "name": "ID vũ khí",
         "value": {
           "value": "11101",
-          "label": "Dull Blade"
+          "label": "Vô phong kiếm"
         },
         "required": true
       },
       {
         "head": "x",
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 1,
         "required": false
       },
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 90,
         "required": false
       },
       {
         "head": "r",
         "type": "number",
-        "name": "Refined",
+        "name": "Tinh luyện",
         "value": 5,
         "max": 5,
         "min": 1,
@@ -228,16 +228,16 @@
     "params": [
       {
         "type": "avatarTalent",
-        "name": "Talent",
+        "name": "Thiên phú",
         "value": {
           "value": "n",
-          "label": "Normal Attack"
+          "label": "Tấn công thường"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 10,
         "max": 13,
         "min": 1,
@@ -248,21 +248,21 @@
   {
     "id": "spawnEnitiy",
     "head": "/spawn",
-    "label": "Spawn Animal & Enitiy",
+    "label": "Triệu hồi động vật",
     "params": [
       {
         "type": "entityList",
         "required": true,
-        "name": "Entity",
+        "name": "Động vật",
         "value": {
           "value": "28010101",
-          "label": "Golden Crab"
+          "label": "Cua hoàng kim"
         }
       },
       {
         "head": "x",
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 1,
         "min": 1,
         "max": 99999999,
@@ -271,7 +271,7 @@
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "max": 200,
         "min": 1,
         "required": false
@@ -281,12 +281,12 @@
   {
     "id": "spawnMonster",
     "head": "/spawn",
-    "label": "Spawn Monster",
+    "label": "Triệu hồi quái",
     "params": [
       {
         "type": "monsterList",
         "required": true,
-        "name": "Entity",
+        "name": "Quái",
         "value": {
           "value": "20010101",
           "label": "Dendro Slime"
@@ -295,7 +295,7 @@
       {
         "head": "x",
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 1,
         "min": 1,
         "max": 99999999,
@@ -304,7 +304,7 @@
       {
         "head": "lv",
         "type": "number",
-        "name": "Level",
+        "name": "Lv",
         "value": 200,
         "max": 200,
         "min": 1,
@@ -315,21 +315,21 @@
   {
     "id": "dropItem",
     "head": "/drop",
-    "label": "Drop an item near you",
+    "label": "Rơi vật phẩm gần bạn",
     "params": [
       {
         "type": "itemList",
-        "name": "Item ID",
+        "name": "ID vật phẩm",
         "value": {
           "value": "203",
-          "label": "Genesis Crystal"
+          "label": "Đá sáng thế"
         },
         "required": true
       },
       {
         "head": "x",
         "type": "number",
-        "name": "number of things",
+        "name": "Số lượng",
         "value": 1,
         "required": false
       }
@@ -338,7 +338,7 @@
   {
     "id": "setStamina",
     "head": "/prop nostamina",
-    "label": "Set unlimited stamina",
+    "label": "Thể lực vô hạn",
     "params": [
       {
         "type": "select",
@@ -363,7 +363,7 @@
   {
     "id": "setUnlimitEnergy",
     "head": "/prop unlimitenergy",
-    "label": "Set unlimited energy",
+    "label": "Vô hạn hạt nhân nguyên tố / nộ",
     "params": [
       {
         "type": "select",
@@ -388,11 +388,11 @@
   {
     "id": "unlockTower",
     "head": "/prop unlocktower",
-    "label": "Unlock the Deep Corridor",
+    "label": "Mở khóa la hoàn thâm cảnh",
     "params": [
       {
         "type": "number",
-        "name": "Abyss layer",
+        "name": "Tầng la hoàn",
         "value": 12,
         "max": 12,
         "min": 1,
@@ -403,7 +403,7 @@
   {
     "id": "godmode",
     "head": "/prop godmode",
-    "label": "Set godmode",
+    "label": "Chuyển sang godmode",
     "params": [
       {
         "type": "select",
@@ -428,7 +428,7 @@
   {
     "id": "setWotldLevel",
     "head": "/prop worldlevel",
-    "label": "Set world level",
+    "label": "Chọn cấp thế giới",
     "params": [
       {
         "type": "number",
@@ -443,11 +443,11 @@
   {
     "id": "setFetter",
     "head": "/setfetterlvl",
-    "label": "Set the favorability of the currently playing character",
+    "label": "Chọn độ yêu thích của nhân vật hiện tại",
     "params": [
       {
         "type": "number",
-        "name": "Favorability",
+        "name": "Độ yêu thích",
         "value": 10,
         "max": 10,
         "min": 1,
@@ -458,20 +458,20 @@
   {
     "id": "setStats",
     "head": "/stats",
-    "label": "Set the combat attributes of the current character",
+    "label": "Chỉnh sửa thuộc tính nhân vật hiện tại",
     "params": [
       {
         "type": "statList",
-        "name": "Attributes",
+        "name": "Thuộc tính",
         "value": {
-          "label": "attack",
+          "label": "Tấn công",
           "value": "atk"
         },
         "required": true
       },
       {
         "type": "number",
-        "name": "Value",
+        "name": "Giá trị",
         "value": 10000,
         "max": 99999999999999,
         "min": 0,
@@ -479,7 +479,7 @@
       },
       {
         "type": "select",
-        "name": "value lock",
+        "name": "Khóa giá trị",
         "value": "",
         "required": false,
         "data": {
@@ -500,11 +500,11 @@
   {
     "id": "broadcast",
     "head": "/broadcast",
-    "label": "Send a message to all players",
+    "label": "Gửi tin nhắn tới mọi người",
     "params": [
       {
         "type": "string",
-        "name": "Message",
+        "name": "Tin nhắn",
         "required": true
       }
     ]
@@ -512,7 +512,7 @@
   {
     "id": "clear",
     "head": "/clear",
-    "label": "Removed all unequipped and unlocked level 0 artifacts",
+    "label": "Gỡ toàn bộ đồ đang trang bị và mở khóa thánh dị vật lv0",
     "params": [
       {
         "type": "select",
@@ -539,12 +539,12 @@
   {
     "id": "heal",
     "head": "/heal",
-    "label": "Heals all characters on the team",
+    "label": "Trị liệu toàn bộ nhân vật trong đội",
     "params": []
   },
   {
     "head": "/killall",
-    "label": "Kills all mobs in the current world or the specified world",
+    "label": "Giết toàn bộ quái trong thế giới hiện tại hoặc thế giới được chọn",
     "params": [
       {
         "type": "sceneList",
@@ -556,29 +556,29 @@
   {
     "id": "killCharacter",
     "head": "/killcharacter",
-    "label": "kill current character",
+    "label": "Giết nhân vật hiện tại",
     "params": []
   },
   {
     "id": "list",
     "head": "/list",
-    "label": "list online players",
+    "label": "Danh sách người chơi trực tuyến",
     "params": []
   },
   {
     "id": "resetConst",
     "head": "/resetConst",
-    "label": "Reset the constellation of the current character",
+    "label": "Xoá cung mệnh của nhân vật hiện tại",
     "params": []
   },
   {
     "id": "setConst",
     "head": "/setConst",
-    "label": "Set the current character constellation",
+    "label": "Chọn cung mệnh của nhân vật hiện tại",
     "params": [
       {
         "type": "number",
-        "name": "Quantity",
+        "name": "Số lượng",
         "value": 1,
         "max": 6,
         "min": 1,
@@ -586,7 +586,7 @@
       },
       {
         "type": "select",
-        "name": "Character",
+        "name": "Nhân vật",
         "value": "",
         "required": false,
         "data": {
@@ -611,11 +611,11 @@
   {
     "id": "teleport",
     "head": "/teleport",
-    "label": "Teleport to designated place",
+    "label": "Dịch chuyển đến vị trí chỉ định",
     "params": [
       {
         "type": "number",
-        "name": "X pos",
+        "name": "Tọa độ X",
         "max": 999999999999,
         "min": -999999999999,
         "value": 500,
@@ -623,7 +623,7 @@
       },
       {
         "type": "number",
-        "name": "Y pos",
+        "name": "Tọa độ Y",
         "max": 999999999999,
         "min": -999999999999,
         "value": 500,
@@ -631,7 +631,7 @@
       },
       {
         "type": "number",
-        "name": "Z pos",
+        "name": "Tọa độ Z",
         "max": 999999999999,
         "min": -999999999999,
         "value": 1,
@@ -647,17 +647,17 @@
   {
     "id": "teleportAll",
     "head": "/tpall",
-    "label": "Teleports all players in the current world to your location",
+    "label": "Dịch chuyển tất cả người chơi trong thế giới đến vị trí của bạn",
     "params": []
   },
   {
     "id": "setWeather",
     "head": "/weather",
-    "label": "Set climate and weather",
+    "label": "Chọn thời tiết",
     "params": [
       {
         "type": "weather",
-        "name": "Climate",
+        "name": "Thời tiết",
         "required": true,
         "value": {
           "value": 4,
@@ -666,7 +666,7 @@
       },
       {
         "type": "select",
-        "name": "Weather",
+        "name": "Thời tiết",
         "value": "1",
         "required": false,
         "data": {
@@ -695,7 +695,7 @@
   {
     "id": "quest",
     "head": "/quest",
-    "label": "Add or Finish quest",
+    "label": "Thêm hoặc hoàn thành nhiệm vụ",
     "params": [
       {
         "type": "select",
@@ -715,11 +715,11 @@
       },
       {
         "type": "questList",
-        "name": "Quest",
+        "name": "Nhiệm vụ",
         "required": true,
         "value": {
           "value": "30600",
-          "label": "Winds of the Past - Meet Amber at the temple"
+          "label": "Gió của ngày cũ - Gặp Amber ở đền thần"
         }
       }
     ]
