@@ -35,7 +35,7 @@
 
     "export-setting": "💡 Xuất cài đặt",
     "export-author": "💌 Tác giả",
-    "export-author-input": "Trống... (?)",
+    "export-author-input": "Trống...",
 
     "lang-select": "🌐Ngôn ngữ",
 
@@ -57,13 +57,13 @@
     "loadSuccess": "Tải lên thành công",
     "loadFail": "Tải lên thâis bại",
 
-    "placeholder": "place hold (?)",
-    "placechooser": "place choose (?)",
+    "placeholder": "place hold",
+    "placechooser": "place choose",
     "noParam": "Lệnh không có tham số",
     "copySuccess": "Sao chép thành công",
     "copyFail": "Sao chép thất bại, hãy thử lại",
 
-    "chooseCommandFirst": "Chọn lệnh đầu tiên (?)",
+    "chooseCommandFirst": "Chọn lệnh đầu tiên",
     "showFilter": "Lọc",
     "commandPushed": "Đi đến ...",
     "saveSuccess": "Lưu thành công",
@@ -74,7 +74,7 @@
     "getServerInfoFail": "Kết nối máy chủ thất bại",
     "serverNotSupport": "Máy chủ không hỗ trợ các lệnh từ xa",
     "cannotConnectServer": "Không thể kết nối đến máy chủ",
-    "unboundPlayer": "Người chơi chưa đăng kí (?)",
+    "unboundPlayer": "Người chơi chưa đăng kí",
     "playerNotFound": "Không tìm thấy người chơi",
 
     "requestsTooFrequent": "Yêu cầu quá thường xuyên",
@@ -82,7 +82,7 @@
     "verifycodeError": "Lỗi xác minh",
     "verifySuccess": "Xác minh thành công",
     "verifyFail": "Xác minh thất bại",
-    "playerBound": "Binded UID: $UID (?)",
+    "playerBound": "Binded UID: $UID",
 
     "commandEmpty": "Nhập lệnh không thể trống",
     "commandExecuted": "Lệnh đã được thực thi",
@@ -93,7 +93,7 @@
     "commandNotChoose": "Không có lệnh được chọn",
     "commandUnmaned": "Lệnh chưa được đặt tên",
 
-    "shareCodeEmpty": "Mã chia sẻ không thể để trống (?)",
+    "shareCodeEmpty": "Mã chia sẻ không thể để trống",
     "updateFail": "Cập nhật thất bại",
 
     "unknowError": "Lỗi chưa xác định, hãy liên hệ để được trợ giúp",
