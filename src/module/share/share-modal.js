@@ -1,7 +1,7 @@
-import { CommandMenu } from "./command-menu.js"
-import { updatedList } from "./init.js"
-import { langData } from "./lang-loader.js"
-import { mask, showMessage } from "./ui.js"
+import { CommandMenu } from "../command/command-menu.js"
+import { updatedList } from "../app/init.js"
+import { langData } from "../app/lang-loader.js"
+import { mask, showMessage } from "../ui/ui.js"
 
 const modalElement = document.getElementById('share-modal')
 const modalUpdate = document.getElementById('export-update')

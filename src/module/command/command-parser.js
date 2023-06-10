@@ -1,10 +1,10 @@
-import { toBase64, fromBase64 } from '../lib/base64.js'
-import { OutputCommand } from './command-builder.js'
-import { getCommandByIdAsync } from './command-loader.js'
-import { config } from './init.js'
-import { langData } from './lang-loader.js'
-import { getModalById } from './modal-select-loader.js'
-import { showMessage } from './ui.js'
+import {fromBase64, toBase64} from '../utils/base64.js'
+import {OutputCommand} from './command-builder.js'
+import {getCommandByIdAsync} from './command-loader.js'
+import {config} from '../app/init.js'
+import {langData} from '../app/index.js'
+import {getModalById} from './modal-select-loader.js'
+import {showMessage} from '../ui/ui.js'
 
 /**
  * @typedef {import('./command-builder.js').CommandVO} CommandVO

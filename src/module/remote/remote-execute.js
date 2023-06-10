@@ -1,11 +1,11 @@
-import { config, servers } from "./init.js"
-import { langData } from "./lang-loader.js"
-import { showMessage } from "./ui.js"
-import { settingBar } from "./setting.js"
-import { OutputCommand } from "./command-builder.js"
+import { config, servers } from "../app/init.js"
+import { langData } from "../app/lang-loader.js"
+import { showMessage } from "../ui/ui.js"
+import { settingBar } from "../app/setting.js"
+import { OutputCommand } from "../command/command-builder.js"
 
 /**
- * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
+ * @typedef {import('../command/command-parser.js').CommandDTO} CommandDTO
  */
 
 const serverHostInput = document.getElementById('remote-host')

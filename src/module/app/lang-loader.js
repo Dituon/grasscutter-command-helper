@@ -117,9 +117,7 @@ export const initLang = lang => {
     langSelectElement.value = config.lang
     langSelectElement.onchange = async e => {
         initLang(langSelectElement.value)
-        const modal = await import('./command-loader.js')
+        const modal = await import('../command/command-loader.js')
         modal.initCommand()
     }
 }
-
-initLang()

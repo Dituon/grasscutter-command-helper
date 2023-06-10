@@ -80,10 +80,13 @@ details[open] summary~* {
 
 
 .icon {
-    width: 2.4em;
-    background: hsla(0, 0%, 80%, .14);
+    width: 2.6em;
+    height: 2.6em;
+    background: hsla(0,0%,80%,.14);
     border-radius: 50%;
-    vertical-align:middle;
+    vertical-align: middle;
+    object-fit: cover;
+    object-position: top;
 }
 
 .button-group {

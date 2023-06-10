@@ -1,10 +1,11 @@
-import { config, DATA_VERSION } from "./init.js";
-import { getUrlData } from './core.js'
-import { mask } from "./ui.js";
-import { langData } from "./lang-loader.js";
+import {config, DATA_VERSION, getUrlData} from "../app/init.js";
+import {mask} from "../ui/ui.js";
+import {langData} from "../app/lang-loader.js";
+
+import './modal.css'
 
 /** 
- * @typedef {import('./command-builder').ParamVO} ParamVO 
+ * @typedef {import('./command-builder.js').ParamVO} ParamVO
  */
 
 /**
@@ -36,7 +37,7 @@ import { langData } from "./lang-loader.js";
  * @return { Promise<ModalDTO[]> }
  */
 export const getModalList = id =>
-    getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`
+    getUrlData(`/data/${config.lang}/${DATA_VERSION}/${id}.json`
         // , { unzip: true }
     )
 
@@ -65,7 +66,7 @@ export const getModalById = async (modalId, modalListId) => {
 /**
  * @return { Promise<FilterGroup[]> }
  */
-const getFilterGroupList = id => getUrlData(`./data/${config.lang}/${DATA_VERSION}/menu.json`, { showMessage: false })
+const getFilterGroupList = id => getUrlData(`/data/${config.lang}/${DATA_VERSION}/menu.json`, { showMessage: false })
     .then(menus => menus.filter(m => m.type === id))
     .then(menus => {
         if (!menus?.length) throw new Error()

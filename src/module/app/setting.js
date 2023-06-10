@@ -1,5 +1,7 @@
-import { Icon, SideBar } from "./ui.js"
+import { Icon, SideBar } from "../ui/ui.js"
 import { config } from "./init.js"
+
+import './setting.css'
 
 const settingIcon = new Icon('setting-icon')
 export const settingBar = new SideBar('setting-bar')
