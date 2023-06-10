@@ -209,7 +209,7 @@ class ModalSelect {
             try {
                 if (!modal.children?.length && (modal.id || modal.ids?.length)) {
                 
-                    let id = modal.id ?? modal.ids[0]
+                    let id = modal.id ?? modal.ids.at(-1)
     
                     const div = document.createElement('div')
     
@@ -249,7 +249,7 @@ class ModalSelect {
                         div.appendChild(icon)
                     }
     
-                    let id = child.id ?? child.ids[0]
+                    let id = child.id ?? child.ids.at(-1)
     
                     div.appendTag(child.type)
                     div.appendCommand(id, child.name)
