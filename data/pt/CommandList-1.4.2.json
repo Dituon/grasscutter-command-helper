@@ -544,11 +544,11 @@
   },
   {
     "head": "/killall",
-    "label": "Kills all mobs in the current world or the specified world",
+    "label": "Kills all mobs in the current scene or the specified scene",
     "params": [
       {
         "type": "sceneList",
-        "name": "World",
+        "name": "Scene",
         "required": false
       }
     ]

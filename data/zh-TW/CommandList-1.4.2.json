@@ -627,11 +627,11 @@
   },
   {
     "head": "/killall",
-    "label": "杀死当前世界或指定世界的所有生物",
+    "label": "杀死当前场景或指定场景的所有生物",
     "params": [
       {
         "type": "sceneList",
-        "name": "生物",
+        "name": "场景",
         "required": false
       }
     ]
