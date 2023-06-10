@@ -1,9 +1,8 @@
-import { Icon } from './ui.js'
-import { config } from './init.js'
-import { getUrlData } from './core.js'
-import { langData } from './lang-loader.js'
-import { OutputCommandList, OutputCommand, OutputParam } from './command-builder.js'
-import { ModalSelect } from './modal-select-loader.js'
+import {Icon} from '../ui/ui.js'
+import {config, getUrlData} from '../app/init.js'
+import {langData} from '../app/index.js'
+import {OutputCommand, OutputCommandList, OutputParam} from './command-builder.js'
+import {ModalSelect} from './modal-select-loader.js'
 
 /**
  * @typedef {import('./command-builder.js').CommandVO} CommandVO
@@ -17,7 +16,7 @@ const commandSearchInput = document.getElementById('search-input')
 
 /** @return { Promise<CommandVO[]> } */
 const getCommandList = () =>
-    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion ?? '1.6.1'}.json`)
+    getUrlData(`/data/${config.lang}/CommandList-${config.commandVersion ?? '1.6.1'}.json`)
 
 /** @type { Map<string, CommandVO> } */
 export const commandMap = new Map()
