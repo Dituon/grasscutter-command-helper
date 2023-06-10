@@ -37,7 +37,7 @@ import './modal.css'
  * @return { Promise<ModalDTO[]> }
  */
 export const getModalList = id =>
-    getUrlData(`./data/${config.lang}/${DATA_VERSION}/${id}.json`
+    getUrlData(`/data/${config.lang}/${DATA_VERSION}/${id}.json`
         // , { unzip: true }
     )
 
@@ -66,7 +66,7 @@ export const getModalById = async (modalId, modalListId) => {
 /**
  * @return { Promise<FilterGroup[]> }
  */
-const getFilterGroupList = id => getUrlData(`./data/${config.lang}/${DATA_VERSION}/menu.json`, { showMessage: false })
+const getFilterGroupList = id => getUrlData(`/data/${config.lang}/${DATA_VERSION}/menu.json`, { showMessage: false })
     .then(menus => menus.filter(m => m.type === id))
     .then(menus => {
         if (!menus?.length) throw new Error()

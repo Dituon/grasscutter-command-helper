@@ -16,7 +16,7 @@ const commandSearchInput = document.getElementById('search-input')
 
 /** @return { Promise<CommandVO[]> } */
 const getCommandList = () =>
-    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion ?? '1.4.2'}.json`)
+    getUrlData(`/data/${config.lang}/CommandList-${config.commandVersion ?? '1.4.2'}.json`)
 
 /** @type { Map<string, CommandVO> } */
 export const commandMap = new Map()
