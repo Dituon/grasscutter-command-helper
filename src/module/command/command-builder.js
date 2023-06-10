@@ -1,6 +1,6 @@
-import { getCommandById } from "./command-loader.js"
-import { config } from "./init.js"
-import { execCommand } from "./remote-execute.js"
+import {getCommandById} from "./command-loader.js"
+import {config} from "../app/init.js"
+import {execCommand} from "../remote/remote-execute.js"
 
 /**
  * @typedef {import('./command-parser.js').CommandDTO} CommandDTO

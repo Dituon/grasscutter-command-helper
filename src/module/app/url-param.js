@@ -1,9 +1,9 @@
-import { commandVersionSelectElement, initCommand } from "./command-loader.js"
-import { menu } from "./command-menu.js"
+import { commandVersionSelectElement, initCommand } from "../command/command-loader.js"
+import { menu } from "../command/command-menu.js"
 import { config, importedList } from "./init.js"
 import { initLang, langData } from "./lang-loader.js"
-import { server, setServer } from "./remote-execute.js"
-import { showMessage } from "./ui.js"
+import { server, setServer } from "../remote/remote-execute.js"
+import { showMessage } from "../ui/ui.js"
 
 export const urlParams = new URL(location.href).searchParams
 urlParams.forEach((value, key) => {

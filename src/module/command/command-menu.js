@@ -6,12 +6,14 @@
  * @typedef {import('./command-parser.js').CommandGroupDTO} CommandGroupDTO
  */
 
-import { CommandGroup } from './command-parser.js'
-import { localCommandGroupList } from './init.js'
-import { langData } from './lang-loader.js'
-import { execCommand } from './remote-execute.js'
-import { ShareModal } from './share-modal.js'
-import { Icon, showMessage, SideBar } from "./ui.js"
+import {CommandGroup} from './command-parser.js'
+import {localCommandGroupList} from '../app/init.js'
+import {langData} from '../app/lang-loader.js'
+import {execCommand} from '../remote/remote-execute.js'
+import {ShareModal} from '../share/share-modal.js'
+import {Icon, showMessage, SideBar} from "../ui/ui.js"
+
+import './menu.css'
 
 class CommandMenu {
     /** @param { string } id */

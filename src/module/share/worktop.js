@@ -1,12 +1,14 @@
-import { menu } from "./command-menu.js"
-import { CommandGroup } from "./command-parser.js"
-import { Icon, showMessage, SideBar } from "./ui.js"
-import { server, execCommand } from "./remote-execute.js"
-import { langData } from "./lang-loader.js"
+import { menu } from "../command/command-menu.js"
+import { CommandGroup } from "../command/command-parser.js"
+import { Icon, showMessage, SideBar } from "../ui/ui.js"
+import { server, execCommand } from "../remote/remote-execute.js"
+import { langData } from "../app/lang-loader.js"
+
+import './worktop.css'
 
 /**
- * @typedef {import('./command-parser.js').CommandDTO} CommandDTO
- * @typedef {import('./command-menu.js').CommandGroup} CommandGroup
+ * @typedef {import('../command/command-parser.js').CommandDTO} CommandDTO
+ * @typedef {import('../command/command-menu.js').CommandGroup} CommandGroup
  */
 
 

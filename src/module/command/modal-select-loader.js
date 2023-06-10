@@ -1,10 +1,11 @@
-import { config, DATA_VERSION } from "./init.js";
-import { getUrlData } from './core.js'
-import { mask } from "./ui.js";
-import { langData } from "./lang-loader.js";
+import {config, DATA_VERSION, getUrlData} from "../app/init.js";
+import {mask} from "../ui/ui.js";
+import {langData} from "../app/lang-loader.js";
+
+import './modal.css'
 
 /** 
- * @typedef {import('./command-builder').ParamVO} ParamVO 
+ * @typedef {import('./command-builder.js').ParamVO} ParamVO
  */
 
 /**

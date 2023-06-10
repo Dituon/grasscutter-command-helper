@@ -1,4 +1,8 @@
-/** @typedef {import('./command-builder').ParamValue} ParamValue */
+/** @typedef {import('../command/command-builder.js').ParamValue} ParamValue */
+
+import './init.css'
+import './nav-icon.css'
+import './side-bar.css'
 
 /**
  * @param {string} value 
