@@ -8,7 +8,8 @@ function parseHandbook(lang) {
     let typeList = [
         getRawGroup('Avatars') + getRawGroup('Items') + getRawGroup('Monsters'),
         getRawGroup('Scenes'),
-        getRawGroup('Quests')
+        getRawGroup('Quests'),
+        getRawGroup('Achievements')
     ]
 
     typeList = typeList.map(rawText => {
@@ -34,7 +35,8 @@ function parseHandbook(lang) {
     return {
         items: typeList[0],
         scenes: typeList[1],
-        quests: typeList[2]
+        quests: typeList[2],
+        achievements: typeList[3]
     }
 
     /**

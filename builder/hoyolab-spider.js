@@ -90,7 +90,8 @@ async function spider(langObj) {
                     monster: { name: 'monsterList' },
                     entity: { name: 'entityList' },
                     quest: { name: 'questList' },
-                    scene: { name: 'sceneList' }
+                    scene: { name: 'sceneList' },
+                    achievement: { name: 'achievementList' }
                 }
 
                 Object.values(op).forEach(obj => {
@@ -208,6 +209,10 @@ async function spider(langObj) {
 
                 handbook.scenes.forEach(scene => {
                     op.scene.list.push(scene)
+                })
+
+                handbook.achievements.forEach(achievement => {
+                    op.achievement.list.push(achievement)
                 })
 
                 function injectInfo(obj) {

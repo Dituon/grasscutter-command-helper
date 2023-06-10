@@ -40,12 +40,12 @@
 
 脚本会解析`URL`中的`GET`参数, 可以向用户提供一些默认值
 
-| 参数      | 值域                      | 说明       |
-| --------- | ------------------------- | ---------- |
-| `version` | `1.2.1` `1.4.2` `GM`      | 指令版本   |
-| `lang`    | `navigator.language`      | 语言       |
-| `server`  | `encodeURIComponent(URL)` | 远程服务器 |
-| `import`  | `encodeURIComponent(URL)` | 导入指令   |
+| 参数      | 值域                              | 说明       |
+| --------- | --------------------------------- | ---------- |
+| `version` | `1.6.1` `1.4.2` `GM` `1.2.1`      | 指令版本   |
+| `lang`    | `navigator.language`              | 语言       |
+| `server`  | `encodeURIComponent(URL)`         | 远程服务器 |
+| `import`  | `encodeURIComponent(URL)`         | 导入指令   |
 
 **示例**
 

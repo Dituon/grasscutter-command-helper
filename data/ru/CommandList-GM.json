@@ -2,15 +2,15 @@
   {
     "id": "avatarAdd",
     "head": "avatar add",
-    "label": "添加角色",
+    "label": "Add character",
     "params": [
       {
-        "symbol": "角色 ",
+        "symbol": "Character ",
         "type": "avatarList",
-        "name": "角色",
+        "name": "Character",
         "value": {
           "value": "10000002",
-          "label": "神里绫华"
+          "label": "Kamisato Ayaka"
         },
         "required": true
       }
@@ -19,33 +19,33 @@
   {
     "id": "itemAdd",
     "head": " item add",
-    "label": "添加物品",
+    "label": "Add item",
     "params": [
       {
-        "symbol": "物品 ",
+        "symbol": "Item ",
         "type": "itemList",
-        "name": "物品",
+        "name": "Item",
         "value": {
           "value": "102",
-          "label": "冒险阅历"
+          "label": "Adventure EXP"
         },
         "required": true
       },
       {
-        "symbol": "数量 ",
+        "symbol": "Number ",
         "type": "number",
-        "name": "数量"
+        "name": "Number"
       }
     ]
   },
   {
     "id": "scion",
     "head": "scion",
-    "label": "增加摩拉",
+    "label": "Add Mora",
     "params": [
       {
         "type": "number",
-        "name": "数量",
+        "name": "Number",
         "value": 9999999
       }
     ]
@@ -53,27 +53,27 @@
   {
     "id": "monster",
     "head": "monster",
-    "label": "生成怪物",
+    "label": "Spawn monster",
     "params": [
       {
         "type": "monsterList",
-        "name": "怪物",
+        "name": "Monster",
         "value": {
           "value": 20010101,
-          "label": "草史莱姆"
+          "label": "Dendro Slime"
         },
         "required": true
       },
       {
-        "symbol": "等级 ",
+        "symbol": "Level ",
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 1
       },
       {
-        "symbol": "数量 ",
+        "symbol": "Number ",
         "type": "number",
-        "name": "数量",
+        "name": "Number",
         "value": 1
       }
     ]
@@ -81,29 +81,29 @@
   {
     "id": "equipWeapon",
     "head": "equip add",
-    "label": "设置当前角色武器（未拥有物品会自动添加）",
+    "label": "Set the current character's weapon (automatically add if the item is not owned)",
     "params": [
       {
-        "symbol": "武器ID ",
+        "symbol": "Weapon ID ",
         "type": "weaponList",
-        "name": "武器ID",
+        "name": "Weapon ID",
         "value":{
           "value": "11101",
-          "label": "无锋剑"
+          "label": "Dull Blade"
         },
         "required":true
       },
       {
-        "symbol": "精炼等级 ",
+        "symbol": "Affix level ",
         "type": "number",
-        "name": "精炼等级",
+        "name": "Affix level",
         "max": 5,
         "min": 1
       },
       {
-        "symbol": "突破等级",
+        "symbol": "Stats level",
         "type": "number",
-        "name": "突破等级",
+        "name": "Stats level",
         "max": 90,
         "min": 1
       }
@@ -112,12 +112,12 @@
   {
     "id": "avatarLevel",
     "head": "level",
-    "label": "调整当前角色的等级",
+    "label": "Adjust the current character's level",
     "params":[
       {
-        "symbol": "等级 ",
+        "symbol": "Level ",
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 1,
         "max": 90,
         "min": 1,
@@ -128,12 +128,12 @@
   {
     "id": "avatarBreakLevel",
     "head": "break",
-    "label": "调整当前角色的突破等级",
+    "label": "Adjust the current character's stats level",
     "params":[
       {
-        "symbol": "等级 ",
+        "symbol": "Level ",
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "value": 1,
         "required":true
       }
@@ -142,16 +142,16 @@
   {
     "id": "avatarSkill",
     "head": "skill",
-    "label": "调整当前角色的天赋",
+    "label": "Adjust the current character's talents",
     "params":[
       {
         "type": "number",
-        "name": "天赋ID"
+        "name": "Talent ID"
       },
       {
-        "symbol": "等级 ",
+        "symbol": "Level ",
         "type": "number",
-        "name": "等级",
+        "name": "Level",
         "max": 10,
         "min": 1,
         "required":true
@@ -161,18 +161,18 @@
   {
     "id": "talentUnlock",
     "head": "talent unlock all",
-    "label": "解锁当前角色所有命座",
+    "label": "Unlock all constellations for the current character",
     "params":[]
   },
   {
     "id": "playerLevel",
     "head": "player level",
-    "label": "调整玩家冒险等级",
+    "label": "Adjust the player's adventure level",
     "params": [
       {
-        "symbol": "冒险等级 ",
+        "symbol": "Adventure level ",
         "type": "number",
-        "name": "冒险等级",
+        "name": "Adventure level",
         "value": 60,
         "max": 60,
         "min": 1,
@@ -183,11 +183,11 @@
   {
     "id": "invincibleSwitch",
     "head": "wudi global",
-    "label": "无敌开关",
+    "label": "Godmode",
     "params":[
       {
         "type": "select",
-        "name": "玩家或怪物",
+        "name": "Object",
         "value": "avatar",
         "data": {
           "value":[
@@ -195,15 +195,15 @@
             "monster"
           ],
           "label":[
-            "玩家",
-            "怪物"
+            "Player",
+            "Monster"
           ]
         },
         "required": true
       },
       {
         "type": "select",
-        "name": "开关",
+        "name": "Status",
         "value": "on",
         "data": {
           "value":[
@@ -211,8 +211,8 @@
             "off"
           ],
           "label":[
-            "开",
-            "关"
+            "ON",
+            "OFF"
           ]
         },
         "required": true
@@ -222,20 +222,20 @@
   {
     "id": "killSelf",
     "head": "kill self",
-    "label": "杀死当前角色",
+    "label": "Kill-self",
     "params":[]
   },
   {
     "id": "killMonster",
     "head": "kill monster",
-    "label": "杀死怪物",
+    "label": "Kill monsters",
     "params":[
       {
         "type": "monsterListGM",
-        "name": "怪物",
+        "name": "Monster",
         "value": {
           "value": "all",
-          "label": "所有"
+          "label": "All"
         },
         "required": true
       }
@@ -244,26 +244,26 @@
   {
     "id": "goto",
     "head": "goto",
-    "label": "传送到指定坐标",
+    "label": "Teleport",
     "params":[
       {
-        "symbol": "x坐标 ",
+        "symbol": "Pos X ",
         "type": "number",
-        "name": "x坐标",
+        "name": "Pos X",
         "value": 1,
         "required":true
       },
       {
-        "symbol": "y坐标 ",
+        "symbol": "Pos Y ",
         "type": "number",
-        "name": "y坐标",
+        "name": "Pos Y",
         "value": 1,
         "required":true
       },
       {
-        "symbol": "z坐标 ",
+        "symbol": "Pos Z ",
         "type": "number",
-        "name": "z坐标",
+        "name": "Pos Z",
         "value": 1,
         "required":true
       }
@@ -272,15 +272,15 @@
   {
     "id": "jump",
     "head": "jump",
-    "label": "传送到指定场景",
+    "label": "Enter a specified scene",
     "params":[
       {
-        "symbol": "场景ID ",
+        "symbol": "Scene ID ",
         "type": "sceneList",
-        "name": "场景ID",
+        "name": "Scene ID",
         "value": {
           "value": 1,
-          "label": "大世界"
+          "label": "Big World"
         },
         "required": true
       }
@@ -289,15 +289,15 @@
   {
     "id": "dungeon",
     "head": "dungeon",
-    "label": "传送到指定秘境",
+    "label": "Enter a specified dungeon",
     "params":[
       {
-        "symbol": "秘境ID ",
+        "symbol": "Dungeon ID ",
         "type": "sceneList",
-        "name": "秘境ID",
+        "name": "Dungeon ID",
         "value": {
           "value": 10008,
-          "label": "秘境"
+          "label": "Dungeon"
         },
         "required": true
       }
@@ -306,28 +306,28 @@
   {
     "id": "unlockPoint",
     "head": "point",
-    "label": "解锁对应场景的传送点",
+    "label": "Unlock teleportation points in the corresponding scene",
     "params":[
       {
-        "symbol": "场景ID ",
+        "symbol": "Scene ID ",
         "type": "sceneList",
-        "name": "场景ID",
+        "name": "Scene ID",
         "value": {
           "value": 1,
-          "label": "大世界"
+          "label": "Big World"
         },
         "required": true
       },
       {
         "type": "select",
-        "name": "所有",
+        "name": "All",
         "value": "all",
         "data": {
           "value":[
             "all"
           ],
           "label":[
-            "所有"
+            "All"
           ]
         },
         "required": true
@@ -337,11 +337,11 @@
   {
     "id": "quest",
     "head": "quest",
-    "label": "添加/完成任务",
+    "label": "Accept/finish quest",
     "params":[
       {
         "type": "select",
-        "name": "添加/完成",
+        "name": "Action",
         "value": "accept",
         "required": true,
         "data": {
@@ -350,19 +350,19 @@
             "finish"
           ],
           "label": [
-            "添加任务",
-            "完成任务"
+            "Accept",
+            "Finish"
           ]
         }
       },
       {
-        "symbol": "任务ID ",
+        "symbol": "Quest ID ",
         "type": "questList",
-        "name": "任务ID",
+        "name": "Quest ID",
         "required": true,
         "value": {
           "value": 30600,
-          "label": "昔日的风-在庙宇门口跟安柏见面"
+          "label": "Winds of the Past - Meet Amber at the temple"
         }
       }
     ]

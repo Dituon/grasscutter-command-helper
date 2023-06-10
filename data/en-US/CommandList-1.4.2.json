@@ -362,7 +362,7 @@
   },
   {
     "id": "setUnlimitEnergy",
-    "head": "/prop unlimitenergy",
+    "head": "/prop unlimitedenergy",
     "label": "Set unlimited energy",
     "params": [
       {
@@ -457,26 +457,9 @@
   },
   {
     "id": "setStats",
-    "head": "/stats",
+    "head": "/stat",
     "label": "Set the combat attributes of the current character",
     "params": [
-      {
-        "type": "statList",
-        "name": "Attributes",
-        "value": {
-          "label": "attack",
-          "value": "atk"
-        },
-        "required": true
-      },
-      {
-        "type": "number",
-        "name": "Value",
-        "value": 10000,
-        "max": 99999999999999,
-        "min": 0,
-        "required": true
-      },
       {
         "type": "select",
         "name": "value lock",
@@ -494,6 +477,23 @@
             "unlock"
           ]
         }
+      },
+      {
+        "type": "statList",
+        "name": "Attributes",
+        "value": {
+          "label": "attack",
+          "value": "atk"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Value",
+        "value": 10000,
+        "max": 99999999999999,
+        "min": 0,
+        "required": true
       }
     ]
   },
@@ -544,11 +544,11 @@
   },
   {
     "head": "/killall",
-    "label": "Kills all mobs in the current world or the specified world",
+    "label": "Kills all mobs in the current scene or the specified scene",
     "params": [
       {
         "type": "sceneList",
-        "name": "World",
+        "name": "Scene",
         "required": false
       }
     ]

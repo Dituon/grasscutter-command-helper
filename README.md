@@ -26,12 +26,12 @@ Any requests are welcome
 
 The script read the `GET` params in URL, you can provide some default param to the user
 
-| params    | value field               | description        |
-| --------- | ------------------------- | ------------------ |
-| `version` | `1.2.1` `1.4.2` `GM`      | command version    |
-| `lang`    | `navigator.language`      | language           |
-| `server`  | `encodeURIComponent(URL)` | remote server host |
-| `import`  | `encodeURIComponent(URL)` | import command     |
+| params    | value field                       | description        |
+| --------- | --------------------------------- | ------------------ |
+| `version` | `1.6.1` `1.4.2` `GM` `1.2.1`      | command version    |
+| `lang`    | `navigator.language`              | language           |
+| `server`  | `encodeURIComponent(URL)`         | remote server host |
+| `import`  | `encodeURIComponent(URL)`         | import command     |
 
 **Examples**
 
