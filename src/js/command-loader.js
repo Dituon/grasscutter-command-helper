@@ -17,7 +17,7 @@ const commandSearchInput = document.getElementById('search-input')
 
 /** @return { Promise<CommandVO[]> } */
 const getCommandList = () =>
-    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion ?? '1.4.2'}.json`)
+    getUrlData(`./data/${config.lang}/CommandList-${config.commandVersion ?? '1.6.1'}.json`)
 
 /** @type { Map<string, CommandVO> } */
 export const commandMap = new Map()
@@ -40,11 +40,11 @@ const getCommandById = id => {
 export { getCommandList, getCommandById, getCommandByIdAsync }
 
 /** 
- * @param { string } [version = '1.4.2'] 
+ * @param { string } [version = '1.6.1'] 
  * @return { Promise<OutputCommandList> }
  */
 export const initCommand = async version => {
-    config.commandVersion = version ?? config.commandVersion ?? '1.4.2'
+    config.commandVersion = version ?? config.commandVersion ?? '1.6.1'
     const data = await getCommandList()
     const commandList = new OutputCommandList(data)
     loadCommand(commandList.list)
