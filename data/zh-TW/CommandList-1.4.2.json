@@ -381,11 +381,11 @@
       {
         "type": "select",
         "name": "设置",
-        "value": "unlimitenergy",
+        "value": "unlimitedenergy",
         "required": true,
         "data": {
           "value": [
-            "unlimitenergy",
+            "unlimitedenergy",
             "nostamina",
             "godmode",
             "unlockmap"
@@ -475,27 +475,9 @@
   },
   {
     "id": "setStats",
-    "head": "/stats",
+    "head": "/stat",
     "label": "设置当前上场角色的战斗属性(百分比属性 数值×100为最终百分比)",
     "params": [
-      {
-        "type": "statList",
-        "name": "属性",
-        "value": {
-          "label": "攻击",
-          "value": "atk"
-        },
-        "required": true
-      },
-      {
-        "symbol": "+",
-        "type": "number",
-        "name": "数值",
-        "value": 10000,
-        "max": 99999999999999,
-        "min": 0,
-        "required": true
-      },
       {
         "symbol": "锁定开关 ",
         "type": "select",
@@ -514,6 +496,24 @@
             "解锁"
           ]
         }
+      },
+      {
+        "type": "statList",
+        "name": "属性",
+        "value": {
+          "label": "攻击",
+          "value": "atk"
+        },
+        "required": true
+      },
+      {
+        "symbol": "+",
+        "type": "number",
+        "name": "数值",
+        "value": 10000,
+        "max": 99999999999999,
+        "min": 0,
+        "required": true
       }
     ]
   },
@@ -627,11 +627,11 @@
   },
   {
     "head": "/killall",
-    "label": "杀死当前世界或指定世界的所有生物",
+    "label": "杀死当前场景或指定场景的所有生物",
     "params": [
       {
         "type": "sceneList",
-        "name": "生物",
+        "name": "场景",
         "required": false
       }
     ]

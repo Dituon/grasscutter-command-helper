@@ -1,9 +1,30 @@
 [
   {
     "id": "getAll",
-    "head": "/give all",
-    "label": "获取所有物品",
+    "head": "/give",
+    "label": "获取指定类型所有物品",
     "params": [
+      {
+        "symbol": "类型 ",
+        "type": "select",
+        "name": "类型",
+        "data": {
+          "value": [
+            "all",
+            "weapons",
+            "mats",
+            "avatars"
+          ],
+          "label": [
+            "全部",
+            "武器",
+            "材料",
+            "角色"
+          ]
+        },
+        "value": "all",
+        "required": true
+      },
       {
         "symbol": "等级 ",
         "head": "lv",
@@ -407,11 +428,13 @@
         "data": {
           "value": [
             "on",
-            "off"
+            "off",
+            "all"
           ],
           "label": [
             "开启",
-            "关闭"
+            "关闭",
+            "(只用于解锁地图)所有(包括不必要的)"
           ]
         }
       }
@@ -646,13 +669,47 @@
     "id": "list",
     "head": "/list",
     "label": "列出在线玩家",
-    "params": []
+    "params": [
+      {
+        "type": "select",
+        "name": "显示 UID",
+        "value": "",
+        "required": true,
+        "data": {
+          "value": [
+            "",
+            "uid"
+          ],
+          "label": [
+            "不显示",
+            "显示"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "resetConst",
     "head": "/resetConst",
-    "label": "重置当前角色的命座",
-    "params": []
+    "label": "重置角色的命座",
+    "params": [
+      {
+        "type": "select",
+        "name": "选择角色",
+        "value": "",
+        "required": true,
+        "data": {
+          "value": [
+            "",
+            "all"
+          ],
+          "label": [
+            "当前角色",
+            "全部角色"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "setConst",
@@ -796,11 +853,23 @@
         "data": {
           "value": [
             "add",
-            "finish"
+            "finish",
+            "running",
+            "talking",
+            "dungeons",
+            "debug",
+            "triggers",
+            "grouptriggers"
           ],
           "label": [
             "添加",
-            "完成"
+            "完成",
+            "检查任务状态",
+            "检查对话状态",
+            "调试指令",
+            "调试指令",
+            "调试指令",
+            "调试指令"
           ]
         }
       },
@@ -814,5 +883,59 @@
         }
       }
     ]
+  },
+  {
+    "id": "achievement",
+    "head": "/achievement",
+    "label": "达成、撤销成就或设置成就进度",
+    "params": [
+      {
+        "symbol": "操作 ",
+        "type": "select",
+        "name": "操作",
+        "value": "grant",
+        "required": true,
+        "data": {
+          "value": [
+            "grant",
+            "revoke",
+            "progress",
+            "grantall",
+            "revokeall"
+          ],
+          "label": [
+            "达成",
+            "撤销",
+            "设置进度",
+            "达成全部",
+            "撤销全部"
+          ]
+        }
+      },
+      {
+        "type": "achievementList",
+        "name": "成就",
+        "required": true,
+        "value": {
+          "value": "80001",
+          "label": "风与异乡人 - 使用风元素吹散一株蒲公英。"
+        }
+      },
+      {
+        "symbol": "进度",
+        "type": "number",
+        "name": "进度",
+        "value": 1,
+        "max": 6,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "resetShopLimit",
+    "head": "/resetShopLimit",
+    "label": "重置指定玩家的商店刷新时间",
+    "params": []
   }
 ]
