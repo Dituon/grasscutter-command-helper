@@ -362,7 +362,7 @@
   },
   {
     "id": "setUnlimitEnergy",
-    "head": "/prop unlimitenergy",
+    "head": "/prop unlimitedenergy",
     "label": "元素爆発",
     "params": [
       {
@@ -457,26 +457,9 @@
   },
   {
     "id": "setStats",
-    "head": "/stats",
+    "head": "/stat",
     "label": "攻撃",
     "params": [
-      {
-        "type": "statList",
-        "name": "元素",
-        "value": {
-          "label": "attack",
-          "value": "atk"
-        },
-        "required": true
-      },
-      {
-        "type": "number",
-        "name": "価値",
-        "value": 10000,
-        "max": 99999999999999,
-        "min": 0,
-        "required": true
-      },
       {
         "type": "select",
         "name": "値札",
@@ -494,6 +477,23 @@
             "unlock"
           ]
         }
+      },
+      {
+        "type": "statList",
+        "name": "元素",
+        "value": {
+          "label": "attack",
+          "value": "atk"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "価値",
+        "value": 10000,
+        "max": 99999999999999,
+        "min": 0,
+        "required": true
       }
     ]
   },
