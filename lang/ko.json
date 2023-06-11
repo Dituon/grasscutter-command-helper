@@ -1,102 +1,101 @@
 {
-    "info": "<a href='https://github.com/Dituon/grasscutter-command-helper#translate'>이 페이지를 번역하는 데 도움이 됩니다.</a>",
+    "info": "<a href='https://github.com/Dituon/grasscutter-command-helper#translate'>번역에 도움이 필요한 경우 여기를 참조하십시오.</a>",
     "title": "Grasscutter Command Helper",
-
-    "command-list": "Command List",
-    "command-search": "Search",
-    "command-search-input": "🔎 Keyword / ID / Description",
-    "choose-param": "Set Parameters",
-    "output-result": "Results",
-    "output-tips": "click to copy",
-
-    "modal-search-input": "🔎 Keyword / ID / Tag",
-
-    "command-version-select": "🗃 Command Version",
-
-    "command-execute": "📡 Remote Command",
-    "command-push": "📦 Push To Worktop",
-    "command-group": "🍳 Command Group Worktop",
-    "command-group-title": "Title",
-    "command-group-title-input": "✨ Concise and Impressive",
-    "command-group-description-input": "Subtitle / Brief description",
-
-    "remote-host": "🎮Host",
+    "command-list": "명령 목록",
+    "command-search": "검색",
+    "command-search-input": "🔎 키워드 / ID / 설명",
+    "choose-param": "매개변수 설정",
+    "output-result": "결과",
+    "output-tips": "복사하려면 클릭",
+    
+    "modal-search-input": "🔎 키워드 / ID / 태그",
+    
+    "command-version-select": "🗃 명령 버전",
+    
+    "command-execute": "📡 원격 명령",
+    "command-push": "📦 작업대로 보내기",
+    "command-group": "🍳 명령 그룹 작업대",
+    "command-group-title": "제목",
+    "command-group-title-input": "✨ 간결하고 인상적인",
+    "command-group-description-input": "부제 / 간단한 설명",
+    
+    "remote-host": "🎮 호스트",
     "remote-host-input": "🔗 https://",
-    "remote-execute": "📡 Remote Command",
-    "remote-server-version": "Version: ",
-    "remote-player-count": "Player Count: ",
+    "remote-execute": "📡 원격 명령",
+    "remote-server-version": "버전: ",
+    "remote-player-count": "플레이어 수: ",
     "remote-uid": "UID",
-    "remote-uid-input": "👋 afew numbers",
-    "remote-execute-status-default": "Server not specified",
-    "remote-verifycode": "📟 Verify Code",
-    "send-verifycode": "Send",
-    "check-verifycode": "Check",
-    "remote-verifycode-input": "four digits in console",
-
-    "export-setting": "💡 Export Setting",
-    "export-author": "💌 Author",
-    "export-author-input": "empty...",
-
-    "lang-select": "🌐Language",
-
-    "save-btn": "💾Save",
-    "copy-btn": "📋Copy",
-    "exec-btn": "📡Exec",
-    "share-btn": "📚 Share & Import",
-
-    "share-code": "Share Code",
-    "export-update": "📤Create",
-    "import-download": "📥Import",
-    "share-raw": "Raw Data",
-    "export-raw": "📋Copy",
-    "import-raw": "💼Read",
-
-    "clear-cache": "⚠ Clear Cache",
-
-    "loading": "Loading...",
-    "loadSuccess": "Load Successfully",
-    "loadFail": "Load Failure",
-
+    "remote-uid-input": "👋 몇 가지 숫자",
+    "remote-execute-status-default": "지정된 서버 없음",
+    "remote-verifycode": "📟 인증 코드",
+    "send-verifycode": "전송",
+    "check-verifycode": "확인",
+    "remote-verifycode-input": "콘솔에 있는 네 자리 숫자",
+    
+    "export-setting": "💡 설정 내보내기",
+    "export-author": "💌 작성자",
+    "export-author-input": "비어 있음...",
+    
+    "lang-select": "🌐 언어",
+    
+    "save-btn": "💾 저장",
+    "copy-btn": "📋 복사",
+    "exec-btn": "📡 실행",
+    "share-btn": "📚 공유 및 가져오기",
+    
+    "share-code": "공유 코드",
+    "export-update": "📤 생성",
+    "import-download": "📥 가져오기",
+    "share-raw": "원본 데이터",
+    "export-raw": "📋 복사",
+    "import-raw": "💼 읽기",
+    
+    "install-app": "📲 앱 설치",
+    "clear-cache": "⚠ 캐시 지우기",
+    
+    "loading": "로딩 중...",
+    "loadSuccess": "로드 성공",
+    "loadFail": "로드 실패",
+    
     "placeholder": "place hold ",
-    "placechooser": "place choose ",
-    "noParam": "This command has no parameters",
-    "copySuccess": "Copy Success",
-    "copyFail": "Copy Failure, Please try again",
-
-    "chooseCommandFirst": "Select the Command first",
-    "showFilter": "Filters",
-    "commandPushed": "Pushed to Worktop",
-    "saveSuccess": "Save Success",
-
-    "serverNotDefined": "Server not specified",
-    "gettingServerInfo": "Acquiring server information...",
-    "getServerInfoSuccess": "Server information acquire successfully",
-    "getServerInfoFail": "Cannot connect to server",
-    "serverNotSupport": "Server does not support Remote Execute",
-    "cannotConnectServer": "Cannot connect to server",
-    "unboundPlayer": "Player has not been bound",
-    "playerNotFound": "Player not found",
-
-    "requestsTooFrequent": "Requests too frequent",
-    "verifycodeSended": "Verifycode has been sent",
-    "verifycodeError": "Verifycode Error",
-    "verifySuccess": "Verification success",
-    "verifyFail": "Verification failure",
-    "playerBound": "Binded UID: $UID",
-
-    "commandEmpty": "Command cannot be Empty",
-    "commandExecuted": "Command has been executed",
-    "commandExecuteFail": "Command execution failed",
-    "commandImportSuccess": "Command import successful",
-    "commandImportFail": "Command import failure",
-    "commandExportSuccess": "Command exported successfully, check your clipboard",
-    "commandNotChoose": "No command selected",
-    "commandUnmaned": "Command Unnamed",
-
-    "shareCodeEmpty": "Share Code cannot be Empty",
-    "updateFail": "Update Failed",
-
-    "unknowError": "Unknown error, please submit issue",
-
+    "placechooser": "플레이스 선택기",
+    "noParam": "이 명령에는 매개변수가 있습니다",
+    "copySuccess": "복사 성공",
+    "copyFail": "복사 실패, 다시 시도하세요",
+    "chooseCommandFirst": "먼저 명령을 선택하세요",
+    "showFilter": "필터",
+    "commandPushed": "작업대로 보내짐",
+    "saveSuccess": "저장 성공",
+    
+    "serverNotDefined": "서버가 지정되지 않았습니다",
+    "gettingServerInfo": "서버 정보를 가져오는 중...",
+    "getServerInfoSuccess": "서버 정보 가져오기 성공",
+    "getServerInfoFail": "서버에 연결할 수 없습니다",
+    "serverNotSupport": "서버가 원격 실행을 지원하지 않습니다",
+    "cannotConnectServer": "서버에 연결할 수 없습니다",
+    "unboundPlayer": "플레이어가 바인딩되지 않았습니다",
+    "playerNotFound": "플레이어를 찾을 수 없습니다",
+    
+    "requestsTooFrequent": "요청이 너무 빈번합니다",
+    "verifycodeSended": "인증 코드가 전송되었습니다",
+    "verifycodeError": "인증 코드 오류",
+    "verifySuccess": "인증 성공",
+    "verifyFail": "인증 실패",
+    "playerBound": "바인딩된 UID: $UID",
+    
+    "commandEmpty": "명령을 비워 둘 수 없습니다",
+    "commandExecuted": "명령이 실행되었습니다",
+    "commandExecuteFail": "명령 실행 실패",
+    "commandImportSuccess": "명령 가져오기 성공",
+    "commandImportFail": "명령 가져오기 실패",
+    "commandExportSuccess": "명령 내보내기 성공, 클립보드를 확인하세요",
+    "commandNotChoose": "선택된 명령이 없습니다",
+    "commandUnmaned": "이름 없는 명령",
+    
+    "shareCodeEmpty": "공유 코드를 비워 둘 수 없습니다",
+    "updateFail": "업데이트 실패",
+    
+    "unknowError": "알 수 없는 오류, 문제를 제출하세요",
+    
     "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/uDSQfQTrd8\">✨Discord✨</a>"
 }

@@ -50,6 +50,7 @@
     "export-raw": "📋Copy",
     "import-raw": "💼Read",
 
+    "install-app": "📲 Install App",
     "clear-cache": "⚠ Clear Cache",
 
     "loading": "Loading...",
