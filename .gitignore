@@ -8,3 +8,6 @@ index.html
 
 .idea/
 manifest.json
+workbox-*.js
+sw.js
+manifest.webmanifest

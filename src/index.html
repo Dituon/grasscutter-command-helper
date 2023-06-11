@@ -17,6 +17,8 @@
     <meta name="apple-mobile-web-app-title" content="Grasscutter Command Helper">
 
     <title bind="title">Grasscutter Command Helper</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6954577391022234"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -65,6 +67,8 @@
                     <div id="command-push" bind="command-push">📦 Push To Worktop</div>
                 </div>
             </div>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6954577391022234"
+                data-ad-slot="1757983692" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <div class="bottom links" bind="links">
                 <a href="https://github.com/Dituon/grasscutter-command-helper">❤Github❤</a>
                 <a href="https://discord.gg/uDSQfQTrd8">✨Discord✨</a>
@@ -184,6 +188,9 @@
         </div>
 
         <div class="button-group">
+            <div bind="install-app" id="install-app">📲 Install App</div>
+        </div>
+        <div class="button-group">
             <div bind="clear-cache" id="clear-cache">⚠ Clear Cache</div>
         </div>
     </div>
@@ -209,14 +216,28 @@
 
     <script type="module" src="./module/app/app.js"></script>
     <script>
-
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", function () {
-                navigator.serviceWorker.register("./sw.js");
-            })
-        }
-
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?129cb40fd9462f1042b3326cd7c145cc";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
+    <script>
+        const localStorageKey = 'showAdsTime'
+        const probability = 0.2;
+
+        (function showAds(show = true) {
+            const date = new Date().getDate()
+
+            if (!show && localStorage.getItem(localStorageKey) === date.toString()) return
+
+            localStorage.setItem(localStorageKey, date.toString());
+            (adsbygoogle = window.adsbygoogle || []).push({})
+        })(Math.random() <= probability)
+    </script>
+
 </body>
 
 </html>

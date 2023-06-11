@@ -13,6 +13,16 @@ authorInputElement.addEventListener('change', e => {
     config.author = e.target.value
 })
 
+const installAppBtn = document.getElementById('install-app')
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault()
+    deferredPrompt = e
+
+    installAppBtn.addEventListener('click', e => {
+        deferredPrompt.prompt()
+    })
+})
+
 const clearCacheBtn = document.getElementById('clear-cache')
 clearCacheBtn.addEventListener('click', e => {
     localStorage.clear()
