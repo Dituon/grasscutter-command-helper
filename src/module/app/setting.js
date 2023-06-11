@@ -16,10 +16,9 @@ authorInputElement.addEventListener('change', e => {
 const installAppBtn = document.getElementById('install-app')
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault()
-    deferredPrompt = e
 
-    installAppBtn.addEventListener('click', e => {
-        deferredPrompt.prompt()
+    installAppBtn.addEventListener('click', () => {
+        e.prompt()
     })
 })
 
