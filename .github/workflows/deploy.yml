@@ -29,46 +29,18 @@ jobs:
           name: production-files
           path: ./dist
 
-  copy:
-    name: Copy preview images
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout preview branch
-        uses: actions/checkout@v3
-        with:
-          ref: preview
-
-      - name: Upload Pre files
-        uses: actions/upload-artifact@v3
-        with:
-          name: preview-files
-          path: ./preview
-
   deploy:
     name: Deploy to github page
-    needs: [ build, copy ]
+    needs: [ build ]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Download preview files
-        uses: actions/download-artifact@v3
-        with:
-          name: preview-files
-          path: ./preview
-
       - name: Download production-ready build files
         uses: actions/download-artifact@v3
         with:
           name: production-files
           path: ./dist
-
-      - name: Copy Preview Data to Dist
-        run: |
-          mkdir -p ${{ github.workspace }}/dist/preview
-          cp -r preview/* ${{ github.workspace }}/dist/preview/
-        working-directory: ${{ github.workspace }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
