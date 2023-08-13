@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import {viteStaticCopy} from 'vite-plugin-static-copy'
 
 export default defineConfig({
     build: {
-        manifest: true,
-        outDir: '../'
+        manifest: true
     },
     plugins: [
         VitePWA({
@@ -30,6 +30,22 @@ export default defineConfig({
                 theme_color: "#1677ff",
                 background_color: "#eeeeee"
             }
+        }),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: './data',
+                    dest: './'
+                },
+                {
+                    src: './icons',
+                    dest: './'
+                },
+                {
+                    src: './lang',
+                    dest: './'
+                }
+            ]
         })
     ]
 })

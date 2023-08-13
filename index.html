@@ -15,7 +15,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#ffc6c7">
     <meta name="apple-mobile-web-app-title" content="Grasscutter Command Helper">
 
-    <title bind="title">Grasscutter Command Helper</title>
+    <title bind="title">Grasscutter Command Helper - Xmmt.Genshin 指令生成器</title>
+    <meta name="description" content="Command generator for Grasscutter with other awesome extras; Xmmt 原神指令生成器, 支持远程执行, 指令分享">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6954577391022234"
         crossorigin="anonymous"></script>
 </head>
@@ -223,20 +224,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script>
-        const localStorageKey = 'showAdsTime'
-        const probability = 0.2;
-
-        (function showAds(show = true) {
-            const date = new Date().getDate()
-
-            if (!show && localStorage.getItem(localStorageKey) === date.toString()) return
-
-            localStorage.setItem(localStorageKey, date.toString());
-            (adsbygoogle = window.adsbygoogle || []).push({})
-        })(Math.random() <= probability)
-    </script>
-
 </body>
 
 </html>
