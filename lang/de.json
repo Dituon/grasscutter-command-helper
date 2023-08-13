@@ -1,0 +1,104 @@
+{
+    "info": "<a href='https://github.com/Dituon/grasscutter-command-helper#translate'>Helfen Sie uns diese Seite zu übersetzen</a>",
+
+    "title": "Grasscutter Command Helper",
+
+    "command-list": "Command List",
+    "command-search": "Search",
+    "command-search-input": "🔎 Keyword / ID / Description",
+    "choose-param": "Set Parameters",
+    "output-result": "Results",
+    "output-tips": "click to copy",
+
+    "modal-search-input": "🔎 Keyword / ID / Tag",
+
+    "command-version-select": "🗃 Command Version",
+
+    "command-execute": "📡 Remote Command",
+    "command-push": "📦 Push To Worktop",
+    "command-group": "🍳 Command Group Worktop",
+    "command-group-title": "Title",
+    "command-group-title-input": "✨ Concise and Impressive",
+    "command-group-description-input": "Subtitle / Brief description",
+
+    "remote-host": "🎮Host",
+    "remote-host-input": "🔗 https://",
+    "remote-execute": "📡 Remote Command",
+    "remote-server-version": "Version: ",
+    "remote-player-count": "Player Count: ",
+    "remote-uid": "UID",
+    "remote-uid-input": "👋 afew numbers",
+    "remote-execute-status-default": "Server not specified",
+    "remote-verifycode": "📟 Verify Code",
+    "send-verifycode": "Send",
+    "check-verifycode": "Check",
+    "remote-verifycode-input": "four digits in console",
+
+    "export-setting": "💡 Export Setting",
+    "export-author": "💌 Author",
+    "export-author-input": "empty...",
+
+    "lang-select": "🌐Language",
+
+    "save-btn": "💾Save",
+    "copy-btn": "📋Copy",
+    "exec-btn": "📡Exec",
+    "share-btn": "📚 Share & Import",
+
+    "share-code": "Share Code",
+    "export-update": "📤Create",
+    "import-download": "📥Import",
+    "share-raw": "Raw Data",
+    "export-raw": "📋Copy",
+    "import-raw": "💼Read",
+
+    "install-app": "📲 Install App",
+    "clear-cache": "⚠ Clear Cache",
+
+    "loading": "Loading...",
+    "loadSuccess": "Load Successfully",
+    "loadFail": "Load Failure",
+
+    "placeholder": "place hold ",
+    "placechooser": "place choose ",
+    "noParam": "This command has no parameters",
+    "copySuccess": "Copy Success",
+    "copyFail": "Copy Failure, Please try again",
+
+    "chooseCommandFirst": "Select the Command first",
+    "showFilter": "Filters",
+    "commandPushed": "Pushed to Worktop",
+    "saveSuccess": "Save Success",
+
+    "serverNotDefined": "Server not specified",
+    "gettingServerInfo": "Acquiring server information...",
+    "getServerInfoSuccess": "Server information acquire successfully",
+    "getServerInfoFail": "Cannot connect to server",
+    "serverNotSupport": "Server does not support Remote Execute",
+    "cannotConnectServer": "Cannot connect to server",
+    "unboundPlayer": "Player has not been bound",
+    "playerNotFound": "Player not found",
+
+    "requestsTooFrequent": "Requests too frequent",
+    "verifycodeSended": "Verifycode has been sent",
+    "verifycodeError": "Verifycode Error",
+    "verifySuccess": "Verification success",
+    "verifyFail": "Verification failure",
+    "playerBound": "Binded UID: $UID",
+
+    "commandEmpty": "Command cannot be Empty",
+    "commandExecuted": "Command has been executed",
+    "commandExecuteFail": "Command execution failed",
+    "commandImportSuccess": "Command import successful",
+    "commandImportFail": "Command import failure",
+    "commandExportSuccess": "Command exported successfully, check your clipboard",
+    "commandNotChoose": "No command selected",
+    "commandUnmaned": "Command Unnamed",
+
+    "shareCodeEmpty": "Share Code cannot be Empty",
+    "updateFail": "Update Failed",
+
+    "unknowError": "Unknown error, please submit issue",
+
+    "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/uDSQfQTrd8\">✨Discord✨</a>"
+}

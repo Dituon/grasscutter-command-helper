@@ -1,0 +1,102 @@
+{
+    "title": "Grasscutter Command Helper",
+
+    "command-list": "コマンドリスト",
+    "command-search": "検索",
+    "command-search-input": "🔎 キーワード / ID / 説明文",
+    "choose-param": "詳細設定",
+    "output-result": "結果",
+    "output-tips": "クリックしてコピー",
+
+    "modal-search-input": "🔎 キーワード / ID / 効果",
+
+    "command-version-select": "🗃 コマンドバージョン",
+
+    "command-execute": "📡 リモートコマンド",
+    "command-push": "📦 コマンドを保存",
+    "command-group": "🍳 コマンドマイセット",
+    "command-group-title": "名前",
+    "command-group-title-input": "✨ 分かりやすくね",
+    "command-group-description-input": "説明文",
+
+    "remote-host": "🎮ホスト",
+    "remote-host-input": "🔗 https://",
+    "remote-execute": "📡 リモートコマンド",
+    "remote-server-version": "バージョン: ",
+    "remote-player-count": "プレイヤー: ",
+    "remote-uid": "UID",
+    "remote-uid-input": "👋 afew numbers",
+    "remote-execute-status-default": "サーバー未設定",
+    "remote-verifycode": "📟 確認コード",
+    "send-verifycode": "送る",
+    "check-verifycode": "確認",
+    "remote-verifycode-input": "四桁の数字",
+
+    "export-setting": "💡 コマンド共有",
+    "export-author": "💌 作者",
+    "export-author-input": ":)...",
+
+    "lang-select": "🌐言語",
+
+    "save-btn": "💾保存",
+    "copy-btn": "📋コピー",
+    "exec-btn": "📡実行",
+    "share-btn": "📚 シェア",
+
+    "share-code": "シェアコード",
+    "export-update": "📤作る",
+    "import-download": "📥使う",
+    "share-raw": "Rawデータ",
+    "export-raw": "📋コピー",
+    "import-raw": "💼読む",
+    
+    "install-app": "📲 アプリをインストール",
+    "clear-cache": "⚠ キャッシュクリア",
+
+    "loading": "Loading...",
+    "loadSuccess": "成功",
+    "loadFail": "失敗",
+
+    "placeholder": "書く ",
+    "placechooser": "選ぶ ",
+    "noParam": "引数なし",
+    "copySuccess": "コピーしました",
+    "copyFail": "コピー失敗, もう一度試してください",
+
+    "chooseCommandFirst": "最初にこのコマンドを選んで",
+    "showFilter": "フィルター",
+    "commandPushed": "コマンドを保存",
+    "saveSuccess": "セーブ成功",
+
+    "serverNotDefined": "サーバが指定されなかった",
+    "gettingServerInfo": "サーバー情報を検索中...",
+    "getServerInfoSuccess": "成功",
+    "getServerInfoFail": "サーバーに繋がりません",
+    "serverNotSupport": "サーバーがサポートしていません",
+    "cannotConnectServer": "サーバーに繋がりません",
+    "unboundPlayer": "プレイヤーいません",
+    "playerNotFound": "見つかりませんでした",
+
+    "requestsTooFrequent": "リクエストが早すぎます",
+    "verifycodeSended": "確認コードを送りました",
+    "verifycodeError": "エラー",
+    "verifySuccess": "成功",
+    "verifyFail": "失敗",
+    "playerBound": "UID接続しました: $UID",
+
+    "commandEmpty": "空白は使えません",
+    "commandExecuted": "実行",
+    "commandExecuteFail": "失敗",
+    "commandImportSuccess": "成功",
+    "commandImportFail": "失敗",
+    "commandExportSuccess": "成功, クリップボードを確認してください",
+    "commandNotChoose": "コマンドを選んでください",
+    "commandUnmaned": "名前をつけてください",
+
+    "shareCodeEmpty": "空白は使えません",
+    "updateFail": "アップデート失敗",
+
+    "unknowError": "不明なエラー, 運営に送ってください",
+
+    "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/uDSQfQTrd8\">✨Discord✨</a>"
+}

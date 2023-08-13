@@ -1,0 +1,599 @@
+[
+  {
+    "id": "getArtifact",
+    "head": "/gart",
+    "label": "Get artifact",
+    "params": [
+      {
+        "type": "artifactList",
+        "name": "Artifact",
+        "value": {
+          "value": "21440",
+          "label": "Dreaming Steelbloom"
+        },
+        "required": true
+      },
+      {
+        "type": "mainPropList",
+        "name": "Main Attribute",
+        "value": {
+          "value": "10001",
+          "label": "HP"
+        },
+        "required": true
+      },
+      {
+        "type": "propDataList",
+        "name": "Attribute Ⅰ",
+        "required": false,
+        "subparam": {
+          "name": "Quantity",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "propDataList",
+        "name": "Attribute Ⅱ",
+        "required": false,
+        "subparam": {
+          "name": "Quantity",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "propDataList",
+        "name": "Attribute Ⅲ",
+        "required": false,
+        "subparam": {
+          "name": "Quantity",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "propDataList",
+        "name": "Attribute Ⅳ",
+        "required": false,
+        "subparam": {
+          "name": "Quantity",
+          "type": "number",
+          "max": 99,
+          "min": 1
+        }
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "max": 21,
+        "min": 1,
+        "value": 21,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "spawnEnitiy",
+    "head": "/spawn",
+    "label": "Spawn Animal & Enitiy",
+    "params": [
+      {
+        "type": "entityList",
+        "required": true,
+        "name": "Entity",
+        "value": {
+          "value": "28010101",
+          "label": "Golden Crab"
+        }
+      },
+      {
+        "type": "number",
+        "name": "Quantity",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 200,
+        "max": 200,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "spawnMonster",
+    "head": "/spawn",
+    "label": "Spawn Monster",
+    "params": [
+      {
+        "type": "monsterList",
+        "required": true,
+        "name": "Entity ID",
+        "value": {
+          "value": "20010101",
+          "label": "Dendro Slime"
+        }
+      },
+      {
+        "type": "number",
+        "name": "quantity",
+        "value": 1,
+        "min": 1,
+        "max": 99999999,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 200,
+        "max": 200,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "giveItem",
+    "head": "/give",
+    "label": "Get item",
+    "params": [
+      {
+        "type": "itemList",
+        "name": "Item",
+        "value": {
+          "value": "101",
+          "label": "Character EXP"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Quantity",
+        "value": 1,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "giveChar",
+    "head": "/givechar",
+    "label": "Get character",
+    "params": [
+      {
+        "type": "avatarList",
+        "name": "Role",
+        "value": {
+          "value": "10000002",
+          "label": "Kamisato Ayaka"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 90,
+        "max": 90,
+        "min": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "getWeapon",
+    "head": "/give",
+    "label": "Get weapon",
+    "params": [
+      {
+        "type": "weaponList",
+        "name": "Weapon",
+        "value": {
+          "value": "11101",
+          "label": "Dull Blade"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Quantity",
+        "value": 1,
+        "required": false
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 90,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "setTalent",
+    "head": "/talent",
+    "label": "Set talent level",
+    "params": [
+      {
+        "type": "avatarTalent",
+        "name": "Talent",
+        "value": {
+          "value": "n",
+          "label": "Normal Attack"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Level",
+        "value": 10,
+        "max": 99999,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "dropItem",
+    "head": "/drop",
+    "label": "Drop an item near you",
+    "params": [
+      {
+        "type": "itemList",
+        "name": "Item",
+        "value": {
+          "value": "101",
+          "label": "Character EXP"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Quantity",
+        "value": 1,
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "getAll",
+    "head": "/giveall",
+    "label": "Get all items",
+    "params": [
+      {
+        "type": "string",
+        "name": "UID",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "setFetter",
+    "head": "/setfetterlevel",
+    "label": "Set the favorability of the currently playing character",
+    "params": [
+      {
+        "type": "number",
+        "name": "Favorability",
+        "value": 10,
+        "max": 10,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "getPos",
+    "head": "/pos",
+    "label": "Get current coordinates and scene id",
+    "params": []
+  },
+  {
+    "id": "setWotldLevel",
+    "head": "/setworldlevel",
+    "label": "Set world level",
+    "params": [
+      {
+        "type": "number",
+        "name": "World Level",
+        "value": 7,
+        "max": 7,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "setStats",
+    "head": "/setstats",
+    "label": "Set the combat attributes of the current character",
+    "params": [
+      {
+        "type": "statList",
+        "name": "Stats",
+        "value": {
+          "label": "attack",
+          "value": "atk"
+        },
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "value",
+        "value": 10000,
+        "max": 99999999999999,
+        "min": 0,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "broadcast",
+    "head": "/broadcast",
+    "label": "Send a message to all players",
+    "params": [
+      {
+        "type": "string",
+        "name": "Message",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "clear",
+    "head": "/clear",
+    "label": "Removed all unequipped and unlocked level 0 artifacts",
+    "params": [
+      {
+        "type": "select",
+        "name": "Type",
+        "data": {
+          "value": [
+            "all",
+            "wp",
+            "art",
+            "mat"
+          ],
+          "label": [
+            "All",
+            "Aweapon",
+            "Artifact",
+            "Material"
+          ]
+        },
+        "value": "all",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "godmode",
+    "head": "/godmode",
+    "label": "Set godmode",
+    "params": []
+  },
+  {
+    "id": "heal",
+    "head": "/heal",
+    "label": "Heals all characters on the team",
+    "params": []
+  },
+  {
+    "head": "/killall",
+    "label": "Kills all mobs in the current world or the specified world",
+    "params": [
+      {
+        "type": "sceneList",
+        "name": "World (Scene)",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "list",
+    "head": "/list",
+    "label": "list online players",
+    "params": []
+  },
+  {
+    "id": "resetConst",
+    "head": "/resetconst",
+    "label": "Reset the constellation of the current character",
+    "params": []
+  },
+  {
+    "id": "teleport",
+    "head": "/teleport",
+    "label": "Teleport to designated place",
+    "params": [
+      {
+        "type": "number",
+        "name": "X pos",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 500,
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Y pos",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 500,
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "Z pos",
+        "max": 999999999999,
+        "min": -999999999999,
+        "value": 1,
+        "required": true
+      },
+      {
+        "type": "sceneList",
+        "name": "World (Scene)",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "killCharacter",
+    "head": "/killcharacter",
+    "label": "Kill current character",
+    "params": [
+      {
+        "type": "string",
+        "name": "UID",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "teleportAll",
+    "head": "/tpall",
+    "label": "Teleports all players in the current world to your location",
+    "params": []
+  },
+  {
+    "id": "setWeather",
+    "head": "/weather",
+    "label": "Set climate and weather",
+    "params": [
+      {
+        "type": "weather",
+        "name": "Climate",
+        "required": true,
+        "value": {
+          "value": 4,
+          "label": "Weather_Standard-CLIMATE_CLOUDY"
+        }
+      },
+      {
+        "type": "select",
+        "name": "Weather",
+        "value": "1",
+        "required": false,
+        "data": {
+          "value": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "label": [
+            "none",
+            "sunny",
+            "partly cloudy",
+            "rain",
+            "thunderstorm",
+            "Snow",
+            "FOG"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "setStamina",
+    "head": "/nostamina",
+    "label": "Set unlimited stamina",
+    "params": [
+      {
+        "type": "select",
+        "name": "state",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "on",
+            "off",
+            "toggle"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "setUnlimitEnergy",
+    "head": "/unlimitenergy",
+    "label": "Set unlimited energy",
+    "params": [
+      {
+        "type": "select",
+        "name": "state",
+        "value": "on",
+        "required": true,
+        "data": {
+          "value": [
+            "on",
+            "off",
+            "toggle"
+          ],
+          "label": [
+            "on",
+            "off",
+            "toggle"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "unlockTower",
+    "head": "/unlocktower",
+    "label": "Unlock Deep Corridors",
+    "params": []
+  },
+  {
+    "id": "quest",
+    "head": "/quest",
+    "label": "Add or Finish quest",
+    "params": [
+      {
+        "type": "select",
+        "name": "state",
+        "value": "add",
+        "required": true,
+        "data": {
+          "value": [
+            "add",
+            "finish"
+          ],
+          "label": [
+            "add",
+            "finish"
+          ]
+        }
+      },
+      {
+        "type": "questList",
+        "name": "Quest",
+        "required": true,
+        "value": {
+          "value": "30600",
+          "label": "Winds of the Past - Meet Amber at the temple"
+        }
+      }
+    ]
+  }
+]

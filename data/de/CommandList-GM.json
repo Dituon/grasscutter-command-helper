@@ -1,0 +1,370 @@
+[
+  {
+    "id": "avatarAdd",
+    "head": "avatar add",
+    "label": "Add character",
+    "params": [
+      {
+        "symbol": "Character ",
+        "type": "avatarList",
+        "name": "Character",
+        "value": {
+          "value": "10000002",
+          "label": "Kamisato Ayaka"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "itemAdd",
+    "head": " item add",
+    "label": "Add item",
+    "params": [
+      {
+        "symbol": "Item ",
+        "type": "itemList",
+        "name": "Item",
+        "value": {
+          "value": "102",
+          "label": "Adventure EXP"
+        },
+        "required": true
+      },
+      {
+        "symbol": "Number ",
+        "type": "number",
+        "name": "Number"
+      }
+    ]
+  },
+  {
+    "id": "scion",
+    "head": "scion",
+    "label": "Add Mora",
+    "params": [
+      {
+        "type": "number",
+        "name": "Number",
+        "value": 9999999
+      }
+    ]
+  },
+  {
+    "id": "monster",
+    "head": "monster",
+    "label": "Spawn monster",
+    "params": [
+      {
+        "type": "monsterList",
+        "name": "Monster",
+        "value": {
+          "value": 20010101,
+          "label": "Dendro Slime"
+        },
+        "required": true
+      },
+      {
+        "symbol": "Level ",
+        "type": "number",
+        "name": "Level",
+        "value": 1
+      },
+      {
+        "symbol": "Number ",
+        "type": "number",
+        "name": "Number",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "equipWeapon",
+    "head": "equip add",
+    "label": "Set the current character's weapon (automatically add if the item is not owned)",
+    "params": [
+      {
+        "symbol": "Weapon ID ",
+        "type": "weaponList",
+        "name": "Weapon ID",
+        "value":{
+          "value": "11101",
+          "label": "Dull Blade"
+        },
+        "required":true
+      },
+      {
+        "symbol": "Affix level ",
+        "type": "number",
+        "name": "Affix level",
+        "max": 5,
+        "min": 1
+      },
+      {
+        "symbol": "Stats level",
+        "type": "number",
+        "name": "Stats level",
+        "max": 90,
+        "min": 1
+      }
+    ]
+  },
+  {
+    "id": "avatarLevel",
+    "head": "level",
+    "label": "Adjust the current character's level",
+    "params":[
+      {
+        "symbol": "Level ",
+        "type": "number",
+        "name": "Level",
+        "value": 1,
+        "max": 90,
+        "min": 1,
+        "required":true
+      }
+    ]
+  },
+  {
+    "id": "avatarBreakLevel",
+    "head": "break",
+    "label": "Adjust the current character's stats level",
+    "params":[
+      {
+        "symbol": "Level ",
+        "type": "number",
+        "name": "Level",
+        "value": 1,
+        "required":true
+      }
+    ]
+  },
+  {
+    "id": "avatarSkill",
+    "head": "skill",
+    "label": "Adjust the current character's talents",
+    "params":[
+      {
+        "type": "number",
+        "name": "Talent ID"
+      },
+      {
+        "symbol": "Level ",
+        "type": "number",
+        "name": "Level",
+        "max": 10,
+        "min": 1,
+        "required":true
+      }
+    ]
+  },
+  {
+    "id": "talentUnlock",
+    "head": "talent unlock all",
+    "label": "Unlock all constellations for the current character",
+    "params":[]
+  },
+  {
+    "id": "playerLevel",
+    "head": "player level",
+    "label": "Adjust the player's adventure level",
+    "params": [
+      {
+        "symbol": "Adventure level ",
+        "type": "number",
+        "name": "Adventure level",
+        "value": 60,
+        "max": 60,
+        "min": 1,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "invincibleSwitch",
+    "head": "wudi global",
+    "label": "Godmode",
+    "params":[
+      {
+        "type": "select",
+        "name": "Object",
+        "value": "avatar",
+        "data": {
+          "value":[
+            "avatar",
+            "monster"
+          ],
+          "label":[
+            "Player",
+            "Monster"
+          ]
+        },
+        "required": true
+      },
+      {
+        "type": "select",
+        "name": "Status",
+        "value": "on",
+        "data": {
+          "value":[
+            "on",
+            "off"
+          ],
+          "label":[
+            "ON",
+            "OFF"
+          ]
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "killSelf",
+    "head": "kill self",
+    "label": "Kill-self",
+    "params":[]
+  },
+  {
+    "id": "killMonster",
+    "head": "kill monster",
+    "label": "Kill monsters",
+    "params":[
+      {
+        "type": "monsterListGM",
+        "name": "Monster",
+        "value": {
+          "value": "all",
+          "label": "All"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "goto",
+    "head": "goto",
+    "label": "Teleport",
+    "params":[
+      {
+        "symbol": "Pos X ",
+        "type": "number",
+        "name": "Pos X",
+        "value": 1,
+        "required":true
+      },
+      {
+        "symbol": "Pos Y ",
+        "type": "number",
+        "name": "Pos Y",
+        "value": 1,
+        "required":true
+      },
+      {
+        "symbol": "Pos Z ",
+        "type": "number",
+        "name": "Pos Z",
+        "value": 1,
+        "required":true
+      }
+    ]
+  },
+  {
+    "id": "jump",
+    "head": "jump",
+    "label": "Enter a specified scene",
+    "params":[
+      {
+        "symbol": "Scene ID ",
+        "type": "sceneList",
+        "name": "Scene ID",
+        "value": {
+          "value": 1,
+          "label": "Big World"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "dungeon",
+    "head": "dungeon",
+    "label": "Enter a specified dungeon",
+    "params":[
+      {
+        "symbol": "Dungeon ID ",
+        "type": "sceneList",
+        "name": "Dungeon ID",
+        "value": {
+          "value": 10008,
+          "label": "Dungeon"
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "unlockPoint",
+    "head": "point",
+    "label": "Unlock teleportation points in the corresponding scene",
+    "params":[
+      {
+        "symbol": "Scene ID ",
+        "type": "sceneList",
+        "name": "Scene ID",
+        "value": {
+          "value": 1,
+          "label": "Big World"
+        },
+        "required": true
+      },
+      {
+        "type": "select",
+        "name": "All",
+        "value": "all",
+        "data": {
+          "value":[
+            "all"
+          ],
+          "label":[
+            "All"
+          ]
+        },
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "quest",
+    "head": "quest",
+    "label": "Accept/finish quest",
+    "params":[
+      {
+        "type": "select",
+        "name": "Action",
+        "value": "accept",
+        "required": true,
+        "data": {
+          "value": [
+            "accept",
+            "finish"
+          ],
+          "label": [
+            "Accept",
+            "Finish"
+          ]
+        }
+      },
+      {
+        "symbol": "Quest ID ",
+        "type": "questList",
+        "name": "Quest ID",
+        "required": true,
+        "value": {
+          "value": 30600,
+          "label": "Winds of the Past - Meet Amber at the temple"
+        }
+      }
+    ]
+  }
+]

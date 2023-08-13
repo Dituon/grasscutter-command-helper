@@ -1,0 +1,104 @@
+{
+    "info": "<a href='https://old-cmd.d2n.moe'>返回旧版</a>",
+    "title": "Grasscutter 指令助手",
+
+    "command-list": "指令列表",
+    "command-search": "搜索指令",
+    "command-search-input": "🔎 關鍵詞 / ID / 描述",
+    "choose-param": "選擇參數",
+    "output-result": "生成結果",
+    "output-tips": "點擊復製",
+
+    "modal-search-input": "🔎 關鍵詞 / ID / 標簽",
+
+    "command-version-select": "🗃指令版本",
+
+    "command-execute": "📡遠程執行",
+    "command-push": "📦添加指令組",
+    "command-group": "指令組",
+    "command-group-title": "標題",
+    "command-group-title-input": "✨ 言簡意賅 令人印象深刻",
+    "command-group-description-input": "簡介 簡要描述",
+
+    "remote-host": "🎮地址",
+    "remote-host-input": "🔗 https://",
+    "remote-execute": "📡遠程執行",
+    "remote-server-version": "遊戲版本: ",
+    "remote-player-count": "在線人數: ",
+    "remote-uid": "UID",
+    "remote-uid-input": "👋 通常為幾位數字",
+    "remote-execute-status-default": "未指定伺服器",
+    "remote-verifycode": "📟 驗證碼",
+    "send-verifycode": "發送",
+    "check-verifycode": "驗證",
+    "remote-verifycode-input": "聊天框返回四位數字",
+
+    "export-setting": "💡導出設置",
+    "export-author": "💌作者",
+    "export-author-input": "可空",
+
+    "lang-select": "🌐語言設置",
+
+    "save-btn": "💾保存",
+    "copy-btn": "📋復製",
+    "exec-btn": "📡執行",
+    "share-btn": "🔗分享",
+    "import-btn": "📚導入",
+
+    "share-code": "分享碼",
+    "export-update": "📤生成",
+    "import-download": "📥導入",
+    "share-raw": "源數據",
+    "export-raw": "📋復製",
+    "import-raw": "💼讀取",
+
+    "install-app": "📲 安裝程式",
+    "clear-cache": "⚠ 清除緩存",
+
+    "loading": "加載中...",
+    "loadSuccess": "加載成功",
+    "loadFail": "加載失敗",
+
+    "placeholder": "請輸入 ",
+    "placechooser": "請選擇 ",
+    "noParam": "此命令無參數",
+    "copySuccess": "復製成功",
+    "copyFail": "復製失敗, 請重試",
+
+    "chooseCommandFirst": "請先選擇指令",
+    "showFilter": "展開 / 收起  過濾器",
+    "commandPushed": "已添加至指令組",
+    "saveSuccess": "保存成功",
+
+    "serverNotDefined": "未指定伺服器",
+    "gettingServerInfo": "正在獲取伺服器信息...",
+    "getServerInfoSuccess": "獲取成功",
+    "getServerInfoFail": "無法連接到遠程伺服器",
+    "serverNotSupport": "伺服器不支持遠程執行",
+    "cannotConnectServer": "無法連接到伺服器",
+    "unboundPlayer": "未綁定玩家",
+    "playerNotFound": "未找到玩家",
+
+    "requestsTooFrequent": "請求過於頻繁",
+    "verifycodeSended": "驗證碼已發送",
+    "verifycodeError": "驗證碼錯誤",
+    "verifySuccess": "賬戶驗證成功",
+    "verifyFail": "賬戶驗證失敗",
+    "playerBound": "已綁定UID: $UID",
+
+    "commandEmpty": "指令不能為空",
+    "commandExecuted": "指令已執行",
+    "commandExecuteFail": "指令執行失敗",
+    "commandImportSuccess": "指令導入成功",
+    "commandImportFail": "指令導入失敗",
+    "commandExportSuccess": "指令導出成功, 已輸出至剪切板",
+    "commandNotChoose": "未選擇任何指令",
+    "commandUnmaned": "未命名",
+
+    "shareCodeEmpty": "分享碼不能為空",
+    "updateFail": "上傳失敗",
+
+    "unknowError": "未知錯誤, 請提交issue反饋",
+
+    "links": "<a href=\"https://github.com/Dituon/grasscutter-command-helper\">❤Github❤</a><a href=\"https://discord.gg/uDSQfQTrd8\">✨Discord✨</a>"
+}

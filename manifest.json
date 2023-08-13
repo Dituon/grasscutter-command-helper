@@ -1,14 +1,26 @@
 {
+  "icon/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon.2d0e5f3e.png",
+    "src": "icon/apple-touch-icon.png"
+  },
+  "favicon.ico": {
+    "file": "assets/favicon.9c651ae6.ico",
+    "src": "favicon.ico"
+  },
+  "icon/safari-pinned-tab.svg": {
+    "file": "assets/safari-pinned-tab.c2b0b9f2.svg",
+    "src": "icon/safari-pinned-tab.svg"
+  },
   "index.html": {
-    "file": "assets/index.a72bbc2a.js",
+    "file": "assets/index.ec3ba902.js",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index.d1c9661f.css"
+      "assets/index.571c10ed.css"
     ]
   },
   "index.css": {
-    "file": "assets/index.d1c9661f.css",
+    "file": "assets/index.571c10ed.css",
     "src": "index.css"
   }
 }
