@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^3.2.8",
-    "vite-plugin-pwa": "^0.16.3",
-    "vite-plugin-static-copy": "^0.17.0"
+    "vite": "^8.0.12",
+    "vite-plugin-pwa": "^1.3.0",
+    "vite-plugin-static-copy": "^4.1.0"
   }
 }
